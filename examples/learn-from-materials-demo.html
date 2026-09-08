@@ -1,0 +1,3873 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>示例方法材料｜材料概览</title>
+  <style>
+    :root {
+      --ink: #182033;
+      --muted: #6b7486;
+      --paper: #f5f7fb;
+      --paper-deep: #e9edf5;
+      --line: rgba(78, 92, 124, .18);
+      --red: #a94f65;
+      --blue: #4d68a8;
+      --green: #4f806f;
+      --gold: #af7a3a;
+      --white: #ffffff;
+      --shadow: 0 24px 70px rgba(55, 65, 96, .13);
+
+      /* —— 主题化 token（默认 = 暖纸典藏；主题文件覆盖这些即可换肤，不碰布局）—— */
+      --font-body: "Songti SC", "Noto Serif CJK SC", Georgia, serif;
+      --font-display: "PingFang SC", "Microsoft YaHei", sans-serif;
+      --bg: radial-gradient(circle at 9% 10%, rgba(143, 166, 226, .28), transparent 30rem),
+            radial-gradient(circle at 91% 14%, rgba(218, 164, 172, .22), transparent 28rem),
+            linear-gradient(145deg, #f7f8fc 0%, #edf1f8 48%, #f7f3f4 100%);
+      --ambient: linear-gradient(rgba(73, 91, 132, .045) 1px, transparent 1px),
+                 linear-gradient(90deg, rgba(73, 91, 132, .045) 1px, transparent 1px);
+      --ambient-size: 42px 42px;
+      --ambient-opacity: .55;
+      --surface: rgba(255, 255, 255, .62);
+      --surface-strong: rgba(255, 255, 255, .82);
+      --hero-bg: linear-gradient(135deg, rgba(255,255,255,.82), rgba(247,248,253,.57));
+      --panel-bg: rgba(255, 255, 255, .64);
+      --bar-bg: rgba(249, 250, 253, .84);
+      --ink-soft: #3d475c;
+      --ink-soft-2: #465168;
+      --tint-accent: rgba(77, 104, 168, .10);
+      --tint-accent-strong: rgba(77, 104, 168, .16);
+      --card-shadow: 0 12px 32px rgba(50, 64, 96, .08);
+      --radius-xl: 30px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+    }
+
+    /* —— 选中主题的变量覆盖 + 组件微调（Agent 注入对应 templates/themes/*.css）—— */
+    /* 雾蓝书房：低饱和雾蓝、柔金沙色与暖白纸面，默认视觉主题。 */
+body[data-theme="warm-paper"] {
+  --ink:#27313c; --muted:#6f7780; --paper:#f3f1eb; --paper-deep:#e7e9e8;
+  --line:rgba(39,49,60,.14); --red:#9b6f72; --blue:#596c82; --green:#657b70;
+  --gold:#a98959; --white:#fff; --signal:#d8c7a4; --signal-ink:#27313c;
+  --nav-bg:#4e6074; --nav-ink:#f8f7f3; --nav-muted:#ced5dc; --hero-accent:#c7b48e;
+  --font-body:"Songti SC","Noto Serif CJK SC",Georgia,serif;
+  --font-display:"PingFang SC","Microsoft YaHei",sans-serif;
+  --bg:linear-gradient(140deg,#e2e6e7 0 46%,#f2efe8 46% 100%);
+  --ambient:linear-gradient(rgba(68,82,96,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(68,82,96,.045) 1px,transparent 1px);
+  --ambient-size:36px 36px; --ambient-opacity:.30;
+  --surface:#f7f5ef; --surface-strong:#fcfbf7; --hero-bg:#53677d; --panel-bg:#faf8f3;
+  --bar-bg:rgba(250,248,243,.96); --ink-soft:#48535f; --ink-soft-2:#59636d;
+  --tint-accent:rgba(89,108,130,.07); --tint-accent-strong:rgba(89,108,130,.12);
+  --shadow:0 22px 60px rgba(50,61,72,.11); --card-shadow:0 10px 28px rgba(50,61,72,.07);
+}
+
+
+/* 灰白画册：柔和炭灰、蓝灰点色与留白。 */
+body[data-theme="minimal"] {
+  --ink:#303438; --muted:#777c80; --paper:#f3f3f0; --paper-deep:#e7e7e3;
+  --line:rgba(48,52,56,.13); --red:#8e7472; --blue:#68798b; --green:#718078;
+  --gold:#9a8768; --white:#fff; --signal:#b7c0c7; --signal-ink:#2f353a;
+  --nav-bg:#3d4349; --nav-ink:#f7f7f4; --nav-muted:#c9cdd0; --hero-accent:#aebac3;
+  --font-body:-apple-system,"PingFang SC","Helvetica Neue","Microsoft YaHei",sans-serif;
+  --font-display:"PingFang SC","Microsoft YaHei",sans-serif;
+  --bg:linear-gradient(90deg,#ecece8 0 50%,#f7f7f4 50%);
+  --ambient:linear-gradient(rgba(45,50,54,.035) 1px,transparent 1px);
+  --ambient-size:100% 28px; --ambient-opacity:.30;
+  --surface:#f7f7f3; --surface-strong:#fdfdfb; --hero-bg:#424950; --panel-bg:#fdfdfb;
+  --bar-bg:rgba(253,253,251,.96); --ink-soft:#51565a; --ink-soft-2:#60666a;
+  --tint-accent:rgba(104,121,139,.07); --tint-accent-strong:rgba(104,121,139,.12);
+  --shadow:0 22px 58px rgba(35,39,43,.10); --card-shadow:0 9px 25px rgba(35,39,43,.06);
+}
+
+
+/* 深海夜读：墨蓝黑、灰绿色信号与低亮度层次。 */
+body[data-theme="dark"] {
+  --ink:#e5e8e8; --muted:#9ba4a8; --paper:#171c21; --paper-deep:#101419;
+  --line:rgba(229,232,232,.13); --red:#b98486; --blue:#8197aa; --green:#91a897;
+  --gold:#b5a17d; --white:#fff; --signal:#9baa9b; --signal-ink:#18201c;
+  --nav-bg:#202a33; --nav-ink:#edf0ef; --nav-muted:#aeb8bd; --hero-accent:#96a999;
+  --font-body:"Songti SC","Noto Serif CJK SC",Georgia,serif;
+  --font-display:"PingFang SC","Microsoft YaHei",sans-serif;
+  --bg:linear-gradient(140deg,#11161b 0 56%,#1b2229 56% 100%);
+  --ambient:linear-gradient(rgba(147,168,153,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(147,168,153,.04) 1px,transparent 1px);
+  --ambient-size:40px 40px; --ambient-opacity:.26;
+  --surface:#1c2329; --surface-strong:#222a31; --hero-bg:#25313b; --panel-bg:#181f25;
+  --bar-bg:rgba(29,36,42,.96); --ink-soft:#cbd1d2; --ink-soft-2:#b5bdc0;
+  --tint-accent:rgba(147,168,153,.07); --tint-accent-strong:rgba(147,168,153,.12);
+  --shadow:0 24px 68px rgba(0,0,0,.27); --card-shadow:0 10px 28px rgba(0,0,0,.18);
+}
+[data-theme="dark"] .chain button,[data-theme="dark"] .city-buttons button,
+[data-theme="dark"] .deep-dive-btn,[data-theme="dark"] .dd-popover textarea { background:#263039; color:var(--ink); }
+
+
+/* 青灰宣纸：克制青灰、淡陶土与温润纸张。 */
+body[data-theme="ink-wash"] {
+  --ink:#2b3833; --muted:#727d78; --paper:#f0eee7; --paper-deep:#e1e4dc;
+  --line:rgba(43,56,51,.14); --red:#a6796e; --blue:#617b75; --green:#5f756b;
+  --gold:#a38b62; --white:#fffef9; --signal:#c89b83; --signal-ink:#3c302a;
+  --nav-bg:#526c64; --nav-ink:#faf9f4; --nav-muted:#cad6d1; --hero-accent:#c39a83;
+  --font-body:"Songti SC","STSong","Noto Serif CJK SC",serif;
+  --font-display:"Kaiti SC","STKaiti","PingFang SC",serif;
+  --bg:linear-gradient(145deg,#dfe5df 0 55%,#f1eee7 55%);
+  --ambient:radial-gradient(circle,rgba(75,99,91,.07) 1px,transparent 1.3px);
+  --ambient-size:24px 24px; --ambient-opacity:.30;
+  --surface:#f4f1e9; --surface-strong:#fbf9f1; --hero-bg:#587168; --panel-bg:#fbf9f1;
+  --bar-bg:rgba(251,249,241,.96); --ink-soft:#4e5f58; --ink-soft-2:#5c6964;
+  --tint-accent:rgba(82,108,100,.07); --tint-accent-strong:rgba(82,108,100,.12);
+  --shadow:0 22px 60px rgba(49,67,60,.11); --card-shadow:0 9px 26px rgba(49,67,60,.07);
+}
+
+
+/* 暖褐画报：褪色酒红、旧金与柔和奶油纸。 */
+body[data-theme="vintage-editorial"] {
+  --ink:#3b302c; --muted:#7f716a; --paper:#f1e9db; --paper-deep:#e5d9c7;
+  --line:rgba(59,48,44,.15); --red:#8d6667; --blue:#657984; --green:#717961;
+  --gold:#aa895f; --white:#fffaf1; --signal:#c6a978; --signal-ink:#3d3025;
+  --nav-bg:#75595b; --nav-ink:#fffaf2; --nav-muted:#ddceca; --hero-accent:#c2a577;
+  --font-body:"Songti SC","Noto Serif CJK SC",Georgia,serif;
+  --font-display:"PingFang SC","Microsoft YaHei",sans-serif;
+  --bg:linear-gradient(120deg,#e2d4c1 0 42%,#f1eadf 42% 100%);
+  --ambient:repeating-linear-gradient(0deg,rgba(82,61,51,.032) 0 1px,transparent 1px 6px);
+  --ambient-size:auto; --ambient-opacity:.38;
+  --surface:#f5eddf; --surface-strong:#fcf6eb; --hero-bg:#795d60; --panel-bg:#fcf6eb;
+  --bar-bg:rgba(252,246,235,.96); --ink-soft:#5d4f49; --ink-soft-2:#6b5c55;
+  --tint-accent:rgba(141,102,103,.07); --tint-accent-strong:rgba(141,102,103,.12);
+  --shadow:0 22px 60px rgba(74,54,48,.11); --card-shadow:0 9px 25px rgba(74,54,48,.07);
+}
+
+
+/* 石墨书页：石墨灰、旧砖色与安静纸白。 */
+body[data-theme="paper-ink"] {
+  --ink:#303335; --muted:#77797a; --paper:#eeeeea; --paper-deep:#deded9;
+  --line:rgba(48,51,53,.14); --red:#9d726a; --blue:#67757d; --green:#707c72;
+  --gold:#9e8665; --white:#fff; --signal:#b98578; --signal-ink:#fffaf7;
+  --nav-bg:#45494b; --nav-ink:#fafaf7; --nav-muted:#c8cbcb; --hero-accent:#b58175;
+  --font-body:"Songti SC","Noto Serif CJK SC",Georgia,serif;
+  --font-display:"PingFang SC","Microsoft YaHei",sans-serif;
+  --bg:linear-gradient(150deg,#d9d9d4 0 50%,#eeeeea 50% 100%);
+  --ambient:linear-gradient(rgba(38,42,44,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(38,42,44,.04) 1px,transparent 1px);
+  --ambient-size:52px 52px; --ambient-opacity:.28;
+  --surface:#f2f2ee; --surface-strong:#fafaf7; --hero-bg:#494d50; --panel-bg:#fafaf7;
+  --bar-bg:rgba(250,250,247,.96); --ink-soft:#505456; --ink-soft-2:#606466;
+  --tint-accent:rgba(157,114,106,.07); --tint-accent-strong:rgba(157,114,106,.12);
+  --shadow:0 22px 60px rgba(42,45,47,.11); --card-shadow:0 9px 25px rgba(42,45,47,.07);
+}
+
+
+    * { box-sizing: border-box; }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    body {
+      position: relative;
+      isolation: isolate;
+      min-height: 100vh;
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper-deep);
+      font-family: var(--font-body);
+      overflow-x: hidden;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    body::before { z-index: -2; background: var(--bg); }
+    body::after {
+      z-index: -1;
+      background-image: var(--ambient);
+      background-size: var(--ambient-size);
+      opacity: var(--ambient-opacity);
+      -webkit-mask-image: linear-gradient(to bottom, #000 0%, rgba(0,0,0,.55) 48%, transparent 100%);
+      mask-image: linear-gradient(to bottom, #000 0%, rgba(0,0,0,.55) 48%, transparent 100%);
+    }
+
+    button { font: inherit; color: inherit; }
+
+    .page {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 54px;
+      isolation: isolate;
+    }
+
+    /* ——— Hero ——— */
+    .hero {
+      min-height: min(600px, 66vh);
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 32px;
+      align-items: end;
+      margin: 22px 0 30px;
+      padding: 58px 54px 48px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      background: var(--hero-bg);
+      box-shadow: var(--shadow);
+      -webkit-backdrop-filter: blur(22px) saturate(120%);
+      backdrop-filter: blur(22px) saturate(120%);
+    }
+
+    .eyebrow {
+      margin: 0 0 16px;
+      color: var(--red);
+      font: 700 14px/1.3 var(--font-display);
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 760px;
+      font-size: clamp(44px, 7vw, 86px);
+      line-height: .98;
+      font-weight: 900;
+    }
+
+    .hero .lede {
+      margin: 22px 0 0;
+      max-width: 720px;
+      color: var(--ink-soft);
+      font-size: 21px;
+      line-height: 1.7;
+    }
+
+    .thesis {
+      border-left: 7px solid var(--red);
+      background: var(--surface-strong);
+      padding: 22px 24px;
+      border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+      box-shadow: var(--card-shadow);
+    }
+
+    .thesis strong {
+      display: block;
+      margin-bottom: 12px;
+      font: 800 18px/1.2 var(--font-display);
+    }
+
+    .thesis span {
+      display: block;
+      color: var(--ink-soft-2);
+      font-size: 18px;
+      line-height: 1.75;
+    }
+    .depth-banner {
+      display:flex; align-items:center; justify-content:space-between; gap:18px;
+      margin:14px 0 22px; padding:14px 18px; border:1px solid var(--line);
+      border-radius:16px; background:var(--card); box-shadow:var(--shadow);
+    }
+    .depth-banner div { display:flex; align-items:baseline; flex-wrap:wrap; gap:8px 12px; }
+    .depth-banner strong { color:var(--accent); font:800 14px/1.4 var(--font-display); }
+    .depth-banner span { color:var(--muted); font-size:13px; line-height:1.6; }
+    .depth-banner button { flex:0 0 auto; border:1px solid var(--accent); border-radius:999px; padding:8px 13px; color:var(--accent); background:transparent; cursor:pointer; font:750 12px/1.2 var(--font-display); }
+
+    /* ——— Tabs ——— */
+    .tabs {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      display: grid;
+      gap: 8px;
+      padding: 10px;
+      margin: 12px 0 28px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--bar-bg);
+      box-shadow: var(--card-shadow);
+      -webkit-backdrop-filter: blur(18px) saturate(125%);
+      backdrop-filter: blur(18px) saturate(125%);
+    }
+
+    .tab {
+      min-height: 52px;
+      border: 0;
+      border-radius: 12px;
+      background: transparent;
+      cursor: pointer;
+      font: 800 16px/1.2 var(--font-display);
+      pointer-events: auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .tab[aria-selected="true"] {
+      color: var(--white);
+      background: var(--ink);
+    }
+
+    /* ——— Panels ——— */
+    .panel {
+      display: none;
+      min-height: 420px;
+      padding: 32px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      background: var(--panel-bg);
+      box-shadow: var(--shadow);
+      overflow: visible;
+      animation: rise .36s ease both;
+      -webkit-backdrop-filter: blur(20px) saturate(115%);
+      backdrop-filter: blur(20px) saturate(115%);
+    }
+
+    .panel.active { display: block; }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .section-title {
+      margin: 0 0 18px;
+      font: 900 30px/1.15 var(--font-display);
+    }
+
+    .section-lead {
+      margin: 0 0 24px;
+      color: var(--ink-soft);
+      font-size: 18px;
+      line-height: 1.75;
+    }
+
+    /* ——— Grid & Note cards ——— */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .note {
+      min-height: 220px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: var(--surface);
+      box-shadow: var(--card-shadow);
+      transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+    }
+
+    .note:hover { transform: translateY(-3px); border-color: var(--blue); box-shadow: var(--shadow); }
+
+    .note h3 {
+      margin: 0 0 12px;
+      font: 900 21px/1.2 var(--font-display);
+    }
+
+    .note p {
+      margin: 0;
+      color: var(--ink-soft-2);
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .note .when {
+      margin-top: 10px;
+      color: var(--muted);
+      font: 14px/1.5 var(--font-display);
+    }
+
+    /* ——— Chain ——— */
+    .chain {
+      display: grid;
+      gap: 8px;
+      margin: 24px 0 8px;
+    }
+
+    .chain button {
+      min-height: 88px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: var(--white);
+      cursor: pointer;
+      text-align: left;
+      font: 800 15px/1.35 var(--font-display);
+    }
+
+    .chain button.active {
+      color: var(--white);
+      background: var(--blue);
+      border-color: var(--blue);
+    }
+
+    .explain {
+      min-height: 118px;
+      margin-top: 10px;
+      padding: 22px;
+      color: var(--ink-soft-2);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: var(--surface-strong);
+      font-size: 18px;
+      line-height: 1.75;
+    }
+
+    /* ——— Split / Selector ——— */
+    .split {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .city-buttons {
+      display: grid;
+      gap: 10px;
+    }
+
+    .city-buttons button {
+      min-height: 58px;
+      padding: 0 18px;
+      border: 1px solid var(--line);
+      background: var(--white);
+      cursor: pointer;
+      text-align: left;
+      font: 800 17px/1.2 var(--font-display);
+    }
+
+    .city-buttons button.active {
+      color: var(--white);
+      background: var(--green);
+      border-color: var(--green);
+    }
+
+    .result {
+      padding: 28px;
+      min-height: 300px;
+      border: 1px solid var(--line);
+      background: var(--surface-strong);
+      box-shadow: var(--shadow);
+    }
+
+    .result .label {
+      color: var(--red);
+      font: 800 14px/1.2 var(--font-display);
+    }
+
+    .result h3 {
+      margin: 10px 0 12px;
+      font: 900 28px/1.2 var(--font-display);
+    }
+
+    .result p {
+      margin: 0 0 12px;
+      color: var(--ink-soft);
+      font-size: 18px;
+      line-height: 1.75;
+    }
+
+    /* ——— Questions ——— */
+    .questions {
+      display: grid;
+      gap: 12px;
+      counter-reset: q;
+    }
+
+    .question {
+      display: grid;
+      grid-template-columns: 54px 1fr;
+      gap: 14px;
+      align-items: center;
+      padding: 18px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+    }
+
+    .question::before {
+      counter-increment: q;
+      content: counter(q);
+      display: grid;
+      place-items: center;
+      width: 46px;
+      height: 46px;
+      color: var(--white);
+      background: var(--gold);
+      font: 900 22px/1 var(--font-display);
+    }
+
+    .question h3 {
+      margin: 0 0 4px;
+      font: 900 18px/1.25 var(--font-display);
+    }
+
+    .question p {
+      margin: 0;
+      color: var(--muted);
+      font: 15px/1.55 var(--font-display);
+    }
+
+    /* ——— Matrix ——— */
+    table.matrix {
+      width: 100%;
+      border-collapse: collapse;
+      font: 16px/1.5 var(--font-body);
+    }
+
+    .matrix th, .matrix td {
+      padding: 12px 10px;
+      border: 1px solid var(--line);
+      text-align: left;
+    }
+
+    .matrix th {
+      background: var(--surface-strong);
+      font: 800 14px/1.3 var(--font-display);
+    }
+
+    .matrix td:first-child { font-weight: 700; }
+
+    /* row hover highlight（由 components.md JS 切换 class，颜色随主题） */
+    .matrix tbody tr.row-hi { background: var(--tint-accent); }
+
+    /* ——— Timeline ——— */
+    .timeline {
+      position: relative;
+      padding-left: 24px;
+      border-left: 2px solid var(--gold);
+    }
+
+    .timeline-item {
+      margin-bottom: 22px;
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -30px;
+      top: 6px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    .timeline-item .time {
+      color: var(--muted);
+      font: 700 13px/1.3 var(--font-display);
+    }
+
+    .timeline-item h3 {
+      margin: 4px 0 6px;
+      font: 900 18px/1.25 var(--font-display);
+    }
+
+    .timeline-item p {
+      margin: 0;
+      color: var(--ink-soft-2);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* ——— Decision Tree ——— */
+    .decision details {
+      margin-bottom: 8px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+    }
+
+    .decision summary {
+      padding: 14px 18px;
+      cursor: pointer;
+      font: 800 16px/1.3 var(--font-display);
+    }
+
+    .decision .branch {
+      padding: 0 18px 14px;
+      color: var(--ink-soft-2);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* ——— Chapter Map ——— */
+    .chapter-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .chapter-row {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 12px;
+      align-items: baseline;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .chapter-row .ch-label {
+      color: var(--red);
+      font: 700 14px/1.3 var(--font-display);
+    }
+
+    .chapter-row h3 {
+      margin: 0 0 2px;
+      font: 900 17px/1.25 var(--font-display);
+    }
+
+    .chapter-row .ch-role {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    /* ——— Decision Rules ——— */
+    .rules {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .rules li {
+      padding: 17px 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: var(--surface);
+      box-shadow: var(--card-shadow);
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .rules li strong { color: var(--blue); }
+
+    .rules li em {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 14px;
+      font-style: normal;
+    }
+
+    /* ——— Transition ——— */
+    .transition {
+      margin: 28px 0 12px;
+      color: var(--ink-soft);
+      font-size: 17px;
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    /* ——— Story Card ——— */
+    .story {
+      border: 1px solid var(--line);
+      background: var(--surface-strong);
+      padding: 24px 28px;
+      margin: 18px 0;
+      box-shadow: var(--shadow);
+    }
+
+    .story .story-label {
+      color: var(--red);
+      font: 700 13px/1.3 var(--font-display);
+      margin-bottom: 10px;
+    }
+
+    .story h3 {
+      margin: 0 0 14px;
+      font: 900 22px/1.2 var(--font-display);
+    }
+
+    .story p {
+      margin: 0 0 10px;
+      color: var(--ink-soft);
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    .story .story-insight {
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px dashed var(--line);
+      color: var(--blue);
+      font: 700 17px/1.6 var(--font-display);
+    }
+
+    /* ——— Before/After ——— */
+    .before-after {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      margin: 18px 0;
+    }
+
+    .ba-col {
+      padding: 22px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+    }
+
+    .ba-col.before { border-left: 4px solid var(--muted); }
+    .ba-col.after  { border-left: 4px solid var(--green); }
+
+    .ba-col .ba-label {
+      font: 700 13px/1.3 var(--font-display);
+      margin-bottom: 12px;
+    }
+
+    .ba-col.before .ba-label { color: var(--muted); }
+    .ba-col.after  .ba-label { color: var(--green); }
+
+    .ba-col h3 {
+      margin: 0 0 10px;
+      font: 900 18px/1.2 var(--font-display);
+    }
+
+    .ba-col p {
+      margin: 0;
+      color: var(--ink-soft-2);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* ——— Accordion ——— */
+    .accordion details {
+      margin-bottom: 6px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: var(--surface);
+      overflow: visible;
+    }
+
+    .accordion summary {
+      padding: 16px 20px;
+      cursor: pointer;
+      font: 800 17px/1.3 var(--font-display);
+      list-style: none;
+    }
+
+    .accordion summary::-webkit-details-marker { display: none; }
+
+    .accordion summary::before {
+      content: "+";
+      display: inline-block;
+      width: 20px;
+      margin-right: 8px;
+      color: var(--gold);
+      font-weight: 900;
+      font-size: 18px;
+    }
+
+    .accordion details[open] summary::before { content: "−"; }
+
+    .accordion .acc-body {
+      padding: 0 20px 16px 44px;
+      color: var(--ink-soft-2);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* ——— Quote Card ——— */
+    .quote {
+      position: relative;
+      padding: 28px 32px 22px;
+      margin: 18px 0;
+      border-left: 4px solid var(--gold);
+      background: var(--surface-strong);
+      box-shadow: var(--shadow);
+    }
+
+    .quote::before {
+      content: "\201C";
+      position: absolute;
+      top: -8px;
+      left: 8px;
+      color: var(--gold);
+      font: 900 64px/1 var(--font-body);
+      opacity: .35;
+    }
+
+    .quote blockquote {
+      margin: 0;
+      color: var(--ink-soft);
+      font-size: 19px;
+      line-height: 1.8;
+      font-style: normal;
+    }
+
+    .quote .q-source {
+      display: block;
+      margin-top: 10px;
+      color: var(--muted);
+      font: 13px/1.4 var(--font-display);
+    }
+
+    /* ——— Source Markers (A+B: margin + toggle) ——— */
+    .page-tools {
+      position: fixed;
+      top: 14px;
+      right: 14px;
+      z-index: 100;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      padding: 6px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--bar-bg);
+      backdrop-filter: blur(8px);
+      box-shadow: var(--card-shadow);
+    }
+
+    .guide-toggle,
+    .src-toggle,
+    .theme-picker {
+      min-height: 36px;
+      padding: 7px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface-strong);
+      cursor: pointer;
+      font: 12px/1.2 var(--font-display);
+      color: var(--muted);
+      transition: all .2s;
+    }
+
+    .guide-toggle:hover,
+    .src-toggle:hover,
+    .theme-picker:hover { border-color: var(--gold); color: var(--ink); }
+
+    /* ——— 小巴新手引导与读者画像 ——— */
+    .guide-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 260;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: rgba(16, 24, 42, .58);
+      -webkit-backdrop-filter: blur(9px);
+      backdrop-filter: blur(9px);
+    }
+
+    .guide-overlay.active { display: flex; }
+
+    .guide-card {
+      width: min(900px, 100%);
+      max-height: min(92vh, 900px);
+      overflow-y: auto;
+      padding: 30px;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 92% 4%, var(--tint-accent-strong), transparent 20rem),
+        var(--surface-strong);
+      box-shadow: 0 32px 110px rgba(9, 18, 38, .38);
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .guide-intro { display: grid; grid-template-columns: 66px 1fr; gap: 16px; align-items: center; }
+    .guide-avatar {
+      display: grid;
+      place-items: center;
+      width: 66px;
+      height: 66px;
+      border-radius: 22px;
+      color: var(--white);
+      background: linear-gradient(145deg, var(--blue), var(--ink));
+      box-shadow: var(--card-shadow);
+      font: 900 28px/1 var(--font-display);
+    }
+    .guide-kicker { margin: 0 0 5px; color: var(--gold); font: 800 12px/1.3 var(--font-display); letter-spacing: .08em; }
+    .guide-title { margin: 0; font: 900 28px/1.18 var(--font-display); }
+    .guide-lede { margin: 7px 0 0; color: var(--ink-soft-2); font-size: 15px; line-height: 1.65; }
+    .guide-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: 22px 0; }
+    .guide-step { min-height: 104px; padding: 14px; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); }
+    .guide-step strong { display: block; margin-bottom: 7px; color: var(--blue); font: 850 14px/1.3 var(--font-display); }
+    .guide-step span { color: var(--ink-soft-2); font-size: 13px; line-height: 1.55; }
+    .guide-profile { padding: 20px; border: 1px solid var(--line); border-radius: 20px; background: var(--surface); }
+    .guide-profile h3 { margin: 0 0 5px; font: 900 20px/1.25 var(--font-display); }
+    .guide-profile > p { margin: 0 0 15px; color: var(--muted); font: 13px/1.6 var(--font-display); }
+    .guide-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .guide-fields label { color: var(--ink); font: 800 13px/1.4 var(--font-display); }
+    .guide-fields input {
+      display: block;
+      width: 100%;
+      min-height: 46px;
+      margin-top: 7px;
+      padding: 10px 13px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      color: var(--ink);
+      background: var(--surface-strong);
+      font: 14px/1.5 var(--font-display);
+    }
+    .guide-privacy { margin: 12px 0 0 !important; font-size: 12px !important; }
+    .guide-actions { display: flex; flex-wrap: wrap; gap: 9px; justify-content: flex-end; margin-top: 18px; }
+    .guide-actions button { min-height: 44px; padding: 10px 17px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); cursor: pointer; font: 800 13px/1.3 var(--font-display); }
+    .guide-actions .guide-save { border-color: var(--blue); color: var(--white); background: var(--blue); }
+
+    /* ——— A: Margin marker (always visible, subtle) ——— */
+    .note[data-source],
+    .story[data-source],
+    .question[data-source],
+    .timeline-item[data-source],
+    .ba-col[data-source],
+    .accordion details[data-source],
+    .chapter-conclusion[data-source],
+    .quote[data-source],
+    .explain[data-source],
+    .rules li[data-source],
+    .practice-card[data-source],
+    .term-item[data-source],
+    .ch-view[data-source],
+    .matrix-option[data-source],
+    .result[data-source] {
+      position: relative;
+      padding-left: 26px;
+      border-left: 3px solid var(--line);
+      transition: border-color .2s;
+    }
+
+    .note[data-source]:hover,
+    .story[data-source]:hover,
+    .question[data-source]:hover,
+    .timeline-item[data-source]:hover,
+    .ba-col[data-source]:hover,
+    .accordion details[data-source]:hover,
+    .chapter-conclusion[data-source]:hover,
+    .quote[data-source]:hover,
+    .explain[data-source]:hover,
+    .rules li[data-source]:hover,
+    .practice-card[data-source]:hover,
+    .term-item[data-source]:hover,
+    .ch-view[data-source]:hover,
+    .matrix-option[data-source]:hover,
+    .result[data-source]:hover {
+      border-left-color: var(--blue);
+    }
+
+    /* Tooltip on hover */
+    [data-source]::after {
+      content: attr(data-source);
+      position: absolute;
+      left: -4px;
+      bottom: calc(100% + 4px);
+      padding: 3px 8px;
+      background: var(--ink);
+      color: var(--white);
+      font: 11px/1.3 var(--font-display);
+      border-radius: 3px;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .2s;
+      z-index: 3;
+    }
+
+    [data-source]:hover::after {
+      opacity: 1;
+    }
+
+    /* ——— B: Global toggle ON → show full source lines ——— */
+    body.show-sources .note::before,
+    body.show-sources .story::before,
+    body.show-sources .question::before,
+    body.show-sources .timeline-item::before,
+    body.show-sources .ba-col::before,
+    body.show-sources .accordion details::before,
+    body.show-sources .chapter-conclusion::before,
+    body.show-sources .quote::before,
+    body.show-sources .explain::before,
+    body.show-sources .rules li::before,
+    body.show-sources .practice-card::before,
+    body.show-sources .term-item::before,
+    body.show-sources .ch-view::before,
+    body.show-sources .matrix-option::before,
+    body.show-sources .result::before {
+      content: attr(data-source);
+      display: block;
+      margin-bottom: 8px;
+      color: var(--muted);
+      font: 11px/1.3 var(--font-display);
+    }
+
+    /* ——— Deep Dive (追问入口) ——— */
+    .deep-dive-btn {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      background: var(--white);
+      color: var(--muted);
+      cursor: pointer;
+      font: 700 14px/1 var(--font-display);
+      opacity: 0;
+      transition: opacity .2s;
+      z-index: 2;
+    }
+
+    .note:hover .deep-dive-btn,
+    .story:hover .deep-dive-btn,
+    .question:hover .deep-dive-btn,
+    .timeline-item:hover .deep-dive-btn,
+    .ba-col:hover .deep-dive-btn,
+    .accordion details:hover .deep-dive-btn,
+    .chapter-conclusion:hover .deep-dive-btn,
+    .quote:hover .deep-dive-btn,
+    .explain:hover .deep-dive-btn,
+    .rules li:hover .deep-dive-btn,
+    .practice-card:hover .deep-dive-btn,
+    .term-item:hover .deep-dive-btn,
+    .ch-view:hover .deep-dive-btn,
+    .matrix-option:hover .deep-dive-btn,
+    .result:hover .deep-dive-btn {
+      opacity: .65;
+    }
+
+    .deep-dive-btn:hover { opacity: 1 !important; background: var(--blue); color: var(--white); border-color: var(--blue); }
+
+    /* ——— Deep Dive Popover ——— */
+    .dd-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(23, 20, 17, .35);
+      backdrop-filter: blur(2px);
+      align-items: center;
+      justify-content: center;
+    }
+
+    .dd-overlay.active { display: flex; }
+
+    .dd-popover {
+      width: min(520px, calc(100% - 32px));
+      padding: 28px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      border-radius: 8px;
+    }
+
+    .dd-popover .dd-title {
+      margin: 0 0 6px;
+      font: 900 22px/1.2 var(--font-display);
+    }
+
+    .dd-popover .dd-ctx {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font: 13px/1.5 var(--font-display);
+    }
+
+    .dd-popover textarea {
+      width: 100%;
+      min-height: 72px;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      font: 16px/1.6 var(--font-display);
+      color: var(--ink);
+      background: var(--white);
+      resize: vertical;
+      margin-bottom: 12px;
+    }
+
+    .dd-popover .dd-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .dd-popover .dd-submit {
+      padding: 10px 22px;
+      border: 0;
+      border-radius: 4px;
+      background: var(--blue);
+      color: var(--white);
+      cursor: pointer;
+      font: 700 15px/1.3 var(--font-display);
+    }
+
+    .dd-popover .dd-cancel {
+      padding: 10px 18px;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      background: transparent;
+      cursor: pointer;
+      font: 700 15px/1.3 var(--font-display);
+      color: var(--muted);
+    }
+
+    /* ——— Toast ——— */
+    .dd-toast {
+      position: fixed;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 14px 28px;
+      background: var(--ink);
+      color: var(--white);
+      border-radius: 6px;
+      font: 14px/1.4 var(--font-display);
+      opacity: 0;
+      transition: opacity .3s;
+      pointer-events: none;
+      z-index: 300;
+    }
+
+    .dd-toast.show { opacity: 1; }
+
+    /* ——— Footer ——— */
+    .footer {
+      margin-top: 34px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font: 14px/1.7 var(--font-display);
+    }
+
+    /* ——— Responsive ——— */
+    @media (max-width: 880px) {
+      .page-tools { position: static; width: min(100% - 22px, 1180px); margin: 10px auto 0; justify-content: flex-end; flex-wrap: wrap; }
+      .hero,
+      .split,
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 42px 34px 34px;
+      }
+
+      .tabs {
+        position: static;
+        grid-template-columns: 1fr;
+      }
+
+      .chain {
+        grid-template-columns: 1fr 1fr;
+      }
+
+    }
+
+    @media (max-width: 520px) {
+      .page {
+        width: min(100% - 22px, 1180px);
+        padding-top: 18px;
+      }
+
+      h1 { font-size: 42px; }
+      .hero .lede { font-size: 18px; }
+      .hero { margin-top: 8px; padding: 30px 22px 24px; border-radius: 22px; }
+      .panel { min-height: 0; padding: 24px 16px; border-radius: 22px; }
+      .chain { grid-template-columns: 1fr; }
+      .question { grid-template-columns: 1fr; }
+      .chapter-row { grid-template-columns: 1fr; }
+      .page-tools { align-items: stretch; }
+      .theme-picker, .src-toggle, .guide-toggle { flex: 1; min-width: 0; }
+      .guide-overlay { align-items: flex-end; padding: 0; }
+      .guide-card { max-height: 94vh; padding: 22px 16px calc(18px + env(safe-area-inset-bottom)); border-radius: 24px 24px 0 0; }
+      .guide-intro { grid-template-columns: 54px 1fr; }
+      .guide-avatar { width: 54px; height: 54px; border-radius: 17px; font-size: 23px; }
+      .guide-title { font-size: 23px; }
+      .guide-steps, .guide-fields { grid-template-columns: 1fr; }
+    }
+
+    @media (hover: none), (pointer: coarse) {
+      .deep-dive-btn { width: 44px; height: 44px; opacity: .78; }
+      [data-source]::after { display: none; }
+    }
+
+    /* ——— Component-specific styles injected by Agent ——— */
+    
+    .tabs { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+    .ch-explorer { display:grid; grid-template-columns:190px minmax(0,1fr); gap:18px; margin:20px 0; align-items:start; }
+    .ch-nav { display:grid; gap:8px; align-content:start; position:sticky; top:92px; }
+    .ch-nav-btn { min-height:48px; padding:12px 14px; border:1px solid var(--line); border-radius:12px; background:var(--surface); color:var(--ink); cursor:pointer; font:800 14px/1.3 var(--font-display); text-align:left; transition:transform .18s ease,background .18s ease,border-color .18s ease; }
+    .ch-nav-btn:hover { transform:translateX(3px); border-color:var(--blue); }
+    .ch-nav-btn.active { color:var(--white); background:var(--ink); border-color:var(--ink); }
+    .ch-view { position:relative; min-height:320px; padding:26px; border:1px solid var(--line); border-radius:20px; background:var(--surface-strong); box-shadow:var(--card-shadow); }
+    .ch-view-label { margin-bottom:10px; color:var(--gold); font:700 14px/1.3 var(--font-display); }
+    .ch-view h4 { margin:16px 0 8px; color:var(--blue); }
+    .ch-view ul { padding-left:20px; line-height:1.75; }
+    .ch-conclusions { margin-top:22px; }
+    .chapter-conclusion { position:relative; margin:10px 0; border:1px solid var(--line); border-radius:14px; background:var(--surface); overflow:visible; }
+    .chapter-conclusion summary { display:grid; gap:5px; min-height:58px; padding:15px 48px 15px 17px; cursor:pointer; list-style:none; }
+    .chapter-conclusion summary::-webkit-details-marker { display:none; }
+    .chapter-conclusion summary::after { content:"+"; position:absolute; top:18px; right:18px; color:var(--gold); font:900 22px/1 var(--font-display); }
+    .chapter-conclusion[open] summary::after { content:"−"; }
+    .conclusion-title { color:var(--ink); font:850 17px/1.3 var(--font-display); }
+    .conclusion-summary { color:var(--muted); font:14px/1.55 var(--font-display); }
+    .conclusion-body { position:relative; padding:0 20px 18px; border-top:1px solid var(--line); }
+    .conclusion-body ul { margin:14px 0 0; }
+    .ch-send { min-height:46px; margin-top:18px; padding:11px 18px; border:0; border-radius:12px; background:var(--blue); color:var(--white); cursor:pointer; font:700 14px/1.3 var(--font-display); }
+    .ch-send[data-tooltip] { position:relative; }
+    .ch-send[data-tooltip]::after { content:attr(data-tooltip); position:absolute; left:0; bottom:calc(100% + 10px); z-index:80; width:min(320px,calc(100vw - 48px)); padding:10px 12px; border:1px solid var(--line); border-radius:10px; background:var(--ink); color:var(--white); box-shadow:var(--card-shadow); opacity:0; visibility:hidden; transform:translateY(5px); pointer-events:none; text-align:left; white-space:normal; font:600 12px/1.55 var(--font-display); transition:opacity .16s ease,transform .16s ease,visibility .16s ease; }
+    .ch-send[data-tooltip]:hover::after,.ch-send[data-tooltip]:focus-visible::after { opacity:1; visibility:visible; transform:translateY(0); }
+    .glossary-toolbar { display:flex; gap:12px; align-items:center; margin:18px 0 14px; }
+    .glossary-search { flex:1; min-width:0; min-height:48px; padding:12px 16px; border:1px solid var(--line); border-radius:14px; background:var(--surface-strong); color:var(--ink); box-shadow:var(--card-shadow); font:600 15px/1.4 var(--font-display); }
+    .glossary-search:focus { outline:3px solid var(--tint-blue); outline:3px solid color-mix(in srgb,var(--blue) 24%,transparent); border-color:var(--blue); }
+    .glossary-count { flex:none; color:var(--muted); font:700 13px/1.3 var(--font-display); }
+    .glossary-list { display:grid; gap:10px; }
+    #glossary.panel.active { padding-bottom:94px; }
+    .term-item { position:relative; border:1px solid var(--line); border-radius:16px; background:var(--surface); box-shadow:var(--card-shadow); overflow:visible; }
+    .term-item[hidden] { display:none; }
+    .term-item summary { display:flex; gap:14px; align-items:center; justify-content:space-between; min-height:62px; padding:14px 48px 14px 18px; cursor:pointer; list-style:none; }
+    .term-item summary::-webkit-details-marker { display:none; }
+    .term-item summary::after { content:"+"; position:absolute; top:20px; right:18px; color:var(--gold); font:900 22px/1 var(--font-display); }
+    .term-item[open] summary::after { content:"−"; }
+    .term-heading { display:grid; gap:3px; min-width:0; }
+    .term-name { color:var(--ink); font:850 17px/1.3 var(--font-display); overflow-wrap:anywhere; }
+    .term-zh-meaning { color:var(--blue); font:800 13px/1.4 var(--font-display); overflow-wrap:anywhere; }
+    .term-full-name { color:var(--muted); font:600 13px/1.4 var(--font-display); overflow-wrap:anywhere; }
+    .term-category { flex:none; padding:5px 9px; border-radius:999px; color:var(--blue); background:var(--tint-blue); font:800 11px/1.2 var(--font-display); }
+    .term-body { position:relative; padding:14px 50px 18px 20px; border-top:1px solid var(--line); }
+    .term-body p { margin:7px 0; color:var(--ink-soft-2); line-height:1.72; }
+    .glossary-empty { padding:28px 16px; border:1px dashed var(--line); border-radius:16px; color:var(--muted); text-align:center; }
+    .term-ask-fab { position:fixed; right:20px; bottom:20px; right:max(20px,env(safe-area-inset-right)); bottom:max(20px,env(safe-area-inset-bottom)); z-index:120; display:grid; place-items:center; width:58px; height:58px; border:1px solid var(--line); border:1px solid color-mix(in srgb,var(--white) 36%,transparent); border-radius:50%; background:linear-gradient(145deg,var(--blue),var(--ink)); color:var(--white); box-shadow:0 16px 38px rgba(20,28,45,.28); box-shadow:0 16px 38px color-mix(in srgb,var(--ink) 28%,transparent); cursor:pointer; font:900 24px/1 var(--font-display); transition:transform .2s ease,box-shadow .2s ease; }
+    .term-ask-fab:hover { transform:translateY(-3px) scale(1.03); box-shadow:0 20px 44px color-mix(in srgb,var(--ink) 34%,transparent); }
+    .notes-guide { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin:18px 0; }
+    .notes-guide div { display:flex; gap:10px; align-items:center; min-height:56px; padding:12px 14px; border:1px solid var(--line); border-radius:14px; background:var(--surface); }
+    .notes-guide strong { display:grid; place-items:center; flex:none; width:28px; height:28px; border-radius:50%; background:var(--ink); color:var(--white); font:800 13px/1 var(--font-display); }
+    .notes-guide span { color:var(--ink-soft-2); font:700 13px/1.4 var(--font-display); }
+    .notes-toolbar { display:flex; flex-wrap:wrap; gap:9px; align-items:center; margin:18px 0 10px; }
+    .note-search { flex:1 1 260px; min-width:0; min-height:46px; padding:11px 15px; border:1px solid var(--line); border-radius:13px; background:var(--surface-strong); color:var(--ink); font:600 14px/1.4 var(--font-display); }
+    .note-search:focus { outline:3px solid var(--tint-blue); border-color:var(--blue); }
+    .note-tool { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:10px 13px; border:1px solid var(--line); border-radius:12px; background:var(--surface); color:var(--ink); cursor:pointer; font:750 12px/1.25 var(--font-display); }
+    .note-tool.primary { border-color:var(--blue); background:var(--blue); color:var(--white); }
+    .note-import { position:relative; }
+    .notes-meta { display:flex; gap:12px; justify-content:space-between; margin:10px 0 16px; color:var(--muted); font:650 12px/1.5 var(--font-display); }
+    .notes-list { display:grid; gap:11px; min-height:120px; }
+    .notes-empty { display:grid; gap:7px; place-items:center; padding:36px 20px; border:1px dashed var(--line); border-radius:18px; color:var(--muted); text-align:center; }
+    .notes-empty strong { color:var(--ink); font:850 18px/1.3 var(--font-display); }
+    .personal-note-card { border:1px solid var(--line); border-radius:16px; background:var(--surface); box-shadow:var(--card-shadow); overflow:hidden; }
+    .personal-note-card[hidden] { display:none; }
+    .personal-note-card summary { display:grid; gap:7px; min-height:64px; padding:15px 48px 15px 18px; cursor:pointer; list-style:none; position:relative; }
+    .personal-note-card summary::-webkit-details-marker { display:none; }
+    .personal-note-card summary::after { content:"+"; position:absolute; top:21px; right:18px; color:var(--gold); font:900 22px/1 var(--font-display); }
+    .personal-note-card[open] summary::after { content:"−"; }
+    .personal-note-title { color:var(--ink); font:850 17px/1.35 var(--font-display); }
+    .personal-note-meta { display:flex; flex-wrap:wrap; gap:7px; align-items:center; color:var(--muted); font:650 11px/1.35 var(--font-display); }
+    .personal-note-tag { padding:4px 8px; border-radius:999px; background:var(--tint-blue); color:var(--blue); }
+    .personal-note-body { display:grid; gap:10px; padding:16px 18px 18px; border-top:1px solid var(--line); }
+    .personal-note-section { margin:0; color:var(--ink-soft-2); line-height:1.72; white-space:pre-wrap; overflow-wrap:anywhere; }
+    .personal-note-source { color:var(--muted); font:650 11px/1.45 var(--font-display); }
+    .personal-note-actions { display:flex; flex-wrap:wrap; gap:8px; margin-top:4px; }
+    .personal-note-actions button { min-height:38px; padding:8px 11px; border:1px solid var(--line); border-radius:10px; background:var(--surface-strong); color:var(--ink); cursor:pointer; font:700 12px/1.2 var(--font-display); }
+    .personal-note-actions .note-delete { color:var(--red); }
+    .note-capture-btn { position:absolute; right:42px; bottom:8px; z-index:4; display:grid; place-items:center; width:28px; height:28px; padding:0; border:1px solid var(--line); border-radius:50%; background:var(--white); color:var(--muted); cursor:pointer; font:800 15px/1 var(--font-display); opacity:0; transition:opacity .2s,transform .2s,background .2s; }
+    [data-note-ready]:hover > .note-capture-btn { opacity:.72; }
+    .note-capture-btn:hover { opacity:1 !important; transform:translateY(-1px); background:var(--gold); color:var(--white); border-color:var(--gold); }
+    .note-capture-btn.saved { opacity:.92; background:var(--green); color:var(--white); border-color:var(--green); }
+    .note-overlay { display:none; position:fixed; inset:0; z-index:220; padding:18px; background:rgba(17,24,39,.48); backdrop-filter:blur(4px); align-items:center; justify-content:center; }
+    .note-overlay.active { display:flex; }
+    .note-popover { width:min(680px,100%); max-height:min(90vh,820px); overflow-y:auto; padding:24px; border:1px solid var(--line); border-radius:22px; background:var(--surface-strong); color:var(--ink); box-shadow:0 28px 90px rgba(12,20,34,.32); }
+    .note-dialog-title { margin:0 0 7px; font:900 24px/1.25 var(--font-display); }
+    .note-dialog-context { margin:0 0 14px; color:var(--muted); line-height:1.6; }
+    .note-source-preview { max-height:112px; overflow:auto; margin:12px 0; padding:12px 14px; border:1px solid var(--line); border-radius:12px; background:var(--surface); color:var(--ink-soft-2); font:13px/1.58 var(--font-display); white-space:pre-wrap; }
+    .note-popover label { display:block; margin:13px 0 6px; color:var(--ink); font:800 13px/1.3 var(--font-display); }
+    .note-popover input,.note-popover textarea { width:100%; padding:12px 14px; border:1px solid var(--line); border-radius:12px; background:var(--surface); color:var(--ink); font:14px/1.6 var(--font-body); }
+    .note-popover textarea { min-height:92px; resize:vertical; }
+    #noteInsightInput,#noteActionInput,#notePersonalInput { min-height:72px; }
+    .note-dialog-actions { display:flex; flex-wrap:wrap; gap:9px; margin-top:16px; }
+    .note-dialog-actions button { min-height:44px; padding:10px 14px; border:1px solid var(--line); border-radius:11px; background:var(--surface); color:var(--ink); cursor:pointer; font:750 13px/1.25 var(--font-display); }
+    .note-dialog-actions .note-save { border-color:var(--blue); background:var(--blue); color:var(--white); }
+    .rules li { position:relative; }
+    .content-stream { height:auto; max-height:none; overflow:visible; touch-action:pan-y; }
+    .assessment-shell { margin-top:20px; padding:24px; border:1px solid var(--line); border-radius:22px; background:var(--surface-strong); box-shadow:var(--card-shadow); }
+    .assessment-steps { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin-bottom:22px; }
+    .assessment-steps div { display:flex; gap:10px; align-items:center; padding:12px 14px; border:1px solid var(--line); border-radius:14px; background:var(--surface); }
+    .assessment-steps strong { display:grid; place-items:center; flex:none; width:28px; height:28px; border-radius:50%; color:var(--white); background:var(--ink); font:800 13px/1 var(--font-display); }
+    .assessment-steps span { color:var(--ink-soft-2); font:750 13px/1.45 var(--font-display); }
+    .assessment-scope { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin:0 0 16px; padding:0; border:0; }
+    .assessment-scope legend { width:100%; margin-bottom:10px; color:var(--ink); font:850 14px/1.4 var(--font-display); }
+    .assessment-scope label { position:relative; display:grid; gap:4px; min-height:86px; padding:15px 15px 15px 44px; border:1px solid var(--line); border-radius:15px; background:var(--surface); cursor:pointer; }
+    .assessment-scope input { position:absolute; top:18px; left:16px; width:17px; height:17px; accent-color:var(--blue); }
+    .assessment-scope span { font:850 15px/1.35 var(--font-display); }
+    .assessment-scope small { color:var(--muted); font:12px/1.45 var(--font-display); }
+    .assessment-field { display:grid; gap:7px; margin:14px 0; }
+    .assessment-field label,.assessment-settings label,.mistake-import-box label { color:var(--ink); font:800 13px/1.4 var(--font-display); }
+    .assessment-field select,.assessment-field textarea,.assessment-settings select,.assessment-preview textarea,.mistake-import-box textarea,.mistake-toolbar input,.mistake-toolbar select { width:100%; min-height:46px; padding:10px 12px; border:1px solid var(--line); border-radius:12px; color:var(--ink); background:var(--surface); font:14px/1.55 var(--font-display); }
+    .assessment-field textarea { min-height:100px; resize:vertical; }
+    .assessment-settings { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin:15px 0; }
+    .assessment-settings label { display:grid; gap:7px; }
+    .assessment-copy { width:100%; min-height:50px; margin-top:4px; border:0; border-radius:14px; color:var(--white); background:var(--blue); cursor:pointer; font:850 15px/1.4 var(--font-display); }
+    .assessment-preview { margin-top:12px; border:1px solid var(--line); border-radius:13px; background:var(--surface); }
+    .assessment-preview summary { padding:12px 14px; cursor:pointer; font:800 13px/1.4 var(--font-display); }
+    .assessment-preview textarea { min-height:220px; margin:0 12px 12px; width:calc(100% - 24px); resize:vertical; }
+    .assessment-boundary { margin:12px 0 0; color:var(--muted); font:12px/1.6 var(--font-display); }
+    .mistake-book { margin-top:30px; padding-top:28px; border-top:1px solid var(--line); }
+    .mistake-book-heading { display:flex; align-items:flex-end; justify-content:space-between; gap:16px; }
+    .mistake-book-heading h2 { margin:2px 0 0; font:900 28px/1.2 var(--font-display); }
+    .section-kicker { margin:0; color:var(--gold); font:800 12px/1.3 var(--font-display); letter-spacing:.06em; }
+    .mistake-book-heading > span { padding:7px 11px; border-radius:999px; color:var(--blue); background:var(--tint-accent); font:800 12px/1 var(--font-display); }
+    .mistake-book-lead { color:var(--ink-soft-2); line-height:1.7; }
+    .mistake-import-box { display:grid; gap:8px; margin:18px 0; padding:18px; border:1px solid var(--line); border-radius:16px; background:var(--surface); }
+    .mistake-import-box textarea { min-height:120px; resize:vertical; }
+    .mistake-import-box button,.mistake-toolbar button,.mistake-file-import,.mistake-action { min-height:42px; padding:9px 13px; border:1px solid var(--line); border-radius:11px; color:var(--ink); background:var(--surface); cursor:pointer; font:780 12px/1.35 var(--font-display); }
+    .mistake-import-box button { border-color:var(--blue); color:var(--white); background:var(--blue); }
+    .mistake-toolbar { display:grid; grid-template-columns:minmax(180px,1.3fr) minmax(130px,.7fr) auto auto auto; gap:8px; align-items:center; }
+    .mistake-file-import { display:grid; place-items:center; }
+    .mistake-storage { margin:10px 0 14px; color:var(--muted); font:12px/1.5 var(--font-display); }
+    .mistake-list { display:grid; gap:10px; min-height:110px; }
+    .mistake-empty { display:grid; gap:6px; place-items:center; padding:30px 18px; border:1px dashed var(--line); border-radius:16px; color:var(--muted); text-align:center; }
+    .mistake-empty strong { color:var(--ink); font:850 17px/1.3 var(--font-display); }
+    .mistake-card { border:1px solid var(--line); border-radius:15px; background:var(--surface); overflow:hidden; }
+    .mistake-card summary { display:grid; gap:6px; padding:15px 16px; cursor:pointer; }
+    .mistake-question { color:var(--ink); font:850 15px/1.5 var(--font-display); }
+    .mistake-meta { display:flex; flex-wrap:wrap; gap:7px; color:var(--muted); font:12px/1.4 var(--font-display); }
+    .mistake-status { padding:3px 8px; border-radius:999px; color:var(--blue); background:var(--tint-accent); }
+    .mistake-body { display:grid; gap:10px; padding:0 16px 16px; color:var(--ink-soft-2); line-height:1.65; }
+    .mistake-body p { margin:0; }
+    .mistake-actions { display:flex; flex-wrap:wrap; gap:8px; margin-top:4px; }
+    .mistake-action.delete { color:var(--red); }
+    .table-wrap { overflow-x:auto; }
+    @media (max-width:880px) { .tabs { grid-template-columns:repeat(2,1fr); } .ch-explorer { grid-template-columns:1fr; } .ch-nav { position:static; grid-template-columns:repeat(3,1fr); } .assessment-scope,.assessment-settings { grid-template-columns:1fr; } .mistake-toolbar { grid-template-columns:1fr 1fr; } }
+    @media (hover:none) { .note-capture-btn { right:58px; width:44px; height:44px; opacity:.78; } }
+    @media (max-width:520px) { .tabs { grid-template-columns:1fr; } .ch-nav { grid-template-columns:repeat(2,1fr); } .ch-view { padding:20px 16px; } .chapter-conclusion summary { padding-left:14px; } .glossary-toolbar { align-items:stretch; flex-direction:column; } .glossary-count { align-self:flex-end; } .term-item summary { align-items:flex-start; flex-direction:column; } .term-category { margin-top:2px; } .term-ask-fab { width:54px; height:54px; right:max(16px,env(safe-area-inset-right)); bottom:max(16px,env(safe-area-inset-bottom)); } .assessment-shell { padding:18px 14px; } .assessment-steps,.mistake-toolbar { grid-template-columns:1fr; } .mistake-book-heading { align-items:flex-start; flex-direction:column; } .notes-guide { grid-template-columns:1fr; } .notes-toolbar { align-items:stretch; flex-direction:column; } .note-search,.note-tool { width:100%; } .notes-meta { align-items:flex-start; flex-direction:column; } .note-overlay { align-items:flex-end; padding:0; } .note-popover { max-height:92vh; padding:20px 16px calc(18px + env(safe-area-inset-bottom)); border-radius:22px 22px 0 0; } }
+    
+
+    /* ——— Knowledge Reader UI v2: editorial structure, restrained surfaces ——— */
+    :root {
+      --accent: var(--blue);
+      --card: var(--surface);
+      --tint-blue: var(--tint-accent);
+      --focus-ring: 0 0 0 3px color-mix(in srgb, var(--blue) 26%, transparent);
+      --reader-shadow: 0 10px 32px rgba(31, 41, 55, .07);
+      --reader-shadow-lg: 0 18px 50px rgba(31, 41, 55, .10);
+    }
+
+    body {
+      font-size: 16px;
+      line-height: 1.65;
+      text-rendering: optimizeLegibility;
+    }
+
+    body::after { opacity: calc(var(--ambient-opacity) * .28); }
+
+    .page {
+      width: min(1280px, calc(100% - 48px));
+      display: grid;
+      grid-template-columns: 224px minmax(0, 1fr);
+      column-gap: 28px;
+      row-gap: 20px;
+      margin: 0 auto;
+      padding: 20px 0 64px;
+    }
+
+    .page-tools {
+      position: sticky;
+      top: 12px;
+      right: auto;
+      z-index: 100;
+      grid-column: 1 / -1;
+      justify-self: end;
+      display: flex;
+      gap: 4px;
+      padding: 4px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--surface-strong);
+      box-shadow: var(--reader-shadow);
+      -webkit-backdrop-filter: blur(18px);
+      backdrop-filter: blur(18px);
+    }
+
+    .guide-toggle,
+    .src-toggle,
+    .theme-picker {
+      min-height: 36px;
+      padding: 7px 11px;
+      border: 0;
+      border-radius: 8px;
+      background: transparent;
+      color: var(--muted);
+      font: 700 12px/1.2 var(--font-display);
+    }
+
+    .guide-toggle:hover,
+    .src-toggle:hover,
+    .theme-picker:hover {
+      color: var(--ink);
+      background: var(--tint-accent);
+    }
+
+    .hero {
+      position: relative;
+      grid-column: 1 / -1;
+      min-height: 0;
+      grid-template-columns: minmax(0, 1.25fr) minmax(280px, .75fr);
+      align-items: center;
+      gap: 44px;
+      margin: 0;
+      padding: 42px 46px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: var(--surface-strong);
+      box-shadow: var(--reader-shadow-lg);
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 5px;
+      background: linear-gradient(180deg, var(--blue), var(--green));
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--blue);
+      font: 800 12px/1.3 var(--font-display);
+      letter-spacing: .08em;
+    }
+
+    h1 {
+      max-width: 820px;
+      font-size: clamp(36px, 4.7vw, 64px);
+      line-height: 1.06;
+      letter-spacing: -.035em;
+    }
+
+    .hero .lede {
+      max-width: 760px;
+      margin-top: 18px;
+      font-size: 18px;
+      line-height: 1.72;
+    }
+
+    .thesis {
+      padding: 20px 22px;
+      border: 1px solid var(--line);
+      border-left: 3px solid var(--blue);
+      border-radius: 12px;
+      background: var(--paper);
+      box-shadow: none;
+    }
+
+    .thesis strong {
+      margin-bottom: 8px;
+      color: var(--blue);
+      font-size: 13px;
+      letter-spacing: .04em;
+    }
+
+    .thesis span { font-size: 16px; line-height: 1.7; }
+
+    .depth-banner {
+      grid-column: 1 / -1;
+      margin: 0;
+      padding: 12px 16px;
+      border-radius: 12px;
+      background: var(--surface-strong);
+      box-shadow: none;
+    }
+
+    .depth-banner button {
+      border-radius: 8px;
+      background: var(--tint-accent);
+    }
+
+    .tabs {
+      position: sticky;
+      top: 76px;
+      z-index: 40;
+      grid-column: 1;
+      display: flex;
+      flex-direction: column;
+      align-self: start;
+      gap: 4px;
+      margin: 0;
+      padding: 7px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--surface-strong);
+      box-shadow: var(--reader-shadow);
+      counter-reset: reader-module;
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+    }
+
+    .tab {
+      counter-increment: reader-module;
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      align-items: center;
+      gap: 9px;
+      width: 100%;
+      min-height: 46px;
+      padding: 8px 10px;
+      border: 1px solid transparent;
+      border-radius: 10px;
+      color: var(--muted);
+      text-align: left;
+      font: 750 14px/1.25 var(--font-display);
+      transition: color .16s ease, background .16s ease, border-color .16s ease;
+    }
+
+    .tab::before {
+      content: counter(reader-module, decimal-leading-zero);
+      display: grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      color: var(--muted);
+      background: var(--paper);
+      font: 800 10px/1 var(--font-display);
+    }
+
+    .tab:hover {
+      color: var(--ink);
+      background: var(--tint-accent);
+    }
+
+    .tab[aria-selected="true"] {
+      color: var(--ink);
+      border-color: var(--line);
+      background: var(--tint-accent-strong);
+      box-shadow: none;
+    }
+
+    .tab[aria-selected="true"]::before {
+      color: var(--white);
+      background: var(--blue);
+    }
+
+    .panel {
+      grid-column: 2;
+      min-width: 0;
+      min-height: 520px;
+      padding: clamp(24px, 4vw, 46px);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: var(--surface-strong);
+      box-shadow: var(--reader-shadow);
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+      animation: reader-fade .22s ease both;
+    }
+
+    @keyframes reader-fade {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .footer { grid-column: 2; margin-top: 0; }
+
+    .section-title {
+      max-width: 780px;
+      margin-bottom: 12px;
+      font-size: clamp(25px, 3vw, 34px);
+      line-height: 1.18;
+      letter-spacing: -.02em;
+    }
+
+    .section-lead {
+      max-width: 800px;
+      margin-bottom: 28px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.75;
+    }
+
+    .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+
+    .note,
+    .note[data-source] {
+      min-height: 0;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--surface);
+      box-shadow: none;
+    }
+
+    .note:hover {
+      transform: none;
+      border-color: var(--blue);
+      box-shadow: none;
+    }
+
+    .note h3 { font-size: 18px; }
+    .note p { font-size: 15px; line-height: 1.72; }
+
+    .rules li,
+    .story,
+    .quote,
+    .question,
+    .ba-col,
+    .accordion details,
+    .decision details,
+    .term-item,
+    .personal-note-card,
+    .chapter-conclusion {
+      border-radius: 12px;
+      box-shadow: none;
+    }
+
+    .story { padding: 22px 24px; }
+    .story p, .quote blockquote { font-size: 16px; }
+    .quote { padding: 24px 26px 20px; }
+    .quote::before { font-size: 48px; opacity: .22; }
+
+    .chain button,
+    .city-buttons button {
+      min-height: 52px;
+      border-radius: 10px;
+      background: var(--surface-strong);
+    }
+
+    .chain button.active,
+    .city-buttons button.active,
+    .ch-nav-btn.active {
+      color: var(--white);
+      background: var(--blue);
+      border-color: var(--blue);
+    }
+
+    .result,
+    .explain,
+    .ch-view {
+      border-radius: 14px;
+      box-shadow: none;
+    }
+
+    .ch-explorer { grid-template-columns: 176px minmax(0, 1fr); gap: 14px; }
+    .ch-nav { top: 84px; }
+    .ch-nav-btn { border-radius: 9px; box-shadow: none; }
+    .ch-nav-btn:hover { transform: none; }
+    .ch-view { padding: 24px; }
+
+    .glossary-search,
+    .note-search {
+      border-radius: 10px;
+      box-shadow: none;
+    }
+
+    .term-category,
+    .personal-note-tag { border-radius: 7px; }
+
+    .notes-guide div { border-radius: 10px; }
+    .note-tool, .personal-note-actions button, .ch-send { border-radius: 9px; }
+
+    .guide-card,
+    .note-popover,
+    .dd-popover {
+      border-radius: 20px;
+      background: var(--surface-strong);
+    }
+
+    .guide-step,
+    .guide-profile { border-radius: 12px; }
+
+    .guide-avatar { border-radius: 14px; }
+
+    [data-source]::after {
+      max-width: min(520px, calc(100vw - 32px));
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .deep-dive-btn,
+    .note-capture-btn { box-shadow: none; }
+
+    button:focus-visible,
+    select:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible,
+    summary:focus-visible,
+    [tabindex]:focus-visible {
+      outline: 2px solid var(--blue);
+      outline-offset: 3px;
+      box-shadow: var(--focus-ring);
+    }
+
+    @media (max-width: 980px) {
+      .page {
+        width: min(100% - 28px, 900px);
+        grid-template-columns: minmax(0, 1fr);
+        gap: 16px;
+        padding-top: 14px;
+      }
+
+      .page-tools,
+      .hero,
+      .depth-banner,
+      .tabs,
+      .panel,
+      .footer { grid-column: 1; }
+
+      .page-tools {
+        position: sticky;
+        width: auto;
+        margin: 0;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 34px;
+      }
+
+      .tabs {
+        top: 66px;
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        gap: 5px;
+        max-width: 100%;
+        padding: 6px;
+        overflow-x: auto;
+        overscroll-behavior-x: contain;
+        scrollbar-width: thin;
+      }
+
+      .tab {
+        flex: 0 0 auto;
+        display: flex;
+        width: auto;
+        min-height: 42px;
+        padding: 7px 11px;
+        white-space: nowrap;
+      }
+
+      .tab::before { width: 24px; height: 24px; }
+      .panel { min-height: 0; }
+    }
+
+    @media (max-width: 680px) {
+      .page { width: min(100% - 20px, 900px); gap: 12px; }
+
+      .page-tools {
+        top: 6px;
+        justify-self: stretch;
+        justify-content: stretch;
+      }
+
+      .guide-toggle, .src-toggle, .theme-picker {
+        flex: 1 1 0;
+        min-width: 0;
+        padding-inline: 8px;
+      }
+
+      .hero { padding: 28px 22px 24px; border-radius: 18px; }
+      h1 { font-size: clamp(34px, 11vw, 48px); }
+      .hero .lede { font-size: 16px; }
+      .thesis span { font-size: 15px; }
+      .depth-banner { align-items: flex-start; }
+      .tabs { top: 60px; }
+      .panel { padding: 26px 18px; border-radius: 18px; }
+      .grid, .before-after, .notes-guide { grid-template-columns: 1fr; }
+      .ch-explorer { grid-template-columns: 1fr; }
+      .ch-nav {
+        position: static;
+        display: flex;
+        overflow-x: auto;
+      }
+      .ch-nav-btn { flex: 0 0 auto; }
+      .guide-step { min-height: 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+    }
+
+    /* ——— Knowledge Studio UI v3: bold digital-editorial system ——— */
+    :root {
+      --signal:#dfff00;
+      --signal-ink:#0d1b43;
+      --nav-bg:#1038c8;
+      --nav-ink:#fff;
+      --nav-muted:#b9c7ff;
+      --hero-accent:#dfff00;
+    }
+
+    body::after { opacity: var(--ambient-opacity); }
+
+    .page {
+      width:min(1380px,calc(100% - 48px));
+      grid-template-columns:250px minmax(0,1fr);
+      column-gap:32px;
+      row-gap:24px;
+      padding:18px 0 72px;
+    }
+
+    .page-tools {
+      width:100%;
+      min-height:54px;
+      justify-self:stretch;
+      justify-content:flex-end;
+      padding:7px;
+      border:2px solid var(--ink);
+      border-radius:0;
+      color:var(--ink);
+      background:var(--bar-bg);
+      box-shadow:6px 6px 0 color-mix(in srgb,var(--ink) 14%,transparent);
+    }
+
+    .page-tools::before {
+      content:"KNOWLEDGE / STUDIO";
+      margin-right:auto;
+      padding:9px 12px;
+      color:var(--signal-ink);
+      background:var(--signal);
+      font:900 12px/1 var(--font-display);
+      letter-spacing:.12em;
+    }
+
+    .guide-toggle,.src-toggle,.theme-picker {
+      min-height:36px;
+      padding:8px 13px;
+      border:1px solid var(--line);
+      border-radius:0;
+      color:var(--ink);
+      background:var(--surface);
+      font-weight:800;
+    }
+
+    .guide-toggle:hover,.src-toggle:hover,.theme-picker:hover {
+      color:var(--signal-ink);
+      border-color:var(--signal);
+      background:var(--signal);
+    }
+
+    .hero {
+      grid-template-columns:126px minmax(0,1.25fr) minmax(290px,.75fr);
+      gap:32px;
+      min-height:520px;
+      padding:46px 48px;
+      border:0;
+      border-radius:0;
+      color:var(--white);
+      background:var(--hero-bg);
+      box-shadow:var(--shadow);
+      isolation:isolate;
+    }
+
+    .hero::before {
+      inset:0 auto 0 0;
+      width:14px;
+      background:var(--hero-accent);
+    }
+
+    .hero::after {
+      content:"";
+      position:absolute;
+      z-index:-1;
+      right:-90px;
+      bottom:-170px;
+      width:420px;
+      height:420px;
+      border:70px solid var(--hero-accent);
+      border-radius:50%;
+      opacity:.92;
+    }
+
+    .hero-stamp {
+      align-self:stretch;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      min-height:380px;
+      padding:18px 12px;
+      border:1px solid rgba(255,255,255,.45);
+      color:rgba(255,255,255,.78);
+      font:900 10px/1 var(--font-display);
+      letter-spacing:.18em;
+      writing-mode:vertical-rl;
+    }
+
+    .hero-stamp strong {
+      color:var(--hero-accent);
+      font:900 68px/.85 var(--font-display);
+      letter-spacing:-.08em;
+      writing-mode:horizontal-tb;
+      transform:rotate(-90deg);
+    }
+
+    .hero-copy { position:relative; z-index:2; align-self:center; }
+
+    .eyebrow {
+      display:inline-block;
+      margin:0 0 18px;
+      padding:7px 10px;
+      color:var(--signal-ink);
+      background:var(--hero-accent);
+      font-size:12px;
+      letter-spacing:.1em;
+    }
+
+    h1 {
+      color:inherit;
+      font-size:clamp(48px,6.8vw,92px);
+      line-height:.93;
+      letter-spacing:-.06em;
+      text-wrap:balance;
+    }
+
+    .hero .lede {
+      max-width:720px;
+      margin-top:26px;
+      color:rgba(255,255,255,.86);
+      font-family:var(--font-display);
+      font-size:17px;
+      line-height:1.75;
+    }
+
+    .thesis {
+      position:relative;
+      z-index:3;
+      align-self:end;
+      padding:28px 26px;
+      border:0;
+      border-radius:0;
+      color:var(--signal-ink);
+      background:var(--hero-accent);
+      box-shadow:8px 8px 0 rgba(0,0,0,.22);
+      transform:rotate(-1.6deg);
+    }
+
+    .thesis-index {
+      display:block;
+      margin-bottom:20px;
+      padding-bottom:10px;
+      border-bottom:2px solid currentColor;
+      font:900 10px/1 var(--font-display);
+      letter-spacing:.16em;
+    }
+
+    .thesis strong { color:inherit; font-size:13px; letter-spacing:.08em; }
+    .thesis span:not(.thesis-index) { color:inherit; font-size:17px; line-height:1.72; }
+
+    .depth-banner {
+      min-height:58px;
+      padding:14px 18px;
+      border:2px solid var(--ink);
+      border-radius:0;
+      background:var(--surface-strong);
+      box-shadow:5px 5px 0 var(--tint-accent-strong);
+    }
+
+    .depth-banner strong {
+      padding:4px 7px;
+      color:var(--signal-ink);
+      background:var(--signal);
+    }
+
+    .depth-banner button {
+      border:2px solid var(--ink);
+      border-radius:0;
+      color:var(--ink);
+      background:transparent;
+      box-shadow:3px 3px 0 var(--signal);
+    }
+
+    .tabs {
+      top:82px;
+      gap:5px;
+      padding:20px 14px 18px;
+      border:0;
+      border-radius:0;
+      color:var(--nav-ink);
+      background:var(--nav-bg);
+      box-shadow:8px 8px 0 color-mix(in srgb,var(--ink) 16%,transparent);
+    }
+
+    .tabs::before {
+      content:"学习目录";
+      display:block;
+      margin:0 6px 16px;
+      padding-bottom:14px;
+      border-bottom:1px solid color-mix(in srgb,var(--nav-ink) 34%,transparent);
+      color:var(--nav-ink);
+      font:900 18px/1 var(--font-display);
+      letter-spacing:.06em;
+    }
+
+    .tab {
+      grid-template-columns:32px 1fr;
+      min-height:52px;
+      padding:8px 10px;
+      border:1px solid transparent;
+      border-radius:0;
+      color:var(--nav-muted);
+      font-size:14px;
+    }
+
+    .tab::before {
+      width:30px;
+      height:30px;
+      border:1px solid color-mix(in srgb,var(--nav-ink) 38%,transparent);
+      border-radius:50%;
+      color:inherit;
+      background:transparent;
+    }
+
+    .tab:hover {
+      color:var(--nav-ink);
+      background:color-mix(in srgb,var(--nav-ink) 10%,transparent);
+    }
+
+    .tab[aria-selected="true"] {
+      color:var(--signal-ink);
+      border-color:var(--signal);
+      background:var(--signal);
+      transform:translateX(8px);
+      box-shadow:5px 5px 0 rgba(0,0,0,.2);
+    }
+
+    .tab[aria-selected="true"]::before {
+      color:var(--signal-ink);
+      border-color:var(--signal-ink);
+      background:transparent;
+    }
+
+    .panel {
+      position:relative;
+      min-height:620px;
+      padding:58px clamp(26px,4.5vw,62px) 54px;
+      overflow:hidden;
+      border:2px solid var(--ink);
+      border-top:12px solid var(--signal);
+      border-radius:0;
+      background:var(--panel-bg);
+      box-shadow:10px 10px 0 color-mix(in srgb,var(--ink) 13%,transparent);
+    }
+
+    .panel::before {
+      content:"KNOWLEDGE FIELD";
+      position:absolute;
+      top:20px;
+      right:22px;
+      color:var(--muted);
+      font:900 9px/1 var(--font-display);
+      letter-spacing:.18em;
+    }
+
+    .section-title {
+      position:relative;
+      max-width:820px;
+      margin:0 0 18px;
+      padding-left:22px;
+      font-size:clamp(32px,4.2vw,52px);
+      line-height:1.02;
+      letter-spacing:-.045em;
+    }
+
+    .section-title::before {
+      content:"";
+      position:absolute;
+      left:0;
+      top:.05em;
+      width:8px;
+      height:.92em;
+      background:var(--signal);
+    }
+
+    .section-lead {
+      max-width:760px;
+      margin:0 0 36px 22px;
+      padding-bottom:22px;
+      border-bottom:1px solid var(--line);
+      font-size:16px;
+    }
+
+    .grid {
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:18px;
+      counter-reset:studio-card;
+    }
+
+    .note,.note[data-source] {
+      counter-increment:studio-card;
+      position:relative;
+      min-height:230px;
+      padding:62px 24px 24px;
+      overflow:hidden;
+      border:2px solid var(--ink);
+      border-radius:0;
+      background:var(--surface-strong);
+      box-shadow:var(--card-shadow);
+    }
+
+    .note::before {
+      content:"0" counter(studio-card);
+      position:absolute;
+      top:0;
+      left:0;
+      padding:12px 14px;
+      color:var(--signal-ink);
+      background:var(--signal);
+      font:900 13px/1 var(--font-display);
+    }
+
+    .note:nth-child(3n+1) {
+      grid-column:1 / -1;
+      min-height:270px;
+      padding-right:34%;
+      background:linear-gradient(90deg,var(--surface-strong) 0 72%,var(--signal) 72% 100%);
+    }
+
+    .note:nth-child(3n+1)::after {
+      content:"KEY";
+      position:absolute;
+      right:5%;
+      bottom:12%;
+      color:var(--signal-ink);
+      font:900 54px/.8 var(--font-display);
+      letter-spacing:-.08em;
+      transform:rotate(-90deg);
+    }
+
+    .note:hover {
+      transform:translate(-3px,-3px);
+      border-color:var(--ink);
+      box-shadow:9px 9px 0 var(--signal);
+    }
+
+    .note h3 { font-size:22px; line-height:1.16; }
+    .note p { font-size:16px; }
+
+    .ch-explorer { grid-template-columns:200px minmax(0,1fr); gap:20px; }
+    .ch-nav { top:88px; gap:6px; }
+    .ch-nav-btn {
+      min-height:52px;
+      border:1px solid var(--ink);
+      border-radius:0;
+      background:var(--surface);
+    }
+    .ch-nav-btn.active {
+      color:var(--signal-ink);
+      background:var(--signal);
+      border-color:var(--ink);
+      box-shadow:4px 4px 0 var(--ink);
+    }
+    .ch-view {
+      border:2px solid var(--ink);
+      border-radius:0;
+      background:var(--surface-strong);
+      box-shadow:6px 6px 0 var(--tint-accent-strong);
+    }
+
+    .rules li,.story,.quote,.question,.ba-col,.accordion details,.decision details,
+    .term-item,.personal-note-card,.chapter-conclusion {
+      border:1px solid var(--ink);
+      border-radius:0;
+      background:var(--surface-strong);
+    }
+
+    .rules li { border-left:8px solid var(--signal); }
+
+    .story {
+      padding:30px;
+      border-left:12px solid var(--signal);
+      box-shadow:7px 7px 0 var(--tint-accent-strong);
+    }
+
+    .story .story-label {
+      display:inline-block;
+      padding:5px 8px;
+      color:var(--signal-ink);
+      background:var(--signal);
+    }
+
+    .quote {
+      padding:42px 38px 30px 72px;
+      color:var(--nav-ink);
+      border:0;
+      background:var(--nav-bg);
+      box-shadow:8px 8px 0 var(--signal);
+    }
+
+    .quote::before { color:var(--signal); font-size:90px; opacity:1; }
+    .quote blockquote { color:inherit; font-size:20px; }
+    .quote .q-source { color:var(--nav-muted); }
+
+    .question { border-left:0; }
+    .question::before { color:var(--signal-ink); background:var(--signal); }
+
+    .before-after { gap:14px; }
+    .ba-col { padding:28px; }
+    .ba-col.before { border:2px solid var(--ink); border-top:8px solid var(--muted); }
+    .ba-col.after { border:2px solid var(--ink); border-top:8px solid var(--signal); }
+
+    .chain { gap:10px; }
+    .chain button,.city-buttons button {
+      border:2px solid var(--ink);
+      border-radius:0;
+      background:var(--surface-strong);
+    }
+    .chain button.active,.city-buttons button.active {
+      color:var(--signal-ink);
+      background:var(--signal);
+      border-color:var(--ink);
+      box-shadow:4px 4px 0 var(--ink);
+    }
+
+    .result,.explain {
+      border:2px solid var(--ink);
+      border-radius:0;
+      background:var(--surface-strong);
+      box-shadow:6px 6px 0 var(--tint-accent-strong);
+    }
+
+    .table-wrap { border:2px solid var(--ink); overflow:auto; }
+    table.matrix { border-collapse:collapse; }
+    .matrix th {
+      color:var(--nav-ink);
+      border-color:color-mix(in srgb,var(--nav-ink) 28%,transparent);
+      background:var(--nav-bg);
+    }
+    .matrix td { border-color:var(--line); }
+
+    .timeline { border-left:6px solid var(--signal); }
+    .timeline-item::before {
+      left:-33px;
+      width:14px;
+      height:14px;
+      border:3px solid var(--ink);
+      background:var(--signal);
+    }
+
+    .accordion details[open],.decision details[open],.term-item[open],.chapter-conclusion[open] {
+      box-shadow:5px 5px 0 var(--signal);
+    }
+
+    .glossary-search,.note-search {
+      border:2px solid var(--ink);
+      border-radius:0;
+      background:var(--surface-strong);
+      box-shadow:4px 4px 0 var(--tint-accent-strong);
+    }
+
+    .term-category,.personal-note-tag {
+      border-radius:0;
+      color:var(--signal-ink);
+      background:var(--signal);
+    }
+
+    .note-tool,.personal-note-actions button,.ch-send {
+      border:1px solid var(--ink);
+      border-radius:0;
+    }
+
+    .note-tool.primary,.ch-send {
+      color:var(--signal-ink);
+      border-color:var(--ink);
+      background:var(--signal);
+      box-shadow:3px 3px 0 var(--ink);
+    }
+
+    .guide-card,.note-popover,.dd-popover {
+      border:3px solid var(--ink);
+      border-radius:0;
+      background:var(--surface-strong);
+      box-shadow:14px 14px 0 var(--signal);
+    }
+
+    .guide-avatar {
+      border-radius:0;
+      color:var(--signal-ink);
+      background:var(--signal);
+      box-shadow:5px 5px 0 var(--ink);
+    }
+
+    .guide-step,.guide-profile {
+      border:1px solid var(--ink);
+      border-radius:0;
+      background:var(--surface);
+    }
+
+    .footer {
+      padding:18px 20px;
+      border:2px solid var(--ink);
+      color:var(--nav-muted);
+      background:var(--nav-bg);
+    }
+
+    [data-theme="dark"] .hero,[data-theme="dark"] .quote { color:var(--ink); }
+    [data-theme="dark"] .page-tools,[data-theme="dark"] .panel,[data-theme="dark"] .depth-banner { border-color:#f7f8f2; }
+
+    @media (max-width:1040px) {
+      .page { grid-template-columns:210px minmax(0,1fr); column-gap:22px; }
+      .hero { grid-template-columns:92px minmax(0,1fr); min-height:0; }
+      .hero-stamp { min-height:330px; }
+      .thesis { grid-column:2; max-width:560px; justify-self:end; }
+    }
+
+    @media (max-width:820px) {
+      .page { width:min(100% - 24px,900px); grid-template-columns:1fr; gap:14px; }
+      .page-tools,.hero,.depth-banner,.tabs,.panel,.footer { grid-column:1; }
+      .hero { grid-template-columns:1fr; gap:22px; padding:38px 26px 34px; }
+      .hero-stamp {
+        min-height:0;
+        flex-direction:row;
+        align-items:center;
+        padding:10px 12px;
+        writing-mode:horizontal-tb;
+      }
+      .hero-stamp strong { font-size:42px; transform:none; }
+      .thesis { grid-column:1; justify-self:stretch; transform:none; }
+      h1 { font-size:clamp(44px,12vw,72px); }
+      .tabs { top:66px; flex-direction:row; padding:8px; overflow-x:auto; }
+      .tabs::before { display:none; }
+      .tab { flex:0 0 auto; transform:none !important; }
+      .panel { min-height:0; padding:52px 22px 34px; }
+    }
+
+    @media (max-width:580px) {
+      .page-tools::before { content:"K / S"; }
+      .grid,.before-after,.notes-guide { grid-template-columns:1fr; }
+      .note:nth-child(3n+1) { grid-column:auto; padding-right:24px; background:var(--surface-strong); }
+      .note:nth-child(3n+1)::after { display:none; }
+      .section-title { font-size:36px; }
+      .ch-explorer { grid-template-columns:1fr; }
+      .ch-nav { position:static; display:flex; overflow-x:auto; }
+      .ch-nav-btn { flex:0 0 auto; }
+    }
+
+    /* ——— Knowledge Studio UI v4: restrained editorial palette ——— */
+    :root {
+      --editorial-radius:18px;
+      --editorial-radius-sm:11px;
+      --editorial-border:color-mix(in srgb,var(--ink) 13%,transparent);
+      --editorial-border-strong:color-mix(in srgb,var(--ink) 22%,transparent);
+      --editorial-shadow:0 12px 34px color-mix(in srgb,var(--ink) 8%,transparent);
+      --editorial-shadow-lg:0 26px 72px color-mix(in srgb,var(--ink) 12%,transparent);
+    }
+
+    body::after { opacity:calc(var(--ambient-opacity) * .72); }
+
+    .page-tools {
+      border:1px solid var(--editorial-border);
+      border-radius:14px;
+      box-shadow:var(--editorial-shadow);
+    }
+
+    .page-tools::before {
+      color:var(--signal-ink);
+      background:color-mix(in srgb,var(--signal) 72%,var(--surface-strong));
+      border-radius:8px;
+      letter-spacing:.14em;
+    }
+
+    .guide-toggle,.src-toggle,.theme-picker {
+      border:1px solid var(--editorial-border);
+      border-radius:9px;
+      font-weight:700;
+    }
+
+    .guide-toggle:hover,.src-toggle:hover,.theme-picker:hover {
+      color:var(--ink);
+      border-color:var(--editorial-border-strong);
+      background:color-mix(in srgb,var(--signal) 38%,var(--surface-strong));
+    }
+
+    .hero {
+      border:1px solid color-mix(in srgb,var(--nav-ink) 18%,transparent);
+      border-radius:24px;
+      box-shadow:var(--editorial-shadow-lg);
+    }
+
+    .hero::before {
+      width:7px;
+      border-radius:24px 0 0 24px;
+      opacity:.72;
+    }
+
+    .hero::after {
+      right:-72px;
+      bottom:-158px;
+      width:390px;
+      height:390px;
+      border-width:34px;
+      opacity:.24;
+    }
+
+    .hero-stamp {
+      border-color:color-mix(in srgb,var(--nav-ink) 28%,transparent);
+      border-radius:12px;
+      color:color-mix(in srgb,var(--nav-ink) 76%,transparent);
+    }
+
+    .hero-stamp strong {
+      color:color-mix(in srgb,var(--hero-accent) 82%,var(--nav-ink));
+      font-size:62px;
+    }
+
+    .eyebrow {
+      color:var(--signal-ink);
+      border-radius:6px;
+      background:color-mix(in srgb,var(--hero-accent) 76%,var(--nav-ink));
+    }
+
+    h1 { letter-spacing:-.045em; }
+    .hero .lede { color:color-mix(in srgb,var(--nav-ink) 84%,transparent); }
+
+    .thesis {
+      border:1px solid color-mix(in srgb,var(--signal-ink) 12%,transparent);
+      border-radius:14px;
+      background:color-mix(in srgb,var(--hero-accent) 76%,var(--surface-strong));
+      box-shadow:0 14px 38px rgba(20,28,34,.16);
+      transform:rotate(-.5deg);
+    }
+
+    .thesis-index { border-bottom-width:1px; opacity:.76; }
+
+    .depth-banner {
+      border:1px solid var(--editorial-border);
+      border-radius:14px;
+      box-shadow:var(--editorial-shadow);
+    }
+
+    .depth-banner strong {
+      border-radius:5px;
+      background:color-mix(in srgb,var(--signal) 58%,var(--surface-strong));
+    }
+
+    .depth-banner button {
+      border:1px solid var(--editorial-border-strong);
+      border-radius:9px;
+      box-shadow:none;
+    }
+
+    .tabs {
+      border:1px solid color-mix(in srgb,var(--nav-ink) 12%,transparent);
+      border-radius:18px;
+      box-shadow:var(--editorial-shadow-lg);
+    }
+
+    .tab { border-radius:10px; }
+    .tab::before { border-color:color-mix(in srgb,var(--nav-ink) 26%,transparent); }
+
+    .tab[aria-selected="true"] {
+      color:var(--signal-ink);
+      border-color:color-mix(in srgb,var(--signal-ink) 10%,transparent);
+      background:color-mix(in srgb,var(--signal) 78%,var(--nav-ink));
+      transform:translateX(5px);
+      box-shadow:0 8px 20px rgba(15,24,32,.14);
+    }
+
+    .panel {
+      border:1px solid var(--editorial-border);
+      border-top:6px solid color-mix(in srgb,var(--signal) 78%,var(--surface-strong));
+      border-radius:22px;
+      box-shadow:var(--editorial-shadow-lg);
+    }
+
+    .panel::before { opacity:.64; }
+    .section-title::before { width:6px; border-radius:4px; opacity:.82; }
+
+    .note,.note[data-source] {
+      border:1px solid var(--editorial-border);
+      border-radius:15px;
+      box-shadow:var(--editorial-shadow);
+    }
+
+    .note::before {
+      color:var(--signal-ink);
+      background:color-mix(in srgb,var(--signal) 70%,var(--surface-strong));
+      border-radius:14px 0 9px 0;
+    }
+
+    .note:nth-child(3n+1) {
+      background:linear-gradient(90deg,var(--surface-strong) 0 74%,color-mix(in srgb,var(--signal) 44%,var(--surface-strong)) 74% 100%);
+    }
+
+    .note:nth-child(3n+1)::after { opacity:.52; }
+
+    .note:hover {
+      transform:translateY(-3px);
+      border-color:var(--editorial-border-strong);
+      box-shadow:0 18px 42px color-mix(in srgb,var(--ink) 11%,transparent);
+    }
+
+    .ch-nav-btn,.chain button,.city-buttons button {
+      border:1px solid var(--editorial-border);
+      border-radius:10px;
+    }
+
+    .ch-nav-btn.active,.chain button.active,.city-buttons button.active {
+      color:var(--signal-ink);
+      border-color:color-mix(in srgb,var(--signal-ink) 14%,transparent);
+      background:color-mix(in srgb,var(--signal) 72%,var(--surface-strong));
+      box-shadow:0 8px 18px color-mix(in srgb,var(--ink) 9%,transparent);
+    }
+
+    .ch-view,.result,.explain {
+      border:1px solid var(--editorial-border);
+      border-radius:15px;
+      box-shadow:var(--editorial-shadow);
+    }
+
+    .rules li,.story,.quote,.question,.ba-col,.accordion details,.decision details,
+    .term-item,.personal-note-card,.chapter-conclusion {
+      border:1px solid var(--editorial-border);
+      border-radius:13px;
+    }
+
+    .rules li { border-left:5px solid color-mix(in srgb,var(--signal) 74%,var(--surface-strong)); }
+
+    .story {
+      border-left:6px solid color-mix(in srgb,var(--signal) 74%,var(--surface-strong));
+      box-shadow:var(--editorial-shadow);
+    }
+
+    .story .story-label {
+      border-radius:5px;
+      background:color-mix(in srgb,var(--signal) 58%,var(--surface-strong));
+    }
+
+    .quote {
+      border:1px solid color-mix(in srgb,var(--nav-ink) 12%,transparent);
+      border-radius:16px;
+      background:color-mix(in srgb,var(--nav-bg) 92%,var(--panel-bg));
+      box-shadow:var(--editorial-shadow-lg);
+    }
+
+    .quote::before { opacity:.46; }
+    .question::before { background:color-mix(in srgb,var(--signal) 72%,var(--surface-strong)); }
+    .ba-col.before { border:1px solid var(--editorial-border); border-top:5px solid color-mix(in srgb,var(--muted) 62%,var(--surface-strong)); }
+    .ba-col.after { border:1px solid var(--editorial-border); border-top:5px solid color-mix(in srgb,var(--signal) 72%,var(--surface-strong)); }
+
+    .table-wrap {
+      border:1px solid var(--editorial-border);
+      border-radius:13px;
+    }
+
+    .matrix th { background:color-mix(in srgb,var(--nav-bg) 94%,var(--panel-bg)); }
+    .timeline { border-left:4px solid color-mix(in srgb,var(--signal) 70%,var(--surface-strong)); }
+    .timeline-item::before { border-width:2px; background:color-mix(in srgb,var(--signal) 76%,var(--surface-strong)); }
+
+    .accordion details[open],.decision details[open],.term-item[open],.chapter-conclusion[open] {
+      box-shadow:0 12px 28px color-mix(in srgb,var(--ink) 8%,transparent);
+    }
+
+    .glossary-search,.note-search {
+      border:1px solid var(--editorial-border);
+      border-radius:11px;
+      box-shadow:none;
+    }
+
+    .term-category,.personal-note-tag { border-radius:999px; background:color-mix(in srgb,var(--signal) 58%,var(--surface-strong)); }
+    .note-tool,.personal-note-actions button,.ch-send { border:1px solid var(--editorial-border-strong); border-radius:9px; }
+
+    .note-tool.primary,.ch-send {
+      border-color:color-mix(in srgb,var(--signal-ink) 13%,transparent);
+      background:color-mix(in srgb,var(--signal) 72%,var(--surface-strong));
+      box-shadow:none;
+    }
+
+    .guide-card,.note-popover,.dd-popover {
+      border:1px solid var(--editorial-border);
+      border-radius:20px;
+      box-shadow:var(--editorial-shadow-lg);
+    }
+
+    .guide-avatar {
+      border-radius:16px;
+      background:color-mix(in srgb,var(--signal) 76%,var(--surface-strong));
+      box-shadow:var(--editorial-shadow);
+    }
+
+    .guide-step,.guide-profile { border:1px solid var(--editorial-border); border-radius:14px; }
+
+    .footer {
+      border:1px solid color-mix(in srgb,var(--nav-ink) 12%,transparent);
+      border-radius:14px;
+    }
+
+    [data-theme="dark"] .page-tools,[data-theme="dark"] .panel,[data-theme="dark"] .depth-banner {
+      border-color:var(--editorial-border);
+    }
+
+    @media (max-width:820px) {
+      .hero { border-radius:18px; }
+      .thesis { transform:none; }
+      .tabs { border-radius:14px; }
+      .panel { border-radius:18px; }
+    }
+  </style>
+</head>
+<body data-theme="warm-paper" data-mode="overview">
+  <main class="page">
+    <div class="page-tools" aria-label="页面工具">
+      <button id="guideBtn" class="guide-toggle" type="button" title="打开小巴新手引导并修改画像">小巴导读</button>
+      <label for="themePicker" class="sr-only">页面主题</label>
+      <select id="themePicker" class="theme-picker" aria-label="页面主题">
+        <option value="warm-paper">雾蓝书房</option>
+        <option value="minimal">灰白画册</option>
+        <option value="dark">深海夜读</option>
+        <option value="ink-wash">青灰宣纸</option>
+        <option value="vintage-editorial">暖褐画报</option>
+        <option value="paper-ink">石墨书页</option>
+      </select>
+      <button id="srcToggle" class="src-toggle" type="button" title="显示/隐藏出处">显示出处</button>
+    </div>
+    <section class="hero" aria-labelledby="pageTitle"><div class="hero-stamp" aria-hidden="true"><span>LEARNING</span><strong>01</strong><span>STUDIO</span></div><div class="hero-copy"><p class="eyebrow">示例方法材料 · 学习页</p><h1 id="pageTitle">先理解结构，再把方法用于行动</h1><p class="lede">本页演示固定内容契约如何稳定生成同一种交互页面。</p></div><aside class="thesis"><span class="thesis-index">CORE / 01</span><strong>一句话总论</strong><span>模型负责提炼内容，渲染器负责结构与交互。</span></aside></section>
+    <section class="depth-banner depth-systematic" aria-label="学习深度"><div><strong>系统学习模式</strong><span>尽可能全面保留材料中的框架、术语、论证、案例、规则与可测知识点。</span></div></section>
+    <nav class="tabs" aria-label="学习模块"><button class="tab" id="tab-frameworks" type="button" role="tab" data-panel="frameworks" aria-controls="frameworks" aria-selected="true" tabindex="0">核心框架</button><button class="tab" id="tab-content" type="button" role="tab" data-panel="content" aria-controls="content" aria-selected="false" tabindex="-1">内容导学</button><button class="tab" id="tab-glossary" type="button" role="tab" data-panel="glossary" aria-controls="glossary" aria-selected="false" tabindex="-1">术语大全</button><button class="tab" id="tab-rules" type="button" role="tab" data-panel="rules" aria-controls="rules" aria-selected="false" tabindex="-1">行动规则</button><button class="tab" id="tab-practice" type="button" role="tab" data-panel="practice" aria-controls="practice" aria-selected="false" tabindex="-1">学习自检</button><button class="tab" id="tab-notes" type="button" role="tab" data-panel="notes" aria-controls="notes" aria-selected="false" tabindex="-1">我的笔记</button></nav>
+    <section class="panel active" id="frameworks" role="tabpanel" aria-labelledby="tab-frameworks" tabindex="0"><h2 class="section-title">先抓住材料的知识骨架</h2><p class="section-lead">这些框架来自材料中的关键判断，也是后续内容单元、术语和行动规则的共同底座。</p><div class="grid"><article class="note" data-source="第1章《建立问题地图》 · PDF第10-20页"><h3>问题地图</h3><p>先界定问题、角色和边界。</p><p class="when">适用：刚进入一个陌生问题时</p><button class="deep-dive-btn" data-deep-dive data-concept="问题地图" data-source-ref="第1章《建立问题地图》 · PDF第10-20页" aria-label="追问：问题地图" title="追问这个概念">?</button></article><article class="note" data-source="第2章《构建证据链》 · PDF第21-35页"><h3>证据链</h3><p>让结论可以追溯到事实和出处。</p><p class="when">适用：需要判断观点是否可靠时</p><button class="deep-dive-btn" data-deep-dive data-concept="证据链" data-source-ref="第2章《构建证据链》 · PDF第21-35页" aria-label="追问：证据链" title="追问这个概念">?</button></article><article class="note" data-source="第3章《进入行动循环》 · PDF第36-50页"><h3>行动循环</h3><p>把理解转化为尝试、反馈和修正。</p><p class="when">适用：需要把知识用于实际时</p><button class="deep-dive-btn" data-deep-dive data-concept="行动循环" data-source-ref="第3章《进入行动循环》 · PDF第36-50页" aria-label="追问：行动循环" title="追问这个概念">?</button></article></div></section><section class="panel" id="content" role="tabpanel" aria-labelledby="tab-content" tabindex="0"><h2 class="section-title">按材料结构逐个学懂</h2><p class="section-lead">内容单元保留原材料顺序；书籍对应章节，PPT对应连续幻灯片组，文档对应标题分区。每个单元先给核心思想，再展开关键结论；第一单元已直接写入页面。</p><div class="ch-explorer"><div class="ch-nav" aria-label="内容单元导航"><button class="ch-nav-btn active" data-ch="ch01">第一章</button><button class="ch-nav-btn" data-ch="ch02">第二章</button><button class="ch-nav-btn" data-ch="ch03">第三章</button></div><article class="ch-view" id="chView" data-source="第1章《建立问题地图》 · PDF第10-20页"><div class="ch-view-label">第一章 · 建立问题地图</div><p class="ch-core"><strong>核心思想：</strong>复杂问题首先需要结构化。</p><div class="ch-block"><h4>关键框架</h4><ul><li>问题地图</li></ul></div><div class="ch-block"><h4>行动要点</h4><ul><li>先界定边界</li><li>识别关键角色</li><li>写清成功标准</li></ul></div><div class="ch-conclusions"><h4>点开结论，继续往下理解</h4><details class="chapter-conclusion" data-source="第1章《建立问题地图》 · PDF第10-15页"><summary><span class="conclusion-title">四类地图信息</span><span class="conclusion-summary">把问题、角色、约束和结果放在同一张图上。</span></summary><div class="conclusion-body"><ul><li>明确问题边界</li><li>识别关键参与者</li><li>单独列出主要约束</li><li>写清可观察的成功标准</li></ul><button class="deep-dive-btn" data-deep-dive data-concept="四类地图信息" data-source-ref="第1章《建立问题地图》 · PDF第10-15页" aria-label="追问：四类地图信息" title="追问这个概念">?</button></div></details><details class="chapter-conclusion" data-source="第1章《建立问题地图》 · PDF第16-20页"><summary><span class="conclusion-title">边界先于答案</span><span class="conclusion-summary">先决定什么属于问题，再判断什么信息有用。</span></summary><div class="conclusion-body"><ul><li>防止范围不断漂移</li><li>减少无关信息干扰</li></ul><button class="deep-dive-btn" data-deep-dive data-concept="边界先于答案" data-source-ref="第1章《建立问题地图》 · PDF第16-20页" aria-label="追问：边界先于答案" title="追问这个概念">?</button></div></details></div><button class="ch-send" type="button" data-ch-send="ch01" data-tooltip="复制本单元的核心内容、关键框架和材料出处。粘贴到当前材料对话后，AI 将基于原材料进行深入讲解。" aria-label="让 AI 详解本单元：复制详解口令到当前材料对话">让 AI 详解本单元</button></article></div></section><section class="panel" id="glossary" role="tabpanel" aria-labelledby="tab-glossary" tabindex="0"><h2 class="section-title">把材料中的专业词汇一次查清</h2><p class="section-lead">共 12 个术语，覆盖英文缩写、领域术语、方法框架、角色流程与指标工具。英文缩写和单词会直接显示中文含义；可搜索，也可逐条展开查看解释和材料语境。</p><div class="glossary-toolbar"><label class="sr-only" for="glossarySearch">搜索术语</label><input id="glossarySearch" class="glossary-search" type="search" placeholder="搜索术语、英文缩写或解释…" autocomplete="off"><span class="glossary-count" id="glossaryCount" aria-live="polite">显示 12 / 12</span></div><div class="glossary-list" id="glossaryList"><details class="term-item" data-term-entry data-source="第1章《建立问题地图》 · PDF第10-15页"><summary><span class="term-heading"><span class="term-name">问题地图</span></span><span class="term-category">方法框架</span></summary><div class="term-body"><p><strong>通俗定义：</strong>把问题、角色、约束和成功标准放在同一张图上的结构化工具。</p><p><strong>材料语境：</strong>材料用它帮助学习者在进入复杂问题时先建立共同边界。</p><p><strong>相关术语：</strong>问题边界、成功标准</p><p><strong>涉及单元：</strong>第一章·建立问题地图</p><button class="deep-dive-btn" data-deep-dive data-concept="问题地图" data-source-ref="第1章《建立问题地图》 · PDF第10-15页" aria-label="追问：问题地图" title="追问这个概念">?</button></div></details><details class="term-item" data-term-entry data-source="第1章《建立问题地图》 · PDF第10-16页"><summary><span class="term-heading"><span class="term-name">问题边界</span></span><span class="term-category">领域术语</span></summary><div class="term-body"><p><strong>通俗定义：</strong>明确当前问题包含什么、不包含什么。</p><p><strong>材料语境：</strong>它决定后续哪些信息和参与者与当前判断相关。</p><p><strong>相关术语：</strong>问题地图、信息相关性</p><p><strong>涉及单元：</strong>第一章·建立问题地图</p><button class="deep-dive-btn" data-deep-dive data-concept="问题边界" data-source-ref="第1章《建立问题地图》 · PDF第10-16页" aria-label="追问：问题边界" title="追问这个概念">?</button></div></details><details class="term-item" data-term-entry data-source="第1章《建立问题地图》 · PDF第14-20页"><summary><span class="term-heading"><span class="term-name">关键角色</span></span><span class="term-category">角色与流程</span></summary><div class="term-body"><p><strong>通俗定义：</strong>能够影响问题定义、资源投入或结果接受的人。</p><p><strong>材料语境：</strong>问题地图要求分别识别这些角色的目标和限制。</p><p><strong>相关术语：</strong>参与者目标、问题地图</p><p><strong>涉及单元：</strong>第一章·建立问题地图</p><button class="deep-dive-btn" data-deep-dive data-concept="关键角色" data-source-ref="第1章《建立问题地图》 · PDF第14-20页" aria-label="追问：关键角色" title="追问这个概念">?</button></div></details><details class="term-item" data-term-entry data-source="第1章《建立问题地图》 · PDF第16-20页；第3章《进入行动循环》 · PDF第44-47页"><summary><span class="term-heading"><span class="term-name">成功标准</span></span><span class="term-category">指标与工具</span></summary><div class="term-body"><p><strong>通俗定义：</strong>用来判断问题是否被解决的可观察结果。</p><p><strong>材料语境：</strong>材料要求在寻找答案前先写清标准，以免目标不断漂移。</p><p><strong>相关术语：</strong>问题边界、行动结果</p><p><strong>涉及单元：</strong>第一章·建立问题地图、第三章·进入行动循环</p><button class="deep-dive-btn" data-deep-dive data-concept="成功标准" data-source-ref="第1章《建立问题地图》 · PDF第16-20页；第3章《进入行动循环》 · PDF第44-47页" aria-label="追问：成功标准" title="追问这个概念">?</button></div></details><details class="term-item" data-term-entry data-source="第1章《建立问题地图》 · PDF第18-20页；第3章《进入行动循环》 · PDF第44-50页"><summary><span class="term-heading"><span class="term-name">KPI</span><span class="term-zh-meaning">中文：关键绩效指标</span><span class="term-full-name">Key Performance Indicator</span></span><span class="term-category">英文缩写</span></summary><div class="term-body"><p><strong>通俗定义：</strong>衡量目标进展的关键绩效指标。</p><p><strong>材料语境：</strong>示例用 KPI 说明成功标准需要转化为可观察指标。</p><p><strong>相关术语：</strong>成功标准、行动结果</p><p><strong>涉及单元：</strong>第一章·建立问题地图、第三章·进入行动循环</p><button class="deep-dive-btn" data-deep-dive data-concept="KPI" data-source-ref="第1章《建立问题地图》 · PDF第18-20页；第3章《进入行动循环》 · PDF第44-50页" aria-label="追问：KPI" title="追问这个概念">?</button></div></details><details class="term-item" data-term-entry data-source="第2章《构建证据链》 · PDF第21-27页"><summary><span class="term-heading"><span class="term-name">证据链</span></span><span class="term-category">方法框架</span></summary><div class="term-body"><p><strong>通俗定义：</strong>从结论逐层回溯到可核查事实的连接。</p><p><strong>材料语境：</strong>材料用它检验观点是否有足够依据，并暴露证据缺口。</p><p><strong>相关术语：</strong>事实、反证</p><p><strong>涉及单元：</strong>第二章·构建证据链</p><button class="deep-dive-btn" data-deep-dive data-concept="证据链" data-source-ref="第2章《构建证据链》 · PDF第21-27页" aria-label="追问：证据链" title="追问这个概念">?</button></div></details><details class="term-item" data-term-entry data-source="第2章《构建证据链》 · PDF第21-27页"><summary><span class="term-heading"><span class="term-name">事实</span></span><span class="term-category">领域术语</span></summary><div class="term-body"><p><strong>通俗定义：</strong>可以被观察、记录或独立复核的内容。</p><p><strong>材料语境：</strong>材料要求先陈述事实，再把解释作为可被检验的推断。</p><p><strong>相关术语：</strong>解释、证据链</p><p><strong>涉及单元：</strong>第二章·构建证据链</p><button class="deep-dive-btn" data-deep-dive data-concept="事实" data-source-ref="第2章《构建证据链》 · PDF第21-27页" aria-label="追问：事实" title="追问这个概念">?</button></div></details><details class="term-item" data-term-entry data-source="第2章《构建证据链》 · PDF第21-30页"><summary><span class="term-heading"><span class="term-name">解释</span></span><span class="term-category">领域术语</span></summary><div class="term-body"><p><strong>通俗定义：</strong>对事实为什么发生或意味着什么的推断。</p><p><strong>材料语境：</strong>解释必须接受竞争假设和反证检验，不能冒充事实。</p><p><strong>相关术语：</strong>事实、竞争假设</p><p><strong>涉及单元：</strong>第二章·构建证据链</p><button class="deep-dive-btn" data-deep-dive data-concept="解释" data-source-ref="第2章《构建证据链》 · PDF第21-30页" aria-label="追问：解释" title="追问这个概念">?</button></div></details><details class="term-item" data-term-entry data-source="第2章《构建证据链》 · PDF第28-35页"><summary><span class="term-heading"><span class="term-name">反证</span></span><span class="term-category">领域术语</span></summary><div class="term-body"><p><strong>通俗定义：</strong>可能削弱或推翻当前判断的证据。</p><p><strong>材料语境：</strong>材料要求主动寻找反证，以校准证据强度。</p><p><strong>相关术语：</strong>确认偏误、证据链</p><p><strong>涉及单元：</strong>第二章·构建证据链</p><button class="deep-dive-btn" data-deep-dive data-concept="反证" data-source-ref="第2章《构建证据链》 · PDF第28-35页" aria-label="追问：反证" title="追问这个概念">?</button></div></details><details class="term-item" data-term-entry data-source="第2章《构建证据链》 · PDF第28-35页"><summary><span class="term-heading"><span class="term-name">确认偏误</span></span><span class="term-category">领域术语</span></summary><div class="term-body"><p><strong>通俗定义：</strong>更容易寻找和接受支持既有判断的信息倾向。</p><p><strong>材料语境：</strong>反证校准用来减少这种偏差对决策的影响。</p><p><strong>相关术语：</strong>反证、竞争假设</p><p><strong>涉及单元：</strong>第二章·构建证据链</p><button class="deep-dive-btn" data-deep-dive data-concept="确认偏误" data-source-ref="第2章《构建证据链》 · PDF第28-35页" aria-label="追问：确认偏误" title="追问这个概念">?</button></div></details><details class="term-item" data-term-entry data-source="第3章《进入行动循环》 · PDF第36-43页"><summary><span class="term-heading"><span class="term-name">最小行动</span></span><span class="term-category">方法框架</span></summary><div class="term-body"><p><strong>通俗定义：</strong>用最低可行成本验证关键假设并获得新信息的动作。</p><p><strong>材料语境：</strong>材料用它把长期抽象争论转化为可反馈的现实测试。</p><p><strong>相关术语：</strong>反馈循环、关键假设</p><p><strong>涉及单元：</strong>第三章·进入行动循环</p><button class="deep-dive-btn" data-deep-dive data-concept="最小行动" data-source-ref="第3章《进入行动循环》 · PDF第36-43页" aria-label="追问：最小行动" title="追问这个概念">?</button></div></details><details class="term-item" data-term-entry data-source="第3章《进入行动循环》 · PDF第44-50页"><summary><span class="term-heading"><span class="term-name">反馈循环</span></span><span class="term-category">方法框架</span></summary><div class="term-body"><p><strong>通俗定义：</strong>用行动结果持续修正理解和下一步选择的循环。</p><p><strong>材料语境：</strong>它把一次尝试的预期、结果和修正连接到下一轮行动。</p><p><strong>相关术语：</strong>最小行动、行动结果</p><p><strong>涉及单元：</strong>第三章·进入行动循环</p><button class="deep-dive-btn" data-deep-dive data-concept="反馈循环" data-source-ref="第3章《进入行动循环》 · PDF第44-50页" aria-label="追问：反馈循环" title="追问这个概念">?</button></div></details></div><p class="glossary-empty" id="glossaryEmpty" hidden>没有找到匹配术语，请换一个关键词。</p><button class="term-ask-fab" id="termAskFab" type="button" data-deep-dive data-concept="术语大全" data-source-ref="材料术语汇总" aria-label="粘贴不理解的术语并向 AI 提问" title="粘贴术语问 AI">?</button></section><section class="panel" id="rules" role="tabpanel" aria-labelledby="tab-rules" tabindex="0"><h2 class="section-title">把方法论压缩成下一步动作</h2><p class="section-lead">共 6 条规则，覆盖材料中的主要判断与行动场景。统一采用“当 X，做 Y，因为 Z”，按页面向下滚动即可连续阅读。</p><div class="content-stream"><ul class="rules"><li class="rule-item" data-source="第1章《建立问题地图》 · PDF第10-15页"><strong>当 问题边界模糊</strong> → 先画问题地图 <em>（没有边界就无法判断信息是否相关）</em><button class="deep-dive-btn" data-deep-dive data-concept="当 问题边界模糊" data-source-ref="第1章《建立问题地图》 · PDF第10-15页" aria-label="追问：当 问题边界模糊" title="追问这个概念">?</button></li><li class="rule-item" data-source="第2章《构建证据链》 · PDF第26-31页"><strong>当 结论缺乏把握</strong> → 补证据并主动找反证 <em>（单一证据容易造成确认偏误）</em><button class="deep-dive-btn" data-deep-dive data-concept="当 结论缺乏把握" data-source-ref="第2章《构建证据链》 · PDF第26-31页" aria-label="追问：当 结论缺乏把握" title="追问这个概念">?</button></li><li class="rule-item" data-source="第3章《进入行动循环》 · PDF第43-50页"><strong>当 讨论长期没有进展</strong> → 设计一个最小行动 <em>（反馈比继续抽象争论更能减少不确定性）</em><button class="deep-dive-btn" data-deep-dive data-concept="当 讨论长期没有进展" data-source-ref="第3章《进入行动循环》 · PDF第43-50页" aria-label="追问：当 讨论长期没有进展" title="追问这个概念">?</button></li><li class="rule-item" data-source="第1章《建立问题地图》 · PDF第14-20页"><strong>当 参与者目标冲突</strong> → 分别写出每个人的目标和约束 <em>（总括性共识会掩盖真实分歧）</em><button class="deep-dive-btn" data-deep-dive data-concept="当 参与者目标冲突" data-source-ref="第1章《建立问题地图》 · PDF第14-20页" aria-label="追问：当 参与者目标冲突" title="追问这个概念">?</button></li><li class="rule-item" data-source="第2章《构建证据链》 · PDF第28-35页"><strong>当 证据只支持一个解释</strong> → 列出至少一个竞争解释 <em>（同一事实可能对应不同原因）</em><button class="deep-dive-btn" data-deep-dive data-concept="当 证据只支持一个解释" data-source-ref="第2章《构建证据链》 · PDF第28-35页" aria-label="追问：当 证据只支持一个解释" title="追问这个概念">?</button></li><li class="rule-item" data-source="第3章《进入行动循环》 · PDF第44-50页"><strong>当 行动结果偏离预期</strong> → 先修正假设再扩大行动 <em>（未经校准的重复只会放大错误）</em><button class="deep-dive-btn" data-deep-dive data-concept="当 行动结果偏离预期" data-source-ref="第3章《进入行动循环》 · PDF第44-50页" aria-label="追问：当 行动结果偏离预期" title="追问这个概念">?</button></li></ul></div></section><section class="panel" id="practice" role="tabpanel" aria-labelledby="tab-practice" tabindex="0"><h2 class="section-title">按你的目标生成一场动态测验</h2><p class="section-lead">页面已整理 6 个可测考点，但不会把固定题目全部铺开。选择范围和要求后复制口令，粘贴到当前材料对话中，AI 会基于知识库逐题测试、判分并动态调整难度。</p><div class="assessment-shell"><div class="assessment-steps" aria-label="动态测验步骤"><div><strong>1</strong><span>选择范围与难度</span></div><div><strong>2</strong><span>复制口令到对话框</span></div><div><strong>3</strong><span>结束后导回错题</span></div></div><fieldset class="assessment-scope"><legend>出题范围</legend><label><input type="radio" name="assessmentScope" value="all" checked><span>综合全部</span><small>覆盖整份材料</small></label><label><input type="radio" name="assessmentScope" value="unit"><span>指定章节</span><small>选择一个内容单元</small></label><label><input type="radio" name="assessmentScope" value="custom"><span>自定义要求</span><small>按你的目标出题</small></label></fieldset><div class="assessment-field" id="assessmentUnitWrap" hidden><label for="assessmentUnit">选择章节或单元</label><select id="assessmentUnit"><option value="ch01">第一章 · 建立问题地图</option><option value="ch02">第二章 · 构建证据链</option><option value="ch03">第三章 · 进入行动循环</option></select></div><div class="assessment-field" id="assessmentCustomWrap" hidden><label for="assessmentCustom">告诉 AI 你想重点练什么</label><textarea id="assessmentCustom" placeholder="例如：重点测试第三章，多出应用题，少出记忆题；或者只练容易混淆的概念。"></textarea></div><div class="assessment-settings"><label for="assessmentCount">题量<select id="assessmentCount"><option value="5">5 题</option><option value="8" selected>8 题</option><option value="10">10 题</option><option value="15">15 题</option></select></label><label for="assessmentDifficulty">难度<select id="assessmentDifficulty"><option value="基础">基础</option><option value="进阶">进阶</option><option value="挑战">挑战</option><option value="自适应" selected>自适应</option></select></label><label for="assessmentAbility">能力重点<select id="assessmentAbility"><option value="综合：记忆、解释、应用与迁移" selected>综合能力</option><option value="记忆与概念辨析">记忆与辨析</option><option value="解释机制与因果关系">理解与解释</option><option value="应用与案例判断">应用判断</option><option value="新情境迁移">迁移能力</option></select></label></div><button class="assessment-copy" id="assessmentCopy" type="button">生成并复制自检口令</button><details class="assessment-preview"><summary>查看或手动复制口令</summary><textarea id="assessmentPromptPreview" readonly aria-label="生成的自检口令"></textarea></details><p class="assessment-boundary">如果当前对话没有加载对应材料或知识库，口令会要求 AI 先请你上传，避免脱离材料出题。基础题可使用具备文件读取和结构化输出能力的通用模型；专业材料与复杂开放题建议使用长上下文、高推理能力模型。</p></div><section class="mistake-book" aria-labelledby="mistakeBookTitle"><div class="mistake-book-heading"><div><p class="section-kicker">测验后的复习闭环</p><h2 id="mistakeBookTitle">我的错题本</h2></div><span id="mistakeCount">0 道错题</span></div><p class="mistake-book-lead">测验结束后，复制 AI 生成的错题记录，粘贴到下方即可导入。错题保存在当前浏览器；换设备前请备份 JSON。</p><div class="mistake-import-box"><label for="mistakeImportText">粘贴 AI 的测验总结或错题 JSON</label><textarea id="mistakeImportText" placeholder="可直接粘贴整段测验总结，页面会自动寻找 KLA_MISTAKES_JSON 标记。"></textarea><button id="mistakeImportPaste" type="button">导入粘贴内容</button></div><div class="mistake-toolbar"><input id="mistakeSearch" type="search" placeholder="搜索题目、知识点或章节…" aria-label="搜索错题"><select id="mistakeStatusFilter" aria-label="按掌握状态筛选"><option value="全部">全部状态</option><option value="未掌握">未掌握</option><option value="复习中">复习中</option><option value="已掌握">已掌握</option></select><button id="mistakeRetryVisible" type="button">复制筛选结果复测口令</button><button id="mistakeExportJson" type="button">备份 JSON</button><label class="mistake-file-import">导入 JSON<input id="mistakeImportFile" type="file" accept="application/json,.json" hidden></label></div><p class="mistake-storage" id="mistakeStorageStatus">保存在当前浏览器；换设备前请备份 JSON。</p><div class="mistake-list" id="mistakeList"><div class="mistake-empty"><strong>还没有错题</strong><span>完成一次 AI 测验后，把错题记录粘贴到上方。</span></div></div></section></section><section class="panel" id="notes" role="tabpanel" aria-labelledby="tab-notes" tabindex="0"><h2 class="section-title">把感兴趣的内容变成自己的知识</h2><p class="section-lead">在任意内容卡片右下角点击“☆”，原内容和出处会立即保存，无需复制粘贴。之后可在这里搜索、展开、编辑或删除；笔记只保存在当前浏览器，可用 JSON 备份或迁移。</p><div class="notes-guide" aria-label="笔记使用步骤"><div><strong>1</strong><span>点击内容旁的 ☆</span></div><div><strong>2</strong><span>原内容立即保存</span></div><div><strong>3</strong><span>回来编辑与回顾</span></div></div><div class="notes-toolbar"><label class="sr-only" for="noteSearch">搜索笔记</label><input id="noteSearch" class="note-search" type="search" placeholder="搜索标题、标签、理解或行动…" autocomplete="off"><button id="freeNoteBtn" class="note-tool primary" type="button">新增自由笔记</button><button id="exportNotesMd" class="note-tool" type="button">导出 Markdown</button><button id="exportNotesJson" class="note-tool" type="button">备份 JSON</button><label class="note-tool note-import">导入 JSON<input id="noteImportInput" type="file" accept="application/json,.json" hidden></label></div><div class="notes-meta"><span id="noteCount" aria-live="polite">0 条笔记</span><span id="notesStorageStatus">保存在当前浏览器；换设备前请备份 JSON。</span></div><div class="notes-list" id="notesList" aria-live="polite"><div class="notes-empty" id="notesEmpty"><strong>还没有笔记</strong><span>点击任意内容卡片右下角的“☆”即可保存。</span></div></div></section>
+    <footer class="footer">示例页面用于验证 knowledge-learning-assistant 4.2 的材料顺序、总结覆盖、动态自检、错题本、小巴三级讲解、术语搜索和一键笔记交互。</footer>
+  </main>
+
+  <div class="guide-overlay" id="guideOverlay" aria-hidden="true">
+    <section class="guide-card" role="dialog" aria-modal="true" aria-labelledby="guideTitle">
+      <div class="guide-intro">
+        <div class="guide-avatar" aria-hidden="true">巴</div>
+        <div>
+          <p class="guide-kicker">你的材料学习向导 · 小巴</p>
+          <h2 class="guide-title" id="guideTitle">第一次来？一分钟学会这个页面</h2>
+          <p class="guide-lede">我会帮你找到内容、核对出处、保存重点，并按“严谨解释→画像类比→图片说明”逐层帮助你理解。</p>
+        </div>
+      </div>
+      <div class="guide-steps" aria-label="页面交互说明">
+        <div class="guide-step"><strong>换一种阅读氛围</strong><span>右上角可在六套主题之间切换，选择会自动记住。</span></div>
+        <div class="guide-step"><strong>切换学习模块</strong><span>点击顶部模块栏，在框架、内容、术语、规则、自检和笔记间切换。</span></div>
+        <div class="guide-step"><strong>发起动态自检</strong><span>选择全部、指定章节或自定义要求，复制口令后到对话框逐题作答。</span></div>
+        <div class="guide-step"><strong>核对知识出处</strong><span>点击“显示出处”，即可查看内容来自哪份文件、哪一页或哪张幻灯片。</span></div>
+        <div class="guide-step"><strong>不懂就问小巴</strong><span>首次先严谨解释；你说没懂后我才用画像举例，再不懂才用图片。</span></div>
+        <div class="guide-step"><strong>保存重点与错题</strong><span>内容旁的“☆”保存笔记；AI 测验结束后可把错题记录导回本页。</span></div>
+      </div>
+      <div class="guide-profile">
+        <h3>需要时，再用你熟悉的方式解释</h3>
+        <p>只需简单告诉我职业和兴趣。首次讲解仍保持学术严谨；只有你明确表示没懂时，我才调用画像举例。无需填写姓名、公司或联系方式。</p>
+        <div class="guide-fields">
+          <label for="profileProfession">你的职业或主要身份
+            <input id="profileProfession" type="text" maxlength="80" placeholder="例如：销售、产品经理、学生、工程师">
+          </label>
+          <label for="profileInterests">你的兴趣爱好
+            <input id="profileInterests" type="text" maxlength="120" placeholder="例如：股票、汽车、游戏、旅行、运动">
+          </label>
+        </div>
+        <p class="guide-privacy">画像仅保存在当前浏览器；只有你主动复制追问时，它才会进入给 AI 的提示词。</p>
+      </div>
+      <div class="guide-actions">
+        <button id="guideSkip" type="button">暂时跳过</button>
+        <button class="guide-save" id="guideSave" type="button">保存画像，开始学习</button>
+      </div>
+    </section>
+  </div>
+
+  <div class="dd-overlay" id="ddOverlay">
+    <div class="dd-popover" role="dialog" aria-modal="true" aria-labelledby="ddTitle">
+      <p class="dd-title" id="ddTitle"></p>
+      <p class="dd-ctx" id="ddCtx"></p>
+      <textarea id="ddInput" placeholder="输入你想追问的细节..."></textarea>
+      <div class="dd-actions">
+        <button class="dd-submit" id="ddSubmit">复制追问到剪贴板</button>
+        <button class="dd-cancel" id="ddCancel">取消</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="note-overlay" id="noteOverlay">
+    <div class="note-popover" role="dialog" aria-modal="true" aria-labelledby="noteDialogTitle">
+      <h2 class="note-dialog-title" id="noteDialogTitle">编辑我的笔记</h2>
+      <p class="note-dialog-context" id="noteDialogContext">内容卡片可一键保存；这里用于进一步整理。</p>
+      <div class="note-source-preview" id="noteSourcePreview"></div>
+      <label for="noteTitleInput">笔记标题</label>
+      <input id="noteTitleInput" type="text" maxlength="160" placeholder="一句话标题">
+      <label for="noteSummaryInput">内容摘要</label>
+      <textarea id="noteSummaryInput" placeholder="记录值得回顾的内容…"></textarea>
+      <label for="noteInsightInput">我的理解（可选）</label>
+      <textarea id="noteInsightInput" placeholder="这条内容为什么重要？"></textarea>
+      <label for="noteActionInput">下一步行动（可选）</label>
+      <textarea id="noteActionInput" placeholder="准备怎么应用？"></textarea>
+      <label for="noteTagsInput">标签（可选，用逗号分隔）</label>
+      <input id="noteTagsInput" type="text" maxlength="160" placeholder="例如：客户判断、会前准备">
+      <label for="notePersonalInput">我的补充（可选）</label>
+      <textarea id="notePersonalInput" placeholder="写下你的联想、疑问或准备采取的行动…"></textarea>
+      <div class="note-dialog-actions">
+        <button class="note-save" id="noteSave" type="button">保存修改</button>
+        <button id="noteCancel" type="button">取消</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="dd-toast" id="ddToast"></div>
+  <script id="pageData" type="application/json">{"assessment":{"focusAreas":[{"abilities":["记忆","解释","应用","迁移"],"id":"focus-problem-map","source":"第1章《建立问题地图》 · PDF第10-20页","title":"问题地图的四类信息与边界作用","unitId":"ch01"},{"abilities":["解释","应用"],"id":"focus-role-constraint","source":"第1章《建立问题地图》 · PDF第14-20页","title":"关键角色、目标与约束的识别","unitId":"ch01"},{"abilities":["记忆","解释","应用"],"id":"focus-fact-interpretation","source":"第2章《构建证据链》 · PDF第21-27页","title":"事实与解释的区分","unitId":"ch02"},{"abilities":["解释","应用","迁移"],"id":"focus-counterevidence","source":"第2章《构建证据链》 · PDF第28-35页","title":"反证与竞争解释的校准作用","unitId":"ch02"},{"abilities":["记忆","解释","应用","迁移"],"id":"focus-minimum-action","source":"第3章《进入行动循环》 · PDF第36-43页","title":"最小行动的定义与设计条件","unitId":"ch03"},{"abilities":["解释","应用","迁移"],"id":"focus-feedback-loop","source":"第3章《进入行动循环》 · PDF第44-50页","title":"反馈循环中的预期、结果与修正","unitId":"ch03"}]},"contentUnits":[{"conclusions":[{"points":["明确问题边界","识别关键参与者","单独列出主要约束","写清可观察的成功标准"],"source":"第1章《建立问题地图》 · PDF第10-15页","summary":"把问题、角色、约束和结果放在同一张图上。","title":"四类地图信息"},{"points":["防止范围不断漂移","减少无关信息干扰"],"source":"第1章《建立问题地图》 · PDF第16-20页","summary":"先决定什么属于问题，再判断什么信息有用。","title":"边界先于答案"}],"core":"复杂问题首先需要结构化。","frameworks":["问题地图"],"id":"ch01","label":"第一章","source":"第1章《建立问题地图》 · PDF第10-20页","takeaways":["先界定边界","识别关键角色","写清成功标准"],"title":"建立问题地图"},{"conclusions":[{"points":["事实可被复核","解释需要竞争假设"],"source":"第2章《构建证据链》 · PDF第21-27页","summary":"先记录发生了什么，再说明它可能意味着什么。","title":"事实与解释分层"},{"points":["降低确认偏误","暴露证据缺口"],"source":"第2章《构建证据链》 · PDF第28-35页","summary":"主动寻找会推翻当前判断的信息。","title":"反证校准"}],"core":"观点必须能回到证据。","frameworks":["证据链"],"id":"ch02","label":"第二章","source":"第2章《构建证据链》 · PDF第21-35页","takeaways":["区分事实与解释","主动寻找反证","标记证据强度"],"title":"构建证据链"},{"conclusions":[{"points":["一次只验证关键假设","行动必须产生新信息"],"source":"第3章《进入行动循环》 · PDF第36-43页","summary":"用低成本动作验证最关键的未知。","title":"最小行动"},{"points":["记录预期与实际差异","把修正带入下一轮"],"source":"第3章《进入行动循环》 · PDF第44-50页","summary":"结果用于修改模型，而不是替原判断辩护。","title":"反馈修正"}],"core":"理解只有经过应用和反馈才会稳定。","frameworks":["行动循环"],"id":"ch03","label":"第三章","source":"第3章《进入行动循环》 · PDF第36-50页","takeaways":["设计最小行动","尽快获得反馈","持续修正模型"],"title":"进入行动循环"}],"decisionRules":[{"because":"没有边界就无法判断信息是否相关","do":"先画问题地图","source":"第1章《建立问题地图》 · PDF第10-15页","when":"问题边界模糊"},{"because":"单一证据容易造成确认偏误","do":"补证据并主动找反证","source":"第2章《构建证据链》 · PDF第26-31页","when":"结论缺乏把握"},{"because":"反馈比继续抽象争论更能减少不确定性","do":"设计一个最小行动","source":"第3章《进入行动循环》 · PDF第43-50页","when":"讨论长期没有进展"},{"because":"总括性共识会掩盖真实分歧","do":"分别写出每个人的目标和约束","source":"第1章《建立问题地图》 · PDF第14-20页","when":"参与者目标冲突"},{"because":"同一事实可能对应不同原因","do":"列出至少一个竞争解释","source":"第2章《构建证据链》 · PDF第28-35页","when":"证据只支持一个解释"},{"because":"未经校准的重复只会放大错误","do":"先修正假设再扩大行动","source":"第3章《进入行动循环》 · PDF第44-50页","when":"行动结果偏离预期"}],"footer":"示例页面用于验证 knowledge-learning-assistant 4.2 的材料顺序、总结覆盖、动态自检、错题本、小巴三级讲解、术语搜索和一键笔记交互。","frameworks":[{"firstUnitId":"ch01","name":"问题地图","oneLine":"先界定问题、角色和边界。","source":"第1章《建立问题地图》 · PDF第10-20页","sourceOrder":1,"when":"刚进入一个陌生问题时"},{"firstUnitId":"ch02","name":"证据链","oneLine":"让结论可以追溯到事实和出处。","source":"第2章《构建证据链》 · PDF第21-35页","sourceOrder":2,"when":"需要判断观点是否可靠时"},{"firstUnitId":"ch03","name":"行动循环","oneLine":"把理解转化为尝试、反馈和修正。","source":"第3章《进入行动循环》 · PDF第36-50页","sourceOrder":3,"when":"需要把知识用于实际时"}],"glossary":[{"category":"方法框架","context":"材料用它帮助学习者在进入复杂问题时先建立共同边界。","definition":"把问题、角色、约束和成功标准放在同一张图上的结构化工具。","firstUnitId":"ch01","id":"problem-map","related":["问题边界","成功标准"],"source":"第1章《建立问题地图》 · PDF第10-15页","sourceOrder":1,"term":"问题地图","units":["ch01"]},{"category":"领域术语","context":"它决定后续哪些信息和参与者与当前判断相关。","definition":"明确当前问题包含什么、不包含什么。","firstUnitId":"ch01","id":"problem-boundary","related":["问题地图","信息相关性"],"source":"第1章《建立问题地图》 · PDF第10-16页","sourceOrder":2,"term":"问题边界","units":["ch01"]},{"category":"角色与流程","context":"问题地图要求分别识别这些角色的目标和限制。","definition":"能够影响问题定义、资源投入或结果接受的人。","firstUnitId":"ch01","id":"key-role","related":["参与者目标","问题地图"],"source":"第1章《建立问题地图》 · PDF第14-20页","sourceOrder":3,"term":"关键角色","units":["ch01"]},{"category":"指标与工具","context":"材料要求在寻找答案前先写清标准，以免目标不断漂移。","definition":"用来判断问题是否被解决的可观察结果。","firstUnitId":"ch01","id":"success-criteria","related":["问题边界","行动结果"],"source":"第1章《建立问题地图》 · PDF第16-20页；第3章《进入行动循环》 · PDF第44-47页","sourceOrder":4,"term":"成功标准","units":["ch01","ch03"]},{"category":"英文缩写","context":"示例用 KPI 说明成功标准需要转化为可观察指标。","definition":"衡量目标进展的关键绩效指标。","firstUnitId":"ch01","fullName":"Key Performance Indicator","id":"kpi","related":["成功标准","行动结果"],"source":"第1章《建立问题地图》 · PDF第18-20页；第3章《进入行动循环》 · PDF第44-50页","sourceOrder":5,"term":"KPI","units":["ch01","ch03"],"zhMeaning":"关键绩效指标"},{"category":"方法框架","context":"材料用它检验观点是否有足够依据，并暴露证据缺口。","definition":"从结论逐层回溯到可核查事实的连接。","firstUnitId":"ch02","id":"evidence-chain","related":["事实","反证"],"source":"第2章《构建证据链》 · PDF第21-27页","sourceOrder":6,"term":"证据链","units":["ch02"]},{"category":"领域术语","context":"材料要求先陈述事实，再把解释作为可被检验的推断。","definition":"可以被观察、记录或独立复核的内容。","firstUnitId":"ch02","id":"fact","related":["解释","证据链"],"source":"第2章《构建证据链》 · PDF第21-27页","sourceOrder":7,"term":"事实","units":["ch02"]},{"category":"领域术语","context":"解释必须接受竞争假设和反证检验，不能冒充事实。","definition":"对事实为什么发生或意味着什么的推断。","firstUnitId":"ch02","id":"interpretation","related":["事实","竞争假设"],"source":"第2章《构建证据链》 · PDF第21-30页","sourceOrder":8,"term":"解释","units":["ch02"]},{"category":"领域术语","context":"材料要求主动寻找反证，以校准证据强度。","definition":"可能削弱或推翻当前判断的证据。","firstUnitId":"ch02","id":"counterevidence","related":["确认偏误","证据链"],"source":"第2章《构建证据链》 · PDF第28-35页","sourceOrder":9,"term":"反证","units":["ch02"]},{"category":"领域术语","context":"反证校准用来减少这种偏差对决策的影响。","definition":"更容易寻找和接受支持既有判断的信息倾向。","firstUnitId":"ch02","id":"confirmation-bias","related":["反证","竞争假设"],"source":"第2章《构建证据链》 · PDF第28-35页","sourceOrder":10,"term":"确认偏误","units":["ch02"]},{"category":"方法框架","context":"材料用它把长期抽象争论转化为可反馈的现实测试。","definition":"用最低可行成本验证关键假设并获得新信息的动作。","firstUnitId":"ch03","id":"minimum-action","related":["反馈循环","关键假设"],"source":"第3章《进入行动循环》 · PDF第36-43页","sourceOrder":11,"term":"最小行动","units":["ch03"]},{"category":"方法框架","context":"它把一次尝试的预期、结果和修正连接到下一轮行动。","definition":"用行动结果持续修正理解和下一步选择的循环。","firstUnitId":"ch03","id":"feedback-loop","related":["最小行动","行动结果"],"source":"第3章《进入行动循环》 · PDF第44-50页","sourceOrder":12,"term":"反馈循环","units":["ch03"]}],"hero":{"eyebrow":"示例方法材料 · 学习页","lede":"本页演示固定内容契约如何稳定生成同一种交互页面。","thesis":"模型负责提炼内容，渲染器负责结构与交互。","title":"先理解结构，再把方法用于行动"},"meta":{"creator":"示例作者","initialTheme":"warm-paper","knowledgeBase":"示例方法材料.learnkb/INDEX.md","learningDepth":"systematic","mode":"overview","pageId":"example-method-material","sourceType":"book","title":"示例方法材料"},"schemaVersion":"4.2"}</script>
+  <script>
+    (function() {
+      var pageData = {};
+      var dataElement = document.getElementById("pageData");
+      try { pageData = JSON.parse(dataElement ? dataElement.textContent : "{}"); }
+      catch (error) { pageData = {}; }
+
+      function byId(id) { return document.getElementById(id); }
+      function clear(node) { while (node && node.firstChild) { node.removeChild(node.firstChild); } }
+      function make(tag, className, text) {
+        var node = document.createElement(tag);
+        if (className) { node.className = className; }
+        if (typeof text !== "undefined") { node.textContent = text; }
+        return node;
+      }
+      function findById(items, id) {
+        var result = null;
+        (items || []).forEach(function(item) { if (!result && item.id === id) { result = item; } });
+        return result;
+      }
+      function fallbackCopy(text, onSuccess, onFailure) {
+        var area = document.createElement("textarea");
+        area.value = text;
+        area.setAttribute("readonly", "readonly");
+        area.style.position = "fixed";
+        area.style.opacity = "0";
+        document.body.appendChild(area);
+        area.select();
+        try { document.execCommand("copy") ? onSuccess() : onFailure(); }
+        catch (error) { onFailure(); }
+        document.body.removeChild(area);
+      }
+      function copyText(text, onSuccess, onFailure) {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(onSuccess).catch(function() { fallbackCopy(text, onSuccess, onFailure); });
+        } else { fallbackCopy(text, onSuccess, onFailure); }
+      }
+
+      var toast = byId("ddToast");
+      function showToast(message) {
+        if (!toast) { return; }
+        toast.textContent = message;
+        toast.classList.add("show");
+        setTimeout(function() { toast.classList.remove("show"); }, 2200);
+      }
+      window.showToast = showToast;
+
+      var picker = byId("themePicker");
+      var knownThemes = ["warm-paper", "minimal", "dark", "ink-wash", "vintage-editorial", "paper-ink"];
+      var currentTheme = document.body.getAttribute("data-theme") || "warm-paper";
+      try {
+        var savedTheme = localStorage.getItem("knowledge-learning-assistant-theme");
+        if (knownThemes.indexOf(savedTheme) >= 0) { currentTheme = savedTheme; }
+      } catch (error) { /* optional storage */ }
+      document.body.setAttribute("data-theme", currentTheme);
+      if (picker) {
+        picker.value = currentTheme;
+        picker.onchange = function() {
+          if (knownThemes.indexOf(picker.value) < 0) { return; }
+          document.body.setAttribute("data-theme", picker.value);
+          try { localStorage.setItem("knowledge-learning-assistant-theme", picker.value); } catch (error) { /* optional */ }
+        };
+      }
+
+      var sourceToggle = byId("srcToggle");
+      if (sourceToggle) {
+        sourceToggle.onclick = function() {
+          document.body.classList.toggle("show-sources");
+          sourceToggle.classList.toggle("active");
+          sourceToggle.textContent = document.body.classList.contains("show-sources") ? "隐藏出处" : "显示出处";
+        };
+      }
+
+      // pageId remains stable across regenerated HTML versions, so an update keeps
+      // the same reader profile, notes and mistakes without leaking across projects.
+      function stablePageIdentity(meta) {
+        return String((meta && (meta.pageId || meta.knowledgeBase || meta.title)) || "unnamed-material");
+      }
+      function makeReaderStorageScope() {
+        var serialized = stablePageIdentity(pageData.meta || {});
+        var hash = 2166136261;
+        for (var index = 0; index < serialized.length; index += 1) {
+          hash ^= serialized.charCodeAt(index);
+          hash = Math.imul(hash, 16777619);
+        }
+        return (hash >>> 0).toString(36);
+      }
+      var readerStorageScope = makeReaderStorageScope();
+      var readerProfileStorageKey = "knowledge-learning-assistant-reader-profile:v2:" + readerStorageScope;
+      var readerGuideSeenKey = "knowledge-learning-assistant-guide-seen:v2:" + readerStorageScope;
+      var readerProfile = { profession:"", interests:"" };
+      var upgradeDepthCopy = byId("upgradeDepthCopy");
+      if (upgradeDepthCopy) {
+        upgradeDepthCopy.onclick = function() {
+          var meta = pageData.meta || {};
+          var prompt = "请基于现有材料和知识库，为“" + (meta.title || "这份材料") + "”生成系统学习版：尽可能全面覆盖框架、术语、论证、案例、行动规则和自检考点，沿用 pageId " + stablePageIdentity(meta) + "，并重新执行覆盖审计。";
+          prompt += " 知识库：" + (meta.knowledgeBase || "当前材料知识库") + "。先校验文件指纹，复用未变化原文、页码映射和已核实核心内容，再补齐详细单元及系统审计；不要重新提取未变化的文件。若原材料或知识库不可访问，请先向我索要，不得凭摘要补全。";
+          copyText(prompt, function() { showToast("系统学习口令已复制"); }, function() { showToast("复制失败，请手动选择文本"); });
+        };
+      }
+      var guideOverlay = byId("guideOverlay");
+      var profileProfession = byId("profileProfession");
+      var profileInterests = byId("profileInterests");
+      function cleanProfileText(value) {
+        return typeof value === "string" ? value.trim() : "";
+      }
+      function loadReaderProfile() {
+        try {
+          var parsed = JSON.parse(localStorage.getItem(readerProfileStorageKey) || "{}");
+          readerProfile = {
+            profession:cleanProfileText(parsed.profession),
+            interests:cleanProfileText(parsed.interests)
+          };
+        } catch (error) { readerProfile = { profession:"", interests:"" }; }
+        if (profileProfession) { profileProfession.value = readerProfile.profession; }
+        if (profileInterests) { profileInterests.value = readerProfile.interests; }
+      }
+      function readerProfileContext() {
+        var parts = [];
+        if (readerProfile.profession) { parts.push("职业或主要身份：" + readerProfile.profession); }
+        if (readerProfile.interests) { parts.push("兴趣爱好：" + readerProfile.interests); }
+        return parts.length
+          ? "读者画像（仅在第二层讲解触发后使用）：" + parts.join("；") + "。首次回答禁止根据画像主动举例。"
+          : "读者未填写画像。首次回答仍需严谨解释；只有用户明确表示没懂时，第二层才可使用普通生活类比。";
+      }
+      function knowledgeSourceProtocol(meta, source) {
+        return "【知识来源协议】\n1. 先检查材料知识库；有依据时标记[材料依据]并给真实出处。\n2. 材料未覆盖时先标记[材料未覆盖]，再以[模型补充]调用当前模型知识回答。\n3. 涉及可能变化的事实或医学、法律、金融等高风险内容，有联网工具时核验权威来源并标记[外部核验]；无法核验就说明不确定性。\n4. 不得伪造材料出处，不得把模型补充说成材料原意。\n材料知识库：" + (meta.knowledgeBase || "未提供") + "；当前出处：" + (source || "未标注") + "。";
+      }
+      function progressiveExplanationProtocol() {
+        return "【三级递进讲解协议】\n第一层（本次首次回答）：先给学术严谨、概念准确、结构清楚的定义、机制、条件和边界；不要使用画像举例，不要主动生成图片。\n第二层：只有用户之后明确说没懂、太抽象、通俗一点或要求举例时，才选择一个最相关的职业/兴趣场景类比；类比后回到严谨定义并说明类比边界。\n第三层：用户在第二层后仍表示不懂，或主动要求图片时，才调用可用的图片生成、图片检索或可视化工具，用带中文标注的示意图、流程图或对比图说明。没有图像工具时必须如实说明。";
+      }
+      function xiaobaPromptHeader(meta, source) {
+        return "你是通用材料学习助手“小巴”。\n学习材料：“" + (meta.title || "未命名材料") + "”；材料类型：" + (meta.sourceType || "未注明") + "。\n" + readerProfileContext() + "\n\n" + knowledgeSourceProtocol(meta, source) + "\n\n" + progressiveExplanationProtocol() + "\n\n";
+      }
+      function setGuideOpen(open) {
+        if (!guideOverlay) { return; }
+        guideOverlay.classList.toggle("active", open);
+        guideOverlay.setAttribute("aria-hidden", open ? "false" : "true");
+        if (open && profileProfession) { setTimeout(function() { profileProfession.focus(); }, 120); }
+      }
+      function markGuideSeen() {
+        try { localStorage.setItem(readerGuideSeenKey, "1"); } catch (error) { /* optional */ }
+      }
+      function saveReaderProfile() {
+        var profession = cleanProfileText(profileProfession ? profileProfession.value : "");
+        var interests = cleanProfileText(profileInterests ? profileInterests.value : "");
+        if (!profession || !interests) {
+          showToast("请填写职业和兴趣，或选择“暂时跳过”");
+          return;
+        }
+        readerProfile = { profession:profession, interests:interests };
+        try {
+          localStorage.setItem(readerProfileStorageKey, JSON.stringify(readerProfile));
+          markGuideSeen();
+        } catch (error) { showToast("画像仅在本次页面有效"); }
+        setGuideOpen(false);
+        showToast("小巴已记住你的学习画像");
+      }
+      loadReaderProfile();
+      if (byId("guideBtn")) { byId("guideBtn").onclick = function() { loadReaderProfile(); setGuideOpen(true); }; }
+      if (byId("guideSave")) { byId("guideSave").onclick = saveReaderProfile; }
+      if (byId("guideSkip")) { byId("guideSkip").onclick = function() { markGuideSeen(); setGuideOpen(false); }; }
+      if (guideOverlay) { guideOverlay.onclick = function(event) { if (event.target === guideOverlay) { setGuideOpen(false); } }; }
+      try {
+        if (localStorage.getItem(readerGuideSeenKey) !== "1") { setGuideOpen(true); }
+      } catch (error) { setGuideOpen(true); }
+
+      var moduleTabs = Array.prototype.slice.call(document.querySelectorAll(".tab"));
+      moduleTabs.forEach(function(tab, tabIndex) {
+        tab.onclick = function() {
+          moduleTabs.forEach(function(item) {
+            item.setAttribute("aria-selected", "false");
+            item.setAttribute("tabindex", "-1");
+          });
+          document.querySelectorAll(".panel").forEach(function(panel) { panel.classList.remove("active"); });
+          tab.setAttribute("aria-selected", "true");
+          tab.setAttribute("tabindex", "0");
+          var panel = byId(tab.getAttribute("data-panel"));
+          if (panel) { panel.classList.add("active"); }
+        };
+        tab.onkeydown = function(event) {
+          var forward = event.key === "ArrowDown" || event.key === "ArrowRight";
+          var backward = event.key === "ArrowUp" || event.key === "ArrowLeft";
+          if (!forward && !backward) { return; }
+          event.preventDefault();
+          var nextIndex = (tabIndex + (forward ? 1 : -1) + moduleTabs.length) % moduleTabs.length;
+          moduleTabs[nextIndex].focus();
+          moduleTabs[nextIndex].click();
+        };
+      });
+
+      function appendList(parent, title, items) {
+        var block = make("div", "ch-block");
+        block.appendChild(make("h4", "", title));
+        var list = make("ul");
+        (items || []).forEach(function(item) { list.appendChild(make("li", "", item)); });
+        block.appendChild(list);
+        parent.appendChild(block);
+      }
+      function appendUnitConclusions(parent, unit) {
+        var groups = unit.conclusions || [];
+        if (!groups.length) { return; }
+        var section = make("div", "ch-conclusions");
+        section.appendChild(make("h4", "", "点开结论，继续往下理解"));
+        groups.forEach(function(item) {
+          var details = make("details", "chapter-conclusion");
+          details.setAttribute("data-source", item.source || "");
+          var summary = make("summary");
+          summary.appendChild(make("span", "conclusion-title", item.title || "单元结论"));
+          summary.appendChild(make("span", "conclusion-summary", item.summary || ""));
+          details.appendChild(summary);
+          var body = make("div", "conclusion-body");
+          var list = make("ul");
+          (item.points || []).forEach(function(point) { list.appendChild(make("li", "", point)); });
+          body.appendChild(list);
+          var dive = make("button", "deep-dive-btn", "?");
+          dive.type = "button";
+          dive.setAttribute("data-deep-dive", "");
+          dive.setAttribute("data-concept", item.title || "单元结论");
+          dive.setAttribute("data-source-ref", item.source || "");
+          dive.setAttribute("aria-label", "追问：" + (item.title || "单元结论"));
+          body.appendChild(dive);
+          details.appendChild(body);
+          section.appendChild(details);
+        });
+        parent.appendChild(section);
+      }
+      function copyContentUnit(unit) {
+        var conclusionText = (unit.conclusions || []).map(function(item) {
+          return item.title + "：" + item.summary + "\n- " + (item.points || []).join("\n- ");
+        }).join("\n\n");
+        var meta = pageData.meta || {};
+        var prompt = xiaobaPromptHeader(meta, unit.source) + "【内容单元】" + unit.label + "「" + unit.title + "」\n\n核心思想：" + unit.core + "\n\n关键框架：" + (unit.frameworks || []).join("、") + "\n\n要点：\n- " + (unit.takeaways || []).join("\n- ") + "\n\n展开结论：\n" + conclusionText + "\n\n出处：" + unit.source + "\n\n请先按第一层协议严谨说明这个单元，不要立即使用画像举例。";
+        if (meta.learningDepth === "quick") {
+          prompt += "\n本页是核心导读，非全量知识整理。单元 ID：" + unit.id + "。请按材料标识与出处读取本单元对应原文后深入解释，不用本页摘要冒充完整材料。若原文不可访问，请先向我索要。";
+        }
+        copyText(prompt, function() { showToast("详解口令已复制，请粘贴到当前材料对话中"); }, function() { showToast("复制失败，请手动选择文本"); });
+      }
+      function activateContentUnit(id) {
+        var unit = findById(pageData.contentUnits, id);
+        var view = byId("chView");
+        if (!unit || !view) { return; }
+        document.querySelectorAll(".ch-nav-btn").forEach(function(button) {
+          button.classList.toggle("active", button.getAttribute("data-ch") === id);
+        });
+        clear(view);
+        view.setAttribute("data-source", unit.source || "");
+        view.appendChild(make("div", "ch-view-label", unit.label + " · " + unit.title));
+        var core = make("p", "ch-core");
+        core.appendChild(make("strong", "", "核心思想："));
+        core.appendChild(document.createTextNode(unit.core));
+        view.appendChild(core);
+        appendList(view, "关键框架", unit.frameworks || []);
+        appendList(view, "行动要点", unit.takeaways || []);
+        appendUnitConclusions(view, unit);
+        var send = make("button", "ch-send", "让 AI 详解本单元");
+        send.type = "button";
+        send.setAttribute("data-ch-send", unit.id);
+        send.setAttribute("data-tooltip", "复制本单元的核心内容、关键框架和材料出处。粘贴到当前材料对话后，AI 将基于原材料进行深入讲解。");
+        send.setAttribute("aria-label", "让 AI 详解本单元：复制详解口令到当前材料对话");
+        send.onclick = function() { copyContentUnit(unit); };
+        view.appendChild(send);
+      }
+      document.querySelectorAll(".ch-nav-btn").forEach(function(button) {
+        button.onclick = function() { activateContentUnit(button.getAttribute("data-ch")); };
+      });
+      var firstUnit = document.querySelector(".ch-nav-btn.active");
+      if (firstUnit) { activateContentUnit(firstUnit.getAttribute("data-ch")); }
+
+      function setExplain(node, item) {
+        if (!node || !item) { return; }
+        clear(node);
+        node.setAttribute("data-source", item.source || "");
+        node.appendChild(document.createTextNode(item.body || ""));
+        var dive = make("button", "deep-dive-btn", "?");
+        dive.type = "button";
+        dive.setAttribute("data-deep-dive", "");
+        dive.setAttribute("data-concept", item.label || "因果节点");
+        dive.setAttribute("data-source-ref", item.source || "");
+        dive.setAttribute("aria-label", "追问：" + (item.label || "因果节点"));
+        node.appendChild(dive);
+      }
+      document.querySelectorAll(".chain-step").forEach(function(button) {
+        button.onclick = function() {
+          var sectionId = button.getAttribute("data-section-id");
+          var stepId = button.getAttribute("data-step-id");
+          if (!sectionId) { return; }
+          var section = findById(pageData.sections, sectionId);
+          var items = section ? section.chain || [] : [];
+          var explain = document.querySelector('[data-section-explain="' + sectionId + '"]');
+          document.querySelectorAll('.chain-step[data-section-id="' + sectionId + '"]').forEach(function(item) { item.classList.remove("active"); });
+          button.classList.add("active");
+          setExplain(explain, findById(items, stepId));
+        };
+      });
+
+      document.querySelectorAll(".city-btn").forEach(function(button) {
+        button.onclick = function() {
+          var sectionId = button.getAttribute("data-section-id");
+          var optionId = button.getAttribute("data-option-id");
+          var section = findById(pageData.sections, sectionId);
+          var option = section ? findById(section.options || [], optionId) : null;
+          var result = document.querySelector('[data-section-result="' + sectionId + '"]');
+          if (!option || !result) { return; }
+          document.querySelectorAll('.city-btn[data-section-id="' + sectionId + '"]').forEach(function(item) { item.classList.remove("active"); });
+          button.classList.add("active");
+          clear(result);
+          result.setAttribute("data-source", option.source || "");
+          result.appendChild(make("h3", "", option.title || option.label));
+          result.appendChild(make("p", "", option.body || ""));
+          var watch = make("p");
+          watch.appendChild(make("strong", "", "看点："));
+          watch.appendChild(document.createTextNode(option.watch || ""));
+          result.appendChild(watch);
+          var dive = make("button", "deep-dive-btn", "?");
+          dive.type = "button";
+          dive.setAttribute("data-deep-dive", "");
+          dive.setAttribute("data-concept", option.title || option.label || "类型分析");
+          dive.setAttribute("data-source-ref", option.source || "");
+          dive.setAttribute("aria-label", "追问：" + (option.title || option.label || "类型分析"));
+          result.appendChild(dive);
+        };
+      });
+
+      var glossarySearch = byId("glossarySearch");
+      var glossaryCount = byId("glossaryCount");
+      var glossaryEmpty = byId("glossaryEmpty");
+      var termEntries = Array.prototype.slice.call(document.querySelectorAll("[data-term-entry]"));
+      function filterGlossary() {
+        if (!glossarySearch) { return; }
+        var query = glossarySearch.value.trim().toLocaleLowerCase();
+        var shown = 0;
+        termEntries.forEach(function(item) {
+          var matched = !query || item.textContent.toLocaleLowerCase().indexOf(query) >= 0;
+          item.hidden = !matched;
+          if (matched) { shown += 1; }
+        });
+        if (glossaryCount) { glossaryCount.textContent = "显示 " + shown + " / " + termEntries.length; }
+        if (glossaryEmpty) { glossaryEmpty.hidden = shown !== 0; }
+      }
+      if (glossarySearch) { glossarySearch.oninput = filterGlossary; }
+
+      var assessmentCopy = byId("assessmentCopy");
+      var assessmentUnitWrap = byId("assessmentUnitWrap");
+      var assessmentCustomWrap = byId("assessmentCustomWrap");
+      var assessmentUnit = byId("assessmentUnit");
+      var assessmentCustom = byId("assessmentCustom");
+      var assessmentCount = byId("assessmentCount");
+      var assessmentDifficulty = byId("assessmentDifficulty");
+      var assessmentAbility = byId("assessmentAbility");
+      var assessmentPromptPreview = byId("assessmentPromptPreview");
+
+      function currentAssessmentScope() {
+        var selected = document.querySelector('input[name="assessmentScope"]:checked');
+        return selected ? selected.value : "all";
+      }
+      function refreshAssessmentScope() {
+        var scope = currentAssessmentScope();
+        if (assessmentUnitWrap) { assessmentUnitWrap.hidden = scope !== "unit"; }
+        if (assessmentCustomWrap) { assessmentCustomWrap.hidden = scope !== "custom"; }
+      }
+      function selectedAssessmentUnit() {
+        return findById(pageData.contentUnits || [], assessmentUnit ? assessmentUnit.value : "");
+      }
+      function assessmentFocusText(scope, unit) {
+        var rows = (((pageData.assessment || {}).focusAreas) || []).filter(function(item) {
+          return scope !== "unit" || (unit && item.unitId === unit.id);
+        });
+        if (!rows.length) { return "请按材料知识库中的关键知识点完整覆盖。"; }
+        return rows.map(function(item) {
+          return "- " + item.title + "｜能力：" + (item.abilities || []).join("、") + "｜出处：" + item.source;
+        }).join("\n");
+      }
+      function buildAssessmentPrompt() {
+        var meta = pageData.meta || {};
+        var scope = currentAssessmentScope();
+        var unit = selectedAssessmentUnit();
+        var custom = assessmentCustom ? assessmentCustom.value.trim() : "";
+        if (scope === "custom" && !custom) {
+          showToast("请先填写自定义出题要求");
+          if (assessmentCustom) { assessmentCustom.focus(); }
+          return "";
+        }
+        var scopeText = "综合全部内容";
+        var sourceText = "整份材料知识库";
+        if (scope === "unit" && unit) {
+          scopeText = unit.label + "「" + unit.title + "」";
+          sourceText = unit.source || "该内容单元";
+        } else if (scope === "custom") {
+          scopeText = "用户自定义：" + custom;
+          sourceText = "请先在材料知识库中定位与该要求相关的内容";
+        }
+        var count = assessmentCount ? assessmentCount.value : "8";
+        var difficulty = assessmentDifficulty ? assessmentDifficulty.value : "自适应";
+        var ability = assessmentAbility ? assessmentAbility.value : "综合：记忆、解释、应用与迁移";
+        var focusText = assessmentFocusText(scope, unit);
+        return "你是材料学习测验助手。请基于当前对话已经加载的材料知识库进行测验。\n\n"
+          + "【材料】" + (meta.title || "未命名材料") + "\n"
+          + "【知识库】" + (meta.knowledgeBase || "未提供") + "\n"
+          + "【测试范围】" + scopeText + "\n"
+          + "【范围出处】" + sourceText + "\n"
+          + "【题量】" + count + " 题\n"
+          + "【难度】" + difficulty + "\n"
+          + "【能力重点】" + ability + "\n\n"
+          + "【自检考点蓝图】\n" + focusText + "\n\n"
+          + "【材料边界】\n"
+          + "1. 先确认当前对话能够访问上述材料或知识库；如果不能访问，停止出题并请我上传原材料或 .learnkb 知识库，不得凭常识冒充材料内容。\n"
+          + "2. 题目、判分、正确答案和解析都必须以材料为依据；材料没有覆盖的内容不得作为评分依据。\n"
+          + "3. 出题前静默检查知识库内的 question-bank.json；若该文件不存在或尚未覆盖所选范围，再检查该范围内当前可访问材料中的成套题目、章节练习、样题、真题、答案或解析。快速导读未预建题库不等于没有原题，不为章节测验预先索引整本书。不要向我报告检测过程、识别结果、置信度或模式名称。\n"
+          + "4. 测试范围内有完整且可判分的现成练习时优先使用原题，并保留原题题干与选项；原题不足时先用可用原题再按同一考点补充生成；没有可用原题时按自检考点生成。不得使用残缺或无法可靠判分的题目，也不得把正文推导答案冒充官方答案。\n"
+          + "5. 每次只出一道题，等待我回答后再判断；不要提前公布答案。回答不完整时先给最小提示，仍不会时再讲解。\n"
+          + "6. 题型可包含概念回忆、概念辨析、机制解释、案例判断和新情境迁移，并根据我的回答动态调整难度。\n"
+          + "7. 每题判断后说明得分理由和材料出处；不要因为措辞不同就误判，重点判断概念和逻辑是否成立。\n\n"
+          + "【结束输出】\n"
+          + "全部题目结束后，先给出总分、掌握较好的知识点、薄弱知识点和复习建议。随后必须原样使用下面两个标记包住一份纯 JSON 错题记录；不要在标记内部使用 Markdown 代码围栏。无错题时 mistakes 输出空数组。\n"
+          + "<<<KLA_MISTAKES_JSON>>>\n"
+          + "{\"schemaVersion\":\"knowledge-learning-assistant-mistakes/v1\",\"materialTitle\":" + JSON.stringify(meta.title || "") + ",\"knowledgeBase\":" + JSON.stringify(meta.knowledgeBase || "") + ",\"sessionTitle\":" + JSON.stringify(scopeText) + ",\"mistakes\":[{\"question\":\"题目\",\"userAnswer\":\"我的回答\",\"correctAnswer\":\"材料依据的正确答案\",\"explanation\":\"错误原因与解析\",\"knowledgePoint\":\"知识点\",\"unit\":\"章节或单元\",\"source\":\"精确材料出处\",\"status\":\"未掌握\",\"wrongCount\":1}]}\n"
+          + "<<<END_KLA_MISTAKES_JSON>>>\n\n"
+          + "现在先出第 1 题。";
+      }
+      document.querySelectorAll('input[name="assessmentScope"]').forEach(function(inputNode) {
+        inputNode.onchange = refreshAssessmentScope;
+      });
+      refreshAssessmentScope();
+      if (assessmentCopy) {
+        assessmentCopy.onclick = function() {
+          var prompt = buildAssessmentPrompt();
+          if (!prompt) { return; }
+          if (assessmentPromptPreview) { assessmentPromptPreview.value = prompt; }
+          copyText(prompt, function() { showToast("自检口令已复制，请粘贴到对话框"); }, function() {
+            showToast("自动复制失败，请展开下方口令手动复制");
+            var details = assessmentPromptPreview ? assessmentPromptPreview.closest("details") : null;
+            if (details) { details.open = true; }
+          });
+        };
+      }
+
+      var mistakeList = byId("mistakeList");
+      var mistakeCount = byId("mistakeCount");
+      var mistakeSearch = byId("mistakeSearch");
+      var mistakeStatusFilter = byId("mistakeStatusFilter");
+      var mistakeStorageStatus = byId("mistakeStorageStatus");
+      var mistakeImportText = byId("mistakeImportText");
+      var mistakeMeta = pageData.meta || {};
+      var mistakesStorageKey = "knowledge-learning-assistant-mistakes:v1:" + encodeURIComponent(stablePageIdentity(mistakeMeta));
+      var legacyMistakesStorageKey = "knowledge-learning-assistant-mistakes:v1:" + encodeURIComponent((mistakeMeta.title || "未命名材料") + "|" + (mistakeMeta.knowledgeBase || ""));
+      var personalMistakes = [];
+      var mistakeStorageEnabled = true;
+
+      function cleanMistakeText(value) {
+        return typeof value === "string" ? value.trim() : "";
+      }
+      function positiveInteger(value, fallback) {
+        var parsed = Number(value);
+        return Number.isFinite(parsed) && parsed > 0 ? Math.floor(parsed) : fallback;
+      }
+      function mistakeId() {
+        return "mistake-" + Date.now().toString(36) + "-" + Math.random().toString(36).slice(2, 8);
+      }
+      function normalizeMistake(item) {
+        if (!item || typeof item !== "object") { return null; }
+        var question = cleanMistakeText(item.question);
+        if (!question) { return null; }
+        var status = cleanMistakeText(item.status);
+        if (["未掌握", "复习中", "已掌握"].indexOf(status) < 0) { status = "未掌握"; }
+        var createdAt = cleanMistakeText(item.createdAt) || new Date().toISOString();
+        return {
+          id:cleanMistakeText(item.id) || mistakeId(),
+          question:question,
+          userAnswer:cleanMistakeText(item.userAnswer),
+          correctAnswer:cleanMistakeText(item.correctAnswer),
+          explanation:cleanMistakeText(item.explanation),
+          knowledgePoint:cleanMistakeText(item.knowledgePoint) || "未标注知识点",
+          unit:cleanMistakeText(item.unit),
+          source:cleanMistakeText(item.source),
+          status:status,
+          wrongCount:positiveInteger(item.wrongCount, 1),
+          reviewCount:positiveInteger(item.reviewCount, 0),
+          createdAt:createdAt,
+          updatedAt:cleanMistakeText(item.updatedAt) || createdAt
+        };
+      }
+      function mistakeMergeKey(item) {
+        return [item.question, item.knowledgePoint, item.source].join("\n").toLocaleLowerCase();
+      }
+      function updateMistakeStorageStatus(message) {
+        if (mistakeStorageStatus) { mistakeStorageStatus.textContent = message; }
+      }
+      function loadMistakes() {
+        if (!mistakeList) { return; }
+        try {
+          var stored = localStorage.getItem(mistakesStorageKey);
+          if (!stored && legacyMistakesStorageKey !== mistakesStorageKey) {
+            stored = localStorage.getItem(legacyMistakesStorageKey);
+            if (stored) { localStorage.setItem(mistakesStorageKey, stored); }
+          }
+          var parsed = JSON.parse(stored || "[]");
+          personalMistakes = Array.isArray(parsed) ? parsed.map(normalizeMistake).filter(Boolean) : [];
+          updateMistakeStorageStatus("保存在当前浏览器；换设备前请备份 JSON。");
+        } catch (error) {
+          personalMistakes = [];
+          mistakeStorageEnabled = false;
+          updateMistakeStorageStatus("当前浏览器禁止本地保存；错题仅在本次页面有效，请及时备份。");
+        }
+      }
+      function persistMistakes() {
+        if (!mistakeStorageEnabled) { return false; }
+        try {
+          localStorage.setItem(mistakesStorageKey, JSON.stringify(personalMistakes));
+          return true;
+        } catch (error) {
+          mistakeStorageEnabled = false;
+          updateMistakeStorageStatus("本地保存失败；错题仅在本次页面有效，请立即备份。");
+          return false;
+        }
+      }
+      function visibleMistakes() {
+        var query = mistakeSearch ? mistakeSearch.value.trim().toLocaleLowerCase() : "";
+        var status = mistakeStatusFilter ? mistakeStatusFilter.value : "全部";
+        return personalMistakes.filter(function(item) {
+          var matchesStatus = status === "全部" || item.status === status;
+          var haystack = [item.question, item.userAnswer, item.correctAnswer, item.explanation, item.knowledgePoint, item.unit, item.source].join(" ").toLocaleLowerCase();
+          return matchesStatus && (!query || haystack.indexOf(query) >= 0);
+        }).sort(function(a, b) { return String(b.updatedAt).localeCompare(String(a.updatedAt)); });
+      }
+      function appendMistakeParagraph(parent, title, value) {
+        if (!value) { return; }
+        var row = make("p");
+        row.appendChild(make("strong", "", title + "："));
+        row.appendChild(document.createTextNode(value));
+        parent.appendChild(row);
+      }
+      function renderMistakes() {
+        if (!mistakeList) { return; }
+        clear(mistakeList);
+        var visible = visibleMistakes();
+        if (mistakeCount) {
+          mistakeCount.textContent = visible.length === personalMistakes.length
+            ? personalMistakes.length + " 道错题"
+            : "显示 " + visible.length + " / " + personalMistakes.length;
+        }
+        if (!visible.length) {
+          var empty = make("div", "mistake-empty");
+          empty.appendChild(make("strong", "", personalMistakes.length ? "没有匹配的错题" : "还没有错题"));
+          empty.appendChild(make("span", "", personalMistakes.length ? "换一个关键词或状态试试。" : "完成一次 AI 测验后，把错题记录粘贴到上方。"));
+          mistakeList.appendChild(empty);
+          return;
+        }
+        visible.forEach(function(item) {
+          var card = make("details", "mistake-card");
+          card.setAttribute("data-mistake-id", item.id);
+          var summary = make("summary");
+          summary.appendChild(make("span", "mistake-question", item.question));
+          var meta = make("span", "mistake-meta");
+          meta.appendChild(make("span", "mistake-status", item.status));
+          meta.appendChild(make("span", "", item.knowledgePoint));
+          if (item.unit) { meta.appendChild(make("span", "", item.unit)); }
+          meta.appendChild(make("span", "", "错误 " + item.wrongCount + " 次 · 复习 " + item.reviewCount + " 次"));
+          summary.appendChild(meta);
+          card.appendChild(summary);
+          var body = make("div", "mistake-body");
+          appendMistakeParagraph(body, "我的回答", item.userAnswer);
+          appendMistakeParagraph(body, "正确答案", item.correctAnswer);
+          appendMistakeParagraph(body, "错误原因", item.explanation);
+          appendMistakeParagraph(body, "出处", item.source);
+          var actions = make("div", "mistake-actions");
+          [["retry", "复制变式复测"], ["status", "更新状态"], ["delete", "删除"]].forEach(function(pair) {
+            var button = make("button", "mistake-action" + (pair[0] === "delete" ? " delete" : ""), pair[1]);
+            button.type = "button";
+            button.setAttribute("data-mistake-action", pair[0]);
+            button.setAttribute("data-mistake-id", item.id);
+            actions.appendChild(button);
+          });
+          body.appendChild(actions);
+          card.appendChild(body);
+          mistakeList.appendChild(card);
+        });
+      }
+      function parseMistakePayload(text) {
+        var raw = String(text || "").trim();
+        var startMarker = "<<<KLA_MISTAKES_JSON>>>";
+        var endMarker = "<<<END_KLA_MISTAKES_JSON>>>";
+        var start = raw.indexOf(startMarker);
+        var end = raw.indexOf(endMarker);
+        if (start >= 0 && end > start) { raw = raw.slice(start + startMarker.length, end).trim(); }
+        raw = raw.replace(/^```(?:json)?\s*/i, "").replace(/\s*```$/, "").trim();
+        if (raw.charAt(0) !== "{") {
+          var first = raw.indexOf("{");
+          var last = raw.lastIndexOf("}");
+          if (first >= 0 && last > first) { raw = raw.slice(first, last + 1); }
+        }
+        var parsed = JSON.parse(raw);
+        var rows = Array.isArray(parsed) ? parsed : parsed.mistakes;
+        if (!Array.isArray(rows)) { throw new Error("mistakes missing"); }
+        if (parsed.materialTitle && mistakeMeta.title && parsed.materialTitle !== mistakeMeta.title) { throw new Error("material mismatch"); }
+        if (parsed.knowledgeBase && mistakeMeta.knowledgeBase && parsed.knowledgeBase !== mistakeMeta.knowledgeBase) { throw new Error("knowledge base mismatch"); }
+        return rows.map(normalizeMistake).filter(Boolean);
+      }
+      function mergeMistakes(rows) {
+        var merged = {};
+        personalMistakes.forEach(function(item) { merged[mistakeMergeKey(item)] = item; });
+        rows.forEach(function(item) {
+          var key = mistakeMergeKey(item);
+          var existing = merged[key];
+          if (existing) {
+            merged[key] = normalizeMistake({
+              id:existing.id,
+              question:item.question,
+              userAnswer:item.userAnswer || existing.userAnswer,
+              correctAnswer:item.correctAnswer || existing.correctAnswer,
+              explanation:item.explanation || existing.explanation,
+              knowledgePoint:item.knowledgePoint || existing.knowledgePoint,
+              unit:item.unit || existing.unit,
+              source:item.source || existing.source,
+              status:item.status === "已掌握" ? existing.status : item.status,
+              wrongCount:existing.wrongCount + item.wrongCount,
+              reviewCount:existing.reviewCount,
+              createdAt:existing.createdAt,
+              updatedAt:new Date().toISOString()
+            });
+          } else { merged[key] = item; }
+        });
+        personalMistakes = Object.keys(merged).map(function(key) { return merged[key]; });
+        persistMistakes();
+        renderMistakes();
+      }
+      function importMistakeText() {
+        if (!mistakeImportText || !mistakeImportText.value.trim()) { showToast("请先粘贴错题记录"); return; }
+        try {
+          var rows = parseMistakePayload(mistakeImportText.value);
+          mergeMistakes(rows);
+          mistakeImportText.value = "";
+          showToast(rows.length ? ("已导入 " + rows.length + " 道错题") : "本次测验没有错题");
+        } catch (error) { showToast("导入失败：请粘贴本页面口令生成的错题记录"); }
+      }
+      function mistakeRetryPrompt(items) {
+        var lines = items.map(function(item, index) {
+          return (index + 1) + ". 原错题：" + item.question + "\n知识点：" + item.knowledgePoint + (item.unit ? "\n单元：" + item.unit : "") + (item.source ? "\n出处：" + item.source : "");
+        }).join("\n\n");
+        return "请基于材料“" + (mistakeMeta.title || "") + "”的知识库（" + (mistakeMeta.knowledgeBase || "未提供") + "）对以下错题进行变式复测。\n\n"
+          + lines + "\n\n要求：不要直接重复原题，不要提前公布答案；更换表述或应用情境，一次只出一道题，等待我回答后再判断。严格依据材料判分并给出处。结束后重新评估掌握状态，并按当前学习页规定输出带 KLA_MISTAKES_JSON 标记的标准错题记录。";
+      }
+      function copyMistakeRetry(items) {
+        if (!items.length) { showToast("当前筛选结果没有可复测的错题"); return; }
+        var prompt = mistakeRetryPrompt(items);
+        copyText(prompt, function() { showToast("错题复测口令已复制"); }, function() { showToast("复制失败"); });
+      }
+      function exportMistakesJson() {
+        if (!personalMistakes.length) { showToast("还没有可备份的错题"); return; }
+        var payload = { schemaVersion:"knowledge-learning-assistant-mistakes/v1", materialTitle:mistakeMeta.title || "", knowledgeBase:mistakeMeta.knowledgeBase || "", exportedAt:new Date().toISOString(), mistakes:personalMistakes };
+        var name = (mistakeMeta.title || "学习材料").replace(/[\\/:*?"<>|]+/g, "-").slice(0, 80) + "-错题本.json";
+        downloadNoteFile(name, JSON.stringify(payload, null, 2), "application/json");
+      }
+      function importMistakeFile(file) {
+        if (!file) { return; }
+        var reader = new FileReader();
+        reader.onload = function() {
+          try {
+            var rows = parseMistakePayload(String(reader.result || ""));
+            mergeMistakes(rows);
+            showToast("已导入 " + rows.length + " 道错题");
+          } catch (error) { showToast("导入失败：请选择本页面导出的错题 JSON"); }
+          if (byId("mistakeImportFile")) { byId("mistakeImportFile").value = ""; }
+        };
+        reader.readAsText(file, "utf-8");
+      }
+      if (byId("mistakeImportPaste")) { byId("mistakeImportPaste").onclick = importMistakeText; }
+      if (mistakeSearch) { mistakeSearch.oninput = renderMistakes; }
+      if (mistakeStatusFilter) { mistakeStatusFilter.onchange = renderMistakes; }
+      if (byId("mistakeRetryVisible")) { byId("mistakeRetryVisible").onclick = function() { copyMistakeRetry(visibleMistakes()); }; }
+      if (byId("mistakeExportJson")) { byId("mistakeExportJson").onclick = exportMistakesJson; }
+      if (byId("mistakeImportFile")) { byId("mistakeImportFile").onchange = function(event) { importMistakeFile(event.target.files && event.target.files[0]); }; }
+      document.addEventListener("click", function(event) {
+        var button = event.target.closest ? event.target.closest("[data-mistake-action]") : null;
+        if (!button) { return; }
+        event.preventDefault();
+        var id = button.getAttribute("data-mistake-id");
+        var item = null;
+        personalMistakes.forEach(function(row) { if (!item && row.id === id) { item = row; } });
+        if (!item) { return; }
+        var action = button.getAttribute("data-mistake-action");
+        if (action === "retry") {
+          item.reviewCount += 1;
+          item.updatedAt = new Date().toISOString();
+          persistMistakes();
+          renderMistakes();
+          copyMistakeRetry([item]);
+        } else if (action === "status") {
+          var order = ["未掌握", "复习中", "已掌握"];
+          item.status = order[(order.indexOf(item.status) + 1) % order.length];
+          item.updatedAt = new Date().toISOString();
+          persistMistakes();
+          renderMistakes();
+          showToast("已更新为“" + item.status + "”");
+        } else if (action === "delete" && window.confirm("删除这道错题？此操作无法撤销。")) {
+          personalMistakes = personalMistakes.filter(function(row) { return row.id !== id; });
+          persistMistakes();
+          renderMistakes();
+          showToast("错题已删除");
+        }
+      });
+      loadMistakes();
+      renderMistakes();
+
+      var notesList = byId("notesList");
+      var noteSearch = byId("noteSearch");
+      var noteCount = byId("noteCount");
+      var notesStorageStatus = byId("notesStorageStatus");
+      var noteOverlay = byId("noteOverlay");
+      var noteDialogTitle = byId("noteDialogTitle");
+      var noteDialogContext = byId("noteDialogContext");
+      var noteSourcePreview = byId("noteSourcePreview");
+      var noteTitleInput = byId("noteTitleInput");
+      var noteSummaryInput = byId("noteSummaryInput");
+      var noteInsightInput = byId("noteInsightInput");
+      var noteActionInput = byId("noteActionInput");
+      var noteTagsInput = byId("noteTagsInput");
+      var notePersonalInput = byId("notePersonalInput");
+      var currentNoteId = "";
+      var currentNoteSubject = "";
+      var currentNoteSource = "";
+      var currentNoteExcerpt = "";
+      var currentNoteCaptureKey = "";
+      var personalNotes = [];
+      var noteStorageEnabled = true;
+      var noteMeta = pageData.meta || {};
+      var notesStorageKey = "knowledge-learning-assistant-notes:v1:" + encodeURIComponent(stablePageIdentity(noteMeta));
+      var legacyNotesStorageKey = "knowledge-learning-assistant-notes:v1:" + encodeURIComponent((noteMeta.title || "未命名材料") + "|" + (noteMeta.knowledgeBase || ""));
+
+      function cleanNoteText(value) {
+        return typeof value === "string" ? value.trim() : "";
+      }
+      function cleanNoteTags(value) {
+        var values = Array.isArray(value) ? value : cleanNoteText(value).split(/[,，、#]/);
+        var seen = {};
+        return values.map(function(item) { return cleanNoteText(String(item)); }).filter(function(item) {
+          var key = item.toLocaleLowerCase();
+          if (!item || seen[key]) { return false; }
+          seen[key] = true;
+          return true;
+        }).slice(0, 8);
+      }
+      function noteId() {
+        return "note-" + Date.now().toString(36) + "-" + Math.random().toString(36).slice(2, 8);
+      }
+      function normalizeNote(item) {
+        if (!item || typeof item !== "object") { return null; }
+        var createdAt = cleanNoteText(item.createdAt) || new Date().toISOString();
+        return {
+          id: cleanNoteText(item.id) || noteId(),
+          title: cleanNoteText(item.title) || cleanNoteText(item.subject) || "未命名笔记",
+          summary: cleanNoteText(item.summary),
+          insight: cleanNoteText(item.insight),
+          action: cleanNoteText(item.action),
+          tags: cleanNoteTags(item.tags || []),
+          personal: cleanNoteText(item.personal),
+          subject: cleanNoteText(item.subject),
+          source: cleanNoteText(item.source),
+          excerpt: cleanNoteText(item.excerpt),
+          captureKey: cleanNoteText(item.captureKey),
+          createdAt: createdAt,
+          updatedAt: cleanNoteText(item.updatedAt) || createdAt
+        };
+      }
+      function updateStorageStatus(message) {
+        if (notesStorageStatus) { notesStorageStatus.textContent = message; }
+      }
+      function loadPersonalNotes() {
+        try {
+          var raw = localStorage.getItem(notesStorageKey);
+          if (!raw && legacyNotesStorageKey !== notesStorageKey) {
+            raw = localStorage.getItem(legacyNotesStorageKey);
+            if (raw) { localStorage.setItem(notesStorageKey, raw); }
+          }
+          var parsed = raw ? JSON.parse(raw) : [];
+          personalNotes = Array.isArray(parsed) ? parsed.map(normalizeNote).filter(Boolean) : [];
+          updateStorageStatus("保存在当前浏览器；换设备前请备份 JSON。");
+        } catch (error) {
+          noteStorageEnabled = false;
+          personalNotes = [];
+          updateStorageStatus("当前浏览器禁止本地保存；笔记仅在本次页面有效，请及时导出。");
+        }
+      }
+      function persistPersonalNotes() {
+        if (!noteStorageEnabled) { return false; }
+        try {
+          localStorage.setItem(notesStorageKey, JSON.stringify(personalNotes));
+          return true;
+        } catch (error) {
+          noteStorageEnabled = false;
+          updateStorageStatus("本地保存失败；笔记仅在本次页面有效，请立即导出备份。");
+          return false;
+        }
+      }
+      function formatNoteTime(value) {
+        var date = new Date(value);
+        if (Number.isNaN(date.getTime())) { return value || ""; }
+        try { return date.toLocaleString("zh-CN", { year:"numeric", month:"2-digit", day:"2-digit", hour:"2-digit", minute:"2-digit" }); }
+        catch (error) { return date.toISOString().slice(0, 16).replace("T", " "); }
+      }
+      function appendPersonalNoteSection(parent, label, value) {
+        if (!value) { return; }
+        var paragraph = make("p", "personal-note-section");
+        paragraph.appendChild(make("strong", "", label + "："));
+        paragraph.appendChild(document.createTextNode(value));
+        parent.appendChild(paragraph);
+      }
+      function noteMarkdown(item) {
+        var lines = ["## " + item.title, ""];
+        if (item.summary) { lines.push("**摘要：** " + item.summary, ""); }
+        if (item.insight) { lines.push("**我的理解：** " + item.insight, ""); }
+        if (item.action) { lines.push("**下一步行动：** " + item.action, ""); }
+        if (item.personal) { lines.push("**个人补充：** " + item.personal, ""); }
+        if (item.tags.length) { lines.push("**标签：** " + item.tags.join("、"), ""); }
+        if (item.source) { lines.push("**出处：** " + item.source, ""); }
+        lines.push("**更新时间：** " + formatNoteTime(item.updatedAt), "");
+        return lines.join("\n");
+      }
+      function renderPersonalNotes() {
+        if (!notesList) { return; }
+        clear(notesList);
+        var query = noteSearch ? noteSearch.value.trim().toLocaleLowerCase() : "";
+        var ordered = personalNotes.slice().sort(function(a, b) { return String(b.updatedAt).localeCompare(String(a.updatedAt)); });
+        var visible = ordered.filter(function(item) {
+          if (!query) { return true; }
+          return [item.title, item.summary, item.insight, item.action, item.personal, item.subject, item.source, item.excerpt, item.tags.join(" ")]
+            .join(" ").toLocaleLowerCase().indexOf(query) >= 0;
+        });
+        if (noteCount) { noteCount.textContent = query ? ("显示 " + visible.length + " / " + personalNotes.length + " 条笔记") : (personalNotes.length + " 条笔记"); }
+        if (!visible.length) {
+          var empty = make("div", "notes-empty");
+          empty.appendChild(make("strong", "", personalNotes.length ? "没有匹配的笔记" : "还没有笔记"));
+          empty.appendChild(make("span", "", personalNotes.length ? "换一个关键词试试。" : "点击任意内容卡片右下角的“☆”即可保存。"));
+          notesList.appendChild(empty);
+          return;
+        }
+        visible.forEach(function(item) {
+          var card = make("details", "personal-note-card");
+          card.setAttribute("data-note-id", item.id);
+          var summary = make("summary");
+          summary.appendChild(make("span", "personal-note-title", item.title));
+          var meta = make("span", "personal-note-meta");
+          meta.appendChild(make("span", "", formatNoteTime(item.updatedAt)));
+          item.tags.forEach(function(tag) { meta.appendChild(make("span", "personal-note-tag", tag)); });
+          summary.appendChild(meta);
+          card.appendChild(summary);
+          var body = make("div", "personal-note-body");
+          appendPersonalNoteSection(body, "摘要", item.summary);
+          appendPersonalNoteSection(body, "我的理解", item.insight);
+          appendPersonalNoteSection(body, "下一步行动", item.action);
+          appendPersonalNoteSection(body, "个人补充", item.personal);
+          if (item.source) { body.appendChild(make("div", "personal-note-source", "出处：" + item.source)); }
+          var actions = make("div", "personal-note-actions");
+          [["copy", "复制笔记"], ["edit", "编辑"], ["delete", "删除"]].forEach(function(pair) {
+            var button = make("button", pair[0] === "delete" ? "note-delete" : "", pair[1]);
+            button.type = "button";
+            button.setAttribute("data-note-action", pair[0]);
+            button.setAttribute("data-note-id", item.id);
+            actions.appendChild(button);
+          });
+          body.appendChild(actions);
+          card.appendChild(body);
+          notesList.appendChild(card);
+        });
+      }
+      function findPersonalNote(id) {
+        var found = null;
+        personalNotes.forEach(function(item) { if (!found && item.id === id) { found = item; } });
+        return found;
+      }
+      function findCapturedNote(captureKey) {
+        var found = null;
+        personalNotes.forEach(function(item) { if (!found && captureKey && item.captureKey === captureKey) { found = item; } });
+        return found;
+      }
+      function elementNoteSubject(element) {
+        var directDive = null;
+        for (var index = 0; index < element.children.length; index += 1) {
+          var child = element.children[index];
+          if (child.hasAttribute && child.hasAttribute("data-deep-dive") && child.getAttribute("data-concept")) {
+            directDive = child;
+            break;
+          }
+        }
+        if (directDive) { return directDive.getAttribute("data-concept"); }
+        var heading = element.querySelector ? element.querySelector(".ch-view-label,.term-name,.conclusion-title,h1,h2,h3,h4,strong,summary") : null;
+        if (heading) { return cleanNoteText(heading.textContent).slice(0, 100); }
+        var nestedDive = element.querySelector ? element.querySelector("[data-deep-dive][data-concept]") : null;
+        return nestedDive ? nestedDive.getAttribute("data-concept") : "阅读摘记";
+      }
+      function elementNoteText(element) {
+        var clone = element.cloneNode(true);
+        clone.querySelectorAll("button,.note-capture-btn").forEach(function(node) { node.remove(); });
+        return cleanNoteText(clone.textContent.replace(/\s+/g, " ")).slice(0, 5000);
+      }
+      function noteCaptureKey(element) {
+        return cleanNoteText(element.getAttribute("data-source")) + "\n" + elementNoteText(element);
+      }
+      function hasDirectNoteButton(element) {
+        for (var index = 0; index < element.children.length; index += 1) {
+          if (element.children[index].classList && element.children[index].classList.contains("note-capture-btn")) { return true; }
+        }
+        return false;
+      }
+      function refreshNoteButtons() {
+        document.querySelectorAll("[data-note-capture]").forEach(function(button) {
+          var container = button.parentElement;
+          var saved = container ? Boolean(findCapturedNote(noteCaptureKey(container))) : false;
+          var symbol = saved ? "✓" : "☆";
+          if (button.textContent !== symbol) { button.textContent = symbol; }
+          button.classList.toggle("saved", saved);
+          button.setAttribute("aria-pressed", saved ? "true" : "false");
+          button.setAttribute("aria-label", saved ? "这段内容已保存到我的笔记" : "一键保存这段内容到我的笔记");
+          button.title = saved ? "已保存到我的笔记" : "一键保存到我的笔记";
+        });
+      }
+      function injectNoteButtons() {
+        document.querySelectorAll("main.page [data-source]").forEach(function(element) {
+          if (element.closest && element.closest("#notes")) { return; }
+          element.setAttribute("data-note-ready", "");
+          if (hasDirectNoteButton(element)) { return; }
+          var button = make("button", "note-capture-btn", "☆");
+          button.type = "button";
+          button.setAttribute("data-note-capture", "");
+          button.setAttribute("aria-label", "一键保存这段内容到我的笔记");
+          button.setAttribute("aria-pressed", "false");
+          button.title = "一键保存到我的笔记";
+          element.appendChild(button);
+        });
+        refreshNoteButtons();
+      }
+      function quickSaveNote(container) {
+        var captureKey = noteCaptureKey(container);
+        var existing = findCapturedNote(captureKey);
+        if (existing) {
+          refreshNoteButtons();
+          showToast("这段内容已经在“我的笔记”中");
+          return;
+        }
+        var now = new Date().toISOString();
+        var subject = elementNoteSubject(container);
+        var source = cleanNoteText(container.getAttribute("data-source"));
+        var excerpt = elementNoteText(container);
+        personalNotes.push(normalizeNote({
+          id:noteId(),
+          title:subject,
+          summary:excerpt,
+          insight:"",
+          action:"",
+          tags:["一键摘记"],
+          personal:"",
+          subject:subject,
+          source:source,
+          excerpt:excerpt,
+          captureKey:captureKey,
+          createdAt:now,
+          updatedAt:now
+        }));
+        persistPersonalNotes();
+        renderPersonalNotes();
+        refreshNoteButtons();
+        showToast("已一键保存到“我的笔记”");
+      }
+      function openNoteDialog(options) {
+        options = options || {};
+        currentNoteId = cleanNoteText(options.id);
+        currentNoteSubject = cleanNoteText(options.subject) || "自由笔记";
+        currentNoteSource = cleanNoteText(options.source);
+        currentNoteExcerpt = cleanNoteText(options.excerpt);
+        currentNoteCaptureKey = cleanNoteText(options.captureKey);
+        var existing = currentNoteId ? findPersonalNote(currentNoteId) : null;
+        if (existing) {
+          currentNoteSubject = existing.subject || existing.title;
+          currentNoteSource = existing.source;
+          currentNoteExcerpt = existing.excerpt;
+          currentNoteCaptureKey = existing.captureKey;
+        }
+        noteDialogTitle.textContent = existing ? "编辑我的笔记" : "新增自由笔记";
+        noteDialogContext.textContent = existing ? "修改后重新保存，更新时间会自动刷新。" : "直接写下想记录的内容；保存后可继续搜索和回顾。";
+        noteSourcePreview.textContent = [currentNoteSubject, currentNoteSource ? "出处：" + currentNoteSource : "", currentNoteExcerpt].filter(Boolean).join("\n\n") || "自由笔记不绑定材料出处。";
+        noteTitleInput.value = existing ? existing.title : (currentNoteSubject === "自由笔记" ? "" : currentNoteSubject);
+        noteSummaryInput.value = existing ? existing.summary : currentNoteExcerpt;
+        noteInsightInput.value = existing ? existing.insight : "";
+        noteActionInput.value = existing ? existing.action : "";
+        noteTagsInput.value = existing ? existing.tags.join("、") : "";
+        notePersonalInput.value = existing ? existing.personal : "";
+        noteOverlay.classList.add("active");
+        setTimeout(function() { noteTitleInput.focus(); }, 100);
+      }
+      function closeNoteDialog() {
+        noteOverlay.classList.remove("active");
+      }
+      function saveNoteFromDialog() {
+        var title = cleanNoteText(noteTitleInput.value);
+        var summary = cleanNoteText(noteSummaryInput.value);
+        var insight = cleanNoteText(noteInsightInput.value);
+        var action = cleanNoteText(noteActionInput.value);
+        var tags = cleanNoteTags(noteTagsInput.value);
+        var personal = cleanNoteText(notePersonalInput.value);
+        if (!title && !summary && !personal) { showToast("请至少填写标题或笔记内容"); return; }
+        var existing = currentNoteId ? findPersonalNote(currentNoteId) : null;
+        var now = new Date().toISOString();
+        var note = normalizeNote({
+          id: existing ? existing.id : noteId(),
+          title: title || currentNoteSubject || "未命名笔记",
+          summary: summary,
+          insight: insight,
+          action: action,
+          tags: tags,
+          personal: personal,
+          subject: currentNoteSubject,
+          source: currentNoteSource,
+          excerpt: currentNoteExcerpt,
+          captureKey: existing ? existing.captureKey : currentNoteCaptureKey,
+          createdAt: existing ? existing.createdAt : now,
+          updatedAt: now
+        });
+        if (existing) {
+          personalNotes = personalNotes.map(function(item) { return item.id === existing.id ? note : item; });
+        } else { personalNotes.push(note); }
+        persistPersonalNotes();
+        renderPersonalNotes();
+        refreshNoteButtons();
+        closeNoteDialog();
+        showToast("笔记修改已保存");
+      }
+      function safeMaterialFileName() {
+        return (noteMeta.title || "学习笔记").replace(/[\\/:*?"<>|]+/g, "-").slice(0, 80);
+      }
+      function downloadNoteFile(name, text, mime) {
+        try {
+          var blob = new Blob([text], { type:mime + ";charset=utf-8" });
+          var url = URL.createObjectURL(blob);
+          var link = document.createElement("a");
+          link.href = url;
+          link.download = name;
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+          setTimeout(function() { URL.revokeObjectURL(url); }, 1000);
+        } catch (error) { showToast("导出失败，请改用复制单条笔记"); }
+      }
+      function exportNotesMarkdown() {
+        if (!personalNotes.length) { showToast("还没有可导出的笔记"); return; }
+        var content = "# “" + (noteMeta.title || "") + "”我的笔记\n\n" + personalNotes.slice().sort(function(a,b) { return String(b.updatedAt).localeCompare(String(a.updatedAt)); }).map(noteMarkdown).join("\n---\n\n");
+        downloadNoteFile(safeMaterialFileName() + "-我的笔记.md", content, "text/markdown");
+      }
+      function exportNotesJson() {
+        if (!personalNotes.length) { showToast("还没有可备份的笔记"); return; }
+        var payload = { schemaVersion:"1.2", title:noteMeta.title || "", knowledgeBase:noteMeta.knowledgeBase || "", exportedAt:new Date().toISOString(), notes:personalNotes };
+        downloadNoteFile(safeMaterialFileName() + "-笔记备份.json", JSON.stringify(payload, null, 2), "application/json");
+      }
+      function importNotesJson(file) {
+        if (!file) { return; }
+        var reader = new FileReader();
+        reader.onload = function() {
+          try {
+            var parsed = JSON.parse(String(reader.result || ""));
+            var rows = Array.isArray(parsed) ? parsed : parsed.notes;
+            if (!Array.isArray(rows)) { throw new Error("notes missing"); }
+            var incoming = rows.map(normalizeNote).filter(Boolean);
+            var merged = {};
+            personalNotes.forEach(function(item) { merged[item.id] = item; });
+            incoming.forEach(function(item) { merged[item.id] = item; });
+            personalNotes = Object.keys(merged).map(function(id) { return merged[id]; });
+            persistPersonalNotes();
+            renderPersonalNotes();
+            refreshNoteButtons();
+            showToast("已导入 " + incoming.length + " 条笔记");
+          } catch (error) { showToast("导入失败：请选择本页面导出的 JSON 备份"); }
+          byId("noteImportInput").value = "";
+        };
+        reader.readAsText(file, "utf-8");
+      }
+      document.addEventListener("click", function(event) {
+        var capture = event.target.closest ? event.target.closest("[data-note-capture]") : null;
+        if (capture) {
+          event.preventDefault();
+          event.stopPropagation();
+          var container = capture.parentElement;
+          if (container) { quickSaveNote(container); }
+          return;
+        }
+        var action = event.target.closest ? event.target.closest("[data-note-action]") : null;
+        if (!action) { return; }
+        event.preventDefault();
+        var id = action.getAttribute("data-note-id");
+        var item = findPersonalNote(id);
+        if (!item) { return; }
+        var actionName = action.getAttribute("data-note-action");
+        if (actionName === "copy") {
+          copyText(noteMarkdown(item), function() { showToast("笔记已复制"); }, function() { showToast("复制失败"); });
+        } else if (actionName === "edit") {
+          openNoteDialog({ id:id });
+        } else if (actionName === "delete" && window.confirm("删除这条笔记？此操作无法撤销。")) {
+          personalNotes = personalNotes.filter(function(note) { return note.id !== id; });
+          persistPersonalNotes();
+          renderPersonalNotes();
+          refreshNoteButtons();
+          showToast("笔记已删除");
+        }
+      });
+      if (noteSearch) { noteSearch.oninput = renderPersonalNotes; }
+      if (byId("freeNoteBtn")) { byId("freeNoteBtn").onclick = function() { openNoteDialog({ subject:"自由笔记" }); }; }
+      if (byId("noteSave")) { byId("noteSave").onclick = saveNoteFromDialog; }
+      if (byId("noteCancel")) { byId("noteCancel").onclick = closeNoteDialog; }
+      if (byId("exportNotesMd")) { byId("exportNotesMd").onclick = exportNotesMarkdown; }
+      if (byId("exportNotesJson")) { byId("exportNotesJson").onclick = exportNotesJson; }
+      if (byId("noteImportInput")) { byId("noteImportInput").onchange = function(event) { importNotesJson(event.target.files && event.target.files[0]); }; }
+      if (noteOverlay) { noteOverlay.onclick = function(event) { if (event.target === noteOverlay) { closeNoteDialog(); } }; }
+      document.addEventListener("keydown", function(event) { if (event.key === "Escape" && noteOverlay) { closeNoteDialog(); } });
+      loadPersonalNotes();
+      renderPersonalNotes();
+      injectNoteButtons();
+      if (window.MutationObserver) {
+        var noteObserver = new MutationObserver(function() { injectNoteButtons(); });
+        var noteRoot = document.querySelector("main.page");
+        if (noteRoot) { noteObserver.observe(noteRoot, { childList:true, subtree:true }); }
+      }
+
+      var overlay = byId("ddOverlay");
+      var titleElement = byId("ddTitle");
+      var contextElement = byId("ddCtx");
+      var input = byId("ddInput");
+      var currentConcept = "";
+      var currentSource = "";
+      function openDeepDive(concept, source) {
+        currentConcept = concept || "当前内容";
+        currentSource = source || "未标注";
+        var asksGlossary = currentConcept === "术语大全";
+        titleElement.textContent = asksGlossary ? "问一个不懂的术语" : "追问「" + currentConcept + "」";
+        contextElement.textContent = asksGlossary
+          ? "把术语、英文缩写或不理解的原句粘贴在下方；小巴首次会先给严谨解释，不会立即套用画像举例。"
+          : "来源：" + currentSource + "｜首次严谨解释；你说没懂后才用画像类比，再不懂才用图片。";
+        input.placeholder = asksGlossary ? "粘贴术语、英文缩写或原句…" : "输入你想追问的细节…";
+        input.value = "";
+        overlay.classList.add("active");
+        setTimeout(function() { input.focus(); }, 100);
+      }
+      window.openDeepDive = openDeepDive;
+      document.addEventListener("click", function(event) {
+        var button = event.target.closest ? event.target.closest("[data-deep-dive]") : null;
+        if (button) { openDeepDive(button.getAttribute("data-concept"), button.getAttribute("data-source-ref")); }
+      });
+      byId("ddCancel").onclick = function() { overlay.classList.remove("active"); };
+      overlay.onclick = function(event) { if (event.target === overlay) { overlay.classList.remove("active"); } };
+      document.addEventListener("keydown", function(event) { if (event.key === "Escape") { overlay.classList.remove("active"); } });
+      byId("ddSubmit").onclick = function() {
+        var question = input.value.trim();
+        if (!question) { showToast("请输入你的问题"); return; }
+        var meta = pageData.meta || {};
+        var xiaobaContext = xiaobaPromptHeader(meta, currentSource);
+        var prompt = currentConcept === "术语大全"
+          ? xiaobaContext + "【我的问题】我不理解下面的专业术语、英文缩写或原句：\n\n" + question + "\n\n请执行第一层：先给出精确定义、中文含义、材料语境、相关概念、适用条件和边界。不要在本次首次回答中使用画像举例或生成图片。"
+          : xiaobaContext + "【我的问题】我对「" + currentConcept + "」的追问是：" + question + "。\n\n请执行第一层严谨解释，并按知识来源协议区分材料依据、模型补充和外部核验。不要在本次首次回答中使用画像举例或生成图片。";
+        copyText(prompt, function() { overlay.classList.remove("active"); showToast("追问已复制，请粘贴到对话框"); }, function() { showToast("复制失败，请手动选择文本"); });
+      };
+    })();
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+/* 灰白画册：柔和炭灰、蓝灰点色与留白。 */
+body[data-theme="minimal"] {
+  --ink:#303438; --muted:#777c80; --paper:#f3f3f0; --paper-deep:#e7e7e3;
+  --line:rgba(48,52,56,.13); --red:#8e7472; --blue:#68798b; --green:#718078;
+  --gold:#9a8768; --white:#fff; --signal:#b7c0c7; --signal-ink:#2f353a;
+  --nav-bg:#3d4349; --nav-ink:#f7f7f4; --nav-muted:#c9cdd0; --hero-accent:#aebac3;
+  --font-body:-apple-system,"PingFang SC","Helvetica Neue","Microsoft YaHei",sans-serif;
+  --font-display:"PingFang SC","Microsoft YaHei",sans-serif;
+  --bg:linear-gradient(90deg,#ecece8 0 50%,#f7f7f4 50%);
+  --ambient:linear-gradient(rgba(45,50,54,.035) 1px,transparent 1px);
+  --ambient-size:100% 28px; --ambient-opacity:.30;
+  --surface:#f7f7f3; --surface-strong:#fdfdfb; --hero-bg:#424950; --panel-bg:#fdfdfb;
+  --bar-bg:rgba(253,253,251,.96); --ink-soft:#51565a; --ink-soft-2:#60666a;
+  --tint-accent:rgba(104,121,139,.07); --tint-accent-strong:rgba(104,121,139,.12);
+  --shadow:0 22px 58px rgba(35,39,43,.10); --card-shadow:0 9px 25px rgba(35,39,43,.06);
+}

@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0",
+  "total_sources": 1,
+  "sources": [
+    {
+      "source_file": "fixtures/示例方法材料.pdf",
+      "filename": "示例方法材料.pdf",
+      "format": "pdf",
+      "extraction_method": "PDFKit",
+      "pages": 50,
+      "page_mapping_complete": true
+    }
+  ]
+}

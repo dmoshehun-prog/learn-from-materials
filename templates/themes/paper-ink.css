@@ -1,0 +1,16 @@
+/* 石墨书页：石墨灰、旧砖色与安静纸白。 */
+body[data-theme="paper-ink"] {
+  --ink:#303335; --muted:#77797a; --paper:#eeeeea; --paper-deep:#deded9;
+  --line:rgba(48,51,53,.14); --red:#9d726a; --blue:#67757d; --green:#707c72;
+  --gold:#9e8665; --white:#fff; --signal:#b98578; --signal-ink:#fffaf7;
+  --nav-bg:#45494b; --nav-ink:#fafaf7; --nav-muted:#c8cbcb; --hero-accent:#b58175;
+  --font-body:"Songti SC","Noto Serif CJK SC",Georgia,serif;
+  --font-display:"PingFang SC","Microsoft YaHei",sans-serif;
+  --bg:linear-gradient(150deg,#d9d9d4 0 50%,#eeeeea 50% 100%);
+  --ambient:linear-gradient(rgba(38,42,44,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(38,42,44,.04) 1px,transparent 1px);
+  --ambient-size:52px 52px; --ambient-opacity:.28;
+  --surface:#f2f2ee; --surface-strong:#fafaf7; --hero-bg:#494d50; --panel-bg:#fafaf7;
+  --bar-bg:rgba(250,250,247,.96); --ink-soft:#505456; --ink-soft-2:#606466;
+  --tint-accent:rgba(157,114,106,.07); --tint-accent-strong:rgba(157,114,106,.12);
+  --shadow:0 22px 60px rgba(42,45,47,.11); --card-shadow:0 9px 25px rgba(42,45,47,.07);
+}

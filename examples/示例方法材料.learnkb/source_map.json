@@ -1,0 +1,352 @@
+[
+  {
+    "source_file": "fixtures/示例方法材料.pdf",
+    "locator_type": "pdf_page",
+    "pdf_page": 1,
+    "start_char": 0,
+    "end_char": 99
+  },
+  {
+    "source_file": "fixtures/示例方法材料.pdf",
+    "locator_type": "pdf_page",
+    "pdf_page": 2,
+    "start_char": 100,
+    "end_char": 199
+  },
+  {
+    "source_file": "fixtures/示例方法材料.pdf",
+    "locator_type": "pdf_page",
+    "pdf_page": 3,
+    "start_char": 200,
+    "end_char": 299
+  },
+  {
+    "source_file": "fixtures/示例方法材料.pdf",
+    "locator_type": "pdf_page",
+    "pdf_page": 4,
+    "start_char": 300,
+    "end_char": 399
+  },
+  {
+    "source_file": "fixtures/示例方法材料.pdf",
+    "locator_type": "pdf_page",
+    "pdf_page": 5,
+    "start_char": 400,
+    "end_char": 499
+  },
+  {
+    "source_file": "fixtures/示例方法材料.pdf",
+    "locator_type": "pdf_page",
+    "pdf_page": 6,
+    "start_char": 500,
+    "end_char": 599
+  },
+  {
+    "source_file": "fixtures/示例方法材料.pdf",
+    "locator_type": "pdf_page",
+    "pdf_page": 7,
+    "start_char": 600,
+    "end_char": 699
+  },
+  {
+    "source_file": "fixtures/示例方法材料.pdf",
+    "locator_type": "pdf_page",
+    "pdf_page": 8,
+    "start_char": 700,
+    "end_char": 799
+  },
+  {
+    "source_file": "fixtures/示例方法材料.pdf",
+    "locator_type": "pdf_page",
+    "pdf_page": 9,
+    "start_char": 800,
+    "end_char": 899
+  },
+  {
+    "source_file": "fixtures/示例方法材料.pdf",
+    "locator_type": "pdf_page",
+    "pdf_page": 10,
+    "start_char": 900,
+    "end_char": 999
+  },
+  {
+    "source_file": "fixtures/示例方法材料.pdf",
+    "locator_type": "pdf_page",
+    "pdf_page": 11,
+    "start_char": 1000,
+    "end_char": 1099
+  },
+  {
+    "source_file": "fixtures/示例方法材料.pdf",
+    "locator_type": "pdf_page",
+    "pdf_page": 12,
+    "start_char": 1100,
+    "end_char": 1199
+  },
+  {
+    "source_file": "fixtures/示例方法材料.pdf",
+    "locator_type": "pdf_page",
+    "pdf_page": 13,
+    "start_char": 1200,
+    "end_char": 1299
+  },
+  {
+    "source_file": "fixtures/示例方法材料.pdf",
+    "locator_type": "pdf_page",
+    "pdf_page": 14,
+    "start_char": 1300,
+    "end_char": 1399
+  },
+  {
+    "source_file": "fixtures/示例方法材料.pdf",
+    "locator_type": "pdf_page",
+    "pdf_page": 15,
+    "start_char": 1400,
+    "end_char": 1499
+  },
+  {
+    "source_file": "fixtures/示例方法材料.pdf",
+    "locator_type": "pdf_page",
+    "pdf_page": 16,
+    "start_char": 1500,
+    "end_char": 1599
+  },
+  {
+    "source_file": "fixtures/示例方法材料.pdf",
+    "locator_type": "pdf_page",
+    "pdf_page": 17,
+    "start_char": 1600,
+    "end_char": 1699
+  },
+  {
+    "source_file": "fixtures/示例方法材料.pdf",
+    "locator_type": "pdf_page",
+    "pdf_page": 18,
+    "start_char": 1700,
+    "end_char": 1799
+  },
+  {
+    "source_file": "fixtures/示例方法材料.pdf",
+    "locator_type": "pdf_page",
+    "pdf_page": 19,
+    "start_char": 1800,
+    "end_char": 1899
+  },
+  {
+    "source_file": "fixtures/示例方法材料.pdf",
+    "locator_type": "pdf_page",
+    "pdf_page": 20,
+    "start_char": 1900,
+    "end_char": 1999
+  },
+  {
+    "source_file": "fixtures/示例方法材料.pdf",
+    "locator_type": "pdf_page",
+    "pdf_page": 21,
+    "start_char": 2000,
+    "end_char": 2099
+  },
+  {
+    "source_file": "fixtures/示例方法材料.pdf",
+    "locator_type": "pdf_page",
+    "pdf_page": 22,
+    "start_char": 2100,
+    "end_char": 2199
+  },
+  {
+    "source_file": "fixtures/示例方法材料.pdf",
+    "locator_type": "pdf_page",
+    "pdf_page": 23,
+    "start_char": 2200,
+    "end_char": 2299
+  },
+  {
+    "source_file": "fixtures/示例方法材料.pdf",
+    "locator_type": "pdf_page",
+    "pdf_page": 24,
+    "start_char": 2300,
+    "end_char": 2399
+  },
+  {
+    "source_file": "fixtures/示例方法材料.pdf",
+    "locator_type": "pdf_page",
+    "pdf_page": 25,
+    "start_char": 2400,
+    "end_char": 2499
+  },
+  {
+    "source_file": "fixtures/示例方法材料.pdf",
+    "locator_type": "pdf_page",
+    "pdf_page": 26,
+    "start_char": 2500,
+    "end_char": 2599
+  },
+  {
+    "source_file": "fixtures/示例方法材料.pdf",
+    "locator_type": "pdf_page",
+    "pdf_page": 27,
+    "start_char": 2600,
+    "end_char": 2699
+  },
+  {
+    "source_file": "fixtures/示例方法材料.pdf",
+    "locator_type": "pdf_page",
+    "pdf_page": 28,
+    "start_char": 2700,
+    "end_char": 2799
+  },
+  {
+    "source_file": "fixtures/示例方法材料.pdf",
+    "locator_type": "pdf_page",
+    "pdf_page": 29,
+    "start_char": 2800,
+    "end_char": 2899
+  },
+  {
+    "source_file": "fixtures/示例方法材料.pdf",
+    "locator_type": "pdf_page",
+    "pdf_page": 30,
+    "start_char": 2900,
+    "end_char": 2999
+  },
+  {
+    "source_file": "fixtures/示例方法材料.pdf",
+    "locator_type": "pdf_page",
+    "pdf_page": 31,
+    "start_char": 3000,
+    "end_char": 3099
+  },
+  {
+    "source_file": "fixtures/示例方法材料.pdf",
+    "locator_type": "pdf_page",
+    "pdf_page": 32,
+    "start_char": 3100,
+    "end_char": 3199
+  },
+  {
+    "source_file": "fixtures/示例方法材料.pdf",
+    "locator_type": "pdf_page",
+    "pdf_page": 33,
+    "start_char": 3200,
+    "end_char": 3299
+  },
+  {
+    "source_file": "fixtures/示例方法材料.pdf",
+    "locator_type": "pdf_page",
+    "pdf_page": 34,
+    "start_char": 3300,
+    "end_char": 3399
+  },
+  {
+    "source_file": "fixtures/示例方法材料.pdf",
+    "locator_type": "pdf_page",
+    "pdf_page": 35,
+    "start_char": 3400,
+    "end_char": 3499
+  },
+  {
+    "source_file": "fixtures/示例方法材料.pdf",
+    "locator_type": "pdf_page",
+    "pdf_page": 36,
+    "start_char": 3500,
+    "end_char": 3599
+  },
+  {
+    "source_file": "fixtures/示例方法材料.pdf",
+    "locator_type": "pdf_page",
+    "pdf_page": 37,
+    "start_char": 3600,
+    "end_char": 3699
+  },
+  {
+    "source_file": "fixtures/示例方法材料.pdf",
+    "locator_type": "pdf_page",
+    "pdf_page": 38,
+    "start_char": 3700,
+    "end_char": 3799
+  },
+  {
+    "source_file": "fixtures/示例方法材料.pdf",
+    "locator_type": "pdf_page",
+    "pdf_page": 39,
+    "start_char": 3800,
+    "end_char": 3899
+  },
+  {
+    "source_file": "fixtures/示例方法材料.pdf",
+    "locator_type": "pdf_page",
+    "pdf_page": 40,
+    "start_char": 3900,
+    "end_char": 3999
+  },
+  {
+    "source_file": "fixtures/示例方法材料.pdf",
+    "locator_type": "pdf_page",
+    "pdf_page": 41,
+    "start_char": 4000,
+    "end_char": 4099
+  },
+  {
+    "source_file": "fixtures/示例方法材料.pdf",
+    "locator_type": "pdf_page",
+    "pdf_page": 42,
+    "start_char": 4100,
+    "end_char": 4199
+  },
+  {
+    "source_file": "fixtures/示例方法材料.pdf",
+    "locator_type": "pdf_page",
+    "pdf_page": 43,
+    "start_char": 4200,
+    "end_char": 4299
+  },
+  {
+    "source_file": "fixtures/示例方法材料.pdf",
+    "locator_type": "pdf_page",
+    "pdf_page": 44,
+    "start_char": 4300,
+    "end_char": 4399
+  },
+  {
+    "source_file": "fixtures/示例方法材料.pdf",
+    "locator_type": "pdf_page",
+    "pdf_page": 45,
+    "start_char": 4400,
+    "end_char": 4499
+  },
+  {
+    "source_file": "fixtures/示例方法材料.pdf",
+    "locator_type": "pdf_page",
+    "pdf_page": 46,
+    "start_char": 4500,
+    "end_char": 4599
+  },
+  {
+    "source_file": "fixtures/示例方法材料.pdf",
+    "locator_type": "pdf_page",
+    "pdf_page": 47,
+    "start_char": 4600,
+    "end_char": 4699
+  },
+  {
+    "source_file": "fixtures/示例方法材料.pdf",
+    "locator_type": "pdf_page",
+    "pdf_page": 48,
+    "start_char": 4700,
+    "end_char": 4799
+  },
+  {
+    "source_file": "fixtures/示例方法材料.pdf",
+    "locator_type": "pdf_page",
+    "pdf_page": 49,
+    "start_char": 4800,
+    "end_char": 4899
+  },
+  {
+    "source_file": "fixtures/示例方法材料.pdf",
+    "locator_type": "pdf_page",
+    "pdf_page": 50,
+    "start_char": 4900,
+    "end_char": 4999
+  }
+]

@@ -1,0 +1,18 @@
+/* 深海夜读：墨蓝黑、灰绿色信号与低亮度层次。 */
+body[data-theme="dark"] {
+  --ink:#e5e8e8; --muted:#9ba4a8; --paper:#171c21; --paper-deep:#101419;
+  --line:rgba(229,232,232,.13); --red:#b98486; --blue:#8197aa; --green:#91a897;
+  --gold:#b5a17d; --white:#fff; --signal:#9baa9b; --signal-ink:#18201c;
+  --nav-bg:#202a33; --nav-ink:#edf0ef; --nav-muted:#aeb8bd; --hero-accent:#96a999;
+  --font-body:"Songti SC","Noto Serif CJK SC",Georgia,serif;
+  --font-display:"PingFang SC","Microsoft YaHei",sans-serif;
+  --bg:linear-gradient(140deg,#11161b 0 56%,#1b2229 56% 100%);
+  --ambient:linear-gradient(rgba(147,168,153,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(147,168,153,.04) 1px,transparent 1px);
+  --ambient-size:40px 40px; --ambient-opacity:.26;
+  --surface:#1c2329; --surface-strong:#222a31; --hero-bg:#25313b; --panel-bg:#181f25;
+  --bar-bg:rgba(29,36,42,.96); --ink-soft:#cbd1d2; --ink-soft-2:#b5bdc0;
+  --tint-accent:rgba(147,168,153,.07); --tint-accent-strong:rgba(147,168,153,.12);
+  --shadow:0 24px 68px rgba(0,0,0,.27); --card-shadow:0 10px 28px rgba(0,0,0,.18);
+}
+[data-theme="dark"] .chain button,[data-theme="dark"] .city-buttons button,
+[data-theme="dark"] .deep-dive-btn,[data-theme="dark"] .dd-popover textarea { background:#263039; color:var(--ink); }

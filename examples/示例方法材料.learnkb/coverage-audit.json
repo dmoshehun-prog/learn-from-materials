@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0",
+  "sources": [
+    {
+      "filename": "示例方法材料.pdf",
+      "status": "covered",
+      "reason": "PDF 第 1–50 页已按顺序读取并映射到 u01–u03",
+      "unitIds": ["u01", "u02", "u03"],
+      "ranges": [
+        {"kind": "pdf_page", "start": 1, "end": 50}
+      ]
+    }
+  ],
+  "finalCheck": {
+    "readToEnd": true,
+    "noEarlyStop": true,
+    "sourceLocatorsChecked": true
+  }
+}

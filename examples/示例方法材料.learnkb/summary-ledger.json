@@ -1,0 +1,96 @@
+{
+  "schemaVersion": "knowledge-learning-assistant-summary-ledger/v1",
+  "claims": [
+    {
+      "id": "claim-ch01-map",
+      "unitId": "ch01",
+      "sourceOrder": 1,
+      "kind": "method",
+      "text": "问题地图同时界定问题、角色、约束和成功标准。",
+      "source": "第1章《建立问题地图》 · PDF第10-15页",
+      "summaryRefs": [
+        "unit:ch01:core", "unit:ch01:framework:0",
+        "unit:ch01:takeaway:0", "unit:ch01:takeaway:1", "unit:ch01:takeaway:2",
+        "unit:ch01:conclusion:0:summary", "unit:ch01:conclusion:0:point:0",
+        "unit:ch01:conclusion:0:point:1", "unit:ch01:conclusion:0:point:2",
+        "unit:ch01:conclusion:0:point:3"
+      ]
+    },
+    {
+      "id": "claim-ch01-boundary",
+      "unitId": "ch01",
+      "sourceOrder": 2,
+      "kind": "argument",
+      "text": "先界定问题边界可以减少范围漂移和无关信息干扰。",
+      "source": "第1章《建立问题地图》 · PDF第16-20页",
+      "summaryRefs": [
+        "unit:ch01:conclusion:1:summary", "unit:ch01:conclusion:1:point:0",
+        "unit:ch01:conclusion:1:point:1"
+      ]
+    },
+    {
+      "id": "claim-ch02-layer",
+      "unitId": "ch02",
+      "sourceOrder": 3,
+      "kind": "method",
+      "text": "证据链要求把可复核事实与需要检验的解释分层。",
+      "source": "第2章《构建证据链》 · PDF第21-27页",
+      "summaryRefs": [
+        "unit:ch02:core", "unit:ch02:framework:0", "unit:ch02:takeaway:0",
+        "unit:ch02:conclusion:0:summary", "unit:ch02:conclusion:0:point:0",
+        "unit:ch02:conclusion:0:point:1"
+      ]
+    },
+    {
+      "id": "claim-ch02-counter",
+      "unitId": "ch02",
+      "sourceOrder": 4,
+      "kind": "limitation",
+      "text": "主动寻找反证并标记证据强度可以降低确认偏误。",
+      "source": "第2章《构建证据链》 · PDF第28-35页",
+      "summaryRefs": [
+        "unit:ch02:takeaway:1", "unit:ch02:takeaway:2",
+        "unit:ch02:conclusion:1:summary", "unit:ch02:conclusion:1:point:0",
+        "unit:ch02:conclusion:1:point:1"
+      ]
+    },
+    {
+      "id": "claim-ch03-action",
+      "unitId": "ch03",
+      "sourceOrder": 5,
+      "kind": "method",
+      "text": "最小行动以低成本验证关键假设并尽快产生新信息。",
+      "source": "第3章《进入行动循环》 · PDF第36-43页",
+      "summaryRefs": [
+        "unit:ch03:core", "unit:ch03:framework:0", "unit:ch03:takeaway:0",
+        "unit:ch03:takeaway:1", "unit:ch03:conclusion:0:summary",
+        "unit:ch03:conclusion:0:point:0", "unit:ch03:conclusion:0:point:1"
+      ]
+    },
+    {
+      "id": "claim-ch03-feedback",
+      "unitId": "ch03",
+      "sourceOrder": 6,
+      "kind": "mechanism",
+      "text": "反馈循环通过比较预期与实际结果持续修正理解。",
+      "source": "第3章《进入行动循环》 · PDF第44-50页",
+      "summaryRefs": [
+        "unit:ch03:takeaway:2", "unit:ch03:conclusion:1:summary",
+        "unit:ch03:conclusion:1:point:0", "unit:ch03:conclusion:1:point:1"
+      ]
+    }
+  ],
+  "exclusions": [
+    {
+      "source": "示例方法材料.pdf · PDF第1-9页",
+      "reason": "仅包含封面、目录与重复导读，没有独立于正文的新学习主张。"
+    }
+  ],
+  "finalCheck": {
+    "sourceToSummaryComplete": true,
+    "summaryToSourceComplete": true,
+    "secondPassCompleted": true,
+    "missingClaimIds": [],
+    "orphanSummaryRefs": []
+  }
+}

@@ -1,0 +1,16 @@
+/* 雾蓝书房：低饱和雾蓝、柔金沙色与暖白纸面，默认视觉主题。 */
+body[data-theme="warm-paper"] {
+  --ink:#27313c; --muted:#6f7780; --paper:#f3f1eb; --paper-deep:#e7e9e8;
+  --line:rgba(39,49,60,.14); --red:#9b6f72; --blue:#596c82; --green:#657b70;
+  --gold:#a98959; --white:#fff; --signal:#d8c7a4; --signal-ink:#27313c;
+  --nav-bg:#4e6074; --nav-ink:#f8f7f3; --nav-muted:#ced5dc; --hero-accent:#c7b48e;
+  --font-body:"Songti SC","Noto Serif CJK SC",Georgia,serif;
+  --font-display:"PingFang SC","Microsoft YaHei",sans-serif;
+  --bg:linear-gradient(140deg,#e2e6e7 0 46%,#f2efe8 46% 100%);
+  --ambient:linear-gradient(rgba(68,82,96,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(68,82,96,.045) 1px,transparent 1px);
+  --ambient-size:36px 36px; --ambient-opacity:.30;
+  --surface:#f7f5ef; --surface-strong:#fcfbf7; --hero-bg:#53677d; --panel-bg:#faf8f3;
+  --bar-bg:rgba(250,248,243,.96); --ink-soft:#48535f; --ink-soft-2:#59636d;
+  --tint-accent:rgba(89,108,130,.07); --tint-accent-strong:rgba(89,108,130,.12);
+  --shadow:0 22px 60px rgba(50,61,72,.11); --card-shadow:0 10px 28px rgba(50,61,72,.07);
+}
