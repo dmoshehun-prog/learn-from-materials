@@ -1,0 +1,143 @@
+{
+  "schemaVersion": "learn-from-materials/reverse-coverage-report-v1",
+  "totalSourceBlocks": 79,
+  "mappedSourceBlocks": 79,
+  "unmappedSourceBlocks": 0,
+  "unmappedRatio": 0.0,
+  "unmappedSourceIds": [],
+  "intentionallyOmittedSourceBlocks": 0,
+  "intentionallyOmittedRatio": 0.0,
+  "intentionallyOmittedSourceIds": [],
+  "sampleSize": 12,
+  "sample": [
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00003",
+      "filename": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+      "locatorType": "pdf_page",
+      "covered": true,
+      "mappedUnits": [
+        "u01"
+      ],
+      "mappedClaims": [],
+      "status": "covered"
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00017",
+      "filename": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+      "locatorType": "pdf_page",
+      "covered": true,
+      "mappedUnits": [
+        "u03"
+      ],
+      "mappedClaims": [],
+      "status": "covered"
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00022",
+      "filename": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+      "locatorType": "pdf_page",
+      "covered": true,
+      "mappedUnits": [
+        "u04"
+      ],
+      "mappedClaims": [],
+      "status": "covered"
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00067",
+      "filename": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+      "locatorType": "pdf_page",
+      "covered": true,
+      "mappedUnits": [
+        "u10"
+      ],
+      "mappedClaims": [],
+      "status": "covered"
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00006",
+      "filename": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+      "locatorType": "pdf_page",
+      "covered": true,
+      "mappedUnits": [
+        "u01"
+      ],
+      "mappedClaims": [],
+      "status": "covered"
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00054",
+      "filename": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+      "locatorType": "pdf_page",
+      "covered": true,
+      "mappedUnits": [],
+      "mappedClaims": [],
+      "status": "no-content"
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00028",
+      "filename": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+      "locatorType": "pdf_page",
+      "covered": true,
+      "mappedUnits": [
+        "u05"
+      ],
+      "mappedClaims": [],
+      "status": "covered"
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00050",
+      "filename": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+      "locatorType": "pdf_page",
+      "covered": true,
+      "mappedUnits": [],
+      "mappedClaims": [],
+      "status": "no-content"
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00074",
+      "filename": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+      "locatorType": "pdf_page",
+      "covered": true,
+      "mappedUnits": [
+        "u11"
+      ],
+      "mappedClaims": [],
+      "status": "covered"
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00041",
+      "filename": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+      "locatorType": "pdf_page",
+      "covered": true,
+      "mappedUnits": [
+        "u08"
+      ],
+      "mappedClaims": [],
+      "status": "covered"
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00018",
+      "filename": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+      "locatorType": "pdf_page",
+      "covered": true,
+      "mappedUnits": [
+        "u03"
+      ],
+      "mappedClaims": [],
+      "status": "covered"
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00031",
+      "filename": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+      "locatorType": "pdf_page",
+      "covered": true,
+      "mappedUnits": [
+        "u06"
+      ],
+      "mappedClaims": [],
+      "status": "covered"
+    }
+  ],
+  "passed": true
+}

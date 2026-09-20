@@ -1,0 +1,366 @@
+{
+  "schemaVersion": "learn-from-materials/methods-v1",
+  "libraryId": "rsi-paper-2609-11873",
+  "title": "《The Last AI Built by Humans》方法论库",
+  "language": "zh-CN",
+  "status": "extracted",
+  "note": "仅提炼页面所用、且能回指论文文本的闭环审计与行动规则；不把行业宣传或未独立验证的案例升级为方法事实。",
+  "methods": [
+    {
+      "id": "f-loop",
+      "version": "0.1.1",
+      "kind": "framework",
+      "name": "改进闭环审计",
+      "summary": "用循环部件判断一项改进是否能被验证地继承。",
+      "problem": "把一次输出优化误判为可持续自我改进。",
+      "when": "分析任何声称会自我改进的系统时。",
+      "prerequisites": [
+        "可访问系统的状态、反馈和评估流程说明"
+      ],
+      "limitations": [
+        "文本描述可能不足以证明真实部署行为",
+        "闭环存在不代表改进质量高"
+      ],
+      "rationale": "论文把改进循环定义为经验提出修改、在接受规则下评估、保留被接受变化并从更新状态进入下一轮的过程。",
+      "steps": [
+        {
+          "action": "列出循环角色",
+          "input": "系统说明或运行记录",
+          "output": "状态、经验、目标、改进器、策略、验证器与后继系统清单",
+          "check": "每个角色都有明确来源"
+        },
+        {
+          "action": "标出跨轮继承",
+          "input": "每轮更新记录",
+          "output": "被下一轮接收的持久状态",
+          "check": "不是只保留当次回答"
+        },
+        {
+          "action": "标出外部控制",
+          "input": "目标、验收与权限说明",
+          "output": "未内部化的责任边界",
+          "check": "不把外部评审误写成系统自主"
+        }
+      ],
+      "successChecks": [
+        "能说清循环在何处关闭",
+        "能区分持久状态与瞬时输出"
+      ],
+      "tags": [
+        "RSI",
+        "闭环",
+        "系统状态"
+      ],
+      "evidence": "material",
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：2.2.1 Anatomy of an Improvement Loop · PDF第10页",
+      "sources": [
+        {
+          "locator": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：2.2.1 Anatomy of an Improvement Loop · PDF第10页",
+          "sourceIds": [
+            "src-e2c322735f82-pdf_page-00010"
+          ],
+          "quote": "Improvement loop. We define an improvement loop as a recurring process"
+        }
+      ],
+      "parents": []
+    },
+    {
+      "id": "f-level",
+      "version": "0.1.1",
+      "kind": "framework",
+      "name": "五级自主性阶梯",
+      "summary": "按改进责任由谁承担，将系统定位在 L1–L5。",
+      "problem": "把工具数量或自动运行时间直接等同于更高自主性。",
+      "when": "需要比较提示、训练、经验、部署或元改进系统时。",
+      "prerequisites": [
+        "已完成基本闭环审计"
+      ],
+      "limitations": [
+        "层级适用于所考察的机制，不是整个产品的永久标签",
+        "更高层级不保证更安全或更有效"
+      ],
+      "rationale": "论文将责任逐层内部化：执行、策略、未来经验、环境适应、支配后续改进的机制。",
+      "steps": [
+        {
+          "action": "先固定分析对象",
+          "input": "一个具体改进机制",
+          "output": "待分类的目标和循环范围",
+          "check": "不把无关子系统混入"
+        },
+        {
+          "action": "识别首个内部化责任",
+          "input": "闭环部件表",
+          "output": "L1–L5 暂定层级",
+          "check": "外部目标和验收仍被记录"
+        },
+        {
+          "action": "核对继承证据",
+          "input": "跨轮状态与后继行为",
+          "output": "层级结论与限制",
+          "check": "后续回合确实使用该状态"
+        }
+      ],
+      "successChecks": [
+        "层级对应具体内部化责任",
+        "说明了仍在外部的控制"
+      ],
+      "tags": [
+        "L1",
+        "L2",
+        "L3",
+        "L4",
+        "L5"
+      ],
+      "evidence": "material",
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：1 Introduction · PDF第5页",
+      "sources": [
+        {
+          "locator": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：1 Introduction · PDF第5页",
+          "sourceIds": [
+            "src-e2c322735f82-pdf_page-00005"
+          ],
+          "quote": "(L1) Improvement Execution Autonomy."
+        }
+      ],
+      "parents": []
+    },
+    {
+      "id": "f-agenda",
+      "version": "0.1.1",
+      "kind": "framework",
+      "name": "学习议程自主",
+      "summary": "检查系统是否根据学习者状态选择下一步经验。",
+      "problem": "把固定数据上的策略优化误称为经验自主。",
+      "when": "分析课程生成、自博弈、任务生成或自主练习时。",
+      "prerequisites": [
+        "可观测的学习者状态或失败记录",
+        "至少有连续两轮经验选择"
+      ],
+      "limitations": [
+        "选择来源于固定池也可满足机制，关键在适应性",
+        "一次过滤或偶发访问不足以证明 L3"
+      ],
+      "rationale": "L3 的定义性特征是学习者条件化的未来经验获取，且持久更新会反馈进后续获取决策。",
+      "steps": [
+        {
+          "action": "记录学习者证据",
+          "input": "能力、失败与学习历史",
+          "output": "可用状态信号",
+          "check": "信号能解释经验选择"
+        },
+        {
+          "action": "比较下轮经验",
+          "input": "连续轮次任务或数据记录",
+          "output": "经验选择变化",
+          "check": "变化不是随机或仅人工重设"
+        },
+        {
+          "action": "检查回馈",
+          "input": "更新与下一轮选择记录",
+          "output": "持续闭环说明",
+          "check": "更新确实影响后来经验"
+        }
+      ],
+      "successChecks": [
+        "能展示状态→经验→更新→再选经验",
+        "能排除固定日程解释"
+      ],
+      "tags": [
+        "L3",
+        "课程",
+        "自博弈",
+        "经验获取"
+      ],
+      "evidence": "material",
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.4 L3: Autonomy over Future Learning Experience · PDF第22页",
+      "sources": [
+        {
+          "locator": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.4 L3: Autonomy over Future Learning Experience · PDF第22页",
+          "sourceIds": [
+            "src-e2c322735f82-pdf_page-00022"
+          ],
+          "quote": "The defining property is learner-conditioned future experience acquisition."
+        }
+      ],
+      "parents": []
+    },
+    {
+      "id": "f-meta",
+      "version": "0.1.1",
+      "kind": "framework",
+      "name": "元改进评估",
+      "summary": "区分改进机制被修改的结构性 L5 与被独立证据支持的有效 L5。",
+      "problem": "把自指代码或自动调参当作已证明的递归改进。",
+      "when": "评估自动研究、改优化器、改评估器或后继生成机制时。",
+      "prerequisites": [
+        "可识别的改进机制",
+        "可比较的后继表现或独立评估"
+      ],
+      "limitations": [
+        "短期提升不足以证明跨代累积",
+        "受保护评测和资源约束仍可在外部"
+      ],
+      "rationale": "论文要求结构性 L5 证明 AI 指导的变化持续并控制下一轮；有效 L5 还要说明修订机制在可比预算和独立评估下产生更好后继。",
+      "steps": [
+        {
+          "action": "定位被改机制",
+          "input": "代码、策略或评估流程",
+          "output": "机制变更说明",
+          "check": "不是只改任务输出"
+        },
+        {
+          "action": "核对跨轮继承",
+          "input": "后继系统记录",
+          "output": "结构性 L5 证据",
+          "check": "修订机制治理后来一轮"
+        },
+        {
+          "action": "核对效果",
+          "input": "独立任务、预算与稳定性记录",
+          "output": "有效性结论或未证实限制",
+          "check": "比较条件一致"
+        }
+      ],
+      "successChecks": [
+        "结构性与有效性结论被分开报告",
+        "评估包含迁移或独立条件"
+      ],
+      "tags": [
+        "L5",
+        "元改进",
+        "后继系统"
+      ],
+      "evidence": "material",
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.6 L5: From Environmental Adaptation to Meta-Improvement · PDF第32页",
+      "sources": [
+        {
+          "locator": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.6 L5: From Environmental Adaptation to Meta-Improvement · PDF第32页",
+          "sourceIds": [
+            "src-e2c322735f82-pdf_page-00032"
+          ],
+          "quote": "These conditions distinguish structural L5"
+        }
+      ],
+      "parents": []
+    },
+    {
+      "id": "r-evaluate",
+      "version": "0.1.1",
+      "kind": "rule",
+      "name": "隔离并保护评估接口",
+      "summary": "将开发、验证和最终验收分开，检查评估器被适应性搜索利用的风险。",
+      "problem": "把反复查询同一评测造成的高分误认作泛化改进。",
+      "when": "系统能反复选择策略、查询开发集或调用自动评估器时。",
+      "prerequisites": [
+        "有独立或受保护的验证信号",
+        "记录评测访问与搜索预算"
+      ],
+      "limitations": [
+        "完全隔离不总是可行；需明确剩余泄漏风险",
+        "公司指标未必等同于独立复现"
+      ],
+      "rationale": "论文指出重复访问开发集会诱发基准过拟合，评估器还可能与提议者共享盲区。",
+      "steps": [
+        {
+          "action": "划分评测角色",
+          "input": "现有指标与数据集",
+          "output": "开发、验证、验收清单",
+          "check": "每个指标有访问权限"
+        },
+        {
+          "action": "记录适应性访问",
+          "input": "实验日志",
+          "output": "查询次数与预算记录",
+          "check": "开发集不充当最终结论"
+        },
+        {
+          "action": "做独立复核",
+          "input": "隐藏任务或外部评估",
+          "output": "泛化与局限说明",
+          "check": "结论不只依赖同一优化面"
+        }
+      ],
+      "successChecks": [
+        "结果在受保护条件下仍成立",
+        "报告了访问次数和评估局限"
+      ],
+      "tags": [
+        "L2",
+        "评估",
+        "过拟合",
+        "Goodhart"
+      ],
+      "evidence": "material",
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.3.4 Evaluating L2 Strategy Autonomy · PDF第21页",
+      "sources": [
+        {
+          "locator": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.3.4 Evaluating L2 Strategy Autonomy · PDF第21页",
+          "sourceIds": [
+            "src-e2c322735f82-pdf_page-00021"
+          ],
+          "quote": "invites benchmark overfitting, additional search compute"
+        }
+      ],
+      "parents": []
+    },
+    {
+      "id": "r-retain",
+      "version": "0.1.1",
+      "kind": "rule",
+      "name": "证据门控的持久化",
+      "summary": "让候选更新先提供证据，再进入可复用的长期状态。",
+      "problem": "把噪声轨迹、无效技能或脆弱规则永久写入经验库。",
+      "when": "准备把记忆、技能、工具、代码或规则纳入长期库时。",
+      "prerequisites": [
+        "候选更新",
+        "可执行的验证或对照机制"
+      ],
+      "limitations": [
+        "验证信号也可能不完整",
+        "需要持续重验证而非一次准入"
+      ],
+      "rationale": "论文在 L4 的选择性保留部分明确提出：候选更新要先产生证据才可进入持久状态。",
+      "steps": [
+        {
+          "action": "保留候选态",
+          "input": "新记忆、技能或规则",
+          "output": "未发布的候选版本",
+          "check": "尚未影响后续任务"
+        },
+        {
+          "action": "运行验证",
+          "input": "受保护任务、对照或观察",
+          "output": "证据与适用条件",
+          "check": "证据比原状态更好"
+        },
+        {
+          "action": "带元数据入库",
+          "input": "通过验证的候选",
+          "output": "版本、来源、证据与再验证条件",
+          "check": "可追溯且可退役"
+        }
+      ],
+      "successChecks": [
+        "每个保留项有准入证据",
+        "失效项可被识别、重验或退役"
+      ],
+      "tags": [
+        "L4",
+        "持久状态",
+        "Library Drift"
+      ],
+      "evidence": "material",
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.5.3 Selective retention and deployment of updates · PDF第30页",
+      "sources": [
+        {
+          "locator": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.5.3 Selective retention and deployment of updates · PDF第30页",
+          "sourceIds": [
+            "src-e2c322735f82-pdf_page-00030"
+          ],
+          "quote": "A proposed update must produce evidence before it can enter the persistent state."
+        }
+      ],
+      "parents": []
+    }
+  ]
+}

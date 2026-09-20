@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "learn-from-materials/performance-report-v1",
+  "sizeTier": "small",
+  "sourceCount": 1,
+  "pagesOrSlides": 79,
+  "characters": 340389,
+  "estimatedTokens": 61938,
+  "durationSeconds": 6.082547,
+  "cache": {
+    "enabled": true,
+    "hits": 0,
+    "misses": 1
+  },
+  "peakMemoryBytes": null,
+  "note": "Token count is an estimate; peak memory is null unless measured by an external benchmark runner.",
+  "sources": [
+    {
+      "filename": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+      "durationSeconds": 6.007273,
+      "reusedFromCache": false,
+      "characters": 340098,
+      "estimatedTokens": 61926
+    }
+  ]
+}

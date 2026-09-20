@@ -75,7 +75,7 @@ def finalize(page_file, kb, output_dir, name, legacy_rule_ledger=False):
         heading_file = staged_kb / 'source-heading-index.json'
         heading_entries = json.loads(heading_file.read_text(encoding='utf-8')).get('entries', []) if heading_file.is_file() else []
         visual_heading_count = sum(item.get('verification') == 'visual' for item in heading_entries if isinstance(item, dict))
-        manifest = {'skillVersion':'0.5.12-beta','status':'complete','pageId':page['meta']['pageId'],
+        manifest = {'skillVersion':'0.2.0','status':'complete','pageId':page['meta']['pageId'],
             'checks':['canonical-evidence','coverage','snapshot-equality','derived-files','static-html','relations'] + (['action-rule-ledger'] if ledger else []) + (['pdf-heading-index'] if (staged_kb/'source-heading-index.json').is_file() else []),
             'relations':relation_report.as_dict(),
             'headingIndex':{'textEntries':len(heading_entries)-visual_heading_count,'visualEntries':visual_heading_count},

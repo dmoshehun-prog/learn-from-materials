@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "2.0",
+  "total_sources": 1,
+  "sources": [
+    {
+      "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+      "filename": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+      "format": "pdf",
+      "extraction_method": "pdfminer",
+      "file_size_mb": 7.48,
+      "pages": 79,
+      "pages_label": "pages",
+      "chars": 340098,
+      "words": 46371,
+      "estimated_tokens": 61926,
+      "token_estimate_method": "cjk-aware-mixed",
+      "ocr_used": false,
+      "ocr_recommended": false,
+      "visual_assets": 0,
+      "visual_review_recommended": false,
+      "page_mapping_complete": true,
+      "chapters_detected": 0,
+      "has_toc": false,
+      "sha256": "e2c322735f824228b1916c42be710e463dbba255be56644e746a67d84fd21f28",
+      "text_sha256": "3c82348320d647a1a296fc80c62ef7fafdff8ffe37849050eda66a0ffd3b440d",
+      "extractor_schema": "learn-from-materials/extractor-v2",
+      "reused_from_cache": false,
+      "duration_seconds": 6.007273
+    }
+  ]
+}

@@ -1,0 +1,642 @@
+{
+  "schemaVersion": "1.1",
+  "learningDepth": "systematic",
+  "sources": [
+    {
+      "filename": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+      "status": "covered",
+      "reason": "按 PDF 第1–79页顺序读取；目录页与参考文献页仅作结构或书目记录，正文、表图文字说明与附录均已映射。",
+      "unitIds": [
+        "u01",
+        "u02",
+        "u03",
+        "u04",
+        "u05",
+        "u06",
+        "u07",
+        "u08",
+        "u09",
+        "u10",
+        "u11"
+      ],
+      "ranges": [
+        {
+          "kind": "pdf_page",
+          "start": 1,
+          "end": 79
+        }
+      ]
+    }
+  ],
+  "sourceBlocks": [
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00001",
+      "status": "covered",
+      "mappedUnits": [
+        "u01"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00002",
+      "status": "no-content",
+      "mappedUnits": [],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00003",
+      "status": "covered",
+      "mappedUnits": [
+        "u01"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00004",
+      "status": "covered",
+      "mappedUnits": [
+        "u01"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00005",
+      "status": "covered",
+      "mappedUnits": [
+        "u01"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00006",
+      "status": "covered",
+      "mappedUnits": [
+        "u01"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00007",
+      "status": "covered",
+      "mappedUnits": [
+        "u02"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00008",
+      "status": "covered",
+      "mappedUnits": [
+        "u02"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00009",
+      "status": "covered",
+      "mappedUnits": [
+        "u02"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00010",
+      "status": "covered",
+      "mappedUnits": [
+        "u02"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00011",
+      "status": "covered",
+      "mappedUnits": [
+        "u02"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00012",
+      "status": "covered",
+      "mappedUnits": [
+        "u03"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00013",
+      "status": "covered",
+      "mappedUnits": [
+        "u03"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00014",
+      "status": "covered",
+      "mappedUnits": [
+        "u03"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00015",
+      "status": "covered",
+      "mappedUnits": [
+        "u03"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00016",
+      "status": "covered",
+      "mappedUnits": [
+        "u03"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00017",
+      "status": "covered",
+      "mappedUnits": [
+        "u03"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00018",
+      "status": "covered",
+      "mappedUnits": [
+        "u03"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00019",
+      "status": "covered",
+      "mappedUnits": [
+        "u03"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00020",
+      "status": "covered",
+      "mappedUnits": [
+        "u03"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00021",
+      "status": "covered",
+      "mappedUnits": [
+        "u03"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00022",
+      "status": "covered",
+      "mappedUnits": [
+        "u04"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00023",
+      "status": "covered",
+      "mappedUnits": [
+        "u04"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00024",
+      "status": "covered",
+      "mappedUnits": [
+        "u04"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00025",
+      "status": "covered",
+      "mappedUnits": [
+        "u04"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00026",
+      "status": "covered",
+      "mappedUnits": [
+        "u04"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00027",
+      "status": "covered",
+      "mappedUnits": [
+        "u05"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00028",
+      "status": "covered",
+      "mappedUnits": [
+        "u05"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00029",
+      "status": "covered",
+      "mappedUnits": [
+        "u05"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00030",
+      "status": "covered",
+      "mappedUnits": [
+        "u05"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00031",
+      "status": "covered",
+      "mappedUnits": [
+        "u06"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00032",
+      "status": "covered",
+      "mappedUnits": [
+        "u06"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00033",
+      "status": "covered",
+      "mappedUnits": [
+        "u06"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00034",
+      "status": "covered",
+      "mappedUnits": [
+        "u06"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00035",
+      "status": "covered",
+      "mappedUnits": [
+        "u06"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00036",
+      "status": "covered",
+      "mappedUnits": [
+        "u07"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00037",
+      "status": "covered",
+      "mappedUnits": [
+        "u07"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00038",
+      "status": "covered",
+      "mappedUnits": [
+        "u08"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00039",
+      "status": "covered",
+      "mappedUnits": [
+        "u08"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00040",
+      "status": "covered",
+      "mappedUnits": [
+        "u08"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00041",
+      "status": "covered",
+      "mappedUnits": [
+        "u08"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00042",
+      "status": "covered",
+      "mappedUnits": [
+        "u08"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00043",
+      "status": "covered",
+      "mappedUnits": [
+        "u08"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00044",
+      "status": "covered",
+      "mappedUnits": [
+        "u08"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00045",
+      "status": "covered",
+      "mappedUnits": [
+        "u08"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00046",
+      "status": "covered",
+      "mappedUnits": [
+        "u08"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00047",
+      "status": "covered",
+      "mappedUnits": [
+        "u09"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00048",
+      "status": "covered",
+      "mappedUnits": [
+        "u09"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00049",
+      "status": "covered",
+      "mappedUnits": [
+        "u09"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00050",
+      "status": "no-content",
+      "mappedUnits": [],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00051",
+      "status": "no-content",
+      "mappedUnits": [],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00052",
+      "status": "no-content",
+      "mappedUnits": [],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00053",
+      "status": "no-content",
+      "mappedUnits": [],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00054",
+      "status": "no-content",
+      "mappedUnits": [],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00055",
+      "status": "no-content",
+      "mappedUnits": [],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00056",
+      "status": "no-content",
+      "mappedUnits": [],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00057",
+      "status": "no-content",
+      "mappedUnits": [],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00058",
+      "status": "no-content",
+      "mappedUnits": [],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00059",
+      "status": "no-content",
+      "mappedUnits": [],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00060",
+      "status": "no-content",
+      "mappedUnits": [],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00061",
+      "status": "no-content",
+      "mappedUnits": [],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00062",
+      "status": "no-content",
+      "mappedUnits": [],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00063",
+      "status": "covered",
+      "mappedUnits": [
+        "u10"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00064",
+      "status": "covered",
+      "mappedUnits": [
+        "u10"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00065",
+      "status": "covered",
+      "mappedUnits": [
+        "u10"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00066",
+      "status": "covered",
+      "mappedUnits": [
+        "u10"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00067",
+      "status": "covered",
+      "mappedUnits": [
+        "u10"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00068",
+      "status": "covered",
+      "mappedUnits": [
+        "u10"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00069",
+      "status": "covered",
+      "mappedUnits": [
+        "u10"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00070",
+      "status": "covered",
+      "mappedUnits": [
+        "u10"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00071",
+      "status": "covered",
+      "mappedUnits": [
+        "u10"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00072",
+      "status": "covered",
+      "mappedUnits": [
+        "u11"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00073",
+      "status": "covered",
+      "mappedUnits": [
+        "u11"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00074",
+      "status": "covered",
+      "mappedUnits": [
+        "u11"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00075",
+      "status": "covered",
+      "mappedUnits": [
+        "u11"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00076",
+      "status": "covered",
+      "mappedUnits": [
+        "u11"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00077",
+      "status": "covered",
+      "mappedUnits": [
+        "u11"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00078",
+      "status": "covered",
+      "mappedUnits": [
+        "u11"
+      ],
+      "mappedClaims": []
+    },
+    {
+      "sourceId": "src-e2c322735f82-pdf_page-00079",
+      "status": "covered",
+      "mappedUnits": [
+        "u11"
+      ],
+      "mappedClaims": []
+    }
+  ],
+  "finalCheck": {
+    "readToEnd": true,
+    "noEarlyStop": true,
+    "sourceLocatorsChecked": true
+  }
+}

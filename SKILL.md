@@ -3,7 +3,7 @@ name: learn-from-materials
 description: Turn books, PDFs, slides, documents, web pages and text into a source-grounded knowledge base, interactive learning HTML and Markdown in English or Chinese. Use for learning, summaries, explanations, review, quizzes, relationship maps, saving reusable methodology files, retrieving or comparing accumulated methods, and applying them to a real problem. 将材料转为可追溯知识库与交互学习页，支持中英文、关系图、方法论保存/检索/比较及应用；区分材料依据、推断与外部核验。
 license: MIT; see LICENSE.md and NOTICE.md
 metadata:
-  version: 0.5.12-beta
+  version: 0.2.0
   compatibility: Requires filesystem access and Python 3.10+. Node.js and Playwright are optional for browser verification. Visual or OCR capability is recommended for scanned PDFs and image-heavy slides.
 ---
 
@@ -31,11 +31,13 @@ Check the **framework-only** relation graph using the actual visible framework-t
 
 For new systematic overviews, finish the v2 ledger's `relationReview` for both visible graphs. Review each supported relation type against the original, map actual edge IDs, and explain unsupported types; zero edges of a type is valid when the material gives no basis. Check whether a straight-looking methodology hides parallel paths, conditional alternatives, comparisons, prerequisites or evidence-driven revision. Follow `references/whole-material-methodology.md` and `references/language-relationships-application.md` for edge meaning and evidence limits. The number shown on a framework card and its graph node must come from the same `sourceOrder`, even when layout reorders nodes.
 
-### v0.5 delivery and visual contract
+### Delivery and visual contract
 
 Read `references/diagram-design-and-delivery.md` before generating an overview. Core frameworks opens with cards and offers a separate framework-only relationship map. Action rules contains the complete whole-material methodology and its application button. Never move the whole methodology into Core frameworks or replace its cards. Use the bundled diagram studio; it measures card heights, allocates only needed columns, keeps edge conditions on node chips and offers Fit width, Overview, zoom and fullscreen. Do not paginate the graph or draw custom per-material HTML.
 
 The bundled studio briefly draws wires on first view, then rests as a static map. Selecting a node gives its active links one short directional cue; there is no perpetual flow. All relationship lines stay solid. Colour and labels distinguish material evidence, inference and feedback. Relation chips must not hide essential text with single-line ellipsis; wrapping changes card height, so preserve measured rows and arrow geometry. `mount()` returns a `refresh()` hook. If you modify `templates/graph-studio.js` or `templates/graph-studio.css`, keep the hidden-panel guard, static rebuild state, reduced-motion behavior and host refresh call described in the "Wire motion and state" section of the reference.
+
+Keep long graph hover explanations scrollable. In the framework graph, wheel input over an overflowing relation list must scroll that inner list first, then pass any remaining movement to the outer hover panel; do not remove either scrollbar or allow the background page to move while reading the panel. Verify the framework and methodology hover panels independently.
 
 For every new overview, finish with `python scripts/finalize.py page.json --knowledge-base topic.learnkb --output-dir delivery --name topic-learning`. This binds canonical data, derives readable method files, runs coverage/static gates and packages all deliverables. Missing `methods.json` or `methodology.json` is a blocking content gap; author and verify it rather than bypassing the gate. An unsupported methodology uses the documented `not-applicable` structure, never an invented workflow. Return links to HTML, ZIP and the exported methodology.md. Low-level render() is not a delivery workflow. `render_page.py --legacy` is only for explicitly requested old-page re-rendering, never for a new overview.
 
@@ -197,7 +199,7 @@ python3 scripts/finalize.py page.json --knowledge-base <主题>.learnkb \
   --output-dir <交付目录> --name <材料名>-<模式>
 ```
 
-topic/unit 或已经绑定的内容可用渲染入口；overview 默认执行 v0.5 必需交付检查：
+topic/unit 或已经绑定的内容可用渲染入口；overview 默认执行当前版本必需的交付检查：
 
 ```bash
 python3 scripts/render_page.py page.json \

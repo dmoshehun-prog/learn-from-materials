@@ -2243,10 +2243,7 @@
       background:linear-gradient(90deg,var(--surface-strong) 0 74%,color-mix(in srgb,var(--signal) 44%,var(--surface-strong)) 74% 100%);
     }
 
-    /* 装饰字「KEY」是绝对定位伪元素，会绘制在正文之上；负字距又把 K/E/Y 挤成一团，
-       在 v4 主题下渲染成压住文字的深色实心块。这里恢复可读性：正字距 + 低不透明度，
-       保留水印效果但不再遮挡正文。 */
-    .note:nth-child(3n+1)::after { opacity:.15; letter-spacing:.04em; }
+    .note:nth-child(3n+1)::after { opacity:.52; }
 
     .note:hover {
       transform:translateY(-3px);

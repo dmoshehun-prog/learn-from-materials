@@ -1,0 +1,713 @@
+[
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00001",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "c93be3193573fb4c5d94858662e4a7d6f7ea6c323f0607632b881988fd94b0fe",
+    "start_char": 291,
+    "end_char": 4569,
+    "pdf_page": 1
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00002",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "5980c7fd8d95c50814241dec0c2266808717f9d007c7427ef69d137ca56fc135",
+    "start_char": 4570,
+    "end_char": 9288,
+    "pdf_page": 2
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00003",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "792f0b0afa9dff60c9f3990fbb97192637a7b9ac4337c522b3427673d3930961",
+    "start_char": 9289,
+    "end_char": 14241,
+    "pdf_page": 3
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00004",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "6d82c142436f0b6e60b2c47f8c8ff63a34d4cdcd36ced76d7d7797d77616a312",
+    "start_char": 14242,
+    "end_char": 18824,
+    "pdf_page": 4
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00005",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "cca9cc0883d2b7849edc224e581c6eebcb6a858eec9bc02a385fe2f9e31add15",
+    "start_char": 18825,
+    "end_char": 22970,
+    "pdf_page": 5
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00006",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "c17f9e82c37eea26db3ccf8e5857a051beaac414b5aa3730fd8fb0e245113ff1",
+    "start_char": 22971,
+    "end_char": 27604,
+    "pdf_page": 6
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00007",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "a6c44e566b9edf1f41a9485bc695009f308ba73e4fccb92390e56aa4da983f6a",
+    "start_char": 27605,
+    "end_char": 32088,
+    "pdf_page": 7
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00008",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "0fe7801d463d2ffdcee86f4bea13e29a30738234042728a25c842c7e2cf94615",
+    "start_char": 32089,
+    "end_char": 34484,
+    "pdf_page": 8
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00009",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "2ac1c4883f8a747e3a7f04a75c397f279e06bffefb23f186238250358e226c77",
+    "start_char": 34485,
+    "end_char": 39612,
+    "pdf_page": 9
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00010",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "b6683465cabedc609e98cc9af1c245477ab9d64d9fd5db015302f9731b642bb9",
+    "start_char": 39613,
+    "end_char": 43616,
+    "pdf_page": 10
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00011",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "f567a982e82ddbb83e918f6e18e508d9890edbd707f31c1fca78feb81f2ac767",
+    "start_char": 43617,
+    "end_char": 48304,
+    "pdf_page": 11
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00012",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "5ea1de0afe7a724865c69411dd045ce8ca65163daf2267d902809f88705d9a53",
+    "start_char": 48305,
+    "end_char": 51897,
+    "pdf_page": 12
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00013",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "7e359c7de6e51da2a70faeeef137c6c8f68349720f8e510a1100ee016f27b4d0",
+    "start_char": 51898,
+    "end_char": 55636,
+    "pdf_page": 13
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00014",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "e4106a1c88fc5854c6ac3f2e99cc4d704b7d58b571e872d277b465d784ae325c",
+    "start_char": 55637,
+    "end_char": 60126,
+    "pdf_page": 14
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00015",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "a1b15436b639ba69bd0f1282d16f381c123b96ff10cf65bb7f4d93ec96ef04f3",
+    "start_char": 60127,
+    "end_char": 65197,
+    "pdf_page": 15
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00016",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "537b98378169f21605861713a7865d76acea1a0c39f2438d6e0dd1b5dac03df8",
+    "start_char": 65198,
+    "end_char": 70186,
+    "pdf_page": 16
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00017",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "40aba3f223eb1dbd7c8d786c9611fcffe6390655c5e02c73e47c0df2bd063c22",
+    "start_char": 70187,
+    "end_char": 74827,
+    "pdf_page": 17
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00018",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "597355876a4d085d9e2eac2879709e04685478a67218e189f13fb79107c65356",
+    "start_char": 74828,
+    "end_char": 79469,
+    "pdf_page": 18
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00019",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "a466ca1c7455650f5696f31d720db807ea32c79bcb86a6228a1d4ae1cae53f89",
+    "start_char": 79470,
+    "end_char": 83221,
+    "pdf_page": 19
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00020",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "3f2b02744e914aa66f30e5193abe3097e814cf450ccc94f3d2fc494af516b1fe",
+    "start_char": 83222,
+    "end_char": 88008,
+    "pdf_page": 20
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00021",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "1ccc15f624722d9830759c4625894923015b022b871a86ea47de597e812e5f0e",
+    "start_char": 88009,
+    "end_char": 92264,
+    "pdf_page": 21
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00022",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "079b54a7a69efe9a96b4dea4c076f35e30e2f2b36b735862d7258787f21e943e",
+    "start_char": 92265,
+    "end_char": 96764,
+    "pdf_page": 22
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00023",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "859a1196598e1af9e25cd742bd8752d8dff2b77e34ad6e5534975b36a418e44d",
+    "start_char": 96765,
+    "end_char": 101500,
+    "pdf_page": 23
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00024",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "29ee4f4f1540065ad051dc9e4f8d61d39aca3167e79cfe247f10d026423fd25c",
+    "start_char": 101501,
+    "end_char": 105078,
+    "pdf_page": 24
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00025",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "495bd652dcc2efc0ce983317bc3443fab61b2a85e021d5b1947274427bbb86ea",
+    "start_char": 105079,
+    "end_char": 109826,
+    "pdf_page": 25
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00026",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "bf86821847d8bb5958030bed5c5b4e4a913a071e20e9e3b222fc4ff3e089ac38",
+    "start_char": 109827,
+    "end_char": 114430,
+    "pdf_page": 26
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00027",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "20007ddb7dc047ca8dae52e61e737c2045796cc7499c1c277b71cff80dcb0502",
+    "start_char": 114431,
+    "end_char": 118324,
+    "pdf_page": 27
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00028",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "3fba39160472a782d16e783c50b337caf967a98b184fd2ce96a2d227ba6e4f13",
+    "start_char": 118325,
+    "end_char": 123281,
+    "pdf_page": 28
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00029",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "abbc8bc399230430beda07285f13cc209ae36547bbd5381c1a5d742f78787ac6",
+    "start_char": 123282,
+    "end_char": 128366,
+    "pdf_page": 29
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00030",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "f60c609efeacad39beac88970a1e61ed09121a85c09c1c5e53d7b7f58f33680c",
+    "start_char": 128367,
+    "end_char": 133557,
+    "pdf_page": 30
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00031",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "0ecd753a6146ad639b24c0c2348612b033fa491cce6bbd41dadaa5f4a66c24e7",
+    "start_char": 133558,
+    "end_char": 138017,
+    "pdf_page": 31
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00032",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "9f75bdee1b1740ecb78830d72ffd6509e75bec6cc6d2aeb992d5d6be67c40a7c",
+    "start_char": 138018,
+    "end_char": 141809,
+    "pdf_page": 32
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00033",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "2d434e57d6ed642cd667e11298aeffad651fe80aafcce731478adf81466270d6",
+    "start_char": 141810,
+    "end_char": 146023,
+    "pdf_page": 33
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00034",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "39ea9c1f511843699173d8aa8fc2faadcf60a22e50de80e2f3acc46913228218",
+    "start_char": 146024,
+    "end_char": 150354,
+    "pdf_page": 34
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00035",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "95b6e9904a35bc65d10b21b323142c03ed9650ae62e4f087fdd676b1550bbac2",
+    "start_char": 150355,
+    "end_char": 154544,
+    "pdf_page": 35
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00036",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "3c9458ab293f2b48b2a14863ac7c66e641422e88de6b93bc6844fe32943c9ae3",
+    "start_char": 154545,
+    "end_char": 157937,
+    "pdf_page": 36
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00037",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "f8e46ea3733f3aac7fe4eed7ea2c3a399177b5866ce56a5a79551179398ea668",
+    "start_char": 157938,
+    "end_char": 162528,
+    "pdf_page": 37
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00038",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "2ea140581440e079e13bb727489ad20c44834ecfe34780b8c53b01dab71f3012",
+    "start_char": 162529,
+    "end_char": 166299,
+    "pdf_page": 38
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00039",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "04e0879517f65ae2c171e86c019f14d78bc8a71b67306c8d939313b758c596b3",
+    "start_char": 166300,
+    "end_char": 170935,
+    "pdf_page": 39
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00040",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "9444294f6ae15fe55a6c995bfc09e3a6b14116a5007a1f2a6a025ac0f306747d",
+    "start_char": 170936,
+    "end_char": 174825,
+    "pdf_page": 40
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00041",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "6575edc7a595e764b5e7bd50d78ca9ec4d2da5805b075e557fbdc972eea13ce5",
+    "start_char": 174826,
+    "end_char": 179275,
+    "pdf_page": 41
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00042",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "df296f961a485a8db24d140fb007498db14184e7d9bdf7fa106ed6866df1c638",
+    "start_char": 179276,
+    "end_char": 183566,
+    "pdf_page": 42
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00043",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "7a6be75ad536877fe484cec0f0460a625063bb2d9d58bff47e97a71be124a55c",
+    "start_char": 183567,
+    "end_char": 188153,
+    "pdf_page": 43
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00044",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "744966d3565090e40d5491b379385aa26ab03c0ae019168475db4e1183387780",
+    "start_char": 188154,
+    "end_char": 192281,
+    "pdf_page": 44
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00045",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "495bd8e0cc0b07ee0363001b23b6fb2c6d75ba1fb0e9218a926d73608e4f9183",
+    "start_char": 192282,
+    "end_char": 197158,
+    "pdf_page": 45
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00046",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "a406c92895f69a490a950a5285c06957f74cfed16028a39c53cc2210cd72e5dd",
+    "start_char": 197159,
+    "end_char": 201972,
+    "pdf_page": 46
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00047",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "be1fbfaee0c6436b3d5ad219296cf5ff62cdb9634215839a66aee9cb6c81f7a7",
+    "start_char": 201973,
+    "end_char": 207309,
+    "pdf_page": 47
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00048",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "4b85b8b917247590bb5341ce86faf1627baec7e05bbc447fb011c62e298266d7",
+    "start_char": 207310,
+    "end_char": 212578,
+    "pdf_page": 48
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00049",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "1e1c29136bcfcbae6a851538eda2f8b22591757413e2513eb7741113e9da6229",
+    "start_char": 212579,
+    "end_char": 214093,
+    "pdf_page": 49
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00050",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "43fbe8ea5c523b26bf2893c7db3ae2145fb7a038bcceaed63f0bdc8656afc284",
+    "start_char": 214094,
+    "end_char": 218301,
+    "pdf_page": 50
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00051",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "85b7be531fa7332fa60f383a2614b6f5eccb07a60b4d8bbef49d972cb0a8c33b",
+    "start_char": 218302,
+    "end_char": 223201,
+    "pdf_page": 51
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00052",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "64642ff73e27d841531b10d9a53c03bd3341338fc29800ca494216e58b5c7430",
+    "start_char": 223202,
+    "end_char": 228238,
+    "pdf_page": 52
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00053",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "5a30ce3e3909e91afafbf1e65cddd83ba2d75f12c93f46b76a0213309135cb9b",
+    "start_char": 228239,
+    "end_char": 232916,
+    "pdf_page": 53
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00054",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "40a6dce9ae718b624436a1f819cdfb46611af437aa7b2e63292eb757a6d64ebb",
+    "start_char": 232917,
+    "end_char": 237369,
+    "pdf_page": 54
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00055",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "2e065c3472199a9389979a8a51a8eaec68e334c15cbd495cf30c318f6f59a003",
+    "start_char": 237370,
+    "end_char": 241985,
+    "pdf_page": 55
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00056",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "d8ed5cca8b0c4a3b3935bb9a778b4a72a1af8eeae0fc50ade993390355eee0c5",
+    "start_char": 241986,
+    "end_char": 246400,
+    "pdf_page": 56
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00057",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "6cecdcd4198ab756b62bbaab81ddadc50980965f90fec09fbbabfa08561a12eb",
+    "start_char": 246401,
+    "end_char": 250975,
+    "pdf_page": 57
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00058",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "f08246064eafe69411049703f7598380ab46386b29a0c7f1a36babc552831f69",
+    "start_char": 250976,
+    "end_char": 255838,
+    "pdf_page": 58
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00059",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "1b9e9042ede5efbf946fc3e31a9a6b26ab739618b86e7ef5e986dd522468cb93",
+    "start_char": 255839,
+    "end_char": 260408,
+    "pdf_page": 59
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00060",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "822d2556b9f4dae004629c22a5cc5b8f2a8cbd4f8fa31ecba47029dae2f9d6df",
+    "start_char": 260409,
+    "end_char": 265435,
+    "pdf_page": 60
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00061",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "cbb1384dfdad2a7484aa671ca644cde46a5bf1112613f31a3b3216dc1004a50f",
+    "start_char": 265436,
+    "end_char": 269986,
+    "pdf_page": 61
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00062",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "9fc8de94dcc9dbb13a696269c8c9c34249a051a9f7da6fb9cf80a50ef81c80d1",
+    "start_char": 269987,
+    "end_char": 272818,
+    "pdf_page": 62
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00063",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "2a5b27d80cb67cd40c2f6151b48d12e6399c5091e2fa3517526f9ee0e0d6ae8a",
+    "start_char": 272819,
+    "end_char": 274817,
+    "pdf_page": 63
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00064",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "788e154692ecf480d14e27bd0b94b29da84a0565c7ba523a7101fab1b25671f0",
+    "start_char": 274818,
+    "end_char": 277599,
+    "pdf_page": 64
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00065",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "3368bb17c7f71a3b8fcd63504641d85d3fae0b7657aa98959ed31d608b49bde0",
+    "start_char": 277600,
+    "end_char": 280508,
+    "pdf_page": 65
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00066",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "bca67be553cd7b7ea9e3e99c6ce689af7bbd26a24b067131bf7a9aa9a8ba9208",
+    "start_char": 280509,
+    "end_char": 284262,
+    "pdf_page": 66
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00067",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "d764b5d83cacd23ed97e83c1205641934ee9b0f8d788d58d1798927ee0f90c22",
+    "start_char": 284263,
+    "end_char": 288087,
+    "pdf_page": 67
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00068",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "c725339121203be8fb805dab4f22c6ddb3f244a8a1cfcf12bb261ff3002bd45c",
+    "start_char": 288088,
+    "end_char": 292096,
+    "pdf_page": 68
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00069",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "61d102fb9a0ff2820b00304e77739a1036ba120a6eb838c43578de48b774a34a",
+    "start_char": 292097,
+    "end_char": 296213,
+    "pdf_page": 69
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00070",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "a1d810f87d81cbdce652ed037d18ef3abb5f8e157a7b3225438eeed8e8527abe",
+    "start_char": 296214,
+    "end_char": 299869,
+    "pdf_page": 70
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00071",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "184fef4a1335d9494cfc39959923ec99dc1a511de9678ec461af92c986dab923",
+    "start_char": 299870,
+    "end_char": 302788,
+    "pdf_page": 71
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00072",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "e9248fb1dcabfe658336e8b462557ebd333b29f38a83920564aa71498d602caf",
+    "start_char": 302789,
+    "end_char": 307506,
+    "pdf_page": 72
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00073",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "e83fe98345f0902a4574f657d3b5862f43325679f4c591ae84d1905e1291f264",
+    "start_char": 307507,
+    "end_char": 312360,
+    "pdf_page": 73
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00074",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "99b8e8f229c0de0a4a83814c6f28282fafcef72ce874236b162bb1a1cf3773aa",
+    "start_char": 312361,
+    "end_char": 316943,
+    "pdf_page": 74
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00075",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "f6250ce7848e4d071e14df774a6f145bca9c3b946aaca8d81c943eb43eacb986",
+    "start_char": 316944,
+    "end_char": 321432,
+    "pdf_page": 75
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00076",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "9080618518190e44c10cf3a3f5b63116e4be4a36af6c15a2a43e23af31e00949",
+    "start_char": 321433,
+    "end_char": 326316,
+    "pdf_page": 76
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00077",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "aaac0ccb8e395690ed95635f264f22c013007b386ee3dadfc9c2fa0bfd9c8a20",
+    "start_char": 326317,
+    "end_char": 330577,
+    "pdf_page": 77
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00078",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "6c278de5e8ec178b74f935b0c4fed1d4bdeac75443cb654123bb41b3314f0854",
+    "start_char": 330578,
+    "end_char": 335294,
+    "pdf_page": 78
+  },
+  {
+    "source_id": "src-e2c322735f82-pdf_page-00079",
+    "source_file": "outputs/The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf",
+    "locator_type": "pdf_page",
+    "content_sha256": "25beb5386187280545ab83b8e55a7058809bd04b1c10313974f2f9ff9dc95422",
+    "start_char": 335295,
+    "end_char": 340388,
+    "pdf_page": 79
+  }
+]

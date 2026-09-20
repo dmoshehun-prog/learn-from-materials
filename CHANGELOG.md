@@ -1,5 +1,14 @@
 # Changelog
 
+## v0.2.0 · 2026-09-20
+
+- Consolidated the unpublished development snapshots into the next public version after v0.1.0-beta. The earlier v0.5.x numbers below identify local experiments, not prior public releases.
+- Preserved complete relation-chip labels, adaptive graph layout, heading-source checks, relation review and the per-unit action-rule ledger.
+- Fixed nested wheel handling in framework hover details: the relation list scrolls first, then the outer panel; methodology hover behavior is unchanged. Both internal and outer scrollbars remain available when content overflows.
+- Removed a byte-for-byte duplicated mojibake example directory from the release package; the normal Chinese-named fixture remains.
+
+## Unpublished development snapshots
+
 ## v0.5.12-beta · 2026-09-20
 
 - Relation chips in both graphs wrap their complete concise label and destination instead of clipping them with a single-line ellipsis.

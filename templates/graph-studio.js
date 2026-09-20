@@ -295,11 +295,18 @@
     });
     // Keep the page and diagram stationary while the pointer is reading the
     // floating explanation, including at the top and bottom of its scrollbar.
-    function applyHoverWheel(delta){
-      hover.scrollTop+=delta;
+    function applyHoverWheel(delta,target){
+      let remaining=delta;
+      const inner=target?.closest?.('.relation-edge-list');
+      if(inner&&hover.contains(inner)&&inner.scrollHeight>inner.clientHeight+1){
+        const before=inner.scrollTop;
+        inner.scrollTop+=remaining;
+        remaining-=inner.scrollTop-before;
+      }
+      if(remaining)hover.scrollTop+=remaining;
     }
     hover.addEventListener('wheel',e=>{
-      applyHoverWheel(e.deltaY*(e.deltaMode===1?40:e.deltaMode===2?hover.clientHeight:1));
+      applyHoverWheel(e.deltaY*(e.deltaMode===1?40:e.deltaMode===2?hover.clientHeight:1),e.target);
       e.preventDefault();e.stopPropagation();
     },{passive:false});
     viewport.addEventListener('wheel',e=>{

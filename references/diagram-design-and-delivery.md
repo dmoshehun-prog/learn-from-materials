@@ -1,6 +1,6 @@
-# Designed diagrams and complete delivery · v0.5.12-beta
+# Designed diagrams and complete delivery · v0.2.0
 
-> **关系图数据门禁（v0.5.8-beta）**：`scripts/verify_relations.py` 检查框架页实际可见的框架间关系边。无有据关系或独立框架由 `action-rule-ledger.json` 逐项说明；v2 账本还逐类复核两张图的关系。`finalize.py` 会阻断未经说明的空图或孤立框架。详见 `references/relation-gate.md`。
+> **关系图数据门禁**：`scripts/verify_relations.py` 检查框架页实际可见的框架间关系边。无有据关系或独立框架由 `action-rule-ledger.json` 逐项说明；v2 账本还逐类复核两张图的关系。`finalize.py` 会阻断未经说明的空图或孤立框架。详见 `references/relation-gate.md`。
 
 ## Module ownership
 
@@ -23,7 +23,7 @@ Use large contrasting arrowheads offset from card borders and reserved routing c
 
 For visual QA, inspect at least one real long-title/branching material and one feedback-loop material at desktop and narrow widths. Include a true one-column chain, disconnected branches, and a node with several long Chinese relation chips. Check that every chip's label and destination are readable without hovering, and that taller cards leave intact row spacing and arrow clearance at ordinary and enlarged browser text sizes. Check module ownership, initial cards, graph/card toggle, long titles, line/card intersections, node selection, Fit width, Overview, centered zoom, fullscreen exit, reduced motion and the application prompt. In Fit width, check that all columns fit horizontally on first open; Overview may make long graphs too small to read. A static syntax check alone cannot establish visual quality. Report any unperformed browser checks accurately. Do not install browser dependencies without authorization.
 
-For long hover explanations, position the floating detail once against its node. Keep the node-to-panel transit corridor active so a slow or diagonal pointer move does not close it. Only begin a short close delay after the pointer leaves the node, corridor and panel; re-entry cancels it. The panel remains scrollable, selectable and stationary. While the pointer is over the panel, wheel events never move the background page, even at the scroll limits. Check framework and methodology hover details separately, including narrow screens and fullscreen.
+For long hover explanations, position the floating detail once against its node. Keep the node-to-panel transit corridor active so a slow or diagonal pointer move does not close it. Only begin a short close delay after the pointer leaves the node, corridor and panel; re-entry cancels it. The panel remains scrollable, selectable and stationary. The framework relation list retains its own visible scrollbar when it overflows: wheel input over that list scrolls it first, then any remainder scrolls the outer panel. Outside the list, wheel input scrolls the outer panel. While the pointer is over the panel, wheel events never move the background page, even at the scroll limits. Check framework and methodology hover details separately, including narrow screens and fullscreen.
 
 ## Wire motion and state
 
