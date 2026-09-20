@@ -15,13 +15,15 @@ def prepare(page: Path, kb: Path) -> None:
     if errors:
         raise ValueError('\n'.join(errors))
     audit = load_json(kb / 'quick-audit.json')
-    index = ['# ' + data['meta']['title'], '', '核心导读，非全量知识整理。',
-             '原文：full_text.txt；出处：source_map.json；限制：coverage-audit.md',
-             '题库未在此步骤预建；启动测验时检查所选范围原题。', '']
+    en = data['meta'].get('language') == 'en'
+    index = ['# ' + data['meta']['title'], '',
+             'Focused overview, not exhaustive coverage.' if en else '核心导读，非全量知识整理。',
+             'Original: full_text.txt; Sources: source_map.json; Limits: coverage-audit.md' if en else '原文：full_text.txt；出处：source_map.json；限制：coverage-audit.md',
+             'No question bank is prebuilt here. Check existing questions in the selected scope when starting a quiz.' if en else '题库未在此步骤预建；启动测验时检查所选范围原题。', '']
     for unit in data.get('contentUnits', []):
         index.extend(['## ' + unit['id'] + ' · ' + unit['title'], unit['core'], unit['source'], ''])
     (kb / 'INDEX.md').write_text('\n'.join(index), encoding='utf-8')
-    lines = ['# 快速导读范围说明', '', *audit['limitations'], '']
+    lines = ['# Quick overview coverage' if en else '# 快速导读范围说明', '', *audit['limitations'], '']
     for group in audit['structure']:
         lines.extend(['## ' + group['title'], group['status'] + '：' + group['note'], ''])
     (kb / 'coverage-audit.md').write_text('\n'.join(lines), encoding='utf-8')

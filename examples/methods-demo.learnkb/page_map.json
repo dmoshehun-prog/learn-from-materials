@@ -1,0 +1,10 @@
+[
+  {
+    "source_id": "src-e3be302578cd-document-00001",
+    "source_file": "examples/methods-demo.txt",
+    "locator_type": "document",
+    "content_sha256": "e3be302578cd683fb240d2be663361eb23b31c09a57056a4b345edab4700c9fe",
+    "start_char": 224,
+    "end_char": 1318
+  }
+]

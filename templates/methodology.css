@@ -1,0 +1,25 @@
+.whole-method{margin:20px 0 26px;padding:24px;border:1px solid var(--line);border-radius:20px;background:var(--surface-strong);color:var(--ink)}
+.whole-method h2{font:800 24px/1.4 var(--font-display);margin:0 0 8px}.whole-method h3{font:700 18px/1.5 var(--font-display)}
+.whole-method p{line-height:1.65}.method-outcome{border-left:3px solid var(--blue);padding:8px 14px}
+.method-map{overflow:auto;border-radius:14px;background:var(--surface);border:1px solid var(--line)}
+.method-map svg{display:block;width:100%;min-width:820px;height:auto;font-family:var(--font-display)}
+.method-map .method-edge{fill:none;stroke:var(--blue);stroke-width:2.4}.method-map .feedback{stroke:var(--orange,#a46b41)}.method-map .inference{stroke-dasharray:6 4}
+.method-map .method-edge-label{fill:var(--ink);font-size:11px;paint-order:stroke;stroke:var(--surface);stroke-width:5px;stroke-linejoin:round}
+.method-map .method-step rect{fill:var(--surface-strong);stroke:var(--blue);stroke-width:1.5}.method-map .method-step:focus rect,.method-map .method-step.selected rect{stroke:var(--ink);stroke-width:3}
+.method-map .method-step{cursor:pointer;outline:none}.method-map .step-copy{padding:12px 14px;color:var(--ink);font-family:var(--font-display);font-size:13px;line-height:1.5;overflow-wrap:anywhere;height:100%;box-sizing:border-box;overflow:auto}
+.step-copy strong{display:block;font-size:15px;margin:0 0 8px}.step-copy small{display:block;font-size:12px;color:var(--ink-soft-2)}
+.method-node-detail{padding:16px;margin:14px 0;border-left:3px solid var(--blue);background:var(--surface);border-radius:8px;line-height:1.6}.method-node-detail h4{font-size:19px;margin:0 0 10px}
+.method-node-detail dt{font-weight:750}.method-node-detail dd{margin:4px 0 12px}.method-node-detail ul{padding-left:20px}.method-node-detail button,.whole-controls button{padding:9px 14px;border:1px solid var(--line);border-radius:8px;background:var(--surface-strong);color:var(--ink);font:inherit;cursor:pointer}
+.whole-controls{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}.whole-controls button[aria-pressed=true]{background:var(--ink);color:var(--white)}
+.whole-text{padding:12px;border:1px solid var(--line);border-radius:10px}.whole-text summary{cursor:pointer;font-weight:700}.method-constraints{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}.method-constraints p{padding:8px 12px;border:1px solid var(--line);border-radius:8px;font-size:12px;margin:0}
+.unit-source-disclosure{margin:14px 0;padding:12px 16px;border:1px solid var(--line);border-radius:10px;font:13px/1.6 var(--font-display);overflow-wrap:anywhere}.unit-source-disclosure summary{cursor:pointer;font-weight:750}.unit-source-disclosure small{color:var(--muted)}
+#chView[data-source]::after,#chView [data-source]::after{display:none!important}
+#chView .source-target:focus{outline:2px solid var(--blue);outline-offset:3px}
+.content-source-tooltip{position:fixed;z-index:2147483000;max-width:min(520px,calc(100vw - 24px));padding:10px 14px;border-radius:9px;background:var(--ink);color:var(--white);box-shadow:0 5px 20px #0002;font:13px/1.55 var(--font-display);overflow-wrap:anywhere;pointer-events:none;box-sizing:border-box}
+.content-source-tooltip[hidden]{display:none!important}
+@media(max-width:640px){.whole-method{padding:14px}.method-map svg{min-width:820px}.method-node-detail{padding:12px}}
+/* Linked rules use the existing detail panel; no extra graph nodes are needed. */
+.method-linked-rules{margin-top:1rem;border-top:1px solid var(--line, #ccd2ce);padding-top:.65rem}
+.method-linked-rules summary{cursor:pointer;font-weight:600}
+.method-linked-rule{padding:.65rem 0;border-bottom:1px solid var(--line, #ccd2ce)}
+.method-linked-rule p{margin:.25rem 0}

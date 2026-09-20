@@ -1,0 +1,389 @@
+{
+  "schemaVersion": "learn-from-materials/method-index-v1",
+  "entries": {
+    "method-lab/f-map@1.0.0": {
+      "libraryId": "method-lab",
+      "title": "Method Lab — reusable method cards",
+      "language": "en",
+      "card": {
+        "id": "f-map",
+        "version": "1.0.0",
+        "kind": "framework",
+        "name": "Problem map",
+        "summary": "Make boundaries, stakeholders, constraints and success criteria explicit.",
+        "problem": "An unclear problem scope makes relevant information difficult to identify.",
+        "when": "Entering an unfamiliar or poorly defined problem",
+        "prerequisites": [
+          "A problem and an observable desired result can be described."
+        ],
+        "limitations": [
+          "The source gives no universal success guarantee or quantitative threshold.",
+          "Order and suitability depend on the problem and available evidence."
+        ],
+        "rationale": "An explicit boundary helps decide which information is relevant.",
+        "steps": [
+          {
+            "action": "Record the problem boundary and stakeholders.",
+            "input": "The problem to be addressed.",
+            "output": "An explicit scope and stakeholder list.",
+            "check": "Check whether each listed item belongs to the scope."
+          },
+          {
+            "action": "Record constraints and an observable success criterion.",
+            "input": "Known constraints and desired result.",
+            "output": "Constraints and a success criterion.",
+            "check": "Check that the criterion can be observed."
+          }
+        ],
+        "successChecks": [
+          "Boundary, stakeholders, constraints and observable success criterion are explicit."
+        ],
+        "tags": [
+          "problem",
+          "boundary",
+          "scope"
+        ],
+        "evidence": "material",
+        "source": "methods-demo.txt · Lines 3-4",
+        "sources": [
+          {
+            "locator": "methods-demo.txt · Lines 3-4",
+            "sourceIds": [
+              "src-e3be302578cd-document-00001"
+            ],
+            "quote": "Before choosing an action, record the problem boundary, stakeholders, constraints and an observable success criterion."
+          },
+          {
+            "locator": "methods-demo.txt · Lines 12",
+            "sourceIds": [
+              "src-e3be302578cd-document-00001"
+            ],
+            "quote": "These methods are complementary tools, not a guarantee of success."
+          }
+        ],
+        "parents": []
+      },
+      "sha256": "88e2bc8f2a9595b57c602147cfbe52eca9568e63a1995f6694e519b33f256f4b"
+    },
+    "method-lab/f-evidence@1.0.0": {
+      "libraryId": "method-lab",
+      "title": "Method Lab — reusable method cards",
+      "language": "en",
+      "card": {
+        "id": "f-evidence",
+        "version": "1.0.0",
+        "kind": "framework",
+        "name": "Evidence chain",
+        "summary": "Connect conclusions to observations and competing explanations.",
+        "problem": "A claim has weak support or several possible explanations.",
+        "when": "Judging whether a claim is well supported",
+        "prerequisites": [
+          "A claim and relevant observations are available for examination."
+        ],
+        "limitations": [
+          "The source gives no universal success guarantee or quantitative threshold.",
+          "Order and suitability depend on the problem and available evidence."
+        ],
+        "rationale": "A single observation should not be treated as proof.",
+        "steps": [
+          {
+            "action": "Separate observations from explanations.",
+            "input": "The claim and available observations.",
+            "output": "A distinction between observed facts and interpretations.",
+            "check": "Check that interpretations are not presented as direct observations."
+          },
+          {
+            "action": "Seek competing explanations and counterevidence.",
+            "input": "The current explanation.",
+            "output": "Alternative explanations and relevant evidence.",
+            "check": "Do not treat one observation as proof; the source gives no numeric evidence threshold."
+          }
+        ],
+        "successChecks": [
+          "Observations and interpretations are separate; competing explanations were considered."
+        ],
+        "tags": [
+          "evidence",
+          "claim",
+          "counterevidence"
+        ],
+        "evidence": "material",
+        "source": "methods-demo.txt · Lines 6-7",
+        "sources": [
+          {
+            "locator": "methods-demo.txt · Lines 6-7",
+            "sourceIds": [
+              "src-e3be302578cd-document-00001"
+            ],
+            "quote": "Separate observations from explanations. Link conclusions to observations and look for competing explanations."
+          },
+          {
+            "locator": "methods-demo.txt · Lines 12",
+            "sourceIds": [
+              "src-e3be302578cd-document-00001"
+            ],
+            "quote": "These methods are complementary tools, not a guarantee of success."
+          }
+        ],
+        "parents": []
+      },
+      "sha256": "b30dd989e63240f86d0bc5b20c68d0af34ce67c124975eba0baffcf17b478781"
+    },
+    "method-lab/f-action@1.0.0": {
+      "libraryId": "method-lab",
+      "title": "Method Lab — reusable method cards",
+      "language": "en",
+      "card": {
+        "id": "f-action",
+        "version": "1.0.0",
+        "kind": "framework",
+        "name": "Action loop",
+        "summary": "Test an assumption, compare prediction and outcome, then revise.",
+        "problem": "Discussion stalls without information to guide a decision.",
+        "when": "Turning understanding into a small informative action",
+        "prerequisites": [
+          "An important assumption can be tested at small scale."
+        ],
+        "limitations": [
+          "The source gives no universal success guarantee or quantitative threshold.",
+          "Order and suitability depend on the problem and available evidence."
+        ],
+        "rationale": "A test can produce new information and change the next decision.",
+        "steps": [
+          {
+            "action": "Choose a small, low-cost test of an important assumption.",
+            "input": "An assumption and prediction.",
+            "output": "An informative test and its result.",
+            "check": "Check whether the test produces new information."
+          },
+          {
+            "action": "Compare the result with the prediction and revise before scaling.",
+            "input": "Predicted and actual results.",
+            "output": "A revised assumption or next decision.",
+            "check": "Use changed constraints to revisit the problem map where needed."
+          }
+        ],
+        "successChecks": [
+          "A test result was compared with a prediction before scaling."
+        ],
+        "tags": [
+          "action",
+          "test",
+          "feedback"
+        ],
+        "evidence": "material",
+        "source": "methods-demo.txt · Lines 9-10",
+        "sources": [
+          {
+            "locator": "methods-demo.txt · Lines 9-10",
+            "sourceIds": [
+              "src-e3be302578cd-document-00001"
+            ],
+            "quote": "Choose a small, low-cost test of an important assumption, compare its result with your prediction, and revise the assumption before scaling the action."
+          },
+          {
+            "locator": "methods-demo.txt · Lines 12",
+            "sourceIds": [
+              "src-e3be302578cd-document-00001"
+            ],
+            "quote": "These methods are complementary tools, not a guarantee of success."
+          }
+        ],
+        "parents": []
+      },
+      "sha256": "636cda82c8d28ba827fdb146f095fb9b8987ec65674e52bfce3907af84abcb90"
+    },
+    "method-lab/r-map@1.0.0": {
+      "libraryId": "method-lab",
+      "title": "Method Lab — reusable method cards",
+      "language": "en",
+      "card": {
+        "id": "r-map",
+        "version": "1.0.0",
+        "kind": "rule",
+        "name": "Draw a problem map first",
+        "summary": "The boundary helps identify relevant information",
+        "problem": "An unclear problem scope makes relevant information difficult to identify.",
+        "when": "The problem scope is unclear",
+        "prerequisites": [
+          "A problem and an observable desired result can be described."
+        ],
+        "limitations": [
+          "The source gives no universal success guarantee or quantitative threshold.",
+          "Order and suitability depend on the problem and available evidence."
+        ],
+        "rationale": "The boundary helps identify relevant information",
+        "steps": [
+          {
+            "action": "Record the problem boundary and stakeholders.",
+            "input": "The problem to be addressed.",
+            "output": "An explicit scope and stakeholder list.",
+            "check": "Check whether each listed item belongs to the scope."
+          },
+          {
+            "action": "Record constraints and an observable success criterion.",
+            "input": "Known constraints and desired result.",
+            "output": "Constraints and a success criterion.",
+            "check": "Check that the criterion can be observed."
+          }
+        ],
+        "successChecks": [
+          "Boundary, stakeholders, constraints and observable success criterion are explicit."
+        ],
+        "tags": [
+          "problem",
+          "boundary",
+          "scope"
+        ],
+        "evidence": "material",
+        "source": "methods-demo.txt · Lines 3-4",
+        "sources": [
+          {
+            "locator": "methods-demo.txt · Lines 3-4",
+            "sourceIds": [
+              "src-e3be302578cd-document-00001"
+            ],
+            "quote": "Before choosing an action, record the problem boundary, stakeholders, constraints and an observable success criterion."
+          },
+          {
+            "locator": "methods-demo.txt · Lines 12",
+            "sourceIds": [
+              "src-e3be302578cd-document-00001"
+            ],
+            "quote": "These methods are complementary tools, not a guarantee of success."
+          }
+        ],
+        "parents": []
+      },
+      "sha256": "97965a270c64da416d2dc34790744c7b639b6b55ae911a8e112454907810b2cb"
+    },
+    "method-lab/r-evidence@1.0.0": {
+      "libraryId": "method-lab",
+      "title": "Method Lab — reusable method cards",
+      "language": "en",
+      "card": {
+        "id": "r-evidence",
+        "version": "1.0.0",
+        "kind": "rule",
+        "name": "Gather evidence and seek counterevidence",
+        "summary": "A single observation should not be treated as proof",
+        "problem": "A claim has weak support or several possible explanations.",
+        "when": "Confidence in a claim is low",
+        "prerequisites": [
+          "A claim and relevant observations are available for examination."
+        ],
+        "limitations": [
+          "The source gives no universal success guarantee or quantitative threshold.",
+          "Order and suitability depend on the problem and available evidence."
+        ],
+        "rationale": "A single observation should not be treated as proof",
+        "steps": [
+          {
+            "action": "Separate observations from explanations.",
+            "input": "The claim and available observations.",
+            "output": "A distinction between observed facts and interpretations.",
+            "check": "Check that interpretations are not presented as direct observations."
+          },
+          {
+            "action": "Seek competing explanations and counterevidence.",
+            "input": "The current explanation.",
+            "output": "Alternative explanations and relevant evidence.",
+            "check": "Do not treat one observation as proof; the source gives no numeric evidence threshold."
+          }
+        ],
+        "successChecks": [
+          "Observations and interpretations are separate; competing explanations were considered."
+        ],
+        "tags": [
+          "evidence",
+          "claim",
+          "counterevidence"
+        ],
+        "evidence": "material",
+        "source": "methods-demo.txt · Lines 6-7",
+        "sources": [
+          {
+            "locator": "methods-demo.txt · Lines 6-7",
+            "sourceIds": [
+              "src-e3be302578cd-document-00001"
+            ],
+            "quote": "Separate observations from explanations. Link conclusions to observations and look for competing explanations."
+          },
+          {
+            "locator": "methods-demo.txt · Lines 12",
+            "sourceIds": [
+              "src-e3be302578cd-document-00001"
+            ],
+            "quote": "These methods are complementary tools, not a guarantee of success."
+          }
+        ],
+        "parents": []
+      },
+      "sha256": "d6715f51fc2cc9e2dfa6138da0e39bd2f29d3705892ad3a510e7f190c76e8958"
+    },
+    "method-lab/r-test@1.0.0": {
+      "libraryId": "method-lab",
+      "title": "Method Lab — reusable method cards",
+      "language": "en",
+      "card": {
+        "id": "r-test",
+        "version": "1.0.0",
+        "kind": "rule",
+        "name": "Design a small informative test",
+        "summary": "Its result can update assumptions and guide the next action",
+        "problem": "Discussion stalls without information to guide a decision.",
+        "when": "Discussion stalls",
+        "prerequisites": [
+          "An important assumption can be tested at small scale."
+        ],
+        "limitations": [
+          "The source gives no universal success guarantee or quantitative threshold.",
+          "Order and suitability depend on the problem and available evidence."
+        ],
+        "rationale": "Its result can update assumptions and guide the next action",
+        "steps": [
+          {
+            "action": "Choose a small, low-cost test of an important assumption.",
+            "input": "An assumption and prediction.",
+            "output": "An informative test and its result.",
+            "check": "Check whether the test produces new information."
+          },
+          {
+            "action": "Compare the result with the prediction and revise before scaling.",
+            "input": "Predicted and actual results.",
+            "output": "A revised assumption or next decision.",
+            "check": "Use changed constraints to revisit the problem map where needed."
+          }
+        ],
+        "successChecks": [
+          "A test result was compared with a prediction before scaling."
+        ],
+        "tags": [
+          "action",
+          "test",
+          "feedback"
+        ],
+        "evidence": "material",
+        "source": "methods-demo.txt · Lines 9-10",
+        "sources": [
+          {
+            "locator": "methods-demo.txt · Lines 9-10",
+            "sourceIds": [
+              "src-e3be302578cd-document-00001"
+            ],
+            "quote": "Choose a small, low-cost test of an important assumption, compare its result with your prediction, and revise the assumption before scaling the action."
+          },
+          {
+            "locator": "methods-demo.txt · Lines 12",
+            "sourceIds": [
+              "src-e3be302578cd-document-00001"
+            ],
+            "quote": "These methods are complementary tools, not a guarantee of success."
+          }
+        ],
+        "parents": []
+      },
+      "sha256": "6cebc74dd0c7ab9b94d1b39cbf51a5db88447759810efd7080ba1f6d99efd228"
+    }
+  }
+}

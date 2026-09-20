@@ -1,0 +1,1866 @@
+{
+  "schemaVersion": "4.3",
+  "meta": {
+    "title": "《人类建造的最后一个 AI》：递归自我改进系统学习",
+    "creator": "Yi Duan 等；Shanghai Jiao Tong University、Theseus Labs 等",
+    "sourceType": "document",
+    "mode": "overview",
+    "initialTheme": "warm-paper",
+    "knowledgeBase": "rsi-methodology.learnkb/INDEX.md",
+    "pageId": "last-ai-built-by-humans-rsi-2609-11873",
+    "learningDepth": "systematic",
+    "language": "zh-CN"
+  },
+  "hero": {
+    "eyebrow": "79 页系统学习 · 递归自我改进",
+    "title": "AI 如何真正学会改进自己？",
+    "lede": "从闭环部件、五级自主性，到行业反馈制度与可信演化，顺序读懂这篇 RSI 论文的论证与边界。",
+    "thesis": "RSI 的关键不是‘AI 会改自己’，而是改进机制能否被验证地继承。"
+  },
+  "frameworks": [
+    {
+      "id": "f-loop",
+      "name": "改进闭环审计",
+      "oneLine": "用循环部件判断一项改进是否能被验证地继承。",
+      "when": "分析任何声称会自我改进的系统时。",
+      "firstUnitId": "u01",
+      "sourceOrder": 1,
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：2.2.1 Anatomy of an Improvement Loop · PDF第10页"
+    },
+    {
+      "id": "f-level",
+      "name": "五级自主性阶梯",
+      "oneLine": "按改进责任由谁承担，将系统定位在 L1–L5。",
+      "when": "需要比较提示、训练、经验、部署或元改进系统时。",
+      "firstUnitId": "u01",
+      "sourceOrder": 2,
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：1 Introduction · PDF第5页"
+    },
+    {
+      "id": "f-hci",
+      "name": "HCI 能力余量闭合指数",
+      "oneLine": "把知识、推理、工具与代理协作的差距看作闭环尚未关闭的证据。",
+      "when": "解释为何基准高分仍不等于 RSI 时。",
+      "firstUnitId": "u02",
+      "sourceOrder": 3,
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：2 Headroom-Closed Index · PDF第7–9页"
+    },
+    {
+      "id": "f-l12",
+      "name": "L1/L2 的任务与策略优化",
+      "oneLine": "区分执行预定改进与在外部目标下选择改进策略。",
+      "when": "定位提示、训练或代理搜索属于哪一层时。",
+      "firstUnitId": "u03",
+      "sourceOrder": 4,
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.2 L1 / 3.3 L2 · PDF第12–21页"
+    },
+    {
+      "id": "f-agenda",
+      "name": "学习议程自主",
+      "oneLine": "检查系统是否根据学习者状态选择下一步经验。",
+      "when": "分析课程生成、自博弈、任务生成或自主练习时。",
+      "firstUnitId": "u04",
+      "sourceOrder": 5,
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.4 L3: Autonomy over Future Learning Experience · PDF第22页"
+    },
+    {
+      "id": "f-deploy",
+      "name": "轨迹蒸馏与部署适应",
+      "oneLine": "将部署轨迹转化为可验证、可保留、可退役的记忆、技能或工具。",
+      "when": "设计持久经验库与上线闭环时。",
+      "firstUnitId": "u05",
+      "sourceOrder": 6,
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.5 L4 · PDF第27–31页"
+    },
+    {
+      "id": "f-meta",
+      "name": "元改进评估",
+      "oneLine": "区分改进机制被修改的结构性 L5 与被独立证据支持的有效 L5。",
+      "when": "评估自动研究、改优化器、改评估器或后继生成机制时。",
+      "firstUnitId": "u06",
+      "sourceOrder": 7,
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.6 L5: From Environmental Adaptation to Meta-Improvement · PDF第32页"
+    },
+    {
+      "id": "f-feedback",
+      "name": "领域反馈制度",
+      "oneLine": "按反馈成本、延迟、可验证性和风险决定可安全关闭的循环。",
+      "when": "在科学、具身、软件、医疗间迁移 RSI 方案时。",
+      "firstUnitId": "u07",
+      "sourceOrder": 8,
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：4 Domain-Specific RSI · PDF第36–37页"
+    },
+    {
+      "id": "f-industry",
+      "name": "产业闭环实践",
+      "oneLine": "把行业实践还原为环境、数据、模型、评估与部署接口，而非营销标签。",
+      "when": "阅读或设计企业级 RSI 项目时。",
+      "firstUnitId": "u08",
+      "sourceOrder": 9,
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：5 Industry Practices · PDF第37–46页"
+    },
+    {
+      "id": "f-future",
+      "name": "RSI 长期议程",
+      "oneLine": "以诊断、持久状态、可信演化、长期评估和基础设施组织未来工作。",
+      "when": "制定研究或产品路线图时。",
+      "firstUnitId": "u09",
+      "sourceOrder": 10,
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：6 Future Directions · PDF第46–49页"
+    },
+    {
+      "id": "f-taxonomy",
+      "name": "文献与场景分类",
+      "oneLine": "以层级、改进对象和证据标签组织文献与行业条目。",
+      "when": "做系统综述或避免过度归类时。",
+      "firstUnitId": "u10",
+      "sourceOrder": 11,
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：Appendix A–C · PDF第63–79页"
+    }
+  ],
+  "contentUnits": [
+    {
+      "id": "u01",
+      "label": "01",
+      "title": "RSI 的问题、定义与边界",
+      "core": "递归自我改进不是一次性能变强，而是把经验与反馈转成可持续的系统状态变化，使后续改进的能力或机制也随之提升。",
+      "frameworks": [
+        "改进闭环审计",
+        "五级自主性阶梯"
+      ],
+      "takeaways": [
+        "先区分任务输出与可继承系统状态；没有后者通常只是单次优化。",
+        "判断一个系统是否接近 RSI，要同时问：闭环在哪里、更新什么、什么仍由外部承担。"
+      ],
+      "conclusions": [
+        {
+          "title": "定义比拟人化叙事更重要",
+          "summary": "论文把 RSI 放进‘自主、继承、验证’的闭环，而非把任何自动调参都叫自我改进。",
+          "points": [
+            "系统要从经验中识别局限、提出并验证改进。",
+            "被采纳的变化必须影响后续学习或改进过程。",
+            "安全继承、归因与验证可靠性是早期风险。"
+          ],
+          "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：Abstract / 1 Introduction · PDF第1–6页"
+        }
+      ],
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：Abstract / 1 Introduction · PDF第1–6页"
+    },
+    {
+      "id": "u02",
+      "label": "02",
+      "title": "现有能力到 RSI 的距离",
+      "core": "HCI 用多个能力与工具维度的观察说明：模型在知识题上可强，在持续工具使用、软件任务和代理协作上仍存在明显闭环缺口。",
+      "frameworks": [
+        "改进闭环审计",
+        "HCI 能力余量闭合指数"
+      ],
+      "takeaways": [
+        "不要用单项基准分数替代改进闭环能力的判断。",
+        "把‘能答对’与‘能可靠地产生、验证并保留改进’分开衡量。"
+      ],
+      "conclusions": [
+        {
+          "title": "能力不均衡决定闭环短板",
+          "summary": "研究的要点不是一个总分，而是能力、工具与环境接口并不同步成熟。",
+          "points": [
+            "知识与推理表现并不自动推出长期工具自主。",
+            "缺少可靠环境、反馈和状态管理时，高分也难形成 RSI。",
+            "后文的闭环部件可用来定位缺口而非笼统称为‘能力不足’。"
+          ],
+          "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：2 Headroom-Closed Index / 2.2.1 Anatomy of an Improvement Loop · PDF第7–12页"
+        }
+      ],
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：2 Headroom-Closed Index / 2.2.1 Anatomy of an Improvement Loop · PDF第7–12页"
+    },
+    {
+      "id": "u03",
+      "label": "03",
+      "title": "从 B0 到 L2：执行与策略",
+      "core": "B0 只改当次输出；L1 执行外部指定的改进；L2 开始由系统诊断问题并选择干预策略，但目标和验证仍主要外置。",
+      "frameworks": [
+        "五级自主性阶梯",
+        "L1/L2 的任务与策略优化"
+      ],
+      "takeaways": [
+        "先给系统定位层级，避免把提示词搜索或训练搜索直接夸大为完全自改。",
+        "L2 的关键不是自动运行，而是能在外部目标下选择改进策略。"
+      ],
+      "conclusions": [
+        {
+          "title": "层级上升改变的是责任边界",
+          "summary": "L1 到 L2 的变化是从‘执行已规定方案’到‘在给定目标下选择方案’，不是简单增加更多工具。",
+          "points": [
+            "L1 的主要风险是执行可靠性与持久化安全。",
+            "L2 容易出现基准过拟合、评估盲区和搜索成本膨胀。",
+            "外部评估仍决定系统是否真的变好。"
+          ],
+          "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.2 L1 / 3.3 L2 · PDF第12–21页"
+        }
+      ],
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.2 L1 / 3.3 L2 · PDF第12–21页"
+    },
+    {
+      "id": "u04",
+      "label": "04",
+      "title": "L3：学习议程自主",
+      "core": "L3 的定义性变化是：系统基于当前学习者状态决定下一步需要什么经验，而不是只在固定数据或任务上换策略。",
+      "frameworks": [
+        "五级自主性阶梯",
+        "学习议程自主"
+      ],
+      "takeaways": [
+        "分别评估经验的正确性、难度和学习收益，三者不能互相替代。",
+        "把课程、环境、对手或任务生成纳入闭环时，要防经验污染与目标漂移。"
+      ],
+      "conclusions": [
+        {
+          "title": "经验选择是新的自主性门槛",
+          "summary": "自适应课程、对抗生成、自博弈和自主练习都说明‘下一条经验由谁决定’会改变改进边界。",
+          "points": [
+            "系统需要条件化地选择未来经验。",
+            "经验不仅要可得，还要对当前系统有学习价值。",
+            "错误或偏置经验会被持久闭环放大。"
+          ],
+          "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.4 L3 · PDF第22–26页"
+        }
+      ],
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.4 L3 · PDF第22–26页",
+      "sourceDetails": {
+        "core": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.4 L3: Autonomy over Future Learning Experience · PDF第22页"
+      }
+    },
+    {
+      "id": "u05",
+      "label": "05",
+      "title": "L4：部署适应与轨迹蒸馏",
+      "core": "L4 把部署后的观察转化为可选择、可回滚、可复验的持久状态；轨迹蒸馏是把过程经验压缩为记忆、技能或可执行工具的一类机制。",
+      "frameworks": [
+        "五级自主性阶梯",
+        "轨迹蒸馏与部署适应"
+      ],
+      "takeaways": [
+        "把采纳门槛、证据日志、版本上限、重验证和淘汰规则写进状态库。",
+        "部署数据不是天然经验；要区分可保留的因果证据与短期噪声。"
+      ],
+      "conclusions": [
+        {
+          "title": "持久化让改进变成治理问题",
+          "summary": "当系统会保留并复用经验，关键问题从‘能否更新’转为‘什么证据允许进入、何时重验、如何退出’。",
+          "points": [
+            "状态可表现为文本记忆、结构化记忆、程序化技能或工具。",
+            "论文以配对对照说明部署变化必须比较更新前后。",
+            "Library Drift 要求证据日志、容量控制、再验证和退役。"
+          ],
+          "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.5 L4 · PDF第27–31页"
+        }
+      ],
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.5 L4 · PDF第27–31页"
+    },
+    {
+      "id": "u06",
+      "label": "06",
+      "title": "L5：改进改进机制",
+      "core": "L5 不只改任务能力，还修改改进器、评估器或搜索策略；论文区分结构性 L5 与有效性 L5，后者还必须证明元层更新确实带来收益。",
+      "frameworks": [
+        "五级自主性阶梯",
+        "元改进评估"
+      ],
+      "takeaways": [
+        "先审计更新的是任务对象还是改进机制，再谈 L5。",
+        "对元改进同时检查适应性、留存、迁移、效率、稳定性和元递归证据。"
+      ],
+      "conclusions": [
+        {
+          "title": "‘会改优化器’不等于已经证明元递归",
+          "summary": "结构存在只能说明可能性；有效 L5 需要跨轮、可比较的实证证据。",
+          "points": [
+            "自指或自动代码修改本身不足以证明长期收益。",
+            "评估器也在闭环内时，要防 Goodhart 式钻空子。",
+            "层级更高不保证质量更高。"
+          ],
+          "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.6 L5 / 3.7 Cross-Level Synthesis · PDF第31–35页"
+        }
+      ],
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.6 L5 / 3.7 Cross-Level Synthesis · PDF第31–35页",
+      "sourceDetails": {
+        "core": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.6 L5: From Environmental Adaptation to Meta-Improvement · PDF第31–32页"
+      }
+    },
+    {
+      "id": "u07",
+      "label": "07",
+      "title": "四类应用场景的反馈制度",
+      "core": "科学发现、具身智能、软件工程和医疗健康的差异，首先来自反馈是否便宜、可重复、可验证和可安全部署，而不是来自统一的‘智能程度’。",
+      "frameworks": [
+        "领域反馈制度"
+      ],
+      "takeaways": [
+        "先选择与场景匹配的 RSI 层级，而不是追求最高层级。",
+        "真实世界成本、监督要求和评估延迟会决定哪些闭环可以安全关闭。"
+      ],
+      "conclusions": [
+        {
+          "title": "场景决定可达层级",
+          "summary": "论文将不同领域放在反馈制度下比较：软件反馈较快，科学与具身场景更昂贵，医疗还受高风险治理约束。",
+          "points": [
+            "科学的强项在可验证发现与早期经验选择。",
+            "具身系统受物理试验代价和安全限制。",
+            "医疗适合成熟 L2 与受限 L3，真实 L4/L5仍需谨慎。"
+          ],
+          "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：4 Domain-Specific RSI · PDF第36–37页"
+        }
+      ],
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：4 Domain-Specific RSI · PDF第36–37页"
+    },
+    {
+      "id": "u08",
+      "label": "08",
+      "title": "行业案例：闭环而非宣传语",
+      "core": "产业案例展示环境、数据、模型、评估与部署的不同组合；它们是实践线索，不能自动当作通用或独立复现的 RSI 证据。",
+      "frameworks": [
+        "产业闭环实践"
+      ],
+      "takeaways": [
+        "阅读公司报告时标注是作者报告、行业案例还是可重复研究，不混为一谈。",
+        "用闭环部件表核查：状态、经验、改进器、验证器和后继系统是否明确。"
+      ],
+      "conclusions": [
+        {
+          "title": "案例价值在于暴露工程接口",
+          "summary": "这些案例把环境重建、企业数据、人类评审、记忆管理与部署闭环等工程问题具体化。",
+          "points": [
+            "Theseus 强调环境—数据—模型协同。",
+            "Lark、IMA、Humanlaya等案例将企业数据、评估或质量系统纳入循环。",
+            "论文列出的业务指标应按其报告性质理解，不应外推为普适因果结论。"
+          ],
+          "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：5 Industry Practices · PDF第37–46页"
+        }
+      ],
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：5 Industry Practices · PDF第37–46页"
+    },
+    {
+      "id": "u09",
+      "label": "09",
+      "title": "走向可信 RSI 的研究议程",
+      "core": "论文提出八类后续能力：跨组件诊断、学习者条件化信号、持久状态管理、领域反馈治理、可信演化机制、长期评估、资源与人类协同、可复现实验基础设施。",
+      "frameworks": [
+        "RSI 长期议程"
+      ],
+      "takeaways": [
+        "把长期收益、迁移和稳定性纳入实验设计，别只比较单次开发集结果。",
+        "把人类参与视为可设计的监督接口，而非‘没有自主性’的反例。"
+      ],
+      "conclusions": [
+        {
+          "title": "可信演化需要基础设施",
+          "summary": "研究挑战不止模型结构，还包括可重现实验环境、长期可观测性与资源受限条件下的治理。",
+          "points": [
+            "跨组件诊断帮助定位闭环瓶颈。",
+            "长期评估用于区别短期适配与可继承改进。",
+            "人类协作可在高风险领域提供边界与校验。"
+          ],
+          "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：6 Future Directions / 7 Conclusion · PDF第46–49页"
+        }
+      ],
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：6 Future Directions / 7 Conclusion · PDF第46–49页"
+    },
+    {
+      "id": "u10",
+      "label": "10",
+      "title": "附录：文献与行业分类法",
+      "core": "附录的 491 篇论文与行业表是分类基础：它记录目前不同层级、改进对象和实践标签的分布，不是对每个条目的能力背书。",
+      "frameworks": [
+        "文献与场景分类"
+      ],
+      "takeaways": [
+        "把 taxonomy 当作检索和比较工具，保留条目的层级、对象与证据标签。",
+        "对‘adjacent’、‘candidate’等标签保留不确定性，而不是强行归入 RSI。"
+      ],
+      "conclusions": [
+        {
+          "title": "分类法服务于可审计比较",
+          "summary": "层级分布和产业清单为后续复核提供索引；它们同时显示高层级证据仍相对稀少。",
+          "points": [
+            "论文给出 L1–L5 的文献分布。",
+            "改进对象横跨模型、提示、环境、工具、记忆与系统结构。",
+            "行业表使用谨慎标签区分相邻、候选与目标实践。"
+          ],
+          "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：Appendix A / Appendix B · PDF第63–71页"
+        }
+      ],
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：Appendix A / Appendix B · PDF第63–71页"
+    },
+    {
+      "id": "u11",
+      "label": "11",
+      "title": "附录：按场景回看完整闭环",
+      "core": "科学、具身、软件和医疗的补充案例把系统对象、经验、改进器、验证器和持久状态逐项展开，强调真实世界闭环仍受验证与安全约束。",
+      "frameworks": [
+        "文献与场景分类"
+      ],
+      "takeaways": [
+        "将同一闭环审计表应用到不同领域，观察缺失部件而非只比较模型名称。",
+        "当真实世界验证不可逆或成本高时，明确保留外部监督与模拟边界。"
+      ],
+      "conclusions": [
+        {
+          "title": "完整闭环在现实中通常仍不完整",
+          "summary": "附录说明许多系统在模拟、软件或局部子环中有效，但安全的端到端真实世界自改仍未被充分证明。",
+          "points": [
+            "科学系统依赖可验证的假设与实验接口。",
+            "具身系统的真实试验受到安全和成本限制。",
+            "软件可执行反馈较强，医疗则需要更严格监督。"
+          ],
+          "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：Appendix C · PDF第72–79页"
+        }
+      ],
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：Appendix C · PDF第72–79页"
+    }
+  ],
+  "glossary": [
+    {
+      "id": "g-rsi",
+      "term": "RSI",
+      "fullName": "Recursive Self-Improvement",
+      "zhMeaning": "递归自我改进",
+      "category": "英文缩写",
+      "definition": "把经验与反馈转成可持续状态变化，并使后续改进能力或机制提升的闭环。",
+      "context": "论文的总定义，强调自主、继承与验证。",
+      "related": [
+        "改进闭环",
+        "L5"
+      ],
+      "units": [
+        "u01",
+        "u06"
+      ],
+      "firstUnitId": "u01",
+      "sourceOrder": 1,
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：Abstract / 1 Introduction · PDF第1–6页"
+    },
+    {
+      "id": "g-loop",
+      "term": "改进闭环",
+      "category": "角色与流程",
+      "definition": "由系统状态、经验、目标、改进器、验证器、改进和后继系统组成的分析框架。",
+      "context": "用于拆解一个系统到底在哪里关闭改进回路。",
+      "related": [
+        "RSI",
+        "验证器"
+      ],
+      "units": [
+        "u01",
+        "u02",
+        "u08",
+        "u11"
+      ],
+      "firstUnitId": "u01",
+      "sourceOrder": 2,
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：1 Introduction / 2.2.1 Anatomy · PDF第3–12页"
+    },
+    {
+      "id": "g-hci",
+      "term": "HCI",
+      "fullName": "Headroom-Closed Index",
+      "zhMeaning": "余量闭合指数",
+      "category": "英文缩写",
+      "definition": "比较系统距人类可闭合能力的观察性指数，用于呈现不同能力维度的剩余缺口。",
+      "context": "论文用它展示知识、工具与代理能力的不均衡。",
+      "related": [
+        "改进闭环"
+      ],
+      "units": [
+        "u02"
+      ],
+      "firstUnitId": "u02",
+      "sourceOrder": 3,
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：2 Headroom-Closed Index · PDF第7–9页"
+    },
+    {
+      "id": "g-l1",
+      "term": "L1",
+      "fullName": "Improvement Execution Autonomy",
+      "zhMeaning": "改进执行自主性",
+      "category": "英文缩写",
+      "definition": "人类或外部方规定改什么、怎么改和何时成功，系统执行候选更新。",
+      "context": "自主性主要在执行，不在选择目标或策略。",
+      "related": [
+        "L2",
+        "五级自主性阶梯"
+      ],
+      "units": [
+        "u03"
+      ],
+      "firstUnitId": "u03",
+      "sourceOrder": 4,
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.2 L1 · PDF第12–18页"
+    },
+    {
+      "id": "g-l2",
+      "term": "L2",
+      "fullName": "Improvement Strategy Autonomy",
+      "zhMeaning": "改进策略自主性",
+      "category": "英文缩写",
+      "definition": "外部目标与评估保留，但系统诊断问题并选择干预策略。",
+      "context": "提示搜索、训练搜索和代理/评测 harness 是主要例子。",
+      "related": [
+        "L1",
+        "L3"
+      ],
+      "units": [
+        "u03"
+      ],
+      "firstUnitId": "u03",
+      "sourceOrder": 5,
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.3 L2 · PDF第18–21页"
+    },
+    {
+      "id": "g-l3",
+      "term": "L3",
+      "fullName": "Experience Acquisition Autonomy",
+      "zhMeaning": "经验获取自主性",
+      "category": "英文缩写",
+      "definition": "系统根据当前学习状态选择下一步该获得什么经验。",
+      "context": "课程、自博弈与自主练习的层级关键。",
+      "related": [
+        "L2",
+        "L4"
+      ],
+      "units": [
+        "u04"
+      ],
+      "firstUnitId": "u04",
+      "sourceOrder": 6,
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.4 L3 · PDF第22–26页"
+    },
+    {
+      "id": "g-trajectory",
+      "term": "Trajectory Distillation",
+      "fullName": "Trajectory Distillation",
+      "zhMeaning": "轨迹蒸馏",
+      "category": "方法框架",
+      "definition": "把交互或任务轨迹提炼为可复用的记忆、技能、程序或工具。",
+      "context": "L4 中将部署经验转为持久状态的代表机制。",
+      "related": [
+        "L4",
+        "部署适应"
+      ],
+      "units": [
+        "u05"
+      ],
+      "firstUnitId": "u05",
+      "sourceOrder": 7,
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.5 L4 · PDF第27–31页"
+    },
+    {
+      "id": "g-l4",
+      "term": "L4",
+      "fullName": "Deployment and Environment-Adaptation Autonomy",
+      "zhMeaning": "部署与环境适应自主性",
+      "category": "英文缩写",
+      "definition": "系统在部署中获取反馈，选择性保留、更新或退役状态。",
+      "context": "使改进跨出离线训练并进入持续运行。",
+      "related": [
+        "Trajectory Distillation",
+        "L5"
+      ],
+      "units": [
+        "u05"
+      ],
+      "firstUnitId": "u05",
+      "sourceOrder": 8,
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.5 L4 · PDF第27–31页"
+    },
+    {
+      "id": "g-l5",
+      "term": "L5",
+      "fullName": "Meta-Improvement Autonomy",
+      "zhMeaning": "元改进自主性",
+      "category": "英文缩写",
+      "definition": "系统改变产生、选择或验证未来改进的机制本身。",
+      "context": "论文区分结构性与有效性 L5。",
+      "related": [
+        "RSI",
+        "元改进评估"
+      ],
+      "units": [
+        "u06"
+      ],
+      "firstUnitId": "u06",
+      "sourceOrder": 9,
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.6 L5 · PDF第31–35页"
+    },
+    {
+      "id": "g-regime",
+      "term": "反馈制度",
+      "category": "领域术语",
+      "definition": "由反馈成本、延迟、保真度、可验证性与治理约束共同决定的场景条件。",
+      "context": "解释同一层级在不同领域可不可行。",
+      "related": [
+        "领域反馈制度"
+      ],
+      "units": [
+        "u07",
+        "u11"
+      ],
+      "firstUnitId": "u07",
+      "sourceOrder": 10,
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：4 Domain-Specific RSI · PDF第36–37页"
+    },
+    {
+      "id": "g-theseus",
+      "term": "Theseus",
+      "fullName": "Theseus",
+      "zhMeaning": "行业案例中的环境—数据—模型协同实践",
+      "category": "指标与工具",
+      "definition": "论文列举的产业案例，用来说明环境与数据质量会影响闭环效果。",
+      "context": "属于论文中的行业实践线索。",
+      "related": [
+        "产业闭环实践"
+      ],
+      "units": [
+        "u08"
+      ],
+      "firstUnitId": "u08",
+      "sourceOrder": 11,
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：5.1 Theseus · PDF第37–40页"
+    },
+    {
+      "id": "g-long",
+      "term": "长期评估",
+      "category": "指标与工具",
+      "definition": "跨轮次检查适应、留存、迁移、效率与稳定性的评估，而非只看单次分数。",
+      "context": "用于区分短期调优和可继承改进。",
+      "related": [
+        "L5",
+        "可信演化"
+      ],
+      "units": [
+        "u09"
+      ],
+      "firstUnitId": "u09",
+      "sourceOrder": 12,
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：6 Future Directions · PDF第46–49页"
+    },
+    {
+      "id": "g-taxonomy",
+      "term": "自主性分类法",
+      "category": "方法框架",
+      "definition": "以层级与改进对象整理研究和行业案例的分类框架。",
+      "context": "附录用它展示文献与场景分布。",
+      "related": [
+        "五级自主性阶梯"
+      ],
+      "units": [
+        "u10"
+      ],
+      "firstUnitId": "u10",
+      "sourceOrder": 13,
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：Appendix A / B · PDF第63–71页"
+    },
+    {
+      "id": "g-embodied",
+      "term": "具身闭环",
+      "category": "领域术语",
+      "definition": "涉及物理环境、感知—行动反馈与安全约束的持续改进循环。",
+      "context": "附录比较具身系统与软件系统的验证边界。",
+      "related": [
+        "反馈制度"
+      ],
+      "units": [
+        "u11"
+      ],
+      "firstUnitId": "u11",
+      "sourceOrder": 14,
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：Appendix C · PDF第72–79页"
+    }
+  ],
+  "decisionRules": [
+    {
+      "id": "r-classify",
+      "when": "看到任何‘自我改进’系统时。",
+      "do": "先用闭环部件和 L1–L5 标出它实际承担的责任边界。",
+      "because": "自动执行、策略选择、经验获取、部署适应和元改进是不同主张。",
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：1 Introduction / 2.2.1 Anatomy · PDF第5–12页"
+    },
+    {
+      "id": "r-evaluate",
+      "when": "系统能反复选择策略、查询开发集或调用自动评估器时。",
+      "do": "隔离并保护评估接口",
+      "because": "论文指出重复访问开发集会诱发基准过拟合，评估器还可能与提议者共享盲区。",
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.3.4 Evaluating L2 Strategy Autonomy · PDF第21页"
+    },
+    {
+      "id": "r-experience",
+      "when": "系统开始自动选数据、任务、对手或环境时。",
+      "do": "分别记录经验正确性、难度与学习收益，并保留来源。",
+      "because": "经验选择是 L3 的定义性能力，也会传播污染。",
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.4 L3 · PDF第22–26页"
+    },
+    {
+      "id": "r-retain",
+      "when": "准备把记忆、技能、工具、代码或规则纳入长期库时。",
+      "do": "证据门控的持久化",
+      "because": "论文在 L4 的选择性保留部分明确提出：候选更新要先产生证据才可进入持久状态。",
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.5.3 Selective retention and deployment of updates · PDF第30页"
+    },
+    {
+      "id": "r-meta",
+      "when": "有人宣称系统达到了 L5 或元递归时。",
+      "do": "同时报告改了什么机制，以及跨轮适应、留存、迁移、效率和稳定性证据。",
+      "because": "有自指结构不等于元层更新有效。",
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.6 L5 · PDF第31–35页"
+    },
+    {
+      "id": "r-feedback",
+      "when": "要把方法迁移到新的行业或物理场景时。",
+      "do": "先评估反馈成本、延迟、可验证性、安全性与人工监督需要，再定层级。",
+      "because": "场景反馈制度限制了能安全关闭的循环。",
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：4 Domain-Specific RSI · PDF第36–37页"
+    },
+    {
+      "id": "r-longhorizon",
+      "when": "设计 RSI 研究或产品路线图时。",
+      "do": "把长期评估、可复现实验环境、资源约束和人类协作纳入同一计划。",
+      "because": "可信演化需要的不只是更强模型。",
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：6 Future Directions · PDF第46–49页"
+    }
+  ],
+  "assessment": {
+    "focusAreas": [
+      {
+        "id": "a-u01",
+        "title": "RSI 的问题、定义与边界：概念、边界与迁移",
+        "unitId": "u01",
+        "abilities": [
+          "记忆",
+          "解释"
+        ],
+        "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：Abstract / 1 Introduction · PDF第1–6页"
+      },
+      {
+        "id": "a-u02",
+        "title": "现有能力到 RSI 的距离：概念、边界与迁移",
+        "unitId": "u02",
+        "abilities": [
+          "解释",
+          "应用"
+        ],
+        "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：2 Headroom-Closed Index / 2.2.1 Anatomy of an Improvement Loop · PDF第7–12页"
+      },
+      {
+        "id": "a-u03",
+        "title": "从 B0 到 L2：执行与策略：概念、边界与迁移",
+        "unitId": "u03",
+        "abilities": [
+          "记忆",
+          "应用"
+        ],
+        "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.2 L1 / 3.3 L2 · PDF第12–21页"
+      },
+      {
+        "id": "a-u04",
+        "title": "L3：学习议程自主：概念、边界与迁移",
+        "unitId": "u04",
+        "abilities": [
+          "解释",
+          "迁移"
+        ],
+        "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.4 L3 · PDF第22–26页"
+      },
+      {
+        "id": "a-u05",
+        "title": "L4：部署适应与轨迹蒸馏：概念、边界与迁移",
+        "unitId": "u05",
+        "abilities": [
+          "应用",
+          "迁移"
+        ],
+        "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.5 L4 · PDF第27–31页"
+      },
+      {
+        "id": "a-u06",
+        "title": "L5：改进改进机制：概念、边界与迁移",
+        "unitId": "u06",
+        "abilities": [
+          "解释",
+          "迁移"
+        ],
+        "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.6 L5 / 3.7 Cross-Level Synthesis · PDF第31–35页"
+      },
+      {
+        "id": "a-u07",
+        "title": "四类应用场景的反馈制度：概念、边界与迁移",
+        "unitId": "u07",
+        "abilities": [
+          "记忆",
+          "应用"
+        ],
+        "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：4 Domain-Specific RSI · PDF第36–37页"
+      },
+      {
+        "id": "a-u08",
+        "title": "行业案例：闭环而非宣传语：概念、边界与迁移",
+        "unitId": "u08",
+        "abilities": [
+          "解释",
+          "应用"
+        ],
+        "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：5 Industry Practices · PDF第37–46页"
+      },
+      {
+        "id": "a-u09",
+        "title": "走向可信 RSI 的研究议程：概念、边界与迁移",
+        "unitId": "u09",
+        "abilities": [
+          "解释",
+          "迁移"
+        ],
+        "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：6 Future Directions / 7 Conclusion · PDF第46–49页"
+      },
+      {
+        "id": "a-u10",
+        "title": "附录：文献与行业分类法：概念、边界与迁移",
+        "unitId": "u10",
+        "abilities": [
+          "记忆",
+          "解释"
+        ],
+        "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：Appendix A / Appendix B · PDF第63–71页"
+      },
+      {
+        "id": "a-u11",
+        "title": "附录：按场景回看完整闭环：概念、边界与迁移",
+        "unitId": "u11",
+        "abilities": [
+          "应用",
+          "迁移"
+        ],
+        "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：Appendix C · PDF第72–79页"
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-loop-level",
+      "from": "f-loop",
+      "to": "f-level",
+      "type": "prerequisite",
+      "explanation": "先识别闭环部件，才能判断哪些责任由系统承担并定位层级。",
+      "evidence": "material",
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：1 Introduction / 2.2.1 Anatomy · PDF第5–12页"
+    },
+    {
+      "id": "rel-level-agenda",
+      "from": "f-level",
+      "to": "f-agenda",
+      "type": "sequence",
+      "explanation": "L3 在阶梯上接在 L1/L2之后，把自主性推进到未来经验选择。",
+      "evidence": "material",
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.4 L3 · PDF第22–26页"
+    },
+    {
+      "id": "rel-agenda-deploy",
+      "from": "f-agenda",
+      "to": "f-deploy",
+      "type": "sequence",
+      "explanation": "经验获取之后，L4 关注部署反馈如何沉淀为持久状态。",
+      "evidence": "material",
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.5 L4 · PDF第27–31页"
+    },
+    {
+      "id": "rel-deploy-meta",
+      "from": "f-deploy",
+      "to": "f-meta",
+      "type": "sequence",
+      "explanation": "L5 在 L4 之后进一步修改产生或验证改进的机制。",
+      "evidence": "material",
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.6 L5 · PDF第31–35页"
+    },
+    {
+      "id": "rel-hci-classify",
+      "from": "f-hci",
+      "to": "r-classify",
+      "type": "supports",
+      "explanation": "能力余量观察为给系统定位闭环短板提供证据。",
+      "evidence": "inference",
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：2 Headroom-Closed Index / 2.2.1 Anatomy · PDF第7–12页"
+    },
+    {
+      "id": "rel-l12-evaluate",
+      "from": "f-l12",
+      "to": "r-evaluate",
+      "type": "causes",
+      "explanation": "一旦系统能搜索策略，反复访问评估接口就带来过拟合与盲区风险。",
+      "evidence": "material",
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.3 L2 · PDF第18–21页"
+    },
+    {
+      "id": "rel-meta-evaluate",
+      "from": "f-meta",
+      "to": "r-evaluate",
+      "type": "supports",
+      "explanation": "元改进需要更强的评估完整性，防止评估器也被优化目标劫持。",
+      "evidence": "material",
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.6 L5 · PDF第31–35页"
+    },
+    {
+      "id": "rel-feedback-classify",
+      "from": "f-feedback",
+      "to": "r-classify",
+      "type": "applies",
+      "explanation": "同一系统在不同领域的层级判断需结合该领域反馈制度。",
+      "evidence": "material",
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：4 Domain-Specific RSI · PDF第36–37页"
+    },
+    {
+      "id": "rel-industry-retain",
+      "from": "f-industry",
+      "to": "r-retain",
+      "type": "supports",
+      "explanation": "产业实践让数据、记忆、质量系统和部署状态的保留问题具象化。",
+      "evidence": "inference",
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：5 Industry Practices · PDF第37–46页"
+    },
+    {
+      "id": "rel-future-long",
+      "from": "f-future",
+      "to": "r-longhorizon",
+      "type": "part_of",
+      "explanation": "长期评估、基础设施、资源与协作正是论文未来议程中的组成部分。",
+      "evidence": "material",
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：6 Future Directions · PDF第46–49页"
+    },
+    {
+      "id": "rel-taxonomy-classify",
+      "from": "f-taxonomy",
+      "to": "r-classify",
+      "type": "supports",
+      "explanation": "附录分类法为审计系统属于相邻、候选或目标实践提供共同语言。",
+      "evidence": "material",
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：Appendix A / B · PDF第63–71页"
+    },
+    {
+      "id": "rel-level-experience",
+      "from": "f-level",
+      "to": "r-experience",
+      "type": "applies",
+      "explanation": "经验正确性、难度与学习收益的记录要求，正是层级框架落到 L3 这一档时的具体动作。",
+      "evidence": "inference",
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.4 L3 · PDF第22–26页"
+    },
+    {
+      "id": "rel-meta-rule",
+      "from": "f-meta",
+      "to": "r-meta",
+      "type": "applies",
+      "explanation": "宣称元递归时同时要求机制改动与跨轮证据，正是元层框架用于判别的条件。",
+      "evidence": "inference",
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.6 L5 · PDF第31–35页"
+    },
+    {
+      "id": "rel-feedback-rule",
+      "from": "f-feedback",
+      "to": "r-feedback",
+      "type": "applies",
+      "explanation": "迁移前先评估反馈成本、延迟与可验证性，是反馈回路框架跨场景时的前置检查。",
+      "evidence": "inference",
+      "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：4 Domain-Specific RSI · PDF第36–37页"
+    }
+  ],
+  "footer": "基于论文文本层系统整理；行业案例与数值按论文报告性质呈现，页面不把它们外推为独立复现结论。",
+  "methodLibrary": {
+    "schemaVersion": "learn-from-materials/methods-v1",
+    "libraryId": "rsi-paper-2609-11873",
+    "title": "《The Last AI Built by Humans》方法论库",
+    "language": "zh-CN",
+    "status": "extracted",
+    "note": "仅提炼页面所用、且能回指论文文本的闭环审计与行动规则；不把行业宣传或未独立验证的案例升级为方法事实。",
+    "methods": [
+      {
+        "id": "f-loop",
+        "version": "0.1.1",
+        "kind": "framework",
+        "name": "改进闭环审计",
+        "summary": "用循环部件判断一项改进是否能被验证地继承。",
+        "problem": "把一次输出优化误判为可持续自我改进。",
+        "when": "分析任何声称会自我改进的系统时。",
+        "prerequisites": [
+          "可访问系统的状态、反馈和评估流程说明"
+        ],
+        "limitations": [
+          "文本描述可能不足以证明真实部署行为",
+          "闭环存在不代表改进质量高"
+        ],
+        "rationale": "论文把改进循环定义为经验提出修改、在接受规则下评估、保留被接受变化并从更新状态进入下一轮的过程。",
+        "steps": [
+          {
+            "action": "列出循环角色",
+            "input": "系统说明或运行记录",
+            "output": "状态、经验、目标、改进器、策略、验证器与后继系统清单",
+            "check": "每个角色都有明确来源"
+          },
+          {
+            "action": "标出跨轮继承",
+            "input": "每轮更新记录",
+            "output": "被下一轮接收的持久状态",
+            "check": "不是只保留当次回答"
+          },
+          {
+            "action": "标出外部控制",
+            "input": "目标、验收与权限说明",
+            "output": "未内部化的责任边界",
+            "check": "不把外部评审误写成系统自主"
+          }
+        ],
+        "successChecks": [
+          "能说清循环在何处关闭",
+          "能区分持久状态与瞬时输出"
+        ],
+        "tags": [
+          "RSI",
+          "闭环",
+          "系统状态"
+        ],
+        "evidence": "material",
+        "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：2.2.1 Anatomy of an Improvement Loop · PDF第10页",
+        "sources": [
+          {
+            "locator": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：2.2.1 Anatomy of an Improvement Loop · PDF第10页",
+            "sourceIds": [
+              "src-e2c322735f82-pdf_page-00010"
+            ],
+            "quote": "Improvement loop. We define an improvement loop as a recurring process"
+          }
+        ],
+        "parents": []
+      },
+      {
+        "id": "f-level",
+        "version": "0.1.1",
+        "kind": "framework",
+        "name": "五级自主性阶梯",
+        "summary": "按改进责任由谁承担，将系统定位在 L1–L5。",
+        "problem": "把工具数量或自动运行时间直接等同于更高自主性。",
+        "when": "需要比较提示、训练、经验、部署或元改进系统时。",
+        "prerequisites": [
+          "已完成基本闭环审计"
+        ],
+        "limitations": [
+          "层级适用于所考察的机制，不是整个产品的永久标签",
+          "更高层级不保证更安全或更有效"
+        ],
+        "rationale": "论文将责任逐层内部化：执行、策略、未来经验、环境适应、支配后续改进的机制。",
+        "steps": [
+          {
+            "action": "先固定分析对象",
+            "input": "一个具体改进机制",
+            "output": "待分类的目标和循环范围",
+            "check": "不把无关子系统混入"
+          },
+          {
+            "action": "识别首个内部化责任",
+            "input": "闭环部件表",
+            "output": "L1–L5 暂定层级",
+            "check": "外部目标和验收仍被记录"
+          },
+          {
+            "action": "核对继承证据",
+            "input": "跨轮状态与后继行为",
+            "output": "层级结论与限制",
+            "check": "后续回合确实使用该状态"
+          }
+        ],
+        "successChecks": [
+          "层级对应具体内部化责任",
+          "说明了仍在外部的控制"
+        ],
+        "tags": [
+          "L1",
+          "L2",
+          "L3",
+          "L4",
+          "L5"
+        ],
+        "evidence": "material",
+        "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：1 Introduction · PDF第5页",
+        "sources": [
+          {
+            "locator": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：1 Introduction · PDF第5页",
+            "sourceIds": [
+              "src-e2c322735f82-pdf_page-00005"
+            ],
+            "quote": "(L1) Improvement Execution Autonomy."
+          }
+        ],
+        "parents": []
+      },
+      {
+        "id": "f-agenda",
+        "version": "0.1.1",
+        "kind": "framework",
+        "name": "学习议程自主",
+        "summary": "检查系统是否根据学习者状态选择下一步经验。",
+        "problem": "把固定数据上的策略优化误称为经验自主。",
+        "when": "分析课程生成、自博弈、任务生成或自主练习时。",
+        "prerequisites": [
+          "可观测的学习者状态或失败记录",
+          "至少有连续两轮经验选择"
+        ],
+        "limitations": [
+          "选择来源于固定池也可满足机制，关键在适应性",
+          "一次过滤或偶发访问不足以证明 L3"
+        ],
+        "rationale": "L3 的定义性特征是学习者条件化的未来经验获取，且持久更新会反馈进后续获取决策。",
+        "steps": [
+          {
+            "action": "记录学习者证据",
+            "input": "能力、失败与学习历史",
+            "output": "可用状态信号",
+            "check": "信号能解释经验选择"
+          },
+          {
+            "action": "比较下轮经验",
+            "input": "连续轮次任务或数据记录",
+            "output": "经验选择变化",
+            "check": "变化不是随机或仅人工重设"
+          },
+          {
+            "action": "检查回馈",
+            "input": "更新与下一轮选择记录",
+            "output": "持续闭环说明",
+            "check": "更新确实影响后来经验"
+          }
+        ],
+        "successChecks": [
+          "能展示状态→经验→更新→再选经验",
+          "能排除固定日程解释"
+        ],
+        "tags": [
+          "L3",
+          "课程",
+          "自博弈",
+          "经验获取"
+        ],
+        "evidence": "material",
+        "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.4 L3: Autonomy over Future Learning Experience · PDF第22页",
+        "sources": [
+          {
+            "locator": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.4 L3: Autonomy over Future Learning Experience · PDF第22页",
+            "sourceIds": [
+              "src-e2c322735f82-pdf_page-00022"
+            ],
+            "quote": "The defining property is learner-conditioned future experience acquisition."
+          }
+        ],
+        "parents": []
+      },
+      {
+        "id": "f-meta",
+        "version": "0.1.1",
+        "kind": "framework",
+        "name": "元改进评估",
+        "summary": "区分改进机制被修改的结构性 L5 与被独立证据支持的有效 L5。",
+        "problem": "把自指代码或自动调参当作已证明的递归改进。",
+        "when": "评估自动研究、改优化器、改评估器或后继生成机制时。",
+        "prerequisites": [
+          "可识别的改进机制",
+          "可比较的后继表现或独立评估"
+        ],
+        "limitations": [
+          "短期提升不足以证明跨代累积",
+          "受保护评测和资源约束仍可在外部"
+        ],
+        "rationale": "论文要求结构性 L5 证明 AI 指导的变化持续并控制下一轮；有效 L5 还要说明修订机制在可比预算和独立评估下产生更好后继。",
+        "steps": [
+          {
+            "action": "定位被改机制",
+            "input": "代码、策略或评估流程",
+            "output": "机制变更说明",
+            "check": "不是只改任务输出"
+          },
+          {
+            "action": "核对跨轮继承",
+            "input": "后继系统记录",
+            "output": "结构性 L5 证据",
+            "check": "修订机制治理后来一轮"
+          },
+          {
+            "action": "核对效果",
+            "input": "独立任务、预算与稳定性记录",
+            "output": "有效性结论或未证实限制",
+            "check": "比较条件一致"
+          }
+        ],
+        "successChecks": [
+          "结构性与有效性结论被分开报告",
+          "评估包含迁移或独立条件"
+        ],
+        "tags": [
+          "L5",
+          "元改进",
+          "后继系统"
+        ],
+        "evidence": "material",
+        "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.6 L5: From Environmental Adaptation to Meta-Improvement · PDF第32页",
+        "sources": [
+          {
+            "locator": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.6 L5: From Environmental Adaptation to Meta-Improvement · PDF第32页",
+            "sourceIds": [
+              "src-e2c322735f82-pdf_page-00032"
+            ],
+            "quote": "These conditions distinguish structural L5"
+          }
+        ],
+        "parents": []
+      },
+      {
+        "id": "r-evaluate",
+        "version": "0.1.1",
+        "kind": "rule",
+        "name": "隔离并保护评估接口",
+        "summary": "将开发、验证和最终验收分开，检查评估器被适应性搜索利用的风险。",
+        "problem": "把反复查询同一评测造成的高分误认作泛化改进。",
+        "when": "系统能反复选择策略、查询开发集或调用自动评估器时。",
+        "prerequisites": [
+          "有独立或受保护的验证信号",
+          "记录评测访问与搜索预算"
+        ],
+        "limitations": [
+          "完全隔离不总是可行；需明确剩余泄漏风险",
+          "公司指标未必等同于独立复现"
+        ],
+        "rationale": "论文指出重复访问开发集会诱发基准过拟合，评估器还可能与提议者共享盲区。",
+        "steps": [
+          {
+            "action": "划分评测角色",
+            "input": "现有指标与数据集",
+            "output": "开发、验证、验收清单",
+            "check": "每个指标有访问权限"
+          },
+          {
+            "action": "记录适应性访问",
+            "input": "实验日志",
+            "output": "查询次数与预算记录",
+            "check": "开发集不充当最终结论"
+          },
+          {
+            "action": "做独立复核",
+            "input": "隐藏任务或外部评估",
+            "output": "泛化与局限说明",
+            "check": "结论不只依赖同一优化面"
+          }
+        ],
+        "successChecks": [
+          "结果在受保护条件下仍成立",
+          "报告了访问次数和评估局限"
+        ],
+        "tags": [
+          "L2",
+          "评估",
+          "过拟合",
+          "Goodhart"
+        ],
+        "evidence": "material",
+        "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.3.4 Evaluating L2 Strategy Autonomy · PDF第21页",
+        "sources": [
+          {
+            "locator": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.3.4 Evaluating L2 Strategy Autonomy · PDF第21页",
+            "sourceIds": [
+              "src-e2c322735f82-pdf_page-00021"
+            ],
+            "quote": "invites benchmark overfitting, additional search compute"
+          }
+        ],
+        "parents": []
+      },
+      {
+        "id": "r-retain",
+        "version": "0.1.1",
+        "kind": "rule",
+        "name": "证据门控的持久化",
+        "summary": "让候选更新先提供证据，再进入可复用的长期状态。",
+        "problem": "把噪声轨迹、无效技能或脆弱规则永久写入经验库。",
+        "when": "准备把记忆、技能、工具、代码或规则纳入长期库时。",
+        "prerequisites": [
+          "候选更新",
+          "可执行的验证或对照机制"
+        ],
+        "limitations": [
+          "验证信号也可能不完整",
+          "需要持续重验证而非一次准入"
+        ],
+        "rationale": "论文在 L4 的选择性保留部分明确提出：候选更新要先产生证据才可进入持久状态。",
+        "steps": [
+          {
+            "action": "保留候选态",
+            "input": "新记忆、技能或规则",
+            "output": "未发布的候选版本",
+            "check": "尚未影响后续任务"
+          },
+          {
+            "action": "运行验证",
+            "input": "受保护任务、对照或观察",
+            "output": "证据与适用条件",
+            "check": "证据比原状态更好"
+          },
+          {
+            "action": "带元数据入库",
+            "input": "通过验证的候选",
+            "output": "版本、来源、证据与再验证条件",
+            "check": "可追溯且可退役"
+          }
+        ],
+        "successChecks": [
+          "每个保留项有准入证据",
+          "失效项可被识别、重验或退役"
+        ],
+        "tags": [
+          "L4",
+          "持久状态",
+          "Library Drift"
+        ],
+        "evidence": "material",
+        "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.5.3 Selective retention and deployment of updates · PDF第30页",
+        "sources": [
+          {
+            "locator": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.5.3 Selective retention and deployment of updates · PDF第30页",
+            "sourceIds": [
+              "src-e2c322735f82-pdf_page-00030"
+            ],
+            "quote": "A proposed update must produce evidence before it can enter the persistent state."
+          }
+        ],
+        "parents": []
+      }
+    ]
+  },
+  "methodology": {
+    "schemaVersion": "learn-from-materials/methodology-v1",
+    "id": "rsi-whole-methodology",
+    "version": "0.1.0",
+    "language": "zh-CN",
+    "status": "ready",
+    "structure": "process",
+    "title": "从问题诊断到可继承改进",
+    "problem": "如何判断并推进一个 AI 系统的持续改进，同时验证收益和治理边界？",
+    "outcome": "形成有验收证据、可继承、可复查的改进闭环。",
+    "evidence": "synthesis",
+    "note": "依据论文全文整合的应用方法论；流程及其连接属于分析性整合，并非作者原文提出的固定步骤。虚线表示整合推断，点击节点查看条件、证据与来源。",
+    "entryNodes": [
+      "m-goal"
+    ],
+    "mainPath": [
+      "m-goal",
+      "m-loop",
+      "m-diagnose",
+      "m-select",
+      "m-candidate",
+      "m-verify",
+      "m-retain",
+      "m-observe"
+    ],
+    "nodes": [
+      {
+        "id": "m-goal",
+        "title": "明确目标与边界",
+        "role": "action",
+        "input": "待改进的问题与使用场景",
+        "action": "明确结果、预算、允许修改的对象和验收权限。",
+        "output": "目标、资源与验收标准",
+        "check": "目标可评估，改动不越过既定权限。",
+        "unitIds": [
+          "u01",
+          "u07"
+        ],
+        "methodIds": [
+          "f-level",
+          "f-feedback"
+        ],
+        "evidence": "inference",
+        "sources": [
+          {
+            "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：1.4 Autonomy Levels · PDF第5页",
+            "sourceIds": [
+              "src-e2c322735f82-pdf_page-00005"
+            ],
+            "quote": "Humans specify what should be improved"
+          }
+        ]
+      },
+      {
+        "id": "m-loop",
+        "title": "拆解改进闭环",
+        "role": "action",
+        "input": "目标与现有系统",
+        "action": "列出状态、经验、改进器、验证器与下一轮继承的内容。",
+        "output": "系统闭环与责任分工",
+        "check": "区分一次输出和跨轮保留的状态。",
+        "unitIds": [
+          "u01",
+          "u02"
+        ],
+        "methodIds": [
+          "f-loop"
+        ],
+        "evidence": "inference",
+        "sources": [
+          {
+            "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：2.2.1 Anatomy of an Improvement Loop · PDF第10页",
+            "sourceIds": [
+              "src-e2c322735f82-pdf_page-00010"
+            ],
+            "quote": "Improvement loop. We define an improvement loop as a recurring process"
+          }
+        ]
+      },
+      {
+        "id": "m-diagnose",
+        "title": "定位瓶颈与层级",
+        "role": "decision",
+        "input": "闭环记录与失败证据",
+        "action": "判断短板在执行、策略、经验、部署还是改进机制；结合领域反馈条件。",
+        "output": "当前短板与自主性边界",
+        "check": "判断针对具体机制，并记录不确定性。",
+        "unitIds": [
+          "u02",
+          "u03",
+          "u07",
+          "u10"
+        ],
+        "methodIds": [
+          "f-hci",
+          "f-level",
+          "f-taxonomy"
+        ],
+        "evidence": "inference",
+        "sources": [
+          {
+            "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：1.4 Autonomy Levels · PDF第5页",
+            "sourceIds": [
+              "src-e2c322735f82-pdf_page-00005"
+            ],
+            "quote": "(L2) Improvement Strategy Autonomy."
+          }
+        ]
+      },
+      {
+        "id": "m-select",
+        "title": "选择改进方式",
+        "role": "action",
+        "input": "瓶颈、证据与资源约束",
+        "action": "选择与瓶颈相符的干预；不要把更高层级自动当作更优方案。",
+        "output": "干预方案与可检查假设",
+        "check": "说明为什么该干预可能改善已识别短板。",
+        "unitIds": [
+          "u03",
+          "u04",
+          "u05",
+          "u06"
+        ],
+        "methodIds": [
+          "f-l12",
+          "f-agenda",
+          "f-deploy",
+          "f-meta"
+        ],
+        "evidence": "inference",
+        "sources": [
+          {
+            "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：1.4 Autonomy Levels · PDF第5页",
+            "sourceIds": [
+              "src-e2c322735f82-pdf_page-00005"
+            ],
+            "quote": "(L2) Improvement Strategy Autonomy."
+          }
+        ]
+      },
+      {
+        "id": "m-candidate",
+        "title": "获取经验并提出更新",
+        "role": "action",
+        "input": "干预方案与学习者状态",
+        "action": "获取适用经验，提出候选更新并记录来源；需要 L3 时由学习者状态决定下一批经验。",
+        "output": "候选方案与来源证据",
+        "check": "经验有适用性；候选仍可撤回。",
+        "unitIds": [
+          "u04",
+          "u08"
+        ],
+        "methodIds": [
+          "f-agenda",
+          "r-experience"
+        ],
+        "evidence": "inference",
+        "sources": [
+          {
+            "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.4 L3: Autonomy over Future Learning Experience · PDF第22页",
+            "sourceIds": [
+              "src-e2c322735f82-pdf_page-00022"
+            ],
+            "quote": "The defining property is learner-conditioned future experience acquisition."
+          }
+        ]
+      },
+      {
+        "id": "m-verify",
+        "title": "验证真实收益",
+        "role": "decision",
+        "input": "候选更新与受保护的评估条件",
+        "action": "检查独立表现、预算、迁移与稳定性；区分增加搜索成本与机制进步。",
+        "output": "通过或未通过的验证证据",
+        "check": "未达到验收要求不入库；成本或风险超限则停止。",
+        "unitIds": [
+          "u03",
+          "u06",
+          "u09"
+        ],
+        "methodIds": [
+          "r-evaluate",
+          "f-meta"
+        ],
+        "evidence": "inference",
+        "sources": [
+          {
+            "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.3.4 Evaluating L2 Strategy Autonomy · PDF第21页",
+            "sourceIds": [
+              "src-e2c322735f82-pdf_page-00021"
+            ],
+            "quote": "invites benchmark overfitting, additional search compute"
+          }
+        ]
+      },
+      {
+        "id": "m-retain",
+        "title": "保留并复用改进",
+        "role": "action",
+        "input": "通过验证的候选与支持证据",
+        "action": "连同版本、证据、适用条件保存；安排重验证与退役。",
+        "output": "可追溯且可退役的持久状态",
+        "check": "只有验证支持的更新被保留。",
+        "unitIds": [
+          "u05",
+          "u08"
+        ],
+        "methodIds": [
+          "r-retain",
+          "f-deploy"
+        ],
+        "evidence": "inference",
+        "sources": [
+          {
+            "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.5.3 Selective retention and deployment of updates · PDF第30页",
+            "sourceIds": [
+              "src-e2c322735f82-pdf_page-00030"
+            ],
+            "quote": "A proposed update must produce evidence before it can enter the persistent state."
+          }
+        ]
+      },
+      {
+        "id": "m-observe",
+        "title": "观察后续表现",
+        "role": "decision",
+        "input": "后续任务中的实际调用与效果",
+        "action": "检查更新能否被调用、正确执行和持续受益，记录新失败与漂移。",
+        "output": "实际收益、失效信号与新瓶颈",
+        "check": "达到目标且收益稳定可停止；新问题回到诊断。",
+        "unitIds": [
+          "u05",
+          "u09",
+          "u11"
+        ],
+        "methodIds": [
+          "f-deploy",
+          "r-longhorizon"
+        ],
+        "evidence": "inference",
+        "sources": [
+          {
+            "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.5 L4 · PDF第31页",
+            "sourceIds": [
+              "src-e2c322735f82-pdf_page-00031"
+            ],
+            "quote": "these changes affect later tasks and"
+          }
+        ]
+      },
+      {
+        "id": "m-meta",
+        "title": "改进“改进机制”本身",
+        "role": "action",
+        "input": "反复失败且指向改进机制的证据",
+        "action": "检查搜索策略、验证方式或经验获取流程，提出机制修订并验证后继效果。",
+        "output": "待验证、可继承的机制修订",
+        "check": "机制确实被后继复用；结构性变化与有效性分别验证。",
+        "unitIds": [
+          "u06",
+          "u09"
+        ],
+        "methodIds": [
+          "f-meta",
+          "r-meta"
+        ],
+        "evidence": "inference",
+        "sources": [
+          {
+            "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.6 L5: From Environmental Adaptation to Meta-Improvement · PDF第32页",
+            "sourceIds": [
+              "src-e2c322735f82-pdf_page-00032"
+            ],
+            "quote": "These conditions distinguish structural L5"
+          }
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "id": "e-main-1",
+        "from": "m-goal",
+        "to": "m-loop",
+        "kind": "main",
+        "condition": "目标与边界已明确",
+        "handoff": "目标、资源与验收标准",
+        "why": "先明确验收边界，才能界定要审计的系统。",
+        "evidence": "inference",
+        "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：2.2.1 Anatomy of an Improvement Loop · PDF第10页"
+      },
+      {
+        "id": "e-main-2",
+        "from": "m-loop",
+        "to": "m-diagnose",
+        "kind": "main",
+        "condition": "闭环部件可识别",
+        "handoff": "系统闭环与责任分工",
+        "why": "借助闭环部件定位失效位置。",
+        "evidence": "inference",
+        "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：1.4 Autonomy Levels · PDF第5页"
+      },
+      {
+        "id": "e-main-3",
+        "from": "m-diagnose",
+        "to": "m-select",
+        "kind": "main",
+        "condition": "瓶颈有初步证据",
+        "handoff": "当前短板与自主性边界",
+        "why": "干预方式应对应已识别的短板。",
+        "evidence": "inference",
+        "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：1.4 Autonomy Levels · PDF第5页"
+      },
+      {
+        "id": "e-main-4",
+        "from": "m-select",
+        "to": "m-candidate",
+        "kind": "main",
+        "condition": "方案具备可验证假设",
+        "handoff": "干预方案与可检查假设",
+        "why": "用方案决定获取什么经验以及提出什么更新。",
+        "evidence": "inference",
+        "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.4 L3: Autonomy over Future Learning Experience · PDF第22页"
+      },
+      {
+        "id": "e-main-5",
+        "from": "m-candidate",
+        "to": "m-verify",
+        "kind": "main",
+        "condition": "候选准备就绪",
+        "handoff": "候选方案与来源证据",
+        "why": "候选必须接受验证才能判断收益。",
+        "evidence": "inference",
+        "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.3.4 Evaluating L2 Strategy Autonomy · PDF第21页"
+      },
+      {
+        "id": "e-main-6",
+        "from": "m-verify",
+        "to": "m-retain",
+        "kind": "main",
+        "condition": "验证通过",
+        "handoff": "通过或未通过的验证证据",
+        "why": "证据决定候选是否可进入持久状态。",
+        "evidence": "inference",
+        "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.5.3 Selective retention and deployment of updates · PDF第30页"
+      },
+      {
+        "id": "e-main-7",
+        "from": "m-retain",
+        "to": "m-observe",
+        "kind": "main",
+        "condition": "更新已部署或可复用",
+        "handoff": "可追溯且可退役的持久状态",
+        "why": "入库并不保证后续任务真正获益。",
+        "evidence": "inference",
+        "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.5 L4 · PDF第31页"
+      },
+      {
+        "id": "e-retry",
+        "from": "m-verify",
+        "to": "m-select",
+        "kind": "feedback",
+        "condition": "未通过：修正方案",
+        "handoff": "失败记录、成本与验证结果",
+        "why": "失败证据用于改变干预；不要重复同一无效候选。",
+        "evidence": "inference",
+        "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.5 L4 / 3.6 L5 · PDF第30–35页"
+      },
+      {
+        "id": "e-diagnose",
+        "from": "m-observe",
+        "to": "m-diagnose",
+        "kind": "feedback",
+        "condition": "新问题：重新诊断",
+        "handoff": "后续失败、遗忘或调用失效证据",
+        "why": "部署改变状态，新短板需要重新定位。",
+        "evidence": "inference",
+        "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.5 L4 / 3.6 L5 · PDF第30–35页"
+      },
+      {
+        "id": "e-meta",
+        "from": "m-observe",
+        "to": "m-meta",
+        "kind": "branch",
+        "condition": "持续停滞且指向改进机制",
+        "handoff": "跨轮停滞与机制失效证据",
+        "why": "只有证据指向改进过程时，才考虑修改该过程；并非所有问题都需要 L5。",
+        "evidence": "inference",
+        "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.5 L4 / 3.6 L5 · PDF第30–35页"
+      },
+      {
+        "id": "e-inherit",
+        "from": "m-meta",
+        "to": "m-select",
+        "kind": "feedback",
+        "condition": "机制修订：重新设计与验证",
+        "handoff": "修订后的搜索或验证机制",
+        "why": "修订机制需进入后续候选生成与验证，而非凭自修改直接宣布有效。",
+        "evidence": "inference",
+        "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.5 L4 / 3.6 L5 · PDF第30–35页"
+      }
+    ],
+    "constraints": [
+      {
+        "text": "受保护的评估",
+        "evidence": "material",
+        "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.6 L5 · PDF第31–35页"
+      },
+      {
+        "text": "证据与版本记录",
+        "evidence": "material",
+        "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.6 L5 · PDF第31–35页"
+      },
+      {
+        "text": "资源预算",
+        "evidence": "material",
+        "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.6 L5 · PDF第31–35页"
+      },
+      {
+        "text": "人工权限与场景风险",
+        "evidence": "material",
+        "source": "The-Last-AI-Built-by-Humans-arXiv-2609.11873v2.pdf · 标题路径：3.6 L5 · PDF第31–35页"
+      }
+    ],
+    "coverage": [
+      {
+        "unitId": "u01",
+        "nodeIds": [
+          "m-goal",
+          "m-loop"
+        ],
+        "role": "core",
+        "reason": "本单元支持对应节点的判断与机制；具体关系仍标为全文整合。"
+      },
+      {
+        "unitId": "u02",
+        "nodeIds": [
+          "m-loop",
+          "m-diagnose"
+        ],
+        "role": "core",
+        "reason": "本单元支持对应节点的判断与机制；具体关系仍标为全文整合。"
+      },
+      {
+        "unitId": "u03",
+        "nodeIds": [
+          "m-diagnose",
+          "m-select",
+          "m-verify"
+        ],
+        "role": "core",
+        "reason": "本单元支持对应节点的判断与机制；具体关系仍标为全文整合。"
+      },
+      {
+        "unitId": "u04",
+        "nodeIds": [
+          "m-select",
+          "m-candidate"
+        ],
+        "role": "core",
+        "reason": "本单元支持对应节点的判断与机制；具体关系仍标为全文整合。"
+      },
+      {
+        "unitId": "u05",
+        "nodeIds": [
+          "m-select",
+          "m-retain",
+          "m-observe"
+        ],
+        "role": "core",
+        "reason": "本单元支持对应节点的判断与机制；具体关系仍标为全文整合。"
+      },
+      {
+        "unitId": "u06",
+        "nodeIds": [
+          "m-select",
+          "m-verify",
+          "m-meta"
+        ],
+        "role": "core",
+        "reason": "本单元支持对应节点的判断与机制；具体关系仍标为全文整合。"
+      },
+      {
+        "unitId": "u07",
+        "nodeIds": [
+          "m-goal",
+          "m-diagnose"
+        ],
+        "role": "core",
+        "reason": "本单元支持对应节点的判断与机制；具体关系仍标为全文整合。"
+      },
+      {
+        "unitId": "u08",
+        "nodeIds": [
+          "m-candidate",
+          "m-retain"
+        ],
+        "role": "evidence",
+        "reason": "行业案例检验经验、持久化和复用的工程接口。"
+      },
+      {
+        "unitId": "u09",
+        "nodeIds": [
+          "m-verify",
+          "m-observe",
+          "m-meta"
+        ],
+        "role": "core",
+        "reason": "本单元支持对应节点的判断与机制；具体关系仍标为全文整合。"
+      },
+      {
+        "unitId": "u10",
+        "nodeIds": [
+          "m-diagnose"
+        ],
+        "role": "evidence",
+        "reason": "分类法帮助定位自主性和改进对象。"
+      },
+      {
+        "unitId": "u11",
+        "nodeIds": [
+          "m-observe"
+        ],
+        "role": "evidence",
+        "reason": "领域案例补充真实部署中的反馈边界。"
+      }
+    ]
+  }
+}

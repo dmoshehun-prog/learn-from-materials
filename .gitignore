@@ -1,0 +1,23 @@
+# macOS / editors
+.DS_Store
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Node
+node_modules/
+
+# Local extraction and generated outputs
+.extraction-cache/
+material_learning_work/
+learning_work/
+outputs/
+dist/
+*.tmp
+*.log

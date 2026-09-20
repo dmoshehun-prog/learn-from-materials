@@ -1,4 +1,14 @@
-# 知识学习助手内容契约 4.2
+# 知识学习助手内容契约 4.3
+
+v0.5.9-beta：新系统学习 PDF 的展示出处必须来自 `source-heading-index.json`；原文标题和编号逐项核对，见 `source-heading-index.md`。
+
+v0.5.8-beta：页面字段 schema 仍为 4.3。系统学习的新 overview 使用 v2 `action-rule-ledger.json`，逐单元追踪候选规则、可见卡片、方法论节点及两张图的关系类型复核；详情见 `action-rule-ledger.md`。核心框架默认卡片，可切换框架关系图；整体方法论固定放在行动规则。新 overview 使用 finalize.py 自动绑定并交付 methods.json、patterns.md、methodology.json、methodology.md。设计与最终生成入口详见 diagram-design-and-delivery.md。
+
+v0.4.0-beta.1：新增 overview 顶层 `methodology`（整体方法论的独立分析层），以及 `contentUnits[].sourceDetails`（细粒度出处）。新 overview 必须按 `whole-material-methodology.md` 生成、核验并绑定整体结构；旧页面可不带该字段。整体视图默认展示完整逻辑，具体步骤/节点数量由材料决定，支持条件分支与反馈。字段详见该引用，不得凭空添加布局坐标。出处支持悬停、键盘聚焦和触屏展开；精确定位缺失时显示单元/结论页段。
+
+v0.3.0-beta.1 扩展：overview 可选顶层 `methodLibrary`，只能由 `methods.py bind` 嵌入通过校验的 methods-v1 数据。绑定卡片的名称、摘要、适用条件、理由和主出处均来自这份数据，手改漂移会被拒绝。常规渲染入口还会与知识库 `methods.json` 对照并核验来源块哈希及短引文。没有该字段的旧页面继续兼容。详见 `method-library.md`。
+
+新生成内容使用 4.3；渲染器仍兼容 4.2。先按 SKILL.md 确定输出语言，并读取 `language-relationships-application.md`。下文中文示例不是固定输出语言。英语页面的解释性字段必须用英语生成；仅设置语言字段不会翻译已有正文。
 
 模型只生成 UTF-8 JSON；不得手写 HTML、CSS 或 JavaScript。渲染器负责固定模块顺序、主题、交互、转义和移动端布局。本契约同时适用于书籍、PPT/PPTX、Word、PDF、网页、Markdown、文本和多材料集合。
 
@@ -8,7 +18,7 @@
 
 ```json
 {
-  "schemaVersion": "4.2",
+  "schemaVersion": "4.3",
   "meta": {
     "title": "材料名称或学习专题",
     "creator": "作者、讲者、机构或未注明",
@@ -16,6 +26,7 @@
     "mode": "overview",
     "pageId": "stable-material-id",
     "learningDepth": "systematic",
+    "language": "zh-CN",
     "initialTheme": "warm-paper",
     "knowledgeBase": "专题名.learnkb/INDEX.md"
   },
@@ -26,7 +37,7 @@
     "thesis": "一句话总论"
   },
   "frameworks": [
-    {"name":"框架名","oneLine":"准确含义","when":"使用场景","firstUnitId":"u01","sourceOrder":1,"source":"第8页幻灯片"}
+    {"id":"framework-a","name":"框架A","oneLine":"准确含义","when":"使用场景","firstUnitId":"u01","sourceOrder":1,"source":"课件.pptx · 第1页幻灯片《框架A》"}
   ],
   "contentUnits": [
     {
@@ -60,7 +71,10 @@
     }
   ],
   "decisionRules": [
-    {"when":"出现X","do":"执行Y","because":"原因Z","source":"第12页幻灯片"}
+    {"id":"rule-a","when":"出现X","do":"执行Y","because":"原因Z","source":"课件.pptx · 第12页幻灯片《行动示例》"}
+  ],
+  "relationships": [
+    {"id":"rel-a-rule","from":"framework-a","to":"rule-a","type":"applies","explanation":"框架A给出判断X的标准，规则A正是把该标准落到具体条件下的动作，因此规则A是框架A的应用出口；没有这条边，规则A在关系图里就是孤立节点。","evidence":"material","source":"课件.pptx · 第1–12页幻灯片《从框架A到行动示例》"}
   ],
   "assessment": {
     "focusAreas": [
@@ -77,7 +91,7 @@
 }
 ```
 
-数量规则：`frameworks`、`glossary`、`decisionRules`、`assessment.focusAreas` 和每个单元的 `conclusions` **均不设置数量上限、配额或“达到下限即可结束”的完成线**。按材料可提炼的独立信息单元完整收录：框架收录所有可改变判断或行动的命名结构及必要的描述性结构；术语收录所有理解材料所必需的术语、角色、流程、指标和英文缩写；行动规则收录全部条件—行动—原因关系；自检考点覆盖全部关键框架、概念区分、判断点、图表解读和案例教训。`focusAreas` 只定义可测范围与能力层级，不预生成题干、提示或答案。仅合并语义完全等价的重复项，不得以条目已经很多为由省略独立内容。所有 overview 数组至少包含一项有效内容，内容单元、术语与自检考点必须覆盖完整材料，不得只处理开头。
+数量规则：`frameworks`、`glossary`、`decisionRules`、`assessment.focusAreas` 和每个单元的 `conclusions` **均不设置数量上限、配额或“达到下限即可结束”的完成线**。按材料可提炼的独立信息单元完整收录：框架收录所有可改变判断或行动的命名结构及必要的描述性结构；术语收录所有理解材料所必需的术语、角色、流程、指标和英文缩写；行动规则收录全部条件—行动—原因关系；自检考点覆盖全部关键框架、概念区分、判断点、图表解读和案例教训。`focusAreas` 只定义可测范围与能力层级，不预生成题干、提示或答案。仅合并语义完全等价的重复项，不得以条目已经很多为由省略独立内容。框架、内容单元、术语与自检考点至少包含一项；行动规则确实不存在时可为空，但新系统学习页必须用规则账本逐单元记录复查证据和原因，不得把未处理当作无规则。
 
 上一段数量规则仅适用于 `systematic`；`quick` 以主线、关键条件、必要术语和核心考点为边界，`decisionRules` 可为空，其余核心模块至少有一项。
 
@@ -85,11 +99,20 @@
 
 允许的 overview 顶层字段仅限上述字段。不要添加控制布局、颜色或 JavaScript 的字段。“我的笔记”不是 JSON 字段，模型不得把个人笔记混入静态材料内容。
 
-`meta` 固定包含 `title/creator/sourceType/mode/pageId/learningDepth/initialTheme/knowledgeBase`；`hero` 固定包含 `eyebrow/title/lede/thesis`。`learningDepth` 只能为 `quick` 或 `systematic`，规则见 `learning-depth-modes.md`。`pageId` 是同一学习项目跨重新生成保持不变的稳定标识，用于续用浏览器中的职业、兴趣、笔记和错题；它与所有 `id` 一样，必须以英文字母开头，只能使用英文字母、数字、`-`、`_`。其他所有字段均为非空文本。
+`meta` 固定包含 `title/creator/sourceType/mode/pageId/learningDepth/language/initialTheme/knowledgeBase`；`language` 为 `zh-CN` 或 `en`，同样适用于 topic/unit。`hero` 固定包含 `eyebrow/title/lede/thesis`。`learningDepth` 为 `quick/systematic`。`pageId` 跨重新生成保持不变；它与所有 `id` 都必须以英文字母开头，只含英文字母、数字、`-`、`_`。框架与行动规则必须有全局唯一 `id`；其他原有字段要求不变。旧版 4.2 缺少 language 时默认中文，缺少方法 ID 时不凭空生成逻辑关系。
+
+overview 的 `relationships` 必须是数组。新系统学习页按页面真实显示的框架→框架边检查；有两个以上框架却没有可见关系时，必须回到材料取证。材料确实不支持框架间连线，可在规则账本中设置 `relationStatus: "unsupported"` 和具体理由，保留空图而不编造边。部分框架独立时，在 `independentFrameworks` 中逐项说明。旧页面的人工例外由 `--legacy-rule-ledger` 明示。
+
+每张行动规则卡片必须关联整体方法论节点的 `methodIds`，或作为带理由的独立规则留在卡片区。框架→规则关系可用于来源解释，但不会显示在框架关系图，因此不能用它代替框架间的连线。写边前核对当前端点 ID，改名后同步更新引用。
+
+每项严格包含非空文本 `id/from/to/type/explanation/evidence/source`；端点只能是不同的框架/规则 ID；`type` 为 `prerequisite/sequence/causes/supports/contrasts/part_of/applies/feedback/parallel`；`evidence` 为 `material/inference`。`explanation` 必须写清“为什么存在这条关系”，只写“相关”会被门禁判为解释过短。出处进入原有覆盖核查。关系提取、方向和方法应用协议见 `language-relationships-application.md`。不允许把无来源连线当成装饰。
+
+新系统学习页确实无法给出框架间有据关系时，在 `action-rule-ledger.json` 中写 `relationStatus: "unsupported"` 和复查原因；快速了解模式默认降为 warning。`verify_relations.py --allow-empty` 仅用于未带账本的旧页面人工复核，不得把空数组当作默认答案。
 
 学习深度只在解析与内容生成前询问。职业和兴趣不进入 `page.json`，仍由最终 HTML 在首次打开后询问，并仅保存在浏览器本地。
 
 `frameworks` 与 `glossary` 的每项必须包含 `firstUnitId` 和 `sourceOrder`。`firstUnitId` 指向该内容在材料中第一次被实质介绍的内容单元；`sourceOrder` 在各自数组内从 1 开始连续编号。渲染器只按 `sourceOrder` 排列，不按分类、字母或模型输出顺序重排。框架顺序必须与各 `contentUnits[].frameworks` 的首次引入顺序一致；术语顺序必须按首次出现单元递增，同单元内按实际出现位置排列。多材料先按 `source_manifest.json` 文件顺序，再按文件内部定位确定首次出现。
+框架卡片与框架关系图的显示编号都取框架自身的 `sourceOrder`；图中位置和连线改变时编号不变，10 号显示为 `10`，不得显示为 `010`。整体方法论节点的编号只表示其本图显示顺序，不与行动规则卡片序号互相指代。
 
 ## 内容单元规则
 
@@ -149,10 +172,10 @@
 
 ## 术语大全规则
 
-系统学习完整读取 `glossary.md`、各单元 Key Concepts、材料命名框架、英文缩写和专业角色/流程，再去重；快速了解只收录理解核心导读必需的术语。固定分类只能从以下 5 项选择：`英文缩写`、`领域术语`、`方法框架`、`角色与流程`、`指标与工具`。
+系统学习完整读取 `glossary.md`、各单元 Key Concepts、材料命名框架、英文缩写和专业角色/流程，再去重；快速了解只收录理解核心导读必需的术语。中文分类为 `英文缩写/领域术语/方法框架/角色与流程/指标与工具`；英文等价分类为 `Abbreviations/Domain terms/Methods and frameworks/Roles and processes/Metrics and tools`。
 
 - 英文缩写必须提供 `fullName` 英文全称；
-- 凡 `term` 含英文字母，必须提供 `zhMeaning` 中文含义，并在折叠栏未展开时直接显示；
+- 中文页面中，凡 `term` 含英文字母，必须提供 `zhMeaning` 中文含义；英文页面不要求或显示 `zhMeaning`，定义和语境使用英语。原始缩写仍须保留 `fullName`；
 - `definition` 准确解释“是什么”，不要为了通俗牺牲概念边界；
 - `context` 只写材料怎样使用该词；材料外知识不能冒充材料语境；
 - `related` 至少 1 项；`units` 至少关联一个有效内容单元；
@@ -162,7 +185,7 @@
 ## 学习自检规则
 
 - 静态页面不铺开预生成题目；`assessment.focusAreas` 只记录考点名称、所属单元、需要覆盖的能力层级和真实出处。
-- `abilities` 只能使用 `记忆`、`解释`、`应用`、`迁移`，每个考点至少包含一项，并覆盖每个内容单元；系统学习合计覆盖四层能力，快速了解只标记核心考点实际适用的能力。
+- `abilities` 中文值为 `记忆/解释/应用/迁移`，英文等价值为 `Recall/Explain/Apply/Transfer`。每个考点至少一项并覆盖每个内容单元；系统学习合计覆盖四层，快速了解只标记适用能力。
 - 页面由固定渲染器生成“综合全部 / 指定章节或单元 / 自定义要求”三种范围选择，以及题量、难度、能力重点设置。
 - AI 出题前按 `question-bank-routing.md` 静默读取知识库内已有的 `question-bank.json`；快速了解没有预建题库时，在用户所选范围内按需检查原题。页面不增加题库识别结果、模式名称、置信度或用户开关。
 - 范围内存在可用原题时优先原题；原题不足或不完整时混合生成；没有题库时才依据 `assessment.focusAreas` 动态生成。原题保留题干、选项和官方答案，材料推导答案不得冒充官方答案。
@@ -234,6 +257,8 @@ AI 在 JSON 前后分别输出 `<<<KLA_MISTAKES_JSON>>>` 与 `<<<END_KLA_MISTAKE
 渲染器按固定顺序排序：`quote_card → causal_chain → timeline → before_after → type_selector → matrix → accordion → story_card → decision_tree → questions`。`label` 不要自带序号。
 
 ## 出处规则
+
+英文页面可使用等价定位：`Chapter 2: 原章节名 · PDF pp. 12-14`、`Chapter 2: 原章节名 · EPUB sections 2-3`、`deck.pptx · Slides 2-3: 原页面标题`、`report.pdf · Heading: 原标题 · PDF pp. 2-3`、`report.docx · Paragraph 4`、`Article · Section: 原小节名 · Paragraph 2`、`notes.txt · Lines 2-3`。原文件名和原章节标题保持不变；不把段落号推测成页码。英文 PDF/slide/EPUB 范围同样参与 source_map 校验。
 
 优先读取 `source_map.json`：
 

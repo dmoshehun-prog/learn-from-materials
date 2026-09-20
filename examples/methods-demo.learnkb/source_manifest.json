@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "2.0",
+  "total_sources": 1,
+  "sources": [
+    {
+      "source_file": "examples/methods-demo.txt",
+      "filename": "methods-demo.txt",
+      "format": "txt",
+      "extraction_method": "plain-text",
+      "file_size_mb": 0.0,
+      "pages": 0,
+      "pages_label": "sections",
+      "chars": 1094,
+      "words": 163,
+      "estimated_tokens": 217,
+      "token_estimate_method": "cjk-aware-mixed",
+      "ocr_used": false,
+      "ocr_recommended": false,
+      "visual_assets": 0,
+      "visual_review_recommended": false,
+      "page_mapping_complete": true,
+      "chapters_detected": 0,
+      "has_toc": false,
+      "sha256": "e3be302578cd683fb240d2be663361eb23b31c09a57056a4b345edab4700c9fe",
+      "text_sha256": "e3be302578cd683fb240d2be663361eb23b31c09a57056a4b345edab4700c9fe",
+      "extractor_schema": "learn-from-materials/extractor-v2",
+      "reused_from_cache": true,
+      "duration_seconds": 0.005127
+    }
+  ]
+}

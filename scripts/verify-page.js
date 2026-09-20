@@ -122,9 +122,11 @@ try {
     }
 
     // 1b. 检查主题（body data-theme）
+    // NOTE: keep this list in sync with render_page.py::THEMES, which is the single
+    // source of truth and is also what verify_static.py checks against.
     const theme = await page.getAttribute('body', 'data-theme');
     const bodyMode = await page.getAttribute('body', 'data-mode');
-    const knownThemes = ['warm-paper', 'minimal', 'dark', 'ink-wash', 'vintage-editorial', 'paper-ink'];
+    const knownThemes = ['warm-paper', 'minimal', 'dark'];
     if (!theme) {
       errors.push('❌ <body> 缺少 data-theme 属性（{{theme_name}} 未填）');
     } else if (!knownThemes.includes(theme)) {
@@ -173,7 +175,7 @@ try {
         const activeTheme = await page.getAttribute('body', 'data-theme');
         if (activeTheme !== themeName) errors.push('❌ 主题切换失败: ' + themeName);
       }
-      console.log('✅ 六主题切换 — 正常');
+      console.log(`✅ ${knownThemes.length} 个主题切换 — 正常`);
     }
 
     // 3. 验证 Causal Chain

@@ -71,7 +71,7 @@ class QuickTests(unittest.TestCase):
         self.assertEqual(errors, [])
         self.assertIn('不额外编造建议', output.read_text())
         result = subprocess.run([sys.executable, str(SCRIPTS / 'render_page.py'), str(self.page),
-                                 '-k', str(self.kb), '-o', str(output)], capture_output=True, text=True)
+                                 '-k', str(self.kb), '-o', str(output), '--legacy'], capture_output=True, text=True)
         self.assertEqual(result.returncode, 0, result.stderr)
 
     def test_systematic_cannot_use_quick_gate(self):

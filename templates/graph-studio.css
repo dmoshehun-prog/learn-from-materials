@@ -1,0 +1,290 @@
+/* Offline diagram studio — theme-scoped palette.
+   Every colour below is a --dg-* token. The three page themes each declare their own
+   set, so canvas, dots, cards, wires, arrowheads, legend, buttons and the detail
+   panel all change together when the theme changes. Unrelated nodes stay readable:
+   they dim through a weaker surface, never through low opacity. */
+:root{
+  --dg-paper:#f4f3ed; --dg-dot:rgba(60,80,72,.11); --dg-card:#fffefa;
+  --dg-card-border:#cedbd0; --dg-card-shadow:0 7px 16px rgba(50,61,72,.08);
+  --dg-ink:#253d41; --dg-summary:#4f6158; --dg-tag:#6b7d73;
+  --dg-line:#d8e0d7; --dg-heading-bg:linear-gradient(120deg,#e9efe6,#f5f1e7);
+  --dg-kicker:#71867b; --dg-count-ink:#4f645b; --dg-count-border:#ccd8cd;
+  --dg-btn-bg:#f8f9f3; --dg-btn-ink:#2f5449; --dg-btn-border:#cedbd0; --dg-btn-hover:#eef3ea;
+  --dg-wire:#3c6a60; --dg-wire-inference:#5d7f74; --dg-wire-feedback:#a2763a;
+  --dg-wire-dim:rgba(60,106,96,.22); --dg-wire-active:#2f5449;
+  --dg-arrow:#3c6a60; --dg-arrow-feedback:#a2763a;
+  --dg-legend:#5f7268; --dg-help:#4a6157; --dg-help-border:#d8e0d7;
+  --dg-conn-bg:#fbfcf7; --dg-conn-ink:#29493e; --dg-conn-sub:#5d7168;
+  --dg-trans-bg:#f6f7f0; --dg-trans-ink:#47655a; --dg-trans-hover:#e8eee4; --dg-dest-ink:#5b7a5f;
+  --dg-focus:#a98959; --dg-scrim:rgba(37,61,65,.50);
+  --dg-tone-0:#779f8a; --dg-tone-1:#829eb3; --dg-tone-2:#b29a72;
+  --dg-num-0-bg:#e8f0e8; --dg-num-0-ink:#3f6a57;
+  --dg-num-1-bg:#eaf0f4; --dg-num-1-ink:#43607a;
+  --dg-num-2-bg:#f1ebdf; --dg-num-2-ink:#7d663d;
+  --dg-dim-card:#f1f4ee; --dg-dim-border:#dde4da; --dg-dim-ink:#4a5c55; --dg-dim-summary:#5f716a;
+  --dg-sel-border:#3c6a60; --dg-sel-ring:rgba(60,106,96,.18); --dg-sel-shadow:0 10px 26px rgba(50,61,72,.16);
+  --dg-panel-bg:var(--surface-strong,#fcfbf7); --dg-panel-border:var(--line,rgba(39,49,60,.14)); --dg-panel-accent:var(--green,#657b70);
+  --dg-tip-bg:#fffefa; --dg-tip-ink:#2c4441; --dg-tip-border:#cedbd0; --dg-tip-title:#253d41; --dg-tip-label:#6b7d73;
+  --dg-arrow-inference:#5d7f74;
+  --dg-flow:#7fa396; --dg-flow-inference:#8fb0a4; --dg-flow-feedback:#d0ab6a;
+}
+body[data-theme="warm-paper"]{
+  --dg-paper:#f4f3ed; --dg-dot:rgba(68,82,96,.11); --dg-card:#fffefa;
+  --dg-card-border:#cedbd0; --dg-card-shadow:0 7px 16px rgba(50,61,72,.08);
+  --dg-ink:#253d41; --dg-summary:#4f6158; --dg-tag:#6b7d73;
+  --dg-line:#d8e0d7; --dg-heading-bg:linear-gradient(120deg,#e9efe6,#f5f1e7);
+  --dg-kicker:#71867b; --dg-count-ink:#4f645b; --dg-count-border:#ccd8cd;
+  --dg-btn-bg:#f8f9f3; --dg-btn-ink:#2f5449; --dg-btn-border:#cedbd0; --dg-btn-hover:#eef3ea;
+  --dg-wire:#3c6a60; --dg-wire-inference:#5d7f74; --dg-wire-feedback:#a2763a;
+  --dg-wire-dim:rgba(60,106,96,.22); --dg-wire-active:#2f5449;
+  --dg-arrow:#3c6a60; --dg-arrow-feedback:#a2763a;
+  --dg-legend:#5f7268; --dg-help:#4a6157; --dg-help-border:#d8e0d7;
+  --dg-conn-bg:#fbfcf7; --dg-conn-ink:#29493e; --dg-conn-sub:#5d7168;
+  --dg-trans-bg:#f6f7f0; --dg-trans-ink:#47655a; --dg-trans-hover:#e8eee4; --dg-dest-ink:#5b7a5f;
+  --dg-focus:#a98959; --dg-scrim:rgba(37,61,65,.50);
+  --dg-tone-0:#779f8a; --dg-tone-1:#829eb3; --dg-tone-2:#b29a72;
+  --dg-num-0-bg:#e8f0e8; --dg-num-0-ink:#3f6a57;
+  --dg-num-1-bg:#eaf0f4; --dg-num-1-ink:#43607a;
+  --dg-num-2-bg:#f1ebdf; --dg-num-2-ink:#7d663d;
+  --dg-dim-card:#f1f4ee; --dg-dim-border:#dde4da; --dg-dim-ink:#4a5c55; --dg-dim-summary:#5f716a;
+  --dg-sel-border:#3c6a60; --dg-sel-ring:rgba(60,106,96,.18); --dg-sel-shadow:0 10px 26px rgba(50,61,72,.16);
+  --dg-panel-bg:var(--surface-strong); --dg-panel-border:var(--line); --dg-panel-accent:var(--green);
+  --dg-tip-bg:#fffefa; --dg-tip-ink:#2c4441; --dg-tip-border:#cedbd0; --dg-tip-title:#253d41; --dg-tip-label:#6b7d73;
+  --dg-arrow-inference:#5d7f74;
+  --dg-flow:#7fa396; --dg-flow-inference:#8fb0a4; --dg-flow-feedback:#d0ab6a;
+}
+body[data-theme="minimal"]{
+  --dg-paper:#f5f5f2; --dg-dot:rgba(48,52,56,.10); --dg-card:#fdfdfb;
+  --dg-card-border:#d5d8d3; --dg-card-shadow:0 7px 16px rgba(35,39,43,.08);
+  --dg-ink:#2c3134; --dg-summary:#545a5e; --dg-tag:#73797c;
+  --dg-line:#dcdedb; --dg-heading-bg:linear-gradient(120deg,#eef0ed,#f7f7f4);
+  --dg-kicker:#7a8083; --dg-count-ink:#52585b; --dg-count-border:#d0d3cf;
+  --dg-btn-bg:#fafaf8; --dg-btn-ink:#3a4145; --dg-btn-border:#d5d8d3; --dg-btn-hover:#eef0ec;
+  --dg-wire:#4c5f6b; --dg-wire-inference:#6b7c86; --dg-wire-feedback:#8f7a58;
+  --dg-wire-dim:rgba(76,95,107,.22); --dg-wire-active:#39464f;
+  --dg-arrow:#4c5f6b; --dg-arrow-feedback:#8f7a58;
+  --dg-legend:#6c7276; --dg-help:#545a5e; --dg-help-border:#dcdedb;
+  --dg-conn-bg:#fafaf8; --dg-conn-ink:#2c3134; --dg-conn-sub:#666c6f;
+  --dg-trans-bg:#f2f3f0; --dg-trans-ink:#4a5054; --dg-trans-hover:#e7e9e5; --dg-dest-ink:#66727a;
+  --dg-focus:#9a8768; --dg-scrim:rgba(44,49,52,.50);
+  --dg-tone-0:#718078; --dg-tone-1:#68798b; --dg-tone-2:#9a8768;
+  --dg-num-0-bg:#eef1ef; --dg-num-0-ink:#4a5b53;
+  --dg-num-1-bg:#eef1f4; --dg-num-1-ink:#4a5a68;
+  --dg-num-2-bg:#f3f1ea; --dg-num-2-ink:#6f6047;
+  --dg-dim-card:#eff0ed; --dg-dim-border:#dde0dc; --dg-dim-ink:#4f5558; --dg-dim-summary:#666c6f;
+  --dg-sel-border:#4c5f6b; --dg-sel-ring:rgba(76,95,107,.18); --dg-sel-shadow:0 10px 26px rgba(35,39,43,.16);
+  --dg-panel-bg:var(--surface-strong); --dg-panel-border:var(--line); --dg-panel-accent:var(--green);
+  --dg-tip-bg:#fdfdfb; --dg-tip-ink:#2c3134; --dg-tip-border:#d5d8d3; --dg-tip-title:#2c3134; --dg-tip-label:#73797c;
+  --dg-arrow-inference:#6b7c86;
+  --dg-flow:#7d8f9c; --dg-flow-inference:#8b9ca8; --dg-flow-feedback:#b39a6e;
+}
+body[data-theme="dark"]{
+  --dg-paper:#1a2026; --dg-dot:rgba(155,170,168,.10); --dg-card:#222a31;
+  --dg-card-border:rgba(229,232,232,.16); --dg-card-shadow:0 8px 20px rgba(0,0,0,.38);
+  --dg-ink:#eef1f0; --dg-summary:#b6c0bf; --dg-tag:#9aa8a6;
+  --dg-line:rgba(229,232,232,.14); --dg-heading-bg:linear-gradient(120deg,#202932,#1b2229);
+  --dg-kicker:#8fa09c; --dg-count-ink:#b6c2c0; --dg-count-border:rgba(229,232,232,.22);
+  --dg-btn-bg:#232c34; --dg-btn-ink:#e2e8e7; --dg-btn-border:rgba(229,232,232,.20); --dg-btn-hover:#2b353f;
+  --dg-wire:#8fb3a8; --dg-wire-inference:#7d9c93; --dg-wire-feedback:#c3a466;
+  --dg-wire-dim:rgba(143,179,168,.30); --dg-wire-active:#cfe0d8;
+  --dg-arrow:#8fb3a8; --dg-arrow-feedback:#c3a466;
+  --dg-legend:#9fadaa; --dg-help:#a8b4b2; --dg-help-border:rgba(229,232,232,.14);
+  --dg-conn-bg:#1e252b; --dg-conn-ink:#e2e8e7; --dg-conn-sub:#a3b0ae;
+  --dg-trans-bg:#1c242a; --dg-trans-ink:#b9c5c3; --dg-trans-hover:#26313a; --dg-dest-ink:#9fb3ac;
+  --dg-focus:#c3a466; --dg-scrim:rgba(0,0,0,.62);
+  --dg-tone-0:#79a08c; --dg-tone-1:#8297aa; --dg-tone-2:#b5a17d;
+  --dg-num-0-bg:#2b3742; --dg-num-0-ink:#a9c4b8;
+  --dg-num-1-bg:#2b3641; --dg-num-1-ink:#a4bad0;
+  --dg-num-2-bg:#33312a; --dg-num-2-ink:#c9b98d;
+  --dg-dim-card:#1d242a; --dg-dim-border:rgba(229,232,232,.10); --dg-dim-ink:#96a3a1; --dg-dim-summary:#8b9896;
+  --dg-sel-border:#9fc4b8; --dg-sel-ring:rgba(159,196,184,.20); --dg-sel-shadow:0 12px 28px rgba(0,0,0,.45);
+  --dg-panel-bg:var(--surface-strong); --dg-panel-border:var(--line); --dg-panel-accent:var(--green);
+  --dg-tip-bg:#26313a; --dg-tip-ink:#e5e9e8; --dg-tip-border:rgba(229,232,232,.18); --dg-tip-title:#f2f5f4; --dg-tip-label:#a8b4b2;
+  --dg-arrow-inference:#7d9c93;
+  --dg-flow:#a8ccc0; --dg-flow-inference:#9dbfb5; --dg-flow-feedback:#dcc189;
+}
+
+.diagram-studio{color:var(--dg-ink);border:1px solid var(--dg-card-border);border-radius:20px;background:var(--dg-paper);overflow:hidden;margin:12px 0;font-family:var(--font-display,system-ui)}
+/* No transitions on palette-driven properties: a theme switch must repaint the
+   cards instantly. A background transition can freeze halfway (hidden panel,
+   suspended compositor) and leave the cards stuck between light and dark. */
+.diagram-card.is-selected{will-change:auto}
+
+.diagram-help{padding:16px 24px!important;margin:0!important;font-size:13px!important;line-height:1.7;color:var(--dg-help);border-top:1px solid var(--dg-help-border)}
+.diagram-connections{padding:20px 24px;background:var(--dg-conn-bg);border-top:1px solid var(--dg-line);max-height:260px;overflow:auto;flex-shrink:0}
+.diagram-connections[hidden],.method-node-detail[hidden],.relation-detail[hidden]{display:none!important}
+.diagram-connection{display:block;text-align:left;width:100%;padding:12px 0;border:0;border-bottom:1px solid var(--dg-line);background:none;color:var(--dg-conn-ink);cursor:pointer;font:inherit;font-size:14px}
+.diagram-connection small{display:block;margin-top:5px;color:var(--dg-conn-sub);line-height:1.6}
+.diagram-reset,.diagram-more{padding:8px 12px;border:1px solid var(--dg-btn-border);border-radius:8px;background:var(--dg-btn-bg);color:var(--dg-btn-ink);cursor:pointer}
+.diagram-reset:hover,.diagram-more:hover{background:var(--dg-btn-hover)}
+.diagram-reset{float:right;margin:0 0 12px 16px}
+.diagram-more{margin-top:14px}
+.diagram-group-label{position:absolute;font:600 12px/1.5 var(--font-display,system-ui);letter-spacing:.04em;color:var(--dg-tag);max-width:85%}
+
+.diagram-heading{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:16px 22px 14px;border-bottom:1px solid var(--dg-line);background:var(--dg-heading-bg)}
+.diagram-kicker{display:block;color:var(--dg-kicker);font-size:10px;letter-spacing:.11em;font-weight:750;margin-bottom:4px}
+.diagram-heading h3{font-size:21px!important;line-height:1.35;margin:0!important;letter-spacing:-.025em;color:var(--dg-ink)}
+.diagram-count{flex-shrink:0;font-size:11px;color:var(--dg-count-ink);border:1px solid var(--dg-count-border);border-radius:30px;padding:8px 12px;white-space:nowrap}
+.diagram-toolbar{padding:9px 18px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.diagram-legend{font:11px/1.6 var(--font-display,system-ui);color:var(--dg-legend);margin:0!important}
+.diagram-tools{display:flex;gap:5px;align-items:center}
+.diagram-studio .diagram-tools button{border:1px solid var(--dg-btn-border)!important;background:var(--dg-btn-bg)!important;color:var(--dg-btn-ink)!important;border-radius:8px!important;font:12px/1.2 var(--font-display,system-ui)!important;padding:8px 10px!important;cursor:pointer;white-space:nowrap}
+.diagram-studio .diagram-tools button:hover{background:var(--dg-btn-hover)!important}
+.diagram-tools output{font-size:11px;min-width:38px;text-align:center;color:var(--dg-legend)}
+.diagram-viewport{overflow:auto;height:clamp(520px,76dvh,900px);max-height:none;overscroll-behavior:contain;background-image:radial-gradient(var(--dg-dot) .7px,transparent .7px);background-size:22px 22px;scrollbar-color:var(--dg-wire-inference) transparent}
+.diagram-sizer{position:relative;min-width:1px;min-height:1px}
+.diagram-stage{position:absolute;transform-origin:0 0}
+.diagram-wires{position:absolute;left:0;overflow:visible;pointer-events:none;z-index:0}
+.diagram-wires .diagram-wire{fill:none;stroke:var(--dg-wire);stroke-width:1.9;stroke-linejoin:round;stroke-linecap:round}
+.diagram-wires .diagram-wire.is-feedback{stroke:var(--dg-wire-feedback)}
+/* Inference is a DISTINCT COLOUR on a solid line. Only actual feedback is gold.
+   A dash pattern is deliberately avoided: it fights the draw-in animation for the
+   same stroke-dasharray property, and at 1.9px it reads as a broken line. */
+.diagram-wires .diagram-wire.is-inference{stroke:var(--dg-wire-inference)}
+.diagram-wires .diagram-wire.is-dimmed{stroke:var(--dg-wire-dim)}
+.diagram-wires .diagram-wire.is-active{stroke:var(--dg-wire-active);stroke-width:2.8}
+.diagram-wires .diagram-wire.is-active.is-inference{stroke:var(--dg-wire-inference)}
+.diagram-wires .diagram-wire.is-active.is-feedback{stroke:var(--dg-wire-feedback)}
+
+/* The wire draws once on first view. A selected connection gets one direction
+   cue on a separate path; idle maps remain still. Reduced motion shows the
+   complete diagram without either animation.
+   DECLARATION ORDER IS LOAD-BEARING. `.is-drawn` must win over `:not(.is-drawn)`,
+   and the shorter `:not(...)` selector must not be allowed to outrank it, so the
+   finished state is restated LAST and at equal specificity. */
+@media (prefers-reduced-motion: no-preference){
+  .diagram-wires:not(.is-drawn) .diagram-wire{
+    stroke-dasharray:var(--wire-len,400);stroke-dashoffset:var(--wire-len,400);
+  }
+}
+.diagram-wires.is-drawn .diagram-wire{animation:dg-draw var(--draw-dur,900ms) cubic-bezier(.22,.68,.24,1) var(--draw-delay,0ms) both}
+/* The draw-in borrows a dash array to hide the line, so the animation ends on the
+   solid state and `both` holds it there. Restating it as a rule (after the hidden
+   state, above) means the line is solid even if the animation is interrupted. */
+.diagram-wires.is-drawn .diagram-wire{stroke-dasharray:none;stroke-dashoffset:0}
+.diagram-wires.is-static.is-drawn .diagram-wire{animation:none}
+@keyframes dg-draw{from{stroke-dasharray:var(--wire-len,400);stroke-dashoffset:var(--wire-len,400)}to{stroke-dasharray:none;stroke-dashoffset:0}}
+
+/* The cue path shares its wire geometry and stays invisible while idle. */
+.diagram-wires .diagram-flow{
+  fill:none;stroke:var(--dg-flow);stroke-width:3.4;stroke-linecap:round;stroke-linejoin:round;
+  stroke-dasharray:var(--flow-dash,30 9999);stroke-dashoffset:0;
+  opacity:0;pointer-events:none;
+}
+/* Head length is per-type; the gap is always emitted inline from the MEASURED
+   path, so a long wire never shows two heads stacked and a short one never
+   shows none. Feedback is declared after inference because it is the stronger
+   signal and an edge can be both. */
+.diagram-wires .diagram-flow.is-inference{--head:20;stroke:var(--dg-flow-inference);stroke-width:2.6}
+.diagram-wires .diagram-flow.is-feedback{--head:34;stroke:var(--dg-flow-feedback);stroke-width:4.4}
+.diagram-wires.is-flowing .diagram-flow.is-active{opacity:var(--flow-op,.88);animation:dg-flow var(--flow-dur,1.5s) linear 1}
+/* The tail trails the head, so a short comet reads as motion rather than a dot. */
+@keyframes dg-flow{from{stroke-dashoffset:var(--flow-travel,600)}to{stroke-dashoffset:0}}
+/* Feedback loops run slower and breathe, so a cycle never reads as a dead end. */
+.diagram-wires.is-flowing .diagram-flow.is-feedback.is-active{animation-duration:2.2s}
+/* Selection leaves the map still and uses one short direction cue. */
+.diagram-wires.is-selecting .diagram-flow.is-active{stroke-width:4.5;animation-duration:1.1s}
+.diagram-wires.is-selecting .diagram-flow.is-dimmed{opacity:0}
+/* Reduced motion: no travel at all, but the arrows and solid lines remain —
+   a composed still image of the finished diagram. */
+@media (prefers-reduced-motion: reduce){
+  .diagram-wires .diagram-flow{opacity:0;animation:none}
+}
+/* Coarse pointers have no hover: never depend on it to reveal anything. */
+@media (hover: none), (pointer: coarse){
+  .diagram-card{border-width:2px}
+}
+/* Arrowheads are themed through CSS so markers never keep a stale colour. */
+/* Arrowheads are themed through CSS so markers never keep a stale colour.
+   The head is SOLID and fills its whole viewBox. An outline does not survive at
+   this size: with markerUnits="userSpaceOnUse" the marker's 10-unit viewBox is
+   scaled into an 11px box, so any nominal stroke lands as ~1.2px of ink against
+   a ~9.9px wedge and the outline closes over the fill — the head then renders as
+   a hollow V. Depth comes from fill tone and edge alignment instead. */
+.diagram-wires .dg-arrow-normal{fill:var(--dg-arrow)}
+.diagram-wires .dg-arrow-feedback{fill:var(--dg-arrow-feedback)}
+/* Lighter head for inferred links — the semantic grade survives the art upgrade. */
+.diagram-wires .dg-arrow-inference{fill:var(--dg-arrow-inference);opacity:.85}
+
+/* WORKAROUND (verified 2026-09-18): inside the transformed stage, backgrounds painted on
+   article/div elements (and on ::before) get alpha-blended with white in some Chromium
+   rendering paths, so dark cards turn light gray. Backgrounds painted on <button> elements
+   render at full strength. The card surface therefore lives on .diagram-node-button and on
+   each .diagram-transition button; the article itself stays transparent. */
+.diagram-card{position:absolute;z-index:1;background:transparent;border:1px solid var(--dg-card-border);border-radius:16px;box-shadow:var(--dg-card-shadow);box-sizing:border-box;overflow:hidden;border-top:3px solid var(--dg-tone-0);color:var(--dg-ink);transition:border-color .15s ease,box-shadow .15s ease}
+.diagram-card:hover,.diagram-card:focus-within{border-color:var(--dg-sel-border);box-shadow:var(--dg-sel-shadow)}
+.diagram-card[data-tone="1"]{border-top-color:var(--dg-tone-1)}
+.diagram-card[data-tone="2"]{border-top-color:var(--dg-tone-2)}
+/* Unrelated nodes stay fully readable — they dim by surface, not by opacity. */
+.diagram-card.is-dimmed{border-color:var(--dg-dim-border);color:var(--dg-dim-ink)}
+.diagram-card.is-dimmed .diagram-node-button{background:var(--dg-dim-card)}
+.diagram-card.is-dimmed h4{color:var(--dg-dim-ink)}
+.diagram-card.is-dimmed .diagram-summary{color:var(--dg-dim-summary)}
+.diagram-card.is-dimmed .diagram-tag{color:var(--dg-dim-summary)}
+.diagram-card.is-dimmed .diagram-number{background:var(--dg-dim-border);color:var(--dg-dim-ink)}
+.diagram-card.is-selected{outline:2px solid var(--dg-sel-border);outline-offset:4px;box-shadow:0 0 0 4px var(--dg-sel-ring),var(--dg-sel-shadow)}
+.diagram-node-button{display:block;width:100%;text-align:left;white-space:normal;background:var(--dg-card);border:0;color:inherit;padding:13px 16px 11px;font:inherit;cursor:pointer;box-sizing:border-box;border-radius:0!important}
+.diagram-card-meta{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:8px}
+.diagram-number{display:inline-flex;align-items:center;justify-content:center;border-radius:10px;background:var(--dg-num-0-bg);color:var(--dg-num-0-ink);font:600 15px/1 Georgia,serif;min-width:33px;height:33px;flex-shrink:0}
+.diagram-card[data-tone="1"] .diagram-number{background:var(--dg-num-1-bg);color:var(--dg-num-1-ink)}
+.diagram-card[data-tone="2"] .diagram-number{background:var(--dg-num-2-bg);color:var(--dg-num-2-ink)}
+.diagram-tag{font-size:10px;letter-spacing:.05em;color:var(--dg-tag);max-width:170px;overflow-wrap:anywhere;text-align:right}
+.diagram-card h4{font:750 17px/1.42 var(--font-display,system-ui)!important;margin:0 0 6px!important;color:var(--dg-ink);overflow-wrap:anywhere}
+.diagram-summary{font:12px/1.6 var(--font-display,system-ui)!important;color:var(--dg-summary);margin:0!important;overflow-wrap:anywhere;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;line-clamp:2;overflow:hidden}
+.diagram-transitions{border-top:1px solid var(--dg-line);padding:6px 10px;display:grid;gap:3px;background:transparent}
+.diagram-transition{width:100%;border:0;background:var(--dg-trans-bg);padding:4px 6px;display:flex;align-items:baseline;gap:6px;text-align:left;cursor:pointer;color:var(--dg-trans-ink);font:11px/1.5 var(--font-display,system-ui);border-radius:6px}
+.diagram-transition:hover{background:var(--dg-trans-hover)}
+.diagram-destination{white-space:nowrap;color:var(--dg-dest-ink);font-weight:750}
+.diagram-transition-label{min-width:0;white-space:normal;overflow-wrap:anywhere}
+.diagram-studio button:focus-visible{outline:3px solid var(--dg-focus);outline-offset:2px}
+.diagram-studio.is-expanded{position:fixed;inset:12px;z-index:1000000;margin:0;box-shadow:0 0 0 30px var(--dg-scrim);display:flex;flex-direction:column}
+.diagram-studio.is-expanded .diagram-viewport{max-height:none;flex:1;min-height:0}
+.diagram-expanded-detail{max-height:150px;overflow:auto;flex-shrink:0;margin:0!important;border-radius:0!important;font-size:13px;box-shadow:0 -6px 20px var(--dg-scrim)}
+.diagram-expanded-detail h4{margin:0 0 8px}
+
+/* Hover preview: same card data, never a second copy of the wording. */
+/* Hover detail panel.
+   Size policy: the panel grows with its content — no internal scrollbar for
+   normal entries. The only cap is the viewport itself (100vh − 24px), which is
+   a last-resort safety net: with the flip/clamp positioning in showHover() a
+   panel up to full screen height renders completely, so the scrollbar only
+   appears for content that physically cannot fit the screen.
+   pointer-events must be `auto` while visible so the panel can receive wheel
+   input in that edge case; `.is-visible` carries the switch so the hidden
+   panel never swallows clicks. */
+.diagram-hovercard{position:fixed;z-index:2147482000;width:min(380px,calc(100vw - 24px));max-height:calc(100vh - 24px);max-height:calc(100dvh - 24px);overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;scrollbar-width:thin;padding:14px 16px;border-radius:12px;background:var(--dg-tip-bg);color:var(--dg-tip-ink);border:1px solid var(--dg-tip-border);box-shadow:0 18px 44px rgba(0,0,0,.28);font:12.5px/1.7 var(--font-display,system-ui);pointer-events:none;opacity:0;transform:translateY(4px);transition:opacity .12s ease,transform .12s ease}
+.diagram-hovercard.is-visible{opacity:1;transform:translateY(0);pointer-events:auto}
+.diagram-hovercard h5{font:700 14px/1.5 var(--font-display,system-ui);margin:0 0 8px;color:var(--dg-tip-title)}
+.diagram-hovercard dl{display:grid;grid-template-columns:66px 1fr;gap:6px 10px;margin:0 0 8px}
+.diagram-hovercard dt{color:var(--dg-tip-label);font-weight:750}
+.diagram-hovercard dd{margin:0;overflow-wrap:anywhere}
+.diagram-hovercard ul{margin:0 0 6px;padding-left:18px}
+.diagram-hovercard li{margin-bottom:8px}
+.diagram-hovercard .hover-source{display:block;color:var(--dg-tip-label);font-size:11.5px}
+.diagram-hovercard .hover-empty{color:var(--dg-tip-label)}
+
+.relation-panel{background:transparent;padding:0;border:0}
+.relation-canvas{max-height:none;background:none;overflow:visible}
+.relation-detail,.method-node-detail{border:1px solid var(--dg-panel-border);border-left:4px solid var(--dg-panel-accent);padding:24px;border-radius:16px;background:var(--dg-panel-bg);color:var(--ink);margin:18px 0}
+.method-node-detail dl{display:grid;grid-template-columns:110px 1fr;gap:12px 18px}
+.method-node-detail dt,.method-node-detail dd{margin:0}
+.method-node-detail li{margin-bottom:18px}
+.whole-method{border:0;padding:0;background:none}
+.whole-method>h2{font-size:12px;color:var(--muted);letter-spacing:.1em}
+.whole-method>h3{font-size:26px}
+.method-map{overflow:visible;background:none;border:0}
+.whole-method>.method-outcome{background:var(--surface-strong);border-radius:0 12px 12px 0;padding:16px 20px}
+.method-map svg{min-width:0;width:auto;max-width:none}
+.relation-tools{background:var(--surface);border:1px solid var(--line);padding:5px;border-radius:12px;width:fit-content}
+.relation-tools button{border:0;background:transparent;color:var(--ink-soft)}
+.relation-tools button[aria-pressed="true"]{background:var(--nav-bg);color:var(--nav-ink);box-shadow:0 2px 6px #0001}
+.method-constraints p{background:var(--surface-strong);border-radius:30px}
+.action-view-switcher{display:flex;gap:5px;background:var(--surface);border:1px solid var(--line);padding:5px;border-radius:12px;width:max-content;margin:12px 0}
+.action-view-button{border:0;background:transparent;color:var(--ink-soft);padding:9px 14px;border-radius:8px;font:inherit;cursor:pointer}
+.action-view-button[aria-pressed="true"]{background:var(--nav-bg);color:var(--nav-ink);box-shadow:0 2px 6px #0001}
+.action-view[hidden]{display:none!important}
+.action-cards-view>.content-stream{margin-top:0}
+.action-graph-view>.whole-method{margin-top:0}
+.diagram-empty{margin:0;padding:11px 16px;background:var(--surface-strong);border-top:1px solid var(--line);border-bottom:1px solid var(--line);color:var(--ink-soft);font-size:13px;line-height:1.6}
+@media(max-width:640px){.diagram-heading{padding:13px 14px;align-items:flex-start}.diagram-heading h3{font-size:19px!important}.diagram-count{display:none}.diagram-toolbar{padding:8px 10px}.diagram-viewport{height:clamp(380px,68dvh,720px)}.method-node-detail{padding:18px}.method-node-detail dl{grid-template-columns:1fr;gap:6px}.method-node-detail dd{margin-bottom:10px}.whole-method{padding:0}.diagram-studio.is-expanded{inset:0;border-radius:0}.diagram-hovercard{width:calc(100vw - 24px)}}
+@media(prefers-reduced-motion:reduce){.diagram-card,.diagram-hovercard{transition:none!important}}

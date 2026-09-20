@@ -1,0 +1,59 @@
+{
+  "schemaVersion": "learn-from-materials/quick-audit-v1",
+  "learningDepth": "quick",
+  "structure": [
+    {
+      "title": "Method Lab teaching excerpt",
+      "sourceIds": [
+        "src-e3be302578cd-document-00001"
+      ],
+      "status": "scanned",
+      "note": "Read the entire synthetic example, including its limitations."
+    }
+  ],
+  "evidence": [
+    {
+      "source": "methods-demo.txt · Lines 3-4",
+      "sourceIds": [
+        "src-e3be302578cd-document-00001"
+      ],
+      "quote": "Before choosing an action, record the problem boundary",
+      "checked": true
+    },
+    {
+      "source": "methods-demo.txt · Lines 3-7",
+      "sourceIds": [
+        "src-e3be302578cd-document-00001"
+      ],
+      "quote": "Before choosing an action, record the problem boundary",
+      "checked": true
+    },
+    {
+      "source": "methods-demo.txt · Lines 6-7",
+      "sourceIds": [
+        "src-e3be302578cd-document-00001"
+      ],
+      "quote": "Separate observations from explanations.",
+      "checked": true
+    },
+    {
+      "source": "methods-demo.txt · Lines 9-10",
+      "sourceIds": [
+        "src-e3be302578cd-document-00001"
+      ],
+      "quote": "Choose a small, low-cost test",
+      "checked": true
+    },
+    {
+      "source": "methods-demo.txt · Lines 9-12",
+      "sourceIds": [
+        "src-e3be302578cd-document-00001"
+      ],
+      "quote": "These methods are complementary tools",
+      "checked": true
+    }
+  ],
+  "limitations": [
+    "A focused demonstration of a synthetic teaching text, not exhaustive research or an independently validated methodology."
+  ]
+}

@@ -1,5 +1,7 @@
 # 知识学习助手 · 小巴回答协议
 
+先遵循 SKILL.md 的语言优先级；中文示例标签不是固定回答语言。英语回答使用 [Material evidence]、[Not covered by material]、[Model supplement]、[External verification]，图示也使用英文标注。收到方法应用口令时另读 `language-relationships-application.md` 的应用协议。
+
 用户在材料学习过程中追问知识点时读取本文件。目标是在材料准确性、模型能力和个性化讲解之间建立清晰边界。
 
 ## 一、先判断知识来源

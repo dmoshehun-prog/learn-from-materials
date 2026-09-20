@@ -1,0 +1,33 @@
+.relation-tools {display:flex;flex-wrap:wrap;gap:10px;margin:18px 0}
+.relation-tools button,.relation-tools select,.relation-panel button,.method-launch,.method-dialog button {font:inherit;border:1px solid var(--line,#c9c8bd);border-radius:10px;padding:9px 14px;background:var(--card,#fff);color:var(--ink,#243e45);cursor:pointer}
+.relation-tools button[aria-pressed="true"] {background:var(--ink,#243e45);color:var(--paper,#fff)}
+.relation-panel[hidden],.relation-cards[hidden] {display:none!important}
+.relation-panel {border:1px solid var(--line,#c9c8bd);border-radius:16px;padding:16px;margin:14px 0;background:var(--card,#fff)}
+.relation-canvas {width:100%;overflow:auto;max-height:520px;background:var(--paper,#f4f4ed);border-radius:12px}
+.relation-canvas svg {display:block;min-width:600px;width:100%;height:auto;max-width:1100px;margin:auto}
+.relation-canvas .edge {fill:none;stroke:var(--muted,#71868a);stroke-width:1.5}
+/* Inference is distinguished by colour, not by a dash pattern — a dashed wire reads
+   as a broken connection, and it fights the draw-in animation in graph-studio.css. */
+.relation-canvas .edge.inference {stroke:var(--dg-arrow-inference,#5d7f74);stroke-width:1.7}
+.relation-canvas .node rect {fill:var(--card,#fff);stroke:var(--muted,#71868a);stroke-width:1.4}
+.relation-canvas .node text {fill:var(--ink,#243e45);font:13px system-ui,sans-serif;pointer-events:none}
+.relation-canvas .node {cursor:pointer}
+.relation-canvas .node:focus rect,.relation-canvas .node.selected rect {stroke:var(--accent,#a87442);stroke-width:3}
+.relation-canvas .edge-label {font:11px system-ui,sans-serif;fill:var(--ink,#243e45);paint-order:stroke;stroke:var(--paper,#f4f4ed);stroke-width:5;stroke-linejoin:round;pointer-events:none}
+.relation-detail {margin:16px 0;padding:14px;border-left:3px solid var(--accent,#a87442);line-height:1.65;overflow-wrap:anywhere}
+.relation-evidence {display:inline-block;font-size:12px;padding:2px 7px;border:1px solid var(--line,#c9c8bd);border-radius:5px;margin:4px 0}
+.relation-source {font-size:13px;color:var(--muted,#607378);overflow-wrap:anywhere}
+.relation-edge-list {display:grid;gap:10px;list-style:none;padding:0;max-height:360px;overflow:auto}
+.relation-edge-list li {border-bottom:1px solid var(--line,#c9c8bd);padding:10px 0}
+.relation-note {font-size:13px;color:var(--muted,#607378)}
+.method-launch {margin:0 0 18px!important;background:var(--ink,#243e45)!important;color:var(--paper,#fff)!important}
+.method-dialog {width:min(650px,calc(100vw - 30px));max-height:88dvh;border:1px solid var(--line,#c9c8bd);border-radius:18px;padding:24px;background:var(--paper,#faf9f2);color:var(--ink,#243e45);overflow:auto;box-sizing:border-box}
+.method-dialog::backdrop {background:#10252a99}
+.method-heading {display:flex;justify-content:space-between;align-items:start;gap:10px}
+.method-heading h2 {margin:0 0 12px;font:600 23px/1.3 system-ui,sans-serif}
+.method-dialog p {font-size:14px;line-height:1.55}
+.method-dialog label {display:block;margin:14px 0 7px;font-size:14px;font-weight:600}
+.method-dialog textarea,.method-dialog select {box-sizing:border-box;width:100%;border:1px solid var(--line,#c9c8bd);border-radius:9px;padding:10px;font:14px/1.5 system-ui,sans-serif;background:var(--card,#fff);color:var(--ink,#243e45)}
+.method-dialog textarea {resize:vertical}
+.method-primary {margin-top:16px;background:var(--ink,#243e45)!important;color:var(--paper,#fff)!important}
+@media(max-width:640px){.relation-panel{padding:10px}.relation-tools select{max-width:100%}.method-dialog{padding:16px}.relation-canvas svg{min-width:560px}}

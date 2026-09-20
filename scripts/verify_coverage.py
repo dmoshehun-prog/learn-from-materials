@@ -8,6 +8,7 @@ import json
 import re
 import sys
 from pathlib import Path
+from verify_heading_index import validate as validate_headings
 
 STATUS_VALUES = {"covered", "no-content", "unreadable", "duplicate"}
 BLOCK_STATUS_VALUES = STATUS_VALUES | {"quick-omitted"}
@@ -34,9 +35,9 @@ ANSWER_BASES = {"official", "material-derived", "unavailable"}
 SUMMARY_LEDGER_SCHEMA = "knowledge-learning-assistant-summary-ledger/v1"
 SUMMARY_CLAIM_KINDS = {"argument", "definition", "mechanism", "conclusion", "case", "evidence", "data", "limitation", "method", "other"}
 DEPENDENCY_SCHEMA = "learn-from-materials/unit-dependency-map-v1"
-PDF_RANGE = re.compile(r"PDF\s*第\s*(\d+)(?:\s*[–—-]\s*(\d+))?\s*页", re.IGNORECASE)
-SLIDE_RANGE = re.compile(r"第\s*(\d+)(?:\s*[–—-]\s*(\d+))?\s*页幻灯片")
-EPUB_RANGE = re.compile(r"EPUB\s*第\s*(\d+)(?:\s*[–—-]\s*(\d+))?\s*节", re.IGNORECASE)
+PDF_RANGE = re.compile(r"PDF\s*(?:第\s*(?=\d+(?:\s*[–—-]\s*\d+)?\s*页)|(?:pp?\.|pages?)\s+)(\d+)(?:\s*[–—-]\s*(\d+))?\s*(?:页)?", re.IGNORECASE)
+SLIDE_RANGE = re.compile(r"(?:第\s*(?=\d+(?:\s*[–—-]\s*\d+)?\s*页幻灯片)|Slides?\s+)(\d+)(?:\s*[–—-]\s*(\d+))?\s*(?:页幻灯片)?", re.IGNORECASE)
+EPUB_RANGE = re.compile(r"EPUB\s*(?:第\s*(?=\d+(?:\s*[–—-]\s*\d+)?\s*节)|sections?\s+)(\d+)(?:\s*[–—-]\s*(\d+))?\s*(?:节)?", re.IGNORECASE)
 
 
 def load_json(path: Path) -> object:
@@ -62,6 +63,13 @@ def collect_sources(value: object) -> list[str]:
         for key, child in value.items():
             if key == "source" and isinstance(child, str) and child.strip():
                 output.append(child.strip())
+            elif key == "sourceDetails" and isinstance(child, dict):
+                def flattened(value):
+                    if isinstance(value, str): return [value]
+                    if isinstance(value, list): return [v for x in value for v in flattened(x)]
+                    if isinstance(value, dict): return [v for x in value.values() for v in flattened(x)]
+                    return []
+                output.extend(flattened(child))
             else:
                 output.extend(collect_sources(child))
     elif isinstance(value, list):
@@ -300,7 +308,7 @@ def validate_summary_ledger(ledger: object, data: dict, unit_ids: set[str], enfo
     return errors
 
 
-def verify(page_json: Path, kb_dir: Path | None = None) -> list[str]:
+def verify(page_json: Path, kb_dir: Path | None = None, *, require_heading_index: bool = False) -> list[str]:
     errors: list[str] = []
     data = load_json(page_json)
     if not isinstance(data, dict):
@@ -542,6 +550,9 @@ def verify(page_json: Path, kb_dir: Path | None = None) -> list[str]:
                 if mapped["epub_section"] and not claimed.issubset(mapped["epub_section"]):
                     errors.append(f"页面出处[{index}] 的 EPUB 章节超出 source_map：{source}")
 
+    errors.extend(validate_headings(data, resolved_kb, manifest, source_map, page_sources,
+                                    required=require_heading_index))
+
     return errors
 
 
@@ -549,9 +560,12 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Verify full-material coverage and source truth")
     parser.add_argument("page_json", type=Path)
     parser.add_argument("--knowledge-base", "-k", type=Path)
+    parser.add_argument("--require-heading-index", action="store_true",
+                        help="Require reviewed original PDF headings for a new systematic delivery")
     args = parser.parse_args()
     try:
-        errors = verify(args.page_json.resolve(), args.knowledge_base)
+        errors = verify(args.page_json.resolve(), args.knowledge_base,
+                        require_heading_index=args.require_heading_index)
     except ValueError as exc:
         print(f"ERROR: {exc}", file=sys.stderr)
         raise SystemExit(2)

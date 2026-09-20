@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "learn-from-materials/performance-report-v1",
+  "sizeTier": "small",
+  "sourceCount": 1,
+  "pagesOrSlides": 0,
+  "characters": 1318,
+  "estimatedTokens": 226,
+  "durationSeconds": 0.01933,
+  "cache": {
+    "enabled": true,
+    "hits": 1,
+    "misses": 0
+  },
+  "peakMemoryBytes": null,
+  "note": "Token count is an estimate; peak memory is null unless measured by an external benchmark runner.",
+  "sources": [
+    {
+      "filename": "methods-demo.txt",
+      "durationSeconds": 0.005127,
+      "reusedFromCache": true,
+      "characters": 1094,
+      "estimatedTokens": 217
+    }
+  ]
+}

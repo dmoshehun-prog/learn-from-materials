@@ -6,6 +6,7 @@ import tempfile
 import types
 import unittest
 import zipfile
+from contextlib import contextmanager
 from pathlib import Path
 
 SCRIPTS = Path(__file__).resolve().parents[1]
@@ -20,6 +21,15 @@ from extractor.utils import epub_section_number, render_traceable_markdown
 from render_page import render
 from verify_coverage import REQUIRED_KB_FILES, validate_summary_ledger, verify
 from verify_static import verify as verify_static_page
+
+
+@contextmanager
+def closed_temporary_file(suffix):
+    """A reopenable test file on Windows as well as POSIX."""
+    with tempfile.TemporaryDirectory() as directory:
+        path = Path(directory) / ('fixture' + suffix)
+        path.touch()
+        yield types.SimpleNamespace(name=str(path))
 
 
 class RegressionTests(unittest.TestCase):
@@ -105,7 +115,7 @@ class RegressionTests(unittest.TestCase):
         old_module = sys.modules.get("PyPDF2")
         sys.modules["PyPDF2"] = types.SimpleNamespace(PdfReader=Reader)
         try:
-            with tempfile.NamedTemporaryFile(suffix=".pdf") as handle:
+            with closed_temporary_file(suffix=".pdf") as handle:
                 self.assertEqual(extract_with_pypdf2(handle.name), "第一页\f第二页")
         finally:
             if old_module is None:
@@ -128,7 +138,7 @@ class RegressionTests(unittest.TestCase):
         self.assertIn("<!-- PDF 页 2 -->", text)
 
     def test_archive_safety_rejects_oversized_member(self) -> None:
-        with tempfile.NamedTemporaryFile(suffix=".zip") as handle:
+        with closed_temporary_file(suffix=".zip") as handle:
             with zipfile.ZipFile(handle.name, "w", compression=zipfile.ZIP_DEFLATED) as archive:
                 archive.writestr("payload.xml", b"x" * 128)
             with zipfile.ZipFile(handle.name) as archive:
@@ -136,7 +146,7 @@ class RegressionTests(unittest.TestCase):
                     validate_archive(archive, max_member_size=64)
 
     def test_archive_safety_rejects_windows_absolute_path(self) -> None:
-        with tempfile.NamedTemporaryFile(suffix=".zip") as handle:
+        with closed_temporary_file(suffix=".zip") as handle:
             with zipfile.ZipFile(handle.name, "w") as archive:
                 archive.writestr("C:payload.xml", b"x")
             with zipfile.ZipFile(handle.name) as archive:
@@ -172,7 +182,7 @@ class RegressionTests(unittest.TestCase):
 <Relationship Id="rId1" Target="media/image1.png" Type="image"/>
 <Relationship Id="rId2" Target="C:\\Users\\Alice\\secret.png" TargetMode="External" Type="image"/>
 </Relationships>'''
-        with tempfile.NamedTemporaryFile(suffix=".docx") as handle:
+        with closed_temporary_file(suffix=".docx") as handle:
             with zipfile.ZipFile(handle.name, "w") as archive:
                 archive.writestr("word/document.xml", document)
                 archive.writestr("word/footnotes.xml", footnotes)
@@ -198,7 +208,7 @@ class RegressionTests(unittest.TestCase):
 <item id="one" href="one.xhtml" media-type="application/xhtml+xml"/>
 <item id="nav" href="nav.xhtml" media-type="application/xhtml+xml"/>
 </manifest><spine><itemref idref="nav" linear="no"/><itemref idref="one"/><itemref idref="two"/></spine></package>'''
-        with tempfile.NamedTemporaryFile(suffix=".epub") as handle:
+        with closed_temporary_file(suffix=".epub") as handle:
             with zipfile.ZipFile(handle.name, "w") as archive:
                 archive.writestr("META-INF/container.xml", container)
                 archive.writestr("OPS/book.opf", opf)

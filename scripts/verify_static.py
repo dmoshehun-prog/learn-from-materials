@@ -14,15 +14,13 @@ from html.parser import HTMLParser
 from pathlib import Path
 
 from render_page import ordered_sections, validate
+from localization import translate_static
 
 
 THEMES = (
     "warm-paper",
     "minimal",
     "dark",
-    "ink-wash",
-    "vintage-editorial",
-    "paper-ink",
 )
 SOURCE_CLASSES = {
     "note", "story", "question", "timeline-item", "ba-col", "quote",
@@ -88,10 +86,7 @@ def check_javascript(scripts: list[str], errors: list[str], warnings: list[str])
         warnings.append("未找到 Node.js，跳过 JavaScript 语法检查")
         return
     code = "\n".join(scripts)
-    with tempfile.NamedTemporaryFile("w", suffix=".js", encoding="utf-8") as temp:
-        temp.write(code)
-        temp.flush()
-        result = subprocess.run([node, "--check", temp.name], capture_output=True, text=True)
+    result = subprocess.run([node, "--check"], input=code, capture_output=True, text=True, encoding="utf-8")
     if result.returncode:
         errors.append("JavaScript 语法错误：" + (result.stderr.strip().splitlines()[-1] if result.stderr else "未知错误"))
 
@@ -100,13 +95,27 @@ def verify(path: Path) -> tuple[list[str], list[str], dict]:
     text = path.read_text(encoding="utf-8")
     errors: list[str] = []
     warnings: list[str] = []
-    if re.search(r"\{\{[^{}]+\}\}", text):
-        errors.append("存在未替换模板占位符")
     if re.search(r"\b(?:TODO|FIXME|XXX)\b", text):
         errors.append("存在 TODO/FIXME/XXX 残留")
 
     inspector = Inspector()
     inspector.feed(text)
+    english = bool(re.search(r'<html\s[^>]*lang="en"', text))
+    marker_en = {
+        '每次只出一道题': 'Ask one question at a time',
+        '不要向我报告检测过程': 'report detection details',
+        '优先使用原题': 'Prefer complete, gradable original exercises',
+        '原题不足时': 'When insufficient',
+        '[材料依据]': '[Material evidence]', '[材料未覆盖]': '[Not covered by material]',
+        '[模型补充]': '[Model supplement]', '[外部核验]': '[External verification]',
+        '第一层（本次首次回答）': 'First answer: provide precise definitions',
+        '第二层': 'If the user asks for a simpler explanation',
+        '第三层': 'If the user still needs help or requests a visual',
+        '不要使用画像举例': 'Do not introduce profile analogies',
+        '图片生成': 'available visualization tools',
+    }
+    def has_marker(marker):
+        return (marker_en.get(marker, translate_static(marker)) if english else marker) in text
     duplicate_ids = [item for item, count in Counter(inspector.ids).items() if count > 1]
     if duplicate_ids:
         errors.append("HTML id 重复：" + "、".join(duplicate_ids))
@@ -142,7 +151,7 @@ def verify(path: Path) -> tuple[list[str], list[str], dict]:
             "每次只出一道题", "KLA_MISTAKES_JSON", "question-bank.json",
             "不要向我报告检测过程", "优先使用原题", "原题不足时",
         )
-        missing_assessment_markers = [marker for marker in assessment_markers if marker not in text]
+        missing_assessment_markers = [marker for marker in assessment_markers if not has_marker(marker)]
         if missing_assessment_markers:
             errors.append("动态学习自检功能不完整：" + "、".join(missing_assessment_markers))
         mistake_markers = (
@@ -190,7 +199,7 @@ def verify(path: Path) -> tuple[list[str], list[str], dict]:
         "[材料依据]", "[材料未覆盖]", "[模型补充]", "[外部核验]",
         "第一层（本次首次回答）", "第二层", "第三层", "不要使用画像举例", "图片生成",
     )
-    missing_protocol_markers = [marker for marker in protocol_markers if marker not in text]
+    missing_protocol_markers = [marker for marker in protocol_markers if not has_marker(marker)]
     if missing_protocol_markers:
         errors.append("材料知识边界或三级讲解协议不完整：" + "、".join(missing_protocol_markers))
 
@@ -200,14 +209,17 @@ def verify(path: Path) -> tuple[list[str], list[str], dict]:
     except json.JSONDecodeError as exc:
         errors.append(f"pageData JSON 无法解析：{exc}")
     if data:
+        supplied_tokens = set(re.findall(r"\{\{[^{}]+\}\}", json.dumps(data, ensure_ascii=False)))
+        if set(re.findall(r"\{\{[^{}]+\}\}", text)) - supplied_tokens:
+            errors.append("存在未替换模板占位符")
         try:
             validate(data)
         except ValueError as exc:
             errors.append(str(exc))
         depth = (data.get("meta") or {}).get("learningDepth")
-        if depth == "quick" and ('快速了解模式' not in text or 'id="upgradeDepthCopy"' not in text):
+        if depth == "quick" and (not has_marker('快速了解模式') or 'id="upgradeDepthCopy"' not in text):
             errors.append("快速了解页面缺少范围提示或系统学习升级入口")
-        if depth == "systematic" and "系统学习模式" not in text:
+        if depth == "systematic" and not has_marker("系统学习模式"):
             errors.append("系统学习页面缺少学习深度提示")
         mode = (data.get("meta") or {}).get("mode")
         if mode != inspector.body_mode:
@@ -231,7 +243,7 @@ def verify(path: Path) -> tuple[list[str], list[str], dict]:
             if not re.search(r'<details class="term-item"[^>]*data-term-entry', text):
                 errors.append("术语大全没有预渲染可展开术语")
             english_terms = [item for item in data.get("glossary", []) if re.search(r"[A-Za-z]", str(item.get("term", "")))]
-            if english_terms and text.count('class="term-zh-meaning"') < len(english_terms):
+            if not english and english_terms and text.count('class="term-zh-meaning"') < len(english_terms):
                 errors.append("英文术语没有在折叠栏中同时显示中文含义")
         elif mode in {"topic", "unit"}:
             expected = [section.get("id", "") for section in ordered_sections(data.get("sections", []))] + ["notes"]

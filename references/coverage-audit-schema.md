@@ -89,5 +89,6 @@ python3 scripts/verify_coverage.py page.json \
 7. `question-bank.json` 是否存在、结构有效，检测到的题目是否有唯一 ID、可靠判分依据、内容单元映射和精确出处。
 8. `summary-ledger.json` 是否完成“材料关键主张 → 页面总结”和“页面总结 → 材料关键主张”的双向映射；任何遗漏主张、孤立总结、跨单元错配或未完成二次复核都会阻止渲染。
 9. 增强 manifest 的文件哈希、文本哈希、逐来源块哈希、反向覆盖报告、安全扫描报告和性能报告是否齐全。
+10. 对新系统学习 PDF，使用 `--require-heading-index` 检查 `source-heading-index.json` 中核对过的原文标题路径、标题证据页及展示出处的页码归属。章节编号与标题必须一致；未编号部分不得补造章号。详见 `source-heading-index.md`。
 
 任何错误都必须回到提取、结构账本或知识库修复，不得跳过校验或手改 HTML。

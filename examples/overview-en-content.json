@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "4.3",
+  "meta": {"title":"Method Lab","creator":"Synthetic teaching example","sourceType":"text","mode":"overview","pageId":"method-lab-demo-en","learningDepth":"quick","language":"en","initialTheme":"warm-paper","knowledgeBase":"methods-demo.learnkb/INDEX.md"},
+  "hero": {"eyebrow":"METHOD LAB · INTERACTIVE LEARNING","title":"Understand the connections. Put the methods to work.","lede":"Explore three complementary methods, see why they connect, and use them to frame your own problem.","thesis":"A problem map sets boundaries, an evidence chain tests claims, and an action loop brings new information."},
+  "frameworks": [
+    {"id":"f-map","name":"Problem map","oneLine":"Make boundaries, stakeholders, constraints and success criteria explicit.","when":"Entering an unfamiliar or poorly defined problem","firstUnitId":"u01","sourceOrder":1,"source":"methods-demo.txt · Lines 3-4"},
+    {"id":"f-evidence","name":"Evidence chain","oneLine":"Connect conclusions to observations and competing explanations.","when":"Judging whether a claim is well supported","firstUnitId":"u02","sourceOrder":2,"source":"methods-demo.txt · Lines 6-7"},
+    {"id":"f-action","name":"Action loop","oneLine":"Test an assumption, compare prediction and outcome, then revise.","when":"Turning understanding into a small informative action","firstUnitId":"u03","sourceOrder":3,"source":"methods-demo.txt · Lines 9-10"}
+  ],
+  "contentUnits": [
+    {"id":"u01","label":"Unit 1","title":"Frame the problem","core":"Define the scope before choosing an action.","frameworks":["Problem map"],"takeaways":["Name the boundary and stakeholders.","Make constraints and success criteria explicit."],"conclusions":[{"title":"Boundary before action","summary":"A map helps identify which information is relevant.","points":["Record what belongs inside the problem.","Choose an observable success criterion."],"source":"methods-demo.txt · Lines 3-4"}],"source":"methods-demo.txt · Lines 3-4"},
+    {"id":"u02","label":"Unit 2","title":"Test the claim","core":"Observations and explanations are not the same thing.","frameworks":["Evidence chain"],"takeaways":["Trace conclusions to observations.","Seek competing explanations and counterevidence."],"conclusions":[{"title":"Evidence is not automatic proof","summary":"One observation may allow more than one explanation.","points":["Separate what was observed from what it might mean.","Seek evidence that could challenge the current claim."],"source":"methods-demo.txt · Lines 6-7"}],"source":"methods-demo.txt · Lines 6-7"},
+    {"id":"u03","label":"Unit 3","title":"Learn through action","core":"A small test should produce information that can change the next decision.","frameworks":["Action loop"],"takeaways":["Test an important assumption at low cost.","Compare results with predictions before scaling."],"conclusions":[{"title":"Feed results back into thinking","summary":"Results may update the evidence chain or the problem boundary.","points":["Revise assumptions when results differ.","Return to the problem map when constraints change.","These methods are not a guarantee of success."],"source":"methods-demo.txt · Lines 9-12"}],"source":"methods-demo.txt · Lines 9-12"}
+  ],
+  "glossary": [
+    {"id":"boundary","term":"Problem boundary","category":"Domain terms","definition":"The scope of the problem being addressed.","context":"The problem map makes the boundary explicit before action.","related":["Constraints","Success criterion"],"units":["u01"],"firstUnitId":"u01","sourceOrder":1,"source":"methods-demo.txt · Lines 3-4"},
+    {"id":"counterevidence","term":"Counterevidence","category":"Domain terms","definition":"Evidence that could challenge a current claim.","context":"The evidence chain uses it to check confidence rather than accept one observation as proof.","related":["Observation","Competing explanation"],"units":["u02"],"firstUnitId":"u02","sourceOrder":2,"source":"methods-demo.txt · Lines 6-7"},
+    {"id":"feedback","term":"Feedback","category":"Methods and frameworks","definition":"Information from a test used to revise an assumption or next action.","context":"The action loop compares results with predictions and can update earlier thinking.","related":["Prediction","Assumption"],"units":["u03"],"firstUnitId":"u03","sourceOrder":3,"source":"methods-demo.txt · Lines 9-10"}
+  ],
+  "decisionRules": [
+    {"id":"r-map","when":"The problem scope is unclear","do":"Draw a problem map first","because":"The boundary helps identify relevant information","source":"methods-demo.txt · Lines 3-4"},
+    {"id":"r-evidence","when":"Confidence in a claim is low","do":"Gather evidence and seek counterevidence","because":"A single observation should not be treated as proof","source":"methods-demo.txt · Lines 6-7"},
+    {"id":"r-test","when":"Discussion stalls","do":"Design a small informative test","because":"Its result can update assumptions and guide the next action","source":"methods-demo.txt · Lines 9-10"}
+  ],
+  "relationships": [
+    {"id":"map-rule","from":"f-map","to":"r-map","type":"applies","explanation":"Drawing the map makes its boundaries and success criteria usable when the scope is unclear.","evidence":"material","source":"methods-demo.txt · Lines 3-4"},
+    {"id":"evidence-rule","from":"f-evidence","to":"r-evidence","type":"applies","explanation":"Seeking counterevidence is one way to test a weakly supported claim.","evidence":"material","source":"methods-demo.txt · Lines 6-7"},
+    {"id":"action-rule","from":"f-action","to":"r-test","type":"applies","explanation":"A small informative test starts the action loop when discussion is stalled.","evidence":"material","source":"methods-demo.txt · Lines 9-10"},
+    {"id":"feedback-evidence","from":"f-action","to":"f-evidence","type":"feedback","explanation":"Test results provide new observations for the evidence chain.","evidence":"material","source":"methods-demo.txt · Lines 9-10"},
+    {"id":"feedback-map","from":"f-action","to":"f-map","type":"feedback","explanation":"Changed constraints can require revisiting the problem map.","evidence":"material","source":"methods-demo.txt · Lines 9-10"},
+    {"id":"map-evidence","from":"f-map","to":"f-evidence","type":"supports","explanation":"A clear boundary can help focus evidence gathering. This is an analytical connection, not a required sequence stated by the material.","evidence":"inference","source":"methods-demo.txt · Lines 3-7"}
+  ],
+  "assessment": {"focusAreas":[
+    {"id":"a-map","title":"Identify a useful problem boundary","unitId":"u01","abilities":["Explain","Apply"],"source":"methods-demo.txt · Lines 3-4"},
+    {"id":"a-evidence","title":"Distinguish observations from explanations","unitId":"u02","abilities":["Recall","Explain"],"source":"methods-demo.txt · Lines 6-7"},
+    {"id":"a-action","title":"Design a small test and use its feedback","unitId":"u03","abilities":["Apply","Transfer"],"source":"methods-demo.txt · Lines 9-12"}
+  ]},
+  "footer":"Feature demonstration using a synthetic teaching text. This is a focused overview, not an independently validated methodology or a promise of results. No AI runs inside this page."
+}
