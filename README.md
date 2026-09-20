@@ -16,6 +16,30 @@ It works in agent environments that can read files, run local commands, and reco
 
 ## Key Features
 
+### A Methodology That Spans the Whole Material
+
+It starts by extracting the material's central question and its goal, then organizes the argument, frameworks and action rules into one complete structure. It supports the main flow, decision branches, causal and hierarchical relations, and evidence-backed feedback loops; it does not fix a step count and does not force every material into an eight-step process. The overview is not split into groups by node count, and selecting a node shows its inputs, actions, outputs, check conditions, related learning units and sources.
+
+The whole structure is also saved separately as `methodology.json` / `methodology.md`, keeping what the source material itself does clearly distinct from the whole-material synthesis. "Apply This Methodology" carries the entire structure by default, letting the AI locate your entry point and advance you condition by condition; a single card can still be chosen instead.
+
+Guided content shows source hints for core ideas, key points and conclusions on mouse hover and on keyboard focus, plus an expandable "Source" panel for touch screens. These stay available after switching units. When a verified fine-grained location exists, the matching page number is displayed; otherwise the unit-level or conclusion-level range is reported as-is.
+
+See the [whole-material methodology protocol](references/whole-material-methodology.md) and the [runnable paper example](examples/overview-whole-methodology.json). That example demonstrates the new structure and interaction; its body reuses the earlier guided summary, so the number of example entries is not an extraction ceiling for systematic study.
+
+### An Accumulating Method Library
+
+After parsing new material, reusable methods are saved to the knowledge base's `methods.json`, and a readable `patterns.md` is generated from it. Each card records purpose, prerequisites, limits, steps, effect checks, a short source quotation, a stable ID and a version; when a material contains no methodology, that is stated plainly rather than invented.
+
+Page bindings and the method prompts are derived from that same data. Several method files you designate can be indexed cumulatively, candidate methods can be found by Chinese or English keywords, and comparison records can be exported. Original methods and earlier versions are retained; a synthesized method receives a new ID and an explicit parent-method reference, and never silently overwrites or blends into what the material actually meant.
+
+See the [method library protocol and commands](references/method-library.md), the [example method file](examples/methods-demo.learnkb/methods.json), the [readable method cards](examples/methods-demo.learnkb/patterns.md) and the [demo page bound to a method library](examples/methods-library-demo.html). The earlier Chinese and English versions, the relationship maps and "Apply This Methodology" all remain available.
+
+### Language and In-Page Interaction
+
+- **Follows your language**: an explicit instruction comes first, then the current request and the conversation; Chinese and English are supported for body text, the interface, Markdown and copyable prompts. Original quotations and source names are preserved. Language is never guessed from nationality or browser locale, and existing HTML is never auto-translated.
+- **Logical relationship maps**: the core framework switches between cards and a framework relationship map; the action rules present the whole-material methodology. You can inspect why each dependency, application or feedback link exists and where it comes from, with inference set apart by color; all nodes live on one canvas.
+- **Apply This Methodology**: enter your question, goal and constraints, pick a specific method or let it match automatically, and get a prompt you can copy into a conversation about the material. It judges applicability first and only then gives sourced analysis and suggested actions; the page never calls an AI directly.
+
 - Supports PDF, EPUB, MOBI/AZW/AZW3, DOCX, PPTX/PPTM, HTML, Markdown, TXT, RTF, and multi-material collections
 - Two learning depths: "Quick Overview" and "Systematic Study"
 - Generates a traceable `.learnkb/` knowledge base, a self-contained interactive HTML page, and synced Markdown
@@ -24,8 +48,6 @@ It works in agent environments that can read files, run local commands, and reco
 - Runs coverage audits, summary bidirectional mapping, reverse coverage spot checks, source hashing, and incremental-update validation
 - Distinguishes material-backed facts, areas not covered by the material, model-added content, and externally verified items
 - Offline by default with no automatic dependency installation; page notes, learner profiles, and wrong-answer records stay in the local browser only
-
-In v0.2.0, new systematic-study pages also use a per-unit action-rule ledger and a reviewed relationship ledger. Systematic PDF pages require an original-heading index so displayed section paths and page ranges can be checked before delivery. Framework cards and graph nodes share stable numbers; the two graphs offer readable zoom, fit-width and overview controls. The final delivery workflow requires and exports the whole-material methodology files. These checks support traceability, but do not replace a human reread of the source.
 
 ## Showcase
 
