@@ -14,7 +14,7 @@
 `learn-from-materials` 是一个基于开放 Agent Skills 规范的跨 Agent 学习 Skill。它强调完整阅读、出处可核验、材料事实与模型补充分离，以及离线优先和最小权限。
 
 它适用于能够读取文件、运行本地命令并识别 `SKILL.md` 的 Agent 环境，例如 WorkBuddy、Codex、Claude Code 和 GitHub Copilot CLI。纯聊天环境如果不能访问文件系统或执行 Python，只能使用其中的部分提示流程，不能完成材料提取、覆盖校验和 HTML 渲染。
-![Uploading overview.png…]()
+<img width="2400" height="1600" alt="overview" src="https://github.com/user-attachments/assets/45f3dd38-32e5-47f5-a56e-c27dbb31706d" />
 
 
 ## 主要能力
