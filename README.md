@@ -13,6 +13,8 @@
 `learn-from-materials` is a cross-agent learning skill built on the open Agent Skills specification. It emphasizes complete reading, verifiable sources, a strict separation between material facts and model-added content, offline-first operation, and least privilege.
 
 It works in agent environments that can read files, run local commands, and recognize `SKILL.md` — such as WorkBuddy, Codex, Claude Code, and GitHub Copilot CLI. Pure chat environments without file-system access or Python execution can only use parts of the prompting workflow; they cannot perform material extraction, coverage validation, or HTML rendering.
+<img width="2400" height="1600" alt="overview-en" src="https://github.com/user-attachments/assets/87ea840f-a4d2-43fb-a054-bf618e2269e0" />
+
 
 ## Key Features
 
